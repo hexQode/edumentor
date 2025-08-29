@@ -1,0 +1,19 @@
+{
+    "name": "dynamiclayers/flatpack",
+    "description": "FlatPack Addons for Elementor is a versatile collection of over 20 custom widgets for Elementor, designed and created by DynamicLayers. These widgets offer flexibility, easy styling, and a comprehensive range of options.",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "dynamiclayers",
+            "email": "dynamiclayers@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DynamicLayers\\FlatPack\\": "includes/"
+        }
+    }
+}

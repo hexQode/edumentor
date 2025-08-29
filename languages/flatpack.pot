@@ -1,0 +1,889 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2023-10-12 23:59+0600\n"
+"PO-Revision-Date: 2023-10-12 23:59+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: esc_html__;esc_attr__;esc_html_e;esc_attr_e;__(;_e(\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: languages\n"
+"X-Poedit-SearchPathExcluded-4: .gitignore\n"
+"X-Poedit-SearchPathExcluded-5: composer.json\n"
+"X-Poedit-SearchPathExcluded-6: composer.lock\n"
+
+#: includes/Classes/CardStyle.php:138 includes/Classes/CardStyle.php:196
+#: includes/Classes/Helper.php:561
+msgid "Take "
+msgstr ""
+
+#: includes/Classes/CardStyle.php:138 includes/Classes/CardStyle.php:196
+#: includes/Classes/Helper.php:561
+msgid " to read."
+msgstr ""
+
+#: includes/Classes/Elementor.php:55
+#, php-format
+msgid "%1$s requires %2$s to be installed and activated to function properly. %3$s"
+msgstr ""
+
+#: includes/Classes/Elementor.php:58
+msgid "Please click on this link to install Elementor"
+msgstr ""
+
+#: includes/Classes/Elementor.php:72 includes/Classes/Elementor.php:91
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: includes/Classes/Elementor.php:112
+msgid "Posts Pro"
+msgstr ""
+
+#: includes/Classes/Helper.php:501
+msgid " minutes"
+msgstr ""
+
+#: includes/Classes/Helper.php:501
+msgid " min."
+msgstr ""
+
+#: includes/Classes/Helper.php:502
+msgid " seconds"
+msgstr ""
+
+#: includes/Classes/Helper.php:502
+msgid " sec."
+msgstr ""
+
+#: includes/Classes/Helper.php:552
+msgid "No Comments"
+msgstr ""
+
+#: includes/Classes/Helper.php:553
+msgid "1 Comment"
+msgstr ""
+
+#: includes/Classes/Helper.php:554
+msgid "% Comments"
+msgstr ""
+
+#: includes/Classes/WpmlManager.php:24
+msgid "Category Carousel: Count Text"
+msgstr ""
+
+#: includes/Classes/WpmlManager.php:35
+msgid "Posts Carousel: Posted by Text"
+msgstr ""
+
+#: includes/Classes/WpmlManager.php:40
+msgid "Posts Carousel: Readmore Text"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:47
+msgid "Category Carousel"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:108
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:114
+msgid "Layout"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:115
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:121
+msgid "Card Layout"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:119
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:580
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:125
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:507
+msgid "Style 1"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:120
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:581
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:126
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:508
+msgid "Style 2"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:128
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:137
+msgid "Image Height"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:147
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:869
+msgid "Image Border Radius"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:170
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:205
+msgid "Categories"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:179
+msgid "Select Category"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:188
+msgid "Category Image"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:202
+msgid "Cutomize Colors?"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:204
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:452
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:483
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:500
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:528
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:379
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:410
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:427
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:455
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1298
+#: includes/Traits/CarouselControls.php:39
+#: includes/Traits/CarouselControls.php:394
+msgid "Yes"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:205
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:453
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:484
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:501
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:529
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:380
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:411
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:428
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:456
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1302
+#: includes/Traits/CarouselControls.php:40
+#: includes/Traits/CarouselControls.php:395
+msgid "No"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:219
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:731
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:575
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1363
+msgid "Category"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:230
+msgid "Backgorund Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:245
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:303
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:810
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:887
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:975
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1095
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1266
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1315
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1515
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1594
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1759
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1832
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1910
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2027
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2066
+msgid "Text Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:260
+msgid "Hover Backgorund Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:275
+msgid "Text Hover Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:292
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:348
+msgid "Count Text"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:318
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:1053
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1791
+msgid "Dot Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:338
+msgid "Category Items"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:351
+msgid "Posts"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:352
+msgid "Count text..."
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:373
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:300
+msgid "Carousel Settings"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:380
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:307
+msgid "Carousel"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:394
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:321
+msgid "Slides to Show"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:408
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:335
+msgid "Slides to Scroll"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:410
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:337
+msgid "Set how many slides are scrolled per swipe."
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:426
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:353
+#: includes/Traits/CarouselControls.php:100
+msgid "Space Between"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:450
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:377
+msgid "Autoplay"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:464
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:391
+msgid "Autoplay Speed"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:481
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:408
+msgid "Pause on Hover"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:498
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:425
+msgid "Infinite Loop"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:512
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:439
+msgid "Animation Speed"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:526
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:453
+msgid "Center Mode"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:540
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:467
+msgid "Center Padding"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:559
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:486
+#: includes/Traits/CarouselControls.php:25
+msgid "Navigation"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:562
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:489
+msgid "None"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:563
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:490
+msgid "Arrow"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:564
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:491
+msgid "Dots"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:565
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:492
+msgid "Arrow & Dots"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:576
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:503
+msgid "Dots Style"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:594
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:521
+msgid "Previous Icon"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:612
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:539
+msgid "Next Icon"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:641
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1136
+msgid "Content Area"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:676
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:835
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:912
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:857
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1170
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1553
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1632
+#: includes/Traits/CarouselControls.php:263
+#: includes/Traits/CarouselControls.php:510
+msgid "Border Radius"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:691
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:753
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:989
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:884
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1194
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1233
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1475
+msgid "Padding"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:706
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:768
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:1004
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1110
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1182
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1245
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1731
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2001
+msgid "Margin"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:786
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1259
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1492
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1749
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2020
+#: includes/Traits/CarouselControls.php:281
+#: includes/Traits/CarouselControls.php:529
+msgid "Normal"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:796
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:873
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:991
+msgid "Background Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:863
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1287
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1570
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1822
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2059
+#: includes/Traits/CarouselControls.php:324
+msgid "Hover"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:953
+msgid "Post Count"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:1019
+msgid "Dot Style"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:1031
+msgid "Dot Size"
+msgstr ""
+
+#: includes/Elementor/Widgets/CategoryCarousel/Widget.php:1111
+msgid "No category found!"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:47
+msgid "Posts Carousel"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:127
+msgid "Style 3"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:128
+msgid "Style 4"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:129
+msgid "Style 5"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:156
+msgid "Heading Tag"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:160
+msgid "H1"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:161
+msgid "H2"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:162
+msgid "H3"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:163
+msgid "H4"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:164
+msgid "H5"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:165
+msgid "H6"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:184
+msgid "Query"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:194
+msgid "Show All"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:195
+msgid "By Categories"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:196
+msgid "By Tags"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:220
+msgid "Tags"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:235
+msgid "Posts Limit"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:237
+msgid "Choose number of posts you want to show."
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:245
+msgid "Image Size"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:256
+msgid "Order By"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:260
+msgid "Post Id"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:261
+msgid "Post Author"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:262
+msgid "Title"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:263
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:674
+msgid "Date"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:264
+msgid "Last Modified Date"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:265
+msgid "Parent Id"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:266
+msgid "Random"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:267
+msgid "Comment Count"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:268
+msgid "Menu Order"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:276
+msgid "Order"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:279
+msgid "Ascending"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:280
+msgid "Descending"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:568
+msgid "Useful Options"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:577
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:589
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:604
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:618
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:645
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:676
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:708
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:724
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:770
+msgid "Show"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:578
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:590
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:605
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:619
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:646
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:677
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:709
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:725
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:771
+msgid "Hide"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:587
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1662
+msgid "Meta Info"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:602
+msgid "Meta Icon"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:616
+msgid "Author"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:643
+msgid "Author Avatar"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:659
+msgid "Posted by Text"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:661
+msgid "By"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:662
+msgid "Posted by text..."
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:689
+msgid "Date Type"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:693
+msgid "Publish"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:694
+msgid "Modified / Updated"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:706
+msgid "Comments"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:722
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1862
+msgid "Reading Time"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:749
+msgid "Title Length"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:758
+msgid "Title Suffix"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:761
+msgid "Suffix..."
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:768
+msgid "Readmore"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:780
+msgid "Readmore Text"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:782
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1953
+msgid "Read More"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:783
+msgid "Text..."
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:805
+msgid "Wrapper"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:814
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1581
+#: includes/Traits/CarouselControls.php:293
+#: includes/Traits/CarouselControls.php:336
+msgid "Background"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:849
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1542
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1621
+msgid "Border"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:909
+msgid "Overlay"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:920
+msgid "Overlay Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:935
+msgid "Opacity"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:957
+msgid "Hover Opacity"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:979
+msgid "Icon Style"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1006
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1775
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1926
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2042
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2081
+#: includes/Traits/CarouselControls.php:307
+#: includes/Traits/CarouselControls.php:350
+msgid "Icon Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1020
+msgid "Hover Background Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1034
+msgid "Hover Icon Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1048
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1978
+#: includes/Traits/CarouselControls.php:183
+msgid "Icon Size"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1070
+msgid "Date Style"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1216
+msgid "Heading"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1225
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1464
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1674
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1875
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1966
+msgid "Typography"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1294
+msgid "Line Effect"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1326
+msgid "Line Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1374
+msgid "Position"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1378
+msgid "Default"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1379
+msgid "Bottom left"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1380
+msgid "Bottom Center"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1381
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1382
+msgid "Top Left"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1383
+msgid "Top Center"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1384
+msgid "Top Right"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1385
+#: includes/Traits/CarouselControls.php:440
+msgid "Center"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1409
+#: includes/Traits/CarouselControls.php:206
+msgid "X Position"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1436
+#: includes/Traits/CarouselControls.php:235
+msgid "Y Position"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1685
+#: includes/Traits/CarouselControls.php:487
+msgid "Space Between Item"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1708
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1887
+msgid "Space Between Icon"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:1806
+msgid "By Text Color"
+msgstr ""
+
+#: includes/Elementor/Widgets/PostsCarousel/Widget.php:2166
+msgid "No posts found!"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:37
+#: includes/Traits/CarouselControls.php:392
+msgid "Hide on Mobile/Tablet"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:53
+msgid "Style"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:57
+msgid "Centered"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:58
+msgid "Together"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:70
+msgid "Nav Visibility"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:74
+msgid "Always Visible"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:78
+msgid "Visible on Hover"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:128
+msgid "Width"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:155
+msgid "Height"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:380
+msgid "Pagination ( Bullets )"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:408
+msgid "Top Spacing"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:432
+msgid "Alignment"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:436
+msgid "Left"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:444
+msgid "Right"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:464
+msgid "Size"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:540
+#: includes/Traits/CarouselControls.php:569
+msgid "Color"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:558
+msgid "Active"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:585
+msgid "Border Color"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:601
+msgid "Stroke Color"
+msgstr ""
+
+#: includes/Traits/CarouselControls.php:617
+msgid "Stroke Size"
+msgstr ""

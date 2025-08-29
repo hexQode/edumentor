@@ -1,0 +1,398 @@
+.el-cf7-form-wrap {
+  position: relative;
+  z-index: 1;
+}
+.el-cf7-form-wrap .overlay {
+  background-color: #000;
+  opacity: 0.5;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Form Column */
+.wpcf7-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -7.5px;
+}
+.wpcf7-form .wpcf7-form-control {
+  margin-top: 5px;
+  width: 100%;
+}
+.wpcf7-form > label,
+.wpcf7-form > use_label_element,
+.wpcf7-form > p {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 7.5px;
+  margin: 0;
+}
+.wpcf7-form > label:not(:last-of-type),
+.wpcf7-form > use_label_element:not(:last-of-type),
+.wpcf7-form > p:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+.wpcf7-form use_label_element,
+.wpcf7-form label {
+  font-size: 16px;
+  line-height: 1;
+  color: #333;
+}
+.wpcf7-form input:focus-visible,
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus-visible,
+.wpcf7-form textarea:focus {
+  outline: none;
+}
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form input[type=url],
+.wpcf7-form input[type=password],
+.wpcf7-form input[type=search],
+.wpcf7-form input[type=number],
+.wpcf7-form input[type=tel],
+.wpcf7-form input[type=range],
+.wpcf7-form input[type=date],
+.wpcf7-form input[type=month],
+.wpcf7-form input[type=week],
+.wpcf7-form input[type=time],
+.wpcf7-form input[type=datetime],
+.wpcf7-form input[type=datetime-local],
+.wpcf7-form input[type=color],
+.wpcf7-form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 1.15;
+}
+.wpcf7-form input[type=text]:focus,
+.wpcf7-form input[type=text]:hover,
+.wpcf7-form input[type=email]:focus,
+.wpcf7-form input[type=email]:hover,
+.wpcf7-form input[type=url]:focus,
+.wpcf7-form input[type=url]:hover,
+.wpcf7-form input[type=password]:focus,
+.wpcf7-form input[type=password]:hover,
+.wpcf7-form input[type=search]:focus,
+.wpcf7-form input[type=search]:hover,
+.wpcf7-form input[type=number]:focus,
+.wpcf7-form input[type=number]:hover,
+.wpcf7-form input[type=tel]:focus,
+.wpcf7-form input[type=tel]:hover,
+.wpcf7-form input[type=range]:focus,
+.wpcf7-form input[type=range]:hover,
+.wpcf7-form input[type=date]:focus,
+.wpcf7-form input[type=date]:hover,
+.wpcf7-form input[type=month]:focus,
+.wpcf7-form input[type=month]:hover,
+.wpcf7-form input[type=week]:focus,
+.wpcf7-form input[type=week]:hover,
+.wpcf7-form input[type=time]:focus,
+.wpcf7-form input[type=time]:hover,
+.wpcf7-form input[type=datetime]:focus,
+.wpcf7-form input[type=datetime]:hover,
+.wpcf7-form input[type=datetime-local]:focus,
+.wpcf7-form input[type=datetime-local]:hover,
+.wpcf7-form input[type=color]:focus,
+.wpcf7-form input[type=color]:hover,
+.wpcf7-form textarea:focus,
+.wpcf7-form textarea:hover {
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+@media only screen and (min-width: 768px) {
+  .layout-5 .wpcf7 form > use_label_element:nth-child(3),
+  .layout-5 .wpcf7 form > use_label_element:nth-child(4),
+  .layout-5 .wpcf7 form > use_label_element:nth-child(5),
+  .layout-5 .wpcf7 form > use_label_element:nth-child(6),
+  .layout-4 .wpcf7 form > use_label_element:nth-child(3),
+  .layout-4 .wpcf7 form > use_label_element:nth-child(4),
+  .layout-3 .wpcf7 form > use_label_element:nth-child(2),
+  .layout-3 .wpcf7 form > use_label_element:nth-child(3),
+  .layout-3 .wpcf7 form > use_label_element:nth-child(5),
+  .layout-3 .wpcf7 form > use_label_element:nth-child(6),
+  .layout-2 .wpcf7 form > use_label_element:nth-child(2),
+  .layout-2 .wpcf7 form > use_label_element:nth-child(3),
+  .layout-1 .wpcf7 form > use_label_element:nth-child(2),
+  .layout-1 .wpcf7 form > use_label_element:nth-child(3),
+  .layout-1 .wpcf7 form > use_label_element:nth-child(4),
+  .layout-1 .wpcf7 form > use_label_element:nth-child(5),
+  .layout-5 .wpcf7 form > label:nth-child(3),
+  .layout-5 .wpcf7 form > label:nth-child(4),
+  .layout-5 .wpcf7 form > label:nth-child(5),
+  .layout-5 .wpcf7 form > label:nth-child(6),
+  .layout-4 .wpcf7 form > label:nth-child(3),
+  .layout-4 .wpcf7 form > label:nth-child(4),
+  .layout-3 .wpcf7 form > label:nth-child(2),
+  .layout-3 .wpcf7 form > label:nth-child(3),
+  .layout-3 .wpcf7 form > label:nth-child(5),
+  .layout-3 .wpcf7 form > label:nth-child(6),
+  .layout-2 .wpcf7 form > label:nth-child(2),
+  .layout-2 .wpcf7 form > label:nth-child(3),
+  .layout-1 .wpcf7 form > label:nth-child(2),
+  .layout-1 .wpcf7 form > label:nth-child(3),
+  .layout-1 .wpcf7 form > label:nth-child(4),
+  .layout-1 .wpcf7 form > label:nth-child(5),
+  .layout-5 .wpcf7 form > p:nth-child(3),
+  .layout-5 .wpcf7 form > p:nth-child(4),
+  .layout-5 .wpcf7 form > p:nth-child(5),
+  .layout-5 .wpcf7 form > p:nth-child(6),
+  .layout-4 .wpcf7 form > p:nth-child(3),
+  .layout-4 .wpcf7 form > p:nth-child(4),
+  .layout-3 .wpcf7 form > p:nth-child(2),
+  .layout-3 .wpcf7 form > p:nth-child(3),
+  .layout-3 .wpcf7 form > p:nth-child(5),
+  .layout-3 .wpcf7 form > p:nth-child(6),
+  .layout-2 .wpcf7 form > p:nth-child(2),
+  .layout-2 .wpcf7 form > p:nth-child(3),
+  .layout-1 .wpcf7 form > p:nth-child(2),
+  .layout-1 .wpcf7 form > p:nth-child(3),
+  .layout-1 .wpcf7 form > p:nth-child(4),
+  .layout-1 .wpcf7 form > p:nth-child(5) {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .wpcf7 form > p label {
+    width: 100%;
+  }
+  textarea {
+    height: 160px;
+  }
+}
+.el-cf7-form-wrap .wpcf7-form-control-wrap {
+  display: block;
+}
+.el-cf7-form-wrap .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  display: block;
+  margin-top: 5px;
+}
+.el-cf7-form-wrap .wpcf7-acceptance,
+.el-cf7-form-wrap .wpcf7-radio,
+.el-cf7-form-wrap .wpcf7-checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.el-cf7-form-wrap .wpcf7-acceptance > span,
+.el-cf7-form-wrap .wpcf7-radio > span,
+.el-cf7-form-wrap .wpcf7-checkbox > span {
+  margin: 0;
+}
+.el-cf7-form-wrap .wpcf7-acceptance > span > label,
+.el-cf7-form-wrap .wpcf7-radio > span > label,
+.el-cf7-form-wrap .wpcf7-checkbox > span > label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.el-cf7-form-wrap .wpcf7-radio input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font: inherit;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  -webkit-transition: 120ms border ease-in-out;
+  transition: 120ms border ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-radio input:hover {
+  border: 1px solid #ddd;
+  -webkit-transition: 120ms border ease-in-out;
+  transition: 120ms border ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-radio input::before {
+  background-color: #333;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms transform ease-in-out;
+  transition: 120ms transform ease-in-out, 120ms -webkit-transform ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-radio input:checked::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.el-cf7-form-wrap .wpcf7-checkbox input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  position: relative;
+  -webkit-transition: 120ms border ease-in-out;
+  transition: 120ms border ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-checkbox input:before {
+  background-color: #333;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 8px;
+  line-height: 1;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: calc(50% - 7.5px);
+  top: calc(50% - 7.5px);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  border-radius: 2px;
+  -webkit-transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms transform ease-in-out;
+  transition: 120ms transform ease-in-out, 120ms -webkit-transform ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-checkbox input:checked {
+  border: 1px solid #333;
+}
+.el-cf7-form-wrap .wpcf7-checkbox input:checked:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms transform ease-in-out;
+  transition: 120ms transform ease-in-out, 120ms -webkit-transform ease-in-out;
+}
+.el-cf7-form-wrap .wpcf7-select {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  line-height: 1.15;
+  color: #333;
+}
+.el-cf7-form-wrap .wpcf7-select:focus {
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+/* Submit Button */
+.wpcf7-form-control.wpcf7-submit {
+  background: inherit;
+  background-color: #222;
+  display: inline-block;
+  width: auto;
+  padding: 15px 35px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.wpcf7-form-control.wpcf7-submit:hover {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wpcf7 form > p:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fp-heading-wrap .dl-sub-heading {
+  font-size: 16px;
+  line-height: 27px;
+  color: #111521;
+  letter-spacing: 0;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border {
+  position: relative;
+  display: inline-block;
+  padding-left: 70px;
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border:before {
+  background-color: #089fac;
+  content: "";
+  width: 60px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border:after {
+  background-color: #089fac;
+  content: "";
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border.right {
+  padding-left: 0;
+  padding-right: 70px;
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border.right:before {
+  left: auto;
+  right: 0;
+}
+.fp-heading-wrap .dl-sub-heading > span.custom-border.right:after {
+  left: auto;
+  right: 60px;
+}
+
+@media only screen and (max-width: 992px) {
+  .fp-heading-wrap br {
+    display: none;
+  }
+}

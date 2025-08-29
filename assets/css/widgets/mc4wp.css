@@ -1,0 +1,117 @@
+.newsletter-style-one p {
+    color: #798294;
+    font-size: 14px;
+    line-height: 28px;
+    max-width: 605px;
+    margin: 0 auto !important;
+    width: 100%;
+    margin-bottom: 58px;
+    margin-top: 16px;
+}
+
+.fp-mailchimp-style-1 .fp-input-box {
+    position: relative;
+    max-width: 530px;
+    margin: 0 auto;
+}
+
+.fp-input-box input {
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.fp-input-box input:hover,
+.fp-input-box input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #999;
+}
+
+.fp-input-box input[type="text"],
+.fp-input-box input[type="email"] {
+    width: 100%;
+    outline: none;
+}
+
+.fp-mailchimp-style-1 .fp-input-box input[type="submit"] {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    outline: none;
+    border: 0 none;
+    transition: 0.4s;
+}
+
+.mc4wp-form input[type*="text"]:hover,
+.mc4wp-form input[type*="text"]:focus,
+.mc4wp-form input[type*="email"]:hover,
+.mc4wp-form input[type*="email"]:focus {
+    transition: all 0.35s ease-in-out;
+}
+
+/* Newsletter Style Two */
+
+.fp-mailchimp-style-2 .fp-input-box input[type="submit"] {
+    width: 100%;
+    transition: 0.5s;
+}
+
+/* Newsletter Style Three */
+
+.fp-input-box form {
+    width: 100%;
+    overflow: hidden;
+}
+
+.fp-mailchimp-style-3 .fp-input-box {
+    position: relative;
+    max-width: 580px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.fp-mailchimp-style-3 .fp-input-box input {
+    text-align: center;
+    float: left;
+    overflow: hidden;
+    max-width: 405px;
+}
+
+.fp-mailchimp-style-3 .fp-input-box input[type="submit"] {
+    float: right;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* Newsletter Style Four */
+
+.fp-mailchimp-style-4 .fp-input-box {
+    position: relative;
+}
+
+.fp-mailchimp-style-4 .fp-input-box input[type="submit"] {
+    background-color: #5e2ced;
+    background-image: url(../../img/paper-plane.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 15px;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    width: 60px;
+    transform: translateY(-50%);
+    transition: 0.4s;
+    text-indent: -99999px;
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 767px) {
+    .fp-mailchimp-style-3 .fp-input-box input {
+        max-width: inherit;
+        width: auto;
+    }
+}

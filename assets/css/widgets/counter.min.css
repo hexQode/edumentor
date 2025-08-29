@@ -1,0 +1,74 @@
+/* ===== Counter ===== */
+.fp-counter {
+  display: inline-block;
+}
+
+.fp-counter-icon-wrap,
+.fp-counter-icon,
+.fp-counter-icon-divider,
+.fp-counter-num-divider {
+  display: inline-block;
+}
+
+.fp-counter-number-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.counter-center .fp-counter-number-wrap {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.counter-right .fp-counter-number-wrap {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.fp-counter-icon {
+  line-height: 1;
+}
+
+.fp-counter-layout-3-number-wrap,
+.fp-counter-layout-3 .fp-icon-title-wrap,
+.fp-counter-layout-4-number-wrap,
+.fp-counter-layout-4 .fp-icon-title-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fp-counter-layout-5,
+.fp-counter-layout-6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fp-counter-layout-6 .fp-counter-icon-wrap {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.fp-counter .fp-icon-title-wrap .fp-counter-title {
+  display: inline-block;
+}

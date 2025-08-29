@@ -1,0 +1,97 @@
+.el-image {
+    position: relative;
+}
+
+.el-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.fp-img-anim {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.fp-img-anim-updown {
+    animation-name: fpAnimUpDown;
+    -webkit-animation-name: fpAnimUpDown;
+}
+
+.fp-img-anim-leftright {
+    animation-name: fpAnimLeftRight;
+    -webkit-animation-name: fpAnimLeftRight;
+}
+
+@-webkit-keyframes fpAnimUpDown {
+    0% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    50% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(-25px);
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes fpAnimUpDown {
+    0% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    50% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+}
+
+@-webkit-keyframes fpAnimLeftRight {
+    0% {
+        -webkit-transform: translateX(-20px);
+        transform: translateX(-20px);
+    }
+
+    50% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateX(-25px);
+        transform: translateX(-25px);
+    }
+}
+
+@keyframes fpAnimLeftRight {
+    0% {
+        -webkit-transform: translateX(-20px);
+        transform: translateX(-20px);
+    }
+
+    50% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateX(-20px);
+        transform: translateX(-20px);
+    }
+}
