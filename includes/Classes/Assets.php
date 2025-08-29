@@ -5,7 +5,7 @@
  * @package EduMentor
  * @version 1.0.0
  */
-namespace Hexqode\EduMentor\Classes;
+namespace HexQode\EduMentor\Classes;
 
 defined( 'ABSPATH' ) || die();
 
