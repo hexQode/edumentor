@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\List;
+namespace HexQode\EduMentor\Elementor\Widgets\List;
 
 use Elementor\Repeater;
 use Elementor\Widget_Base;
@@ -15,8 +15,8 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Elementor\Controls\Foreground;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Elementor\Controls\Foreground;
 
 defined( 'ABSPATH' ) || die();
 

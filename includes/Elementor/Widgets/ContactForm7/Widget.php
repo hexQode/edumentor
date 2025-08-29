@@ -5,11 +5,11 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\ContactForm7;
+namespace HexQode\EduMentor\Elementor\Widgets\ContactForm7;
 
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Elementor\Controls\Foreground;
-use DynamicLayers\FlatPack\Traits\CommonControls;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Elementor\Controls\Foreground;
+use HexQode\EduMentor\Traits\CommonControls;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;

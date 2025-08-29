@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\MailChimp;
+namespace HexQode\EduMentor\Elementor\Widgets\MailChimp;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;

@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Controls;
+namespace HexQode\EduMentor\Elementor\Controls;
 
 use Elementor\Group_Control_Base;
 use Elementor\Controls_Manager;

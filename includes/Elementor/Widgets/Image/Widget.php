@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\Image;
+namespace HexQode\EduMentor\Elementor\Widgets\Image;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -17,7 +17,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Utils;
 use Elementor\Plugin;
-use DynamicLayers\FlatPack\Classes\Helper;
+use HexQode\EduMentor\Classes\Helper;
 
 defined( 'ABSPATH' ) || die();
 

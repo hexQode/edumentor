@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Traits;
+namespace HexQode\EduMentor\Traits;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;

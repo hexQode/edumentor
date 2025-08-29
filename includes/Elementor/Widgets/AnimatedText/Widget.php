@@ -5,15 +5,15 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\AnimatedText;
+namespace HexQode\EduMentor\Elementor\Widgets\AnimatedText;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Traits\CommonControls;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Traits\CommonControls;
 
 defined( 'ABSPATH' ) || die();
 

@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'dynamiclayers/flatpack',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'hexqode/edumentor',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'a87ad7eebec445d8deb4a130a6833de4758cd62f',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'dynamiclayers/flatpack' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'hexqode/edumentor' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'a87ad7eebec445d8deb4a130a6833de4758cd62f',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

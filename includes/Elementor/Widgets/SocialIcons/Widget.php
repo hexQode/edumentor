@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\SocialIcons;
+namespace HexQode\EduMentor\Elementor\Widgets\SocialIcons;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;

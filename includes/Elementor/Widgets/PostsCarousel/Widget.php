@@ -4,10 +4,10 @@
  *
  * @package FlatPack
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\PostsCarousel;
+namespace HexQode\EduMentor\Elementor\Widgets\PostsCarousel;
 
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Traits\CarouselControls;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Traits\CarouselControls;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -15,7 +15,7 @@ use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Widget_Base;
-use DynamicLayers\FlatPack\Classes\CardStyle;
+use HexQode\EduMentor\Classes\CardStyle;
 
 defined( 'ABSPATH' ) || die();
 

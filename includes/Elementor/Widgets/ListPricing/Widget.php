@@ -5,9 +5,9 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\ListPricing;
+namespace HexQode\EduMentor\Elementor\Widgets\ListPricing;
 
-use DynamicLayers\FlatPack\Classes\Helper;
+use HexQode\EduMentor\Classes\Helper;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;

@@ -5,14 +5,14 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Traits;
+namespace HexQode\EduMentor\Traits;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use DynamicLayers\FlatPack\Elementor\Controls\Foreground;
+use HexQode\EduMentor\Elementor\Controls\Foreground;
 
 defined( 'ABSPATH' ) || die();
 

@@ -5,9 +5,9 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\Team;
+namespace HexQode\EduMentor\Elementor\Widgets\Team;
 
-use DynamicLayers\FlatPack\Classes\Helper;
+use HexQode\EduMentor\Classes\Helper;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;

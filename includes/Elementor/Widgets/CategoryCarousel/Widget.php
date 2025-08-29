@@ -4,10 +4,10 @@
  *
  * @package FlatPack
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\CategoryCarousel;
+namespace HexQode\EduMentor\Elementor\Widgets\CategoryCarousel;
 
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Traits\CarouselControls;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Traits\CarouselControls;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;

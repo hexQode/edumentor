@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'DynamicLayers\\FlatPack\\' => array($baseDir . '/includes'),
+    'HexQode\\EduMentor\\' => array($baseDir . '/includes'),
 );

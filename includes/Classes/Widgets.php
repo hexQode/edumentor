@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Classes;
+namespace HexQode\EduMentor\Classes;
 
 defined( 'ABSPATH' ) || die();
 
@@ -87,16 +87,16 @@ class Widgets {
                 
                 if( 'cf7' === $widget['dep'] ) {
                     if ( class_exists( 'WPCF7' ) ) {
-                        $widget_init = 'DynamicLayers\FlatPack\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
+                        $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
                         $widgets_manager->register( new $widget_init );
                     }
                 }if( 'mc' === $widget['dep'] ) {
                     if( function_exists('_mc4wp_load_plugin') ) {
-                        $widget_init = 'DynamicLayers\FlatPack\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
+                        $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
                         $widgets_manager->register( new $widget_init );
                     }
                 }else{
-                    $widget_init = 'DynamicLayers\FlatPack\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
+                    $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
                     $widgets_manager->register( new $widget_init );
                 }
                 

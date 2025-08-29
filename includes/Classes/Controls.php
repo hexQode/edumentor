@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Classes;
+namespace HexQode\EduMentor\Classes;
 
 use Elementor\Controls_Manager;
 
@@ -26,7 +26,7 @@ class Controls {
      */
     public function register_controls( Controls_Manager $controls_Manager  ) {
         
-        $controls_Manager->add_group_control( \DynamicLayers\FlatPack\Elementor\Controls\Foreground::get_type(), New \DynamicLayers\FlatPack\Elementor\Controls\Foreground() );
+        $controls_Manager->add_group_control( \HexQode\EduMentor\Elementor\Controls\Foreground::get_type(), New \HexQode\EduMentor\Elementor\Controls\Foreground() );
         
     }
 }

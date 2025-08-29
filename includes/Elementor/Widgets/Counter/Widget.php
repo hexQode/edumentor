@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\Counter;
+namespace HexQode\EduMentor\Elementor\Widgets\Counter;
 
 use Elementor\Utils;
 use Elementor\Widget_Base;

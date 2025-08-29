@@ -5,7 +5,7 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Classes;
+namespace HexQode\EduMentor\Classes;
 
 defined( 'ABSPATH' ) || die();
 

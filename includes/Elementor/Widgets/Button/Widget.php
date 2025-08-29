@@ -5,11 +5,11 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\Button;
+namespace HexQode\EduMentor\Elementor\Widgets\Button;
 
 use Elementor\Widget_Base;
 use Elementor\Icons_Manager;
-use DynamicLayers\FlatPack\Traits\CommonControls;
+use HexQode\EduMentor\Traits\CommonControls;
 
 defined( 'ABSPATH' ) || die();
 

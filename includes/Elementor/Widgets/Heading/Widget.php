@@ -5,12 +5,12 @@
  * @package FlatPack
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Elementor\Widgets\Heading;
+namespace HexQode\EduMentor\Elementor\Widgets\Heading;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use DynamicLayers\FlatPack\Classes\Helper;
-use DynamicLayers\FlatPack\Traits\CommonControls;
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Traits\CommonControls;
 
 defined( 'ABSPATH' ) || die();
 

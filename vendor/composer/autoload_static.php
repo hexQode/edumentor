@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit4ef0986ac2b2458b7175bfb7255b9b3d
 {
     public static $prefixLengthsPsr4 = array (
-        'D' => 
+        'H' => 
         array (
-            'DynamicLayers\\FlatPack\\' => 23,
+            'HexQode\\EduMentor\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'DynamicLayers\\FlatPack\\' => 
+        'HexQode\\EduMentor\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),

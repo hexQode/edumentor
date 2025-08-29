@@ -2,10 +2,10 @@
 /**
  * Assets class
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
-namespace DynamicLayers\FlatPack\Classes;
+namespace Hexqode\EduMentor\Classes;
 
 defined( 'ABSPATH' ) || die();
 
