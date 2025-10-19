@@ -162,7 +162,7 @@
         });
 
         // Heading Splitting Effect
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-heading.default", function ($scope) {
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-heading.default", function ($scope) {
             Splitting();
             const wow = new WOW({
                 mobile: false
@@ -171,7 +171,7 @@
         });
 
         // Animated Text
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-animated-text.default", function ($scope) {
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-animated-text.default", function ($scope) {
             
             var item = $scope.find('.cd-headline'),
 				settings = item.data('settings'),
@@ -185,14 +185,14 @@
 				barAnimDelay = settings.bar_anim_delay,
 				barWaiting = settings.bar_waiting;
 			if( 'clip' === type ){
-				FlatPackAnimatedText({
+				EduMentorAnimatedText({
 					selector: item,
 					animationDelay: delay,
 					revealDuration: clipDuration,
 					revealAnimationDelay: clipDelay
 				});
 			}else if( 'letters type' === type ) {
-				FlatPackAnimatedText({
+				EduMentorAnimatedText({
 					selector: item,
 					animationDelay: delay,
 					typeLettersDelay: typeLetterDelay,
@@ -200,14 +200,14 @@
 					typeAnimationDelay: typeAnimDelay,
 				});
 			}else if( 'loading-bar' === type ) {
-				FlatPackAnimatedText({
+				EduMentorAnimatedText({
 					selector: item,
 					animationDelay: delay,
 					barAnimationDelay: barAnimDelay,
 					barWaiting: barWaiting
 				});
 			}else{
-				FlatPackAnimatedText({
+				EduMentorAnimatedText({
 					selector: item,
 					animationDelay: delay,
 				});
@@ -220,7 +220,7 @@
         });
 
         // Contact from splitting effect
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-contact-form-7.default", function ($scope) {
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-contact-form-7.default", function ($scope) {
             Splitting();
             const wow = new WOW({
                 mobile: false
@@ -229,39 +229,41 @@
         });
 
         // Counter
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-counter.default", function ($scope) {
-            var counter_elem = $scope.find(".el-image").eq(0),
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-counter.default", function (scope, $) {
+            var counter_elem = $(scope).find(".hq-counter").eq(0),
                 $target = counter_elem.data("target");
-            $(counter_elem).elementorWaypoint(
-                function () {
-                    $($target).each(function () {
-                        var v = $(this).data("to"),
-                            speed = $(this).data("speed"),
-                            od = new Odometer({
-                                el: this,
-                                value: 0,
-                                duration: speed
-                            });
-                        od.render();
-                        setInterval(function () {
-                            od.update(v);
+
+            var observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        $($target).each(function () {
+                            var v = $(this).data("to"),
+                                speed = $(this).data("speed"),
+                                od = new Odometer({
+                                    el: this,
+                                    value: 0,
+                                    duration: speed
+                                });
+                            od.render();
+                            setTimeout(function () {
+                                od.update(v);
+                            }, 100);
                         });
-                    });
-                },
-                {
-                    offset: "80%",
-                    triggerOnce: true
-                }
-            );
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.8 });
+
+            observer.observe(counter_elem[0]);
         });
 
         // Countdown
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-countdown.default", function (scope, $) {
-            var $item = $(scope).find('.fp-countdown');
-            var $countdown_item = $item.find('.fp-countdown-item');
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-countdown.default", function (scope, $) {
+            var $item = $(scope).find('.hq-countdown');
+            var $countdown_item = $item.find('.hq-countdown-item');
             var $end_action = $item.data('end-action');
             var $redirect_link = $item.data('redirect-link');
-            var $end_action_div = $item.find('.fp-countdown-end-action');
+            var $end_action_div = $item.find('.hq-countdown-end-action');
             var $editor_mode_on = $(scope).hasClass('elementor-element-edit-mode');
             $item.countdown({
                 end: function () {
@@ -276,7 +278,7 @@
         });
 
         // Image
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-image.default", function ($scope) {
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-image.default", function ($scope) {
             var image = $($scope).find(".el-image"),
                 anim = image.data('anim');
             if ( image.length && 'parallax' == anim ) {
@@ -290,11 +292,11 @@
         });
 
         // Progress Bar
-        elementorFrontend.hooks.addAction("frontend/element_ready/flatpack-progress-bar.default", function ($scope) {
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-progress-bar.default", function ($scope) {
             elementorFrontend.waypoint($scope, function () {
-                $scope.find('.fp-skill-level').each(function () {
+                $scope.find('.hq-skill-level').each(function () {
                     var $current = $(this),
-                        $lt = $current.find('.fp-skill-level-text'),
+                        $lt = $current.find('.hq-skill-level-text'),
                         lv = $current.data('level');
                     $current.animate({
                         width: lv + '%'

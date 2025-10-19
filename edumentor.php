@@ -48,7 +48,7 @@ final class EduMentor {
     /**
      * Initializes a singleton instance
      *
-     * @return \FlatPack
+     * @return \EduMentor
      */
     static function init() {
         static $instance = false;
@@ -66,11 +66,11 @@ final class EduMentor {
      * @return void
      */
     public function define_constants() {
-        define( 'FLATPACK_VERSION', self::version );
-        define( 'FLATPACK_FILE', __FILE__ );
-        define( 'FLATPACK_PATH', __DIR__ );
-        define( 'FLATPACK_URL', plugins_url( '', FLATPACK_FILE ) );
-        define( 'FLATPACK_ASSETS', FLATPACK_URL . '/assets' );
+        define( 'EDUMENTOR_VERSION', self::version );
+        define( 'EDUMENTOR_FILE', __FILE__ );
+        define( 'EDUMENTOR_PATH', __DIR__ );
+        define( 'EDUMENTOR_URL', plugins_url( '', EDUMENTOR_FILE ) );
+        define( 'EDUMENTOR_ASSETS', EDUMENTOR_URL . '/assets' );
     }
 
     /**
@@ -80,7 +80,7 @@ final class EduMentor {
      */
     public function init_plugin() {
 
-        load_plugin_textdomain( 'flatpack', false, basename( dirname( __FILE__ ) ) . '/languages' );
+        load_plugin_textdomain( 'edumentor', false, basename( dirname( __FILE__ ) ) . '/languages' );
         
 
         if ( is_admin() ) {
@@ -121,7 +121,7 @@ final class EduMentor {
 /**
  * Initializes the main plugin
  *
- * @return \FlatPack
+ * @return \EduMentor
  */
 function edumentor_init() {
     return EduMentor::init();

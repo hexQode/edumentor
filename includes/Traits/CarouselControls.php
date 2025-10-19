@@ -2,7 +2,7 @@
 /**
  * Carousel Controls
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Traits;
@@ -23,7 +23,7 @@ trait CarouselControls{
 		$this->start_controls_section(
 			'section_carousel_navigation_style',
 			[
-				'label' => esc_html__( 'Navigation', 'flatpack' ),
+				'label' => esc_html__( 'Navigation', 'edumentor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					$condition_key => 'yes',
@@ -35,10 +35,10 @@ trait CarouselControls{
 		$this->add_control(
 			'nav_hide_mobile',
 			[
-				'label'        => esc_html__( 'Hide on Mobile/Tablet', 'flatpack' ),
+				'label'        => esc_html__( 'Hide on Mobile/Tablet', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 				'condition' => [
@@ -51,12 +51,12 @@ trait CarouselControls{
 		$this->add_control(
 			'nav_style',
 			[
-				'label'   => esc_html__( 'Style', 'flatpack' ),
+				'label'   => esc_html__( 'Style', 'edumentor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'centered',
 				'options' => [
-					'centered'  => esc_html__( 'Centered', 'flatpack' ),
-					'top-right' => esc_html__( 'Together', 'flatpack' ),
+					'centered'  => esc_html__( 'Centered', 'edumentor' ),
+					'top-right' => esc_html__( 'Together', 'edumentor' ),
 				],
 				'condition' => [
 					$condition_key => 'yes',
@@ -68,15 +68,15 @@ trait CarouselControls{
 		$this->add_control(
 			'nav_visibility',
 			[
-				'label' => esc_html__( 'Nav Visibility', 'flatpack' ),
+				'label' => esc_html__( 'Nav Visibility', 'edumentor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'always-visible' => [
-						'title' => esc_html__( 'Always Visible', 'flatpack' ),
+						'title' => esc_html__( 'Always Visible', 'edumentor' ),
 						'icon' => 'eicon-eye',
 					],
 					'visible-on-hover' => [
-						'title' => esc_html__( 'Visible on Hover', 'flatpack' ),
+						'title' => esc_html__( 'Visible on Hover', 'edumentor' ),
 						'icon' => 'eicon-click',
 					],
 				],
@@ -98,7 +98,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_spacebetween',
 			[
-				'label'      => esc_html__( 'Space Between', 'flatpack' ),
+				'label'      => esc_html__( 'Space Between', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'range'      => [
@@ -126,7 +126,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_width',
 			[
-				'label'      => esc_html__( 'Width', 'flatpack' ),
+				'label'      => esc_html__( 'Width', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'range'      => [
@@ -153,7 +153,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_height',
 			[
-				'label'      => esc_html__( 'Height', 'flatpack' ),
+				'label'      => esc_html__( 'Height', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'range'      => [
@@ -181,7 +181,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_icon_size',
 			[
-				'label'      => esc_html__( 'Icon Size', 'flatpack' ),
+				'label'      => esc_html__( 'Icon Size', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -204,7 +204,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_x_position',
 			[
-				'label'      => esc_html__( 'X Position', 'flatpack' ),
+				'label'      => esc_html__( 'X Position', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range'      => [
@@ -233,7 +233,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'nav_y_position',
 			[
-				'label'      => esc_html__( 'Y Position', 'flatpack' ),
+				'label'      => esc_html__( 'Y Position', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range'      => [
@@ -261,7 +261,7 @@ trait CarouselControls{
 		$this->add_control(
 			'nav_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'flatpack' ),
+				'label' => esc_html__( 'Border Radius', 'edumentor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -279,7 +279,7 @@ trait CarouselControls{
 		$this->start_controls_tab(
 			'nav_style_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'flatpack' ),
+				'label' => esc_html__( 'Normal', 'edumentor' ),
 				'condition' => [
 					$condition_key => 'yes',
 					'navigation' => ['arrow', 'both']
@@ -291,7 +291,7 @@ trait CarouselControls{
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'nav_normal_bg',
-				'label'    => esc_html__( 'Background', 'flatpack' ),
+				'label'    => esc_html__( 'Background', 'edumentor' ),
 				'types'    => ['classic', 'gradient'],
 				'selector' => '{{WRAPPER}} .hq-carousel-nav button',
 				'exclude'  => ['image'],
@@ -322,7 +322,7 @@ trait CarouselControls{
 		$this->start_controls_tab(
 			'nav_style_hover_tab',
 			[
-				'label' => esc_html__( 'Hover', 'flatpack' ),
+				'label' => esc_html__( 'Hover', 'edumentor' ),
 				'condition' => [
 					$condition_key => 'yes',
 					'navigation' => ['arrow', 'both']
@@ -334,7 +334,7 @@ trait CarouselControls{
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'nav_hover_bg',
-				'label'    => esc_html__( 'Background', 'flatpack' ),
+				'label'    => esc_html__( 'Background', 'edumentor' ),
 				'types'    => ['classic', 'gradient'],
 				'exclude'  => ['image'],
 				'selector' => '{{WRAPPER}} .hq-carousel-nav button:hover',
@@ -378,7 +378,7 @@ trait CarouselControls{
 		$this->start_controls_section(
 			'section_carousel_pagination_style',
 			[
-				'label' => esc_html__( 'Pagination ( Bullets )', 'flatpack' ),
+				'label' => esc_html__( 'Pagination ( Bullets )', 'edumentor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					$condition_key => 'yes',
@@ -390,10 +390,10 @@ trait CarouselControls{
 		$this->add_control(
 			'dots_hide_mobile',
 			[
-				'label'        => esc_html__( 'Hide on Mobile/Tablet', 'flatpack' ),
+				'label'        => esc_html__( 'Hide on Mobile/Tablet', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 				'condition' => [
@@ -406,7 +406,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'dots_top_spacing',
 			[
-				'label'      => esc_html__( 'Top Spacing', 'flatpack' ),
+				'label'      => esc_html__( 'Top Spacing', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -417,7 +417,7 @@ trait CarouselControls{
 					]
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .carousel-wrapper' => '--hq-flatpack-dots-spacing: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .carousel-wrapper' => '--hq-edumentor-dots-spacing: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .hq-carousel-dots.dot-style-2' => 'margin-bottom: 4px;',
 				],
 				'condition' => [
@@ -430,19 +430,19 @@ trait CarouselControls{
 		$this->add_responsive_control(
             'dots_alignment',
             [
-                'label' => esc_html__( 'Alignment', 'flatpack' ),
+                'label' => esc_html__( 'Alignment', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -462,7 +462,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'bullet_size',
 			[
-				'label'      => esc_html__( 'Size', 'flatpack' ),
+				'label'      => esc_html__( 'Size', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -473,7 +473,7 @@ trait CarouselControls{
 					]
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .carousel-wrapper .hq-carousel-dots' => '--hq-flatpack-dots-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .carousel-wrapper .hq-carousel-dots' => '--hq-edumentor-dots-size: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					$condition_key => 'yes',
@@ -485,7 +485,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'dots_space_between_item',
 			[
-				'label'      => esc_html__( 'Space Between Item', 'flatpack' ),
+				'label'      => esc_html__( 'Space Between Item', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -508,7 +508,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
             'dots_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -527,7 +527,7 @@ trait CarouselControls{
 		$this->start_controls_tab(
 			'bullet_style_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'flatpack' ),
+				'label' => esc_html__( 'Normal', 'edumentor' ),
 				'condition' => [
 					$condition_key => 'yes',
 					'navigation' => ['dots', 'both']
@@ -538,7 +538,7 @@ trait CarouselControls{
 		$this->add_control(
 			'bullet_color',
 			[
-				'label'     => esc_html__( 'Color', 'flatpack' ),
+				'label'     => esc_html__( 'Color', 'edumentor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hq-carousel-dots.dot-style-1 .slick-dots li span' => 'background-color: {{VALUE}}',
@@ -556,7 +556,7 @@ trait CarouselControls{
 		$this->start_controls_tab(
 			'bullet_style_active_tab',
 			[
-				'label' => esc_html__( 'Active', 'flatpack' ),
+				'label' => esc_html__( 'Active', 'edumentor' ),
 				'condition' => [
 					$condition_key => 'yes',
 					'navigation' => ['dots', 'both']
@@ -567,7 +567,7 @@ trait CarouselControls{
 		$this->add_control(
 			'bullet_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'flatpack' ),
+				'label'     => esc_html__( 'Color', 'edumentor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hq-carousel-dots.dot-style-1 .slick-dots li.slick-active span' => 'background-color: {{VALUE}}',
@@ -583,7 +583,7 @@ trait CarouselControls{
 		$this->add_control(
 			'bullet_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'flatpack' ),
+				'label'     => esc_html__( 'Border Color', 'edumentor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hq-carousel-dots .slick-dots li.slick-active span' => 'box-shadow: 0px 0px 0px 3px {{VALUE}};',
@@ -599,7 +599,7 @@ trait CarouselControls{
 		$this->add_control(
 			'bullet_stroke_color',
 			[
-				'label'     => esc_html__( 'Stroke Color', 'flatpack' ),
+				'label'     => esc_html__( 'Stroke Color', 'edumentor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hq-carousel-dots.dot-style-2 .slick-dots li.slick-active .path' => 'stroke: {{VALUE}}',
@@ -615,7 +615,7 @@ trait CarouselControls{
 		$this->add_responsive_control(
 			'bullet_stroke_width',
 			[
-				'label'      => esc_html__( 'Stroke Size', 'flatpack' ),
+				'label'      => esc_html__( 'Stroke Size', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range'      => [

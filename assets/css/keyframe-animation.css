@@ -1,4 +1,4 @@
-.fp-fadeIn {
+.hq-fadeIn {
     -webkit-animation-name: fpFadeIn;
     animation-name: fpFadeIn;
 }
@@ -23,7 +23,7 @@
     }
 }
 
-.fp-fadeInLeft {
+.hq-fadeInLeft {
     -webkit-animation-name: fpFadeInLeft;
     animation-name: fpFadeInLeft;
 }
@@ -56,7 +56,7 @@
     }
 }
 
-.fp-fadeInRight {
+.hq-fadeInRight {
     -webkit-animation-name: fpFadeInRight;
     animation-name: fpFadeInRight;
 }
@@ -89,7 +89,7 @@
     }
 }
 
-.fp-fadeInTop {
+.hq-fadeInTop {
     -webkit-animation-name: fpFadeInTop;
     animation-name: fpFadeInTop;
 }
@@ -122,7 +122,7 @@
     }
 }
 
-.fp-fadeInBottom {
+.hq-fadeInBottom {
     -webkit-animation-name: fpFadeInBottom;
     animation-name: fpFadeInBottom;
 }
@@ -155,14 +155,14 @@
     }
 }
 
-.splitting.fp-textFadeIn.animated .char {
+.splitting.hq-textFadeIn.animated .char {
     -webkit-animation: textFadeIn 0.3s cubic-bezier(0.3, 0, 0.7, 1) both;
     animation: textFadeIn 0.3s cubic-bezier(0.3, 0, 0.7, 1) both;
     -webkit-animation-delay: calc(30ms * var(--char-index));
     animation-delay: calc(30ms * var(--char-index));
 }
 
-.splitting.fp-textFadeIn .whitespace {
+.splitting.hq-textFadeIn .whitespace {
     width: 5px;
 }
 
@@ -186,7 +186,7 @@
     }
 }
 
-.splitting.fp-textFadeInTop.animated .char {
+.splitting.hq-textFadeInTop.animated .char {
     -webkit-animation: textFadeInTop 0.4s cubic-bezier(0.3, 0, 0.7, 1) both;
     animation: textFadeInTop 0.4s cubic-bezier(0.3, 0, 0.7, 1) both;
     -webkit-animation-delay: calc(30ms * var(--char-index));
@@ -194,7 +194,7 @@
     display: inline-block;
 }
 
-.splitting.fp-textFadeInTop .whitespace {
+.splitting.hq-textFadeInTop .whitespace {
     width: 10px;
 }
 
@@ -226,7 +226,7 @@
     }
 }
 
-.splitting.fp-textFadeInBottom.animated .char {
+.splitting.hq-textFadeInBottom.animated .char {
     -webkit-animation: textFadeInBottom 0.4s cubic-bezier(0.3, 0, 0.7, 1) both;
     animation: textFadeInBottom 0.4s cubic-bezier(0.3, 0, 0.7, 1) both;
     -webkit-animation-delay: calc(30ms * var(--char-index));
@@ -234,7 +234,7 @@
     display: inline-block;
 }
 
-.splitting.fp-textFadeInBottom .whitespace {
+.splitting.hq-textFadeInBottom .whitespace {
     width: 10px;
 }
 

@@ -2,7 +2,7 @@
 /**
  * Sponsor
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\SliderTest;
@@ -30,7 +30,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-slider-test';
+        return 'edumentor-slider-test';
     }
 
     /**
@@ -42,11 +42,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Slider Test', 'flatpack' );
+        return esc_html__( 'Slider Test', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -58,19 +58,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-logo';
+        return 'edumentor-icon eicon-logo';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'sponsor', 'logo', 'logo grid', 'sponsor grid', 'flatpack' ];
+        return [ 'sponsor', 'logo', 'logo grid', 'sponsor grid', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-sponsor' ];
+        return [ 'hq-sponsor' ];
     }
 
     public function get_script_depends() {
@@ -98,7 +98,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'sponsor_items_section',
             [
-                'label' => esc_html__( 'Sponsor Items', 'flatpack' ),
+                'label' => esc_html__( 'Sponsor Items', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -108,7 +108,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'image',
             [
-                'label' => esc_html__('Logo', 'flatpack'),
+                'label' => esc_html__('Logo', 'edumentor'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -119,7 +119,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'link',
             [
-                'label' => esc_html__('Website URL', 'flatpack'),
+                'label' => esc_html__('Website URL', 'edumentor'),
                 'type' => Controls_Manager::URL,
                 'show_external' => false,
                 'label_block' => true,
@@ -129,9 +129,9 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'name',
             [
-                'label' => esc_html__('Brand Name', 'flatpack'),
+                'label' => esc_html__('Brand Name', 'edumentor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Brand Name', 'flatpack'),
+                'default' => esc_html__('Brand Name', 'edumentor'),
             ]
         );
 
@@ -169,7 +169,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'settings_section',
             [
-                'label' => esc_html__( 'Settings', 'flatpack' ),
+                'label' => esc_html__( 'Settings', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -722,7 +722,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'grid_style_section',
             [
-                'label' => esc_html__( 'Grid', 'flatpack' ),
+                'label' => esc_html__( 'Grid', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -730,11 +730,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'padding',
             [
-                'label' => esc_html__( 'Padding', 'flatpack' ),
+                'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-logo-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -742,7 +742,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'height',
             [
-                'label' => esc_html__( 'Height', 'flatpack' ),
+                'label' => esc_html__( 'Height', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -752,7 +752,7 @@ class Widget extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-item' => 'height: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-logo-item' => 'height: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -760,19 +760,19 @@ class Widget extends Widget_Base {
         $this->add_control(
             'grid_border_type',
             [
-                'label' => esc_html__( 'Border Type', 'flatpack' ),
+                'label' => esc_html__( 'Border Type', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__( 'None', 'flatpack' ),
-                    'solid' => esc_html__( 'Solid', 'flatpack' ),
-                    'double' => esc_html__( 'Double', 'flatpack' ),
-                    'dotted' => esc_html__( 'Dotted', 'flatpack' ),
-                    'dashed' => esc_html__( 'Dashed', 'flatpack' ),
-                    'groove' => esc_html__( 'Groove', 'flatpack' ),
+                    'none' => esc_html__( 'None', 'edumentor' ),
+                    'solid' => esc_html__( 'Solid', 'edumentor' ),
+                    'double' => esc_html__( 'Double', 'edumentor' ),
+                    'dotted' => esc_html__( 'Dotted', 'edumentor' ),
+                    'dashed' => esc_html__( 'Dashed', 'edumentor' ),
+                    'groove' => esc_html__( 'Groove', 'edumentor' ),
                 ],
                 'default' => 'solid',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-item' => 'border-style: {{VALUE}};',
+                    '{{WRAPPER}} .hq-logo-item' => 'border-style: {{VALUE}};',
                 ],
             ]
         );
@@ -780,50 +780,50 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'grid_border_width',
             [
-                'label' => esc_html__( 'Border Width', 'flatpack' ),
+                'label' => esc_html__( 'Border Width', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'selectors' => [
-                    '(desktop+){{WRAPPER}}.fp-logo-border .fp-logo-item' => 'border-right-width: {{grid_border_width.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border .fp-logo-item' => 'border-right-width: {{grid_border_width_tablet.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border .fp-logo-item' => 'border-right-width: {{grid_border_width_mobile.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border .hq-logo-item' => 'border-right-width: {{grid_border_width.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border .hq-logo-item' => 'border-right-width: {{grid_border_width_tablet.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border .hq-logo-item' => 'border-right-width: {{grid_border_width_mobile.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-2 .fp-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-3 .fp-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-4 .fp-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-5 .fp-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-6 .fp-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-2 .fp-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-3 .fp-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-4 .fp-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-5 .fp-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-6 .fp-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-2 .hq-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-3 .hq-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-4 .hq-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-5 .hq-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-6 .hq-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-2 .hq-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-3 .hq-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-4 .hq-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-5 .hq-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-6 .hq-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
 
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet2 .fp-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet3 .fp-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet4 .fp-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet5 .fp-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet6 .fp-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet2 .fp-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet3 .fp-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet4 .fp-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet5 .fp-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet6 .fp-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet2 .hq-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet3 .hq-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet4 .hq-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet5 .hq-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet6 .hq-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet2 .hq-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet3 .hq-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet4 .hq-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet5 .hq-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet6 .hq-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
 
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile2 .fp-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile3 .fp-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile4 .fp-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile5 .fp-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile6 .fp-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile2 .fp-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile3 .fp-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile4 .fp-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile5 .fp-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile6 .fp-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile2 .hq-logo-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile3 .hq-logo-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile4 .hq-logo-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile5 .hq-logo-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile6 .hq-logo-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile2 .hq-logo-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile3 .hq-logo-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile4 .hq-logo-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile5 .hq-logo-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile6 .hq-logo-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
 
-                    '{{WRAPPER}}.fp-logo-tictactoe .fp-logo-item' => 'border-top-width: {{SIZE}}{{UNIT}}; border-right-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-tictactoe .hq-logo-item' => 'border-top-width: {{SIZE}}{{UNIT}}; border-right-width: {{SIZE}}{{UNIT}};',
 
-                    '{{WRAPPER}}.fp-logo-box .fp-logo-item' => 'border-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-box .hq-logo-item' => 'border-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'grid_border_type!' => 'none',
@@ -834,10 +834,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'grid_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'flatpack' ),
+                'label' => esc_html__( 'Border Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-item' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .hq-logo-item' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'grid_border_type!' => 'none',
@@ -849,94 +849,94 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'grid_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'   => ['image'],
-                'selector' => '{{WRAPPER}} .fp-logo-wrap',
+                'selector' => '{{WRAPPER}} .hq-logo-wrap',
             ]
         );
 
         $this->add_responsive_control(
             'grid_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}}.fp-logo-border .fp-logo-wrapper, {{WRAPPER}}.fp-logo-box .fp-logo-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}}.fp-logo-border .fp-logo-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
-                    '{{WRAPPER}}.fp-logo-border .fp-logo-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-border .hq-logo-wrapper, {{WRAPPER}}.hq-logo-box .hq-logo-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-border .hq-logo-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-border .hq-logo-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-border.fp-logo-col-6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-border.hq-logo-col-6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
 
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-border.fp-logo-col-tablet6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-border.hq-logo-col-tablet6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
 
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-border.fp-logo-col-mobile6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-border.hq-logo-col-mobile6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
 
                     // Tictactoe
-                    '{{WRAPPER}}.fp-logo-tictactoe .fp-logo-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}}.fp-logo-tictactoe .fp-logo-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
-                    '{{WRAPPER}}.fp-logo-tictactoe .fp-logo-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-tictactoe .hq-logo-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-tictactoe .hq-logo-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-logo-tictactoe .hq-logo-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop+){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
 
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
-                    '(tablet){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-tablet6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
+                    '(tablet){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-tablet6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
 
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile2 .fp-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile2 .fp-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile3 .fp-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile3 .fp-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile4 .fp-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile4 .fp-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile5 .fp-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile5 .fp-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile6 .fp-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
-                    '(mobile){{WRAPPER}}.fp-logo-tictactoe.fp-logo-col-mobile6 .fp-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile2 .hq-logo-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile2 .hq-logo-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile3 .hq-logo-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile3 .hq-logo-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile4 .hq-logo-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile4 .hq-logo-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile5 .hq-logo-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile5 .hq-logo-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile6 .hq-logo-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius_mobile.RIGHT}}{{UNIT}};',
+                    '(mobile){{WRAPPER}}.hq-logo-tictactoe.hq-logo-col-mobile6 .hq-logo-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius_mobile.LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -948,7 +948,7 @@ class Widget extends Widget_Base {
                 'exclude' => [
                     'box_shadow_position',
                 ],
-                'selector' => '{{WRAPPER}}.fp-logo-tictactoe .fp-logo-wrapper, {{WRAPPER}}.fp-logo-border .fp-logo-wrapper, {{WRAPPER}}.fp-logo-box .fp-logo-item'
+                'selector' => '{{WRAPPER}}.hq-logo-tictactoe .hq-logo-wrapper, {{WRAPPER}}.hq-logo-border .hq-logo-wrapper, {{WRAPPER}}.hq-logo-box .hq-logo-item'
             ]
         );
 
@@ -963,14 +963,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             '_tab_image_effects_normal',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'image_opacity',
             [
-                'label' => esc_html__( 'Opacity', 'flatpack' ),
+                'label' => esc_html__( 'Opacity', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -980,7 +980,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-wrap > img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hq-logo-wrap > img' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -989,7 +989,7 @@ class Widget extends Widget_Base {
             Group_Control_Css_Filter::get_type(),
             [
                 'name' => 'image_css_filters',
-                'selector' => '{{WRAPPER}} .fp-logo-wrap > img',
+                'selector' => '{{WRAPPER}} .hq-logo-wrap > img',
             ]
         );
 
@@ -997,14 +997,14 @@ class Widget extends Widget_Base {
 
         $this->start_controls_tab( 'hover',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' ),
+                'label' => esc_html__( 'Hover', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'image_opacity_hover',
             [
-                'label' => esc_html__( 'Opacity', 'flatpack' ),
+                'label' => esc_html__( 'Opacity', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1014,7 +1014,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-wrap:hover > img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .hq-logo-wrap:hover > img' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -1023,14 +1023,14 @@ class Widget extends Widget_Base {
             Group_Control_Css_Filter::get_type(),
             [
                 'name' => 'image_css_filters_hover',
-                'selector' => '{{WRAPPER}} .fp-logo-wrap:hover > img',
+                'selector' => '{{WRAPPER}} .hq-logo-wrap:hover > img',
             ]
         );
 
         $this->add_control(
             'image_bg_hover_transition',
             [
-                'label' => esc_html__( 'Transition Duration', 'flatpack' ),
+                'label' => esc_html__( 'Transition Duration', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1039,7 +1039,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-logo-wrap:hover > img' => 'transition-duration: {{SIZE}}s',
+                    '{{WRAPPER}} .hq-logo-wrap:hover > img' => 'transition-duration: {{SIZE}}s',
                 ],
             ]
         );
@@ -1047,7 +1047,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'hover_animation',
             [
-                'label' => esc_html__( 'Hover Animation', 'flatpack' ),
+                'label' => esc_html__( 'Hover Animation', 'edumentor' ),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );

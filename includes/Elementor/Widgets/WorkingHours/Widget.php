@@ -2,7 +2,7 @@
 /**
  * Working Hours
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\WorkingHours;
@@ -28,7 +28,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-working-hours';
+        return 'edumentor-working-hours';
     }
 
     /**
@@ -40,11 +40,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Working Hours', 'flatpack' );
+        return esc_html__( 'Working Hours', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -56,19 +56,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-clock-o';
+        return 'edumentor-icon eicon-clock-o';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'business hours', 'working hours', 'office hours', 'opening hours', 'flatpack' ];
+        return [ 'business hours', 'working hours', 'office hours', 'opening hours', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main' ];
+        return [ 'hq-main' ];
     }
 
     /**
@@ -90,7 +90,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'businesshours_content',
             [
-                'label' => esc_html__( 'Business Hours', 'flatpack' ),
+                'label' => esc_html__( 'Business Hours', 'edumentor' ),
             ]
         );
 
@@ -99,25 +99,25 @@ class Widget extends Widget_Base {
             $repeater->add_control(
                 'business_day',
                 [
-                    'label'   => esc_html__( 'Day', 'flatpack' ),
+                    'label'   => esc_html__( 'Day', 'edumentor' ),
                     'type'    => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'Saturday', 'flatpack' ),
+                    'default' => esc_html__( 'Saturday', 'edumentor' ),
                 ]
             );
 
             $repeater->add_control(
                 'business_time',
                 [
-                    'label'   => esc_html__( 'Time', 'flatpack' ),
+                    'label'   => esc_html__( 'Time', 'edumentor' ),
                     'type'    => Controls_Manager::TEXTAREA,
-                    'default' => esc_html__( '9:00 AM - 6:00 PM', 'flatpack' ),
+                    'default' => esc_html__( '9:00 AM - 6:00 PM', 'edumentor' ),
                 ]
             );
 
             $repeater->add_control(
                 'highlight_this_day',
                 [
-                    'label'        => esc_html__( 'Hight Light this day', 'flatpack' ),
+                    'label'        => esc_html__( 'Hight Light this day', 'edumentor' ),
                     'type'         => Controls_Manager::SWITCHER,
                     'return_value' => 'yes',
                     'default'      => 'no',
@@ -128,11 +128,11 @@ class Widget extends Widget_Base {
             $repeater->add_control(
                 'single_business_day_color',
                 [
-                    'label'     => esc_html__( 'Day Color', 'flatpack' ),
+                    'label'     => esc_html__( 'Day Color', 'edumentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#fa2d2d',
                     'selectors' => [
-                        '{{WRAPPER}} .fp-single-hrs{{CURRENT_ITEM}}.fp-single-hrs.closed-day span.day' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .hq-single-hrs{{CURRENT_ITEM}}.hq-single-hrs.closed-day span.day' => 'color: {{VALUE}}',
                     ],
                     'condition' => [
                         'highlight_this_day' => 'yes',
@@ -144,11 +144,11 @@ class Widget extends Widget_Base {
             $repeater->add_control(
                 'single_business_time_color',
                 [
-                    'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                    'label'     => esc_html__( 'Time Color', 'edumentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#fa2d2d',
                     'selectors' => [
-                        '{{WRAPPER}} .fp-single-hrs{{CURRENT_ITEM}}.fp-single-hrs.closed-day span.time' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .hq-single-hrs{{CURRENT_ITEM}}.hq-single-hrs.closed-day span.time' => 'color: {{VALUE}}',
                     ],
                     'condition' => [
                         'highlight_this_day' => 'yes',
@@ -160,10 +160,10 @@ class Widget extends Widget_Base {
             $repeater->add_control(
                 'single_business_background_color',
                 [
-                    'label'     => esc_html__( 'Background Color', 'flatpack' ),
+                    'label'     => esc_html__( 'Background Color', 'edumentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .fp-single-hrs{{CURRENT_ITEM}}.fp-single-hrs.closed-day' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .hq-single-hrs{{CURRENT_ITEM}}.hq-single-hrs.closed-day' => 'background-color: {{VALUE}}',
                     ],
                     'condition' => [
                         'highlight_this_day' => 'yes',
@@ -179,39 +179,39 @@ class Widget extends Widget_Base {
                     'fields'  => $repeater->get_controls(),
                     'default' => [
                         [
-                            'business_day' => esc_html__( 'Saturday', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Saturday', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Sunday', 'flatpack' ),
-                            'business_time' => esc_html__( 'Close','flatpack' ),
-                            'highlight_this_day' => esc_html__( 'yes','flatpack' ),
+                            'business_day' => esc_html__( 'Sunday', 'edumentor' ),
+                            'business_time' => esc_html__( 'Close','edumentor' ),
+                            'highlight_this_day' => esc_html__( 'yes','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Monday', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Monday', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Tues Day', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Tues Day', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Wednesday', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Wednesday', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Thursday', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Thursday', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:00 PM','edumentor' ),
                         ],
 
                         [
-                            'business_day' => esc_html__( 'Friday', 'flatpack' ),
-                            'business_time' => esc_html__( '9:00 AM to 6:30 PM','flatpack' ),
+                            'business_day' => esc_html__( 'Friday', 'edumentor' ),
+                            'business_time' => esc_html__( '9:00 AM to 6:30 PM','edumentor' ),
                         ]
                     ],
                     'title_field' => '{{{ business_day }}}',
@@ -228,7 +228,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'business_item_area_style_section',
             [
-                'label' => esc_html__( 'Item Area', 'flatpack' ),
+                'label' => esc_html__( 'Item Area', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -236,9 +236,9 @@ class Widget extends Widget_Base {
                 Group_Control_Background::get_type(),
                 [
                     'name' => 'business_item_area_background',
-                    'label' => esc_html__( 'Background', 'flatpack' ),
+                    'label' => esc_html__( 'Background', 'edumentor' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .fp-business-hours .business-hrs-inner',
+                    'selector' => '{{WRAPPER}} .hq-business-hours .business-hrs-inner',
                 ]
             );
 
@@ -246,19 +246,19 @@ class Widget extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name' => 'business_item_area_box_shadow',
-                    'label' => esc_html__( 'Box Shadow', 'flatpack' ),
-                    'selector' => '{{WRAPPER}} .fp-business-hours .business-hrs-inner',
+                    'label' => esc_html__( 'Box Shadow', 'edumentor' ),
+                    'selector' => '{{WRAPPER}} .hq-business-hours .business-hrs-inner',
                 ]
             );
 
             $this->add_responsive_control(
                 'business_item_area_margin',
                 [
-                    'label' => esc_html__( 'Margin', 'flatpack' ),
+                    'label' => esc_html__( 'Margin', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .business-hrs-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .hq-business-hours .business-hrs-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                     'separator' =>'before',
                 ]
@@ -267,11 +267,11 @@ class Widget extends Widget_Base {
             $this->add_responsive_control(
                 'business_item_area_padding',
                 [
-                    'label' => esc_html__( 'Padding', 'flatpack' ),
+                    'label' => esc_html__( 'Padding', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .business-hrs-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .hq-business-hours .business-hrs-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                     'separator' =>'after',
                 ]
@@ -281,18 +281,18 @@ class Widget extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'business_item_area_border',
-                    'label' => esc_html__( 'Border', 'flatpack' ),
-                    'selector' => '{{WRAPPER}} .fp-business-hours .business-hrs-inner',
+                    'label' => esc_html__( 'Border', 'edumentor' ),
+                    'selector' => '{{WRAPPER}} .hq-business-hours .business-hrs-inner',
                 ]
             );
 
             $this->add_responsive_control(
                 'business_item_area_radius',
                 [
-                    'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                    'label' => esc_html__( 'Border Radius', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .business-hrs-inner' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                        '{{WRAPPER}} .hq-business-hours .business-hrs-inner' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                     ],
                 ]
             );
@@ -307,7 +307,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'business_item_style_section',
             [
-                'label' => esc_html__( 'Item', 'flatpack' ),
+                'label' => esc_html__( 'Item', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -315,11 +315,11 @@ class Widget extends Widget_Base {
             $this->add_responsive_control(
                 'business_item_margin',
                 [
-                    'label' => esc_html__( 'Margin', 'flatpack' ),
+                    'label' => esc_html__( 'Margin', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .fp-single-hrs' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .hq-business-hours .hq-single-hrs' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                     'separator' =>'before',
                 ]
@@ -328,11 +328,11 @@ class Widget extends Widget_Base {
             $this->add_responsive_control(
                 'business_item_padding',
                 [
-                    'label' => esc_html__( 'Padding', 'flatpack' ),
+                    'label' => esc_html__( 'Padding', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .fp-single-hrs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .hq-business-hours .hq-single-hrs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                     'separator' =>'after',
                 ]
@@ -342,18 +342,18 @@ class Widget extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'business_item_border',
-                    'label' => esc_html__( 'Border', 'flatpack' ),
-                    'selector' => '{{WRAPPER}} .fp-business-hours .fp-single-hrs',
+                    'label' => esc_html__( 'Border', 'edumentor' ),
+                    'selector' => '{{WRAPPER}} .hq-business-hours .hq-single-hrs',
                 ]
             );
 
             $this->add_responsive_control(
                 'business_item_radius',
                 [
-                    'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                    'label' => esc_html__( 'Border Radius', 'edumentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .fp-single-hrs' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                        '{{WRAPPER}} .hq-business-hours .hq-single-hrs' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                     ],
                 ]
             );
@@ -368,7 +368,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'business_day_style_section',
             [
-                'label' => esc_html__( 'Day', 'flatpack' ),
+                'label' => esc_html__( 'Day', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -376,10 +376,10 @@ class Widget extends Widget_Base {
             $this->add_control(
                 'business_day_color',
                 [
-                    'label'     => esc_html__( 'color', 'flatpack' ),
+                    'label'     => esc_html__( 'color', 'edumentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.day' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.day' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -387,7 +387,7 @@ class Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'business_day_typography',
-                    'selector' => '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.day',
+                    'selector' => '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.day',
                 ]
             );
 
@@ -395,9 +395,9 @@ class Widget extends Widget_Base {
                 Group_Control_Background::get_type(),
                 [
                     'name' => 'business_day_background',
-                    'label' => esc_html__( 'Background', 'flatpack' ),
+                    'label' => esc_html__( 'Background', 'edumentor' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.day',
+                    'selector' => '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.day',
                 ]
             );
             
@@ -411,7 +411,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'business_time_style_section',
             [
-                'label' => esc_html__( 'Time', 'flatpack' ),
+                'label' => esc_html__( 'Time', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -419,10 +419,10 @@ class Widget extends Widget_Base {
             $this->add_control(
                 'business_time_color',
                 [
-                    'label'     => esc_html__( 'color', 'flatpack' ),
+                    'label'     => esc_html__( 'color', 'edumentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.time' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.time' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -430,7 +430,7 @@ class Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'business_time_typography',
-                    'selector' => '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.time',
+                    'selector' => '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.time',
                 ]
             );
 
@@ -438,9 +438,9 @@ class Widget extends Widget_Base {
                 Group_Control_Background::get_type(),
                 [
                     'name' => 'business_time_background',
-                    'label' => esc_html__( 'Background', 'flatpack' ),
+                    'label' => esc_html__( 'Background', 'edumentor' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .fp-business-hours .fp-single-hrs span.time',
+                    'selector' => '{{WRAPPER}} .hq-business-hours .hq-single-hrs span.time',
                 ]
             );
             
@@ -458,7 +458,7 @@ class Widget extends Widget_Base {
 
         $settings   = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'fp_business_hours', 'class', 'fp-business-hours' ); ?>
+        $this->add_render_attribute( 'fp_business_hours', 'class', 'hq-business-hours' ); ?>
 
         <div <?php echo $this->get_render_attribute_string( 'fp_business_hours' ); ?>>
             <div class="business-hrs-inner">
@@ -470,7 +470,7 @@ class Widget extends Widget_Base {
                         $this->add_inline_editing_attributes( $business_day, 'none');
                         $this->add_inline_editing_attributes( $business_time, 'none'); ?>
                         
-                    <div class="fp-single-hrs elementor-repeater-item-<?php echo $item['_id']; ?> <?php if( $item['highlight_this_day'] == 'yes' ){ echo esc_attr( 'closed-day' ); }?>">
+                    <div class="hq-single-hrs elementor-repeater-item-<?php echo $item['_id']; ?> <?php if( $item['highlight_this_day'] == 'yes' ){ echo esc_attr( 'closed-day' ); }?>">
                         <?php
                             if( !empty( $item['business_day'] ) ){
                                 echo '<span class="day"><span '. $this->get_render_attribute_string($business_day) .'>'.esc_html( $item['business_day'] ).'</span></span>';
@@ -495,7 +495,7 @@ class Widget extends Widget_Base {
 	 */
     protected function content_template() {
         ?>
-        <# view.addRenderAttribute( 'fp_business_hours', 'class', 'fp-business-hours' ); #>
+        <# view.addRenderAttribute( 'fp_business_hours', 'class', 'hq-business-hours' ); #>
         <div {{{ view.getRenderAttributeString( 'fp_business_hours' ) }}}>
             <div class="business-hrs-inner">
             <#
@@ -511,7 +511,7 @@ class Widget extends Widget_Base {
                     var closeStatus = '';
                 }
             #>
-                <div class="fp-single-hrs elementor-repeater-item-{{{item._id}}} {{{closeStatus}}}">
+                <div class="hq-single-hrs elementor-repeater-item-{{{item._id}}} {{{closeStatus}}}">
                     <# if('' != item.business_day){ #>
                     <span class="day">
                         <span {{{ view.getRenderAttributeString(business_day) }}}>{{{item.business_day}}}</span>

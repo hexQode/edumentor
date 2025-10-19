@@ -2,7 +2,7 @@
 /**
  * Heading
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Heading;
@@ -27,7 +27,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-heading';
+        return 'edumentor-heading';
     }
 
     /**
@@ -39,11 +39,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Heading', 'flatpack' );
+        return esc_html__( 'Heading', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -55,23 +55,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-editor-h1';
+        return 'edumentor-icon eicon-editor-h1';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'heading', 'title', 'text', 'flatpack' ];
+        return [ 'heading', 'title', 'text', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main', 'fp-keyframes' ];
+        return [ 'hq-main', 'hq-keyframes' ];
     }
 
     public function get_script_depends() {
-        return [ 'flatpack-el-script', 'wow', 'splitting' ];
+        return [ 'edumentor-el-script', 'wow', 'splitting' ];
     }
 
     /**
@@ -95,29 +95,29 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'heading_section',
 			[
-				'label' => esc_html__( 'Heading', 'flatpack' )
+				'label' => esc_html__( 'Heading', 'edumentor' )
 			]
         );
 
         $this->add_control(
             'heading',
             [
-                'label'        => esc_html__( 'Heading Text', 'flatpack' ),
+                'label'        => esc_html__( 'Heading Text', 'edumentor' ),
                 'type'         => Controls_Manager::TEXTAREA,
                 'rows'         => 5,
-                'default'      => esc_html__( 'FlatPack {Heading} Text', 'flatpack' ),
-                'placeholder'  => esc_html__( 'Text goes here...', 'flatpack' ),
-                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'flatpack' ),
+                'default'      => esc_html__( 'EduMentor {Heading} Text', 'edumentor' ),
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' ),
+                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'edumentor' ),
             ]
         );
 
         $this->add_control(
 			'show_background_text',
 			[
-				'label' => esc_html__( 'Background Text', 'flatpack' ),
+				'label' => esc_html__( 'Background Text', 'edumentor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'flatpack' ),
-				'label_off' => esc_html__( 'Hide', 'flatpack' ),
+				'label_on' => esc_html__( 'Show', 'edumentor' ),
+				'label_off' => esc_html__( 'Hide', 'edumentor' ),
 				'return_value' => 'yes',
 				'default' => 'no',
                 'style_transfer' => true,
@@ -130,10 +130,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'background_text',
 			[
-				'label' => esc_html__( 'Text', 'flatpack' ),
+				'label' => esc_html__( 'Text', 'edumentor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Background', 'flatpack' ),
-				'placeholder' => esc_html__( 'Background Text', 'flatpack' ),
+				'default' => esc_html__( 'Background', 'edumentor' ),
+				'placeholder' => esc_html__( 'Background Text', 'edumentor' ),
 				'condition' => [
                     'heading!' => '',
 					'show_background_text' => 'yes'
@@ -147,9 +147,9 @@ class Widget extends Widget_Base {
         $this->add_control(
             'link',
             [
-                'label' => esc_html__( 'Link', 'flatpack' ),
+                'label' => esc_html__( 'Link', 'edumentor' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://example.com/', 'flatpack' ),
+                'placeholder' => esc_html__( 'https://example.com/', 'edumentor' ),
 				'separator' => 'after',
 				'dynamic' => [
 					'active' => true,
@@ -163,32 +163,32 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tag',
             [
-                'label' => esc_html__( 'HTML Tag', 'flatpack' ),
+                'label' => esc_html__( 'HTML Tag', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'h2',
                 'options' => [
                     'h1'  => [
-                        'title' => esc_html__( 'H1', 'flatpack' ),
+                        'title' => esc_html__( 'H1', 'edumentor' ),
                         'icon' => 'eicon-editor-h1'
                     ],
                     'h2'  => [
-                        'title' => esc_html__( 'H2', 'flatpack' ),
+                        'title' => esc_html__( 'H2', 'edumentor' ),
                         'icon' => 'eicon-editor-h2'
                     ],
                     'h3'  => [
-                        'title' => esc_html__( 'H3', 'flatpack' ),
+                        'title' => esc_html__( 'H3', 'edumentor' ),
                         'icon' => 'eicon-editor-h3'
                     ],
                     'h4'  => [
-                        'title' => esc_html__( 'H4', 'flatpack' ),
+                        'title' => esc_html__( 'H4', 'edumentor' ),
                         'icon' => 'eicon-editor-h4'
                     ],
                     'h5'  => [
-                        'title' => esc_html__( 'H5', 'flatpack' ),
+                        'title' => esc_html__( 'H5', 'edumentor' ),
                         'icon' => 'eicon-editor-h5'
                     ],
                     'h6'  => [
-                        'title' => esc_html__( 'H6', 'flatpack' ),
+                        'title' => esc_html__( 'H6', 'edumentor' ),
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
@@ -202,19 +202,19 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_align',
             [
-                'label' => esc_html__( 'Alignment', 'flatpack' ),
+                'label' => esc_html__( 'Alignment', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -222,8 +222,8 @@ class Widget extends Widget_Base {
                 'prefix_class' => 'align-',
                 'toggle' => false,
                 'selectors' => [
-                    '{{WRAPPER}}.fp-layout-inline' => 'text-align: {{VALUE}}',
-                    '{{WRAPPER}} .fp-heading' => 'text-align: {{VALUE}}'
+                    '{{WRAPPER}}.hq-layout-inline' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading' => 'text-align: {{VALUE}}'
 
                 ],
                 'condition' => [
@@ -235,15 +235,15 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_layout',
             [
-                'label' => esc_html__( 'Layout', 'flatpack' ),
+                'label' => esc_html__( 'Layout', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'inline' => [
-                        'title' => esc_html__( 'Inline', 'flatpack' ),
+                        'title' => esc_html__( 'Inline', 'edumentor' ),
                         'icon' => 'eicon-ellipsis-h',
                     ],
                     'block' => [
-                        'title' => esc_html__( 'Block', 'flatpack' ),
+                        'title' => esc_html__( 'Block', 'edumentor' ),
                         'icon' => 'eicon-menu-bar',
                     ]
                 ],
@@ -253,9 +253,9 @@ class Widget extends Widget_Base {
                     'block' => 'display: block',
                 ],
                 'default' => 'block',
-                'prefix_class' => 'fp-layout-',
+                'prefix_class' => 'hq-layout-',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading' => '{{VALUE}}'
+                    '{{WRAPPER}} .hq-heading' => '{{VALUE}}'
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -277,7 +277,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'animation_section',
 			[
-				'label' => esc_html__( 'Scrolling Animation', 'flatpack' ),
+				'label' => esc_html__( 'Scrolling Animation', 'edumentor' ),
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -287,10 +287,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_animation',
             [
-                'label' => esc_html__( 'Animation', 'flatpack' ),
+                'label' => esc_html__( 'Animation', 'edumentor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'flatpack' ),
-                'label_off' => esc_html__( 'No', 'flatpack' ),
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -302,12 +302,12 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_type',
             [
-                'label' => esc_html__( 'Type', 'flatpack' ),
+                'label' => esc_html__( 'Type', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
                 'options' => [
-                    'normal' => esc_html__( 'Normal', 'flatpack' ),
-                    'splitting'  => esc_html__( 'Splitting Text', 'flatpack' )
+                    'normal' => esc_html__( 'Normal', 'edumentor' ),
+                    'splitting'  => esc_html__( 'Splitting Text', 'edumentor' )
                 ],
                 'condition' => [
                     'heading!' => '',
@@ -319,15 +319,15 @@ class Widget extends Widget_Base {
         $this->add_control(
             'normal_anim_effect',
             [
-                'label' => esc_html__( 'Effect', 'flatpack' ),
+                'label' => esc_html__( 'Effect', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'fadeIn',
                 'options' => [
-                    'fadeIn' => esc_html__( 'Fade In', 'flatpack' ),
-                    'fadeInLeft' => esc_html__( 'Fade In Left', 'flatpack' ),
-                    'fadeInRight'  => esc_html__( 'Fade In Right', 'flatpack' ),
-                    'fadeInTop' => esc_html__( 'Fade In Top', 'flatpack' ),
-                    'fadeInBottom' => esc_html__( 'Fade In Bottom', 'flatpack' )
+                    'fadeIn' => esc_html__( 'Fade In', 'edumentor' ),
+                    'fadeInLeft' => esc_html__( 'Fade In Left', 'edumentor' ),
+                    'fadeInRight'  => esc_html__( 'Fade In Right', 'edumentor' ),
+                    'fadeInTop' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'fadeInBottom' => esc_html__( 'Fade In Bottom', 'edumentor' )
                 ],
                 'condition' => [
                     'heading!' => '',
@@ -340,13 +340,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'splitting_anim_effect',
             [
-                'label' => esc_html__( 'Effect', 'flatpack' ),
+                'label' => esc_html__( 'Effect', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'textFadeIn',
                 'options' => [
-                    'textFadeIn' => esc_html__( 'Fade In', 'flatpack' ),
-                    'textFadeInTop' => esc_html__( 'Fade In Top', 'flatpack' ),
-                    'textFadeInBottom'  => esc_html__( 'Fade In Bottom', 'flatpack' )
+                    'textFadeIn' => esc_html__( 'Fade In', 'edumentor' ),
+                    'textFadeInTop' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'textFadeInBottom'  => esc_html__( 'Fade In Bottom', 'edumentor' )
                 ],
                 'condition' => [
                     'heading!' => '',
@@ -359,7 +359,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_offset',
             [
-                'label' => esc_html__( 'Offset', 'flatpack' ),
+                'label' => esc_html__( 'Offset', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 200,
                 'condition' => [
@@ -373,7 +373,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_delay',
             [
-                'label' => esc_html__( 'Delay', 'flatpack' ),
+                'label' => esc_html__( 'Delay', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 400,
                 'condition' => [
@@ -387,7 +387,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_duration',
             [
-                'label' => esc_html__( 'Duration', 'flatpack' ),
+                'label' => esc_html__( 'Duration', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 700,
                 'condition' => [
@@ -416,20 +416,20 @@ class Widget extends Widget_Base {
 			$this->add_link_attributes( 'link', $settings['link'] );
 			$has_link = true;
         }
-        $this->add_render_attribute( 'heading', [ 'class' => [ 'fp-heading' ] ] );
+        $this->add_render_attribute( 'heading', [ 'class' => [ 'hq-heading' ] ] );
         $this->add_inline_editing_attributes( 'heading', 'none' );
 
         if( 'yes' === $settings['heading_animation'] ) {
             if( 'normal' == $settings['anim_type'] ) {
                 $this->add_render_attribute( 'heading', [ 
-                    'class' => [ 'wow', 'fp-' . $settings['normal_anim_effect'] ],
+                    'class' => [ 'wow', 'hq-' . $settings['normal_anim_effect'] ],
                     'data-wow-offset' => $settings['anim_offset'],
                     'data-wow-delay' => $settings['anim_delay'] . 'ms',
                     'data-wow-duration' => $settings['anim_duration'] . 'ms'
                 ] );
             }else{
                 $this->add_render_attribute( 'heading', [ 
-                    'class' => [ 'wow', 'fp-' . $settings['splitting_anim_effect'] ],
+                    'class' => [ 'wow', 'hq-' . $settings['splitting_anim_effect'] ],
                     'data-splitting' => ''
                 ] );
             }

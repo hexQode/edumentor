@@ -2,7 +2,7 @@
 /**
  * Social Icons
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\SocialIcons;
@@ -28,7 +28,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-social-icons';
+        return 'edumentor-social-icons';
     }
 
     /**
@@ -40,11 +40,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Social Icons', 'flatpack' );
+        return esc_html__( 'Social Icons', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -56,19 +56,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-social-icons';
+        return 'edumentor-icon eicon-social-icons';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'icons', 'social', 'social icons', 'flatpack' ];
+        return [ 'icons', 'social', 'social icons', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main', 'elementor-icons-fa-brands' ];
+        return [ 'hq-main', 'elementor-icons-fa-brands' ];
     }
 
     /**
@@ -136,7 +136,7 @@ class Widget extends Widget_Base {
                     'right' => 'justify-content: flex-end',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-social-items' => '{{VALUE}}'
+                    '{{WRAPPER}} .hq-social-items' => '{{VALUE}}'
                 ]
             ]
         );
@@ -159,7 +159,7 @@ class Widget extends Widget_Base {
                     'size' => 5
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-social-items' => 'gap: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-social-items' => 'gap: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -171,7 +171,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -383,7 +383,7 @@ class Widget extends Widget_Base {
                     'size' => 45,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items a' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -405,7 +405,7 @@ class Widget extends Widget_Base {
                     'size' => 45,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items a' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -427,8 +427,8 @@ class Widget extends Widget_Base {
                     'size' => 16,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items a' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .fp-social-items a svg' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a svg' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -449,7 +449,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'softgen-core' ),
                 'types'    => ['classic', 'gradient'],
                 'esclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .fp-social-items.style-1 a,{{WRAPPER}} .fp-social-items.style-2 a .blob-dl-btn__inner',
+                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a,{{WRAPPER}} .hq-social-items.style-2 a .blob-dl-btn__inner',
             ]
         );
 
@@ -459,8 +459,8 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Icon Color', 'softgen-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-social-items a' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .fp-social-items a svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a svg' => 'fill: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -470,7 +470,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'icon_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-social-items a',
+                'selector' => '{{WRAPPER}} .hq-social-items a',
             ]
         );
 
@@ -479,7 +479,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'icon_border',
                 'label'    => esc_html__( 'Border', 'softgen-core' ),
-                'selector' => '{{WRAPPER}} .fp-social-items a',
+                'selector' => '{{WRAPPER}} .hq-social-items a',
             ]
         );
 
@@ -490,7 +490,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -511,7 +511,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'softgen-core' ),
                 'types'    => ['classic', 'gradient'],
                 'esclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .fp-social-items.style-1 a:before, {{WRAPPER}} .fp-social-items.style-1 a:after, {{WRAPPER}} .fp-social-items.style-2 a .blob-dl-btn__blob',
+                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a:before, {{WRAPPER}} .hq-social-items.style-1 a:after, {{WRAPPER}} .hq-social-items.style-2 a .blob-dl-btn__blob',
             ]
         );
 
@@ -521,8 +521,8 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Icon Color', 'softgen-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-social-items a:hover' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .fp-social-items a:hover svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a:hover svg' => 'fill: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -532,7 +532,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'icon_hover_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-social-items a:hover',
+                'selector' => '{{WRAPPER}} .hq-social-items a:hover',
             ]
         );
 
@@ -541,7 +541,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'icon_hover_border',
                 'label'    => esc_html__( 'Border', 'softgen-core' ),
-                'selector' => '{{WRAPPER}} .fp-social-items a:hover',
+                'selector' => '{{WRAPPER}} .hq-social-items a:hover',
             ]
         );
 
@@ -552,7 +552,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-social-items a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-social-items a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -573,7 +573,7 @@ class Widget extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'wrapper', 'class', 'fp-social-items' . ' ' . $settings['hover_effect'] );
+        $this->add_render_attribute( 'wrapper', 'class', 'hq-social-items' . ' ' . $settings['hover_effect'] );
         $social_links = $settings['social_links'];
 
         if( $social_links ) {

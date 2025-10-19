@@ -2,7 +2,7 @@
 /**
  * WPML Manager
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Classes;
@@ -22,7 +22,7 @@ class WpmlManager{
 				'fields' => [
                     [
                         'field'       => 'count_text',
-                        'type'        => esc_html__( 'Category Carousel: Count Text', 'flatpack' ),
+                        'type'        => esc_html__( 'Category Carousel: Count Text', 'edumentor' ),
                         'editor_type' => 'LINE',
                     ]
                 ],
@@ -33,12 +33,12 @@ class WpmlManager{
 				'fields' => [
                     [
                         'field'       => 'posted_by',
-                        'type'        => esc_html__( 'Posts Carousel: Posted by Text', 'flatpack' ),
+                        'type'        => esc_html__( 'Posts Carousel: Posted by Text', 'edumentor' ),
                         'editor_type' => 'LINE',
                     ],
                     [
                         'field'       => 'readmore_text',
-                        'type'        => esc_html__( 'Posts Carousel: Readmore Text', 'flatpack' ),
+                        'type'        => esc_html__( 'Posts Carousel: Readmore Text', 'edumentor' ),
                         'editor_type' => 'LINE',
                     ],
                 ]

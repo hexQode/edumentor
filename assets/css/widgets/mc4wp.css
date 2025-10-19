@@ -9,31 +9,31 @@
     margin-top: 16px;
 }
 
-.fp-mailchimp-style-1 .fp-input-box {
+.hq-mailchimp-style-1 .hq-input-box {
     position: relative;
     max-width: 530px;
     margin: 0 auto;
 }
 
-.fp-input-box input {
+.hq-input-box input {
     border: 1px solid #ddd;
     outline: none;
 }
 
-.fp-input-box input:hover,
-.fp-input-box input:focus {
+.hq-input-box input:hover,
+.hq-input-box input:focus {
     outline: none;
     box-shadow: none;
     border: 1px solid #999;
 }
 
-.fp-input-box input[type="text"],
-.fp-input-box input[type="email"] {
+.hq-input-box input[type="text"],
+.hq-input-box input[type="email"] {
     width: 100%;
     outline: none;
 }
 
-.fp-mailchimp-style-1 .fp-input-box input[type="submit"] {
+.hq-mailchimp-style-1 .hq-input-box input[type="submit"] {
     position: absolute;
     right: 5px;
     top: 50%;
@@ -52,19 +52,19 @@
 
 /* Newsletter Style Two */
 
-.fp-mailchimp-style-2 .fp-input-box input[type="submit"] {
+.hq-mailchimp-style-2 .hq-input-box input[type="submit"] {
     width: 100%;
     transition: 0.5s;
 }
 
 /* Newsletter Style Three */
 
-.fp-input-box form {
+.hq-input-box form {
     width: 100%;
     overflow: hidden;
 }
 
-.fp-mailchimp-style-3 .fp-input-box {
+.hq-mailchimp-style-3 .hq-input-box {
     position: relative;
     max-width: 580px;
     width: 100%;
@@ -72,14 +72,14 @@
     display: flex;
 }
 
-.fp-mailchimp-style-3 .fp-input-box input {
+.hq-mailchimp-style-3 .hq-input-box input {
     text-align: center;
     float: left;
     overflow: hidden;
     max-width: 405px;
 }
 
-.fp-mailchimp-style-3 .fp-input-box input[type="submit"] {
+.hq-mailchimp-style-3 .hq-input-box input[type="submit"] {
     float: right;
     overflow: hidden;
     transition: 0.4s;
@@ -87,11 +87,11 @@
 
 /* Newsletter Style Four */
 
-.fp-mailchimp-style-4 .fp-input-box {
+.hq-mailchimp-style-4 .hq-input-box {
     position: relative;
 }
 
-.fp-mailchimp-style-4 .fp-input-box input[type="submit"] {
+.hq-mailchimp-style-4 .hq-input-box input[type="submit"] {
     background-color: #5e2ced;
     background-image: url(../../img/paper-plane.svg);
     background-repeat: no-repeat;
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 767px) {
-    .fp-mailchimp-style-3 .fp-input-box input {
+    .hq-mailchimp-style-3 .hq-input-box input {
         max-width: inherit;
         width: auto;
     }

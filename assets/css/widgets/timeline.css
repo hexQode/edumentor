@@ -1,16 +1,16 @@
-.fp-timeline-wrap {
-    --fp-tl-hr-line-color: #d9dee2;
-    --fp-tl-hr-line-width: 4px;
-    --fp-tl-hr-line-spacing: 30px;
-    border-left: var(--fp-tl-hr-line-width) solid var(--fp-tl-hr-line-color);
-    padding-left: var(--fp-tl-hr-line-spacing);
+.hq-timeline-wrap {
+    --hq-tl-hr-line-color: #d9dee2;
+    --hq-tl-hr-line-width: 4px;
+    --hq-tl-hr-line-spacing: 30px;
+    border-left: var(--hq-tl-hr-line-width) solid var(--hq-tl-hr-line-color);
+    padding-left: var(--hq-tl-hr-line-spacing);
     display: flex;
     align-items: baseline;
     flex-direction: column;
     row-gap: 30px;
 }
 
-.fp-timeline-item {
+.hq-timeline-item {
     background-color: #fafafa;
     font-family: var(--e-global-typography-text-font-family);
     padding: 30px;
@@ -21,41 +21,41 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fp-timeline-item:hover {
+.hq-timeline-item:hover {
     box-shadow: 0px 20px 40px 0px rgba(0, 9, 40, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fp-timeline-item:before {
-    background-color: var(--fp-tl-hr-line-color);
+.hq-timeline-item:before {
+    background-color: var(--hq-tl-hr-line-color);
     content: "";
-    width: var(--fp-tl-hr-line-spacing);
-    height: var(--fp-tl-hr-line-width);
+    width: var(--hq-tl-hr-line-spacing);
+    height: var(--hq-tl-hr-line-width);
     position: absolute;
     right: 100%;
     top: 60px;
     z-index: -1;
 }
 
-.fp-timeline-item:after {
+.hq-timeline-item:after {
     background-color: #fff;
-    border: var(--fp-tl-hr-line-width) solid var(--fp-tl-hr-line-color);
+    border: var(--hq-tl-hr-line-width) solid var(--hq-tl-hr-line-color);
     content: "";
     width: 20px;
     height: 20px;
     position: absolute;
-    right: calc(100% + (20px + (var(--fp-tl-hr-line-width) / 2)));
-    top: calc(60px - ((20px - var(--fp-tl-hr-line-width)) / 2));
+    right: calc(100% + (20px + (var(--hq-tl-hr-line-width) / 2)));
+    top: calc(60px - ((20px - var(--hq-tl-hr-line-width)) / 2));
     border-radius: 50%;
     z-index: -1;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fp-timeline-item:hover:after {
+.hq-timeline-item:hover:after {
     background-color: #5e2ced;
 }
 
-.fp-timeline-item .timeline-head {
+.hq-timeline-item .timeline-head {
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
@@ -65,7 +65,7 @@
     column-gap: 15px;
 }
 
-.fp-timeline-item .fp-tl-title {
+.hq-timeline-item .hq-tl-title {
     font-size: 22px;
     line-height: 1.2;
     color: #17172f;
@@ -74,7 +74,7 @@
     margin: 0;
 }
 
-.fp-timeline-item .fp-tl-subtitle {
+.hq-timeline-item .hq-tl-subtitle {
     font-size: 14px;
     color: #7a7a7a;
     line-height: 1;
@@ -82,7 +82,7 @@
     margin-top: 5px;
 }
 
-.fp-timeline-item .fp-tl-date-time-inner {
+.hq-timeline-item .hq-tl-date-time-inner {
     background-color: #eee;
     padding: 10px 15px;
     border-radius: 3px;
@@ -92,14 +92,14 @@
     font-weight: 500;
 }
 
-.fp-timeline-item .desc {
+.hq-timeline-item .desc {
     font-size: 18px;
     line-height: 28px;
     color: #555;
     margin: 0;
 }
 
-.fp-timeline-item .fp-readmore {
+.hq-timeline-item .hq-readmore {
     display: inline-block;
     font-size: 15px;
     line-height: 1;
@@ -110,25 +110,25 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fp-timeline-item .fp-readmore:hover {
+.hq-timeline-item .hq-readmore:hover {
     color: #5e2ced;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* RTL */
-.rtl .fp-timeline-wrap {
+.rtl .hq-timeline-wrap {
     border-left: none;
-    border-right: var(--fp-tl-hr-line-width) solid var(--fp-tl-hr-line-color);
+    border-right: var(--hq-tl-hr-line-width) solid var(--hq-tl-hr-line-color);
     padding-left: 0;
-    padding-right: var(--fp-tl-hr-line-spacing);
+    padding-right: var(--hq-tl-hr-line-spacing);
 }
 
-.rtl .fp-timeline-item:before {
+.rtl .hq-timeline-item:before {
     right: auto;
     left: 100%;
 }
 
-.rtl .fp-timeline-item:after {
+.rtl .hq-timeline-item:after {
     right: auto;
-    left: calc(100% + (20px + (var(--fp-tl-hr-line-width) / 2)));
+    left: calc(100% + (20px + (var(--hq-tl-hr-line-width) / 2)));
 }

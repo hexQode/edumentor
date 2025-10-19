@@ -2,7 +2,7 @@
 /**
  * Foreground Controls
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Controls;
@@ -55,17 +55,17 @@ class Foreground extends Group_Control_Base {
         $fields = [];
 
         $fields['color_type'] = [
-            'label' => _x( 'Text Color Type', 'Color Control', 'flatpack' ),
+            'label' => _x( 'Text Color Type', 'Color Control', 'edumentor' ),
             'type' => Controls_Manager::CHOOSE,
             'label_block' => false,
             'render_type' => 'ui',
             'options' => [
                 'classic' => [
-                    'title' => _x( 'Classic', 'Text Color Control', 'flatpack' ),
+                    'title' => _x( 'Classic', 'Text Color Control', 'edumentor' ),
                     'icon' => 'eicon-paint-brush',
                 ],
                 'gradient' => [
-                    'title' => _x( 'Gradient', 'Text Color Control', 'flatpack' ),
+                    'title' => _x( 'Gradient', 'Text Color Control', 'edumentor' ),
                     'icon' => 'eicon-barcode',
                 ],
             ],
@@ -73,10 +73,10 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['color'] = [
-            'label' => _x( 'Color', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Color', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::COLOR,
             'default' => '',
-            'title' => _x( 'Text Color', 'Background Control', 'flatpack' ),
+            'title' => _x( 'Text Color', 'Background Control', 'edumentor' ),
             'selectors' => [
                 '{{SELECTOR}}' => 'color: {{VALUE}};',
             ],
@@ -86,7 +86,7 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['color_stop'] = [
-            'label' => _x( 'Location', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Location', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ '%' ],
             'default' => [
@@ -101,7 +101,7 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['color_b'] = [
-            'label' => _x( 'Second Color', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Second Color', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::COLOR,
             'default' => '#f2295b',
             'render_type' => 'ui',
@@ -112,7 +112,7 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['color_b_stop'] = [
-            'label' => _x( 'Location', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Location', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ '%' ],
             'default' => [
@@ -127,11 +127,11 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['gradient_type'] = [
-            'label' => _x( 'Type', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Type', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::SELECT,
             'options' => [
-                'linear' => _x( 'Linear', 'Background Control', 'flatpack' ),
-                'radial' => _x( 'Radial', 'Background Control', 'flatpack' ),
+                'linear' => _x( 'Linear', 'Background Control', 'edumentor' ),
+                'radial' => _x( 'Radial', 'Background Control', 'edumentor' ),
             ],
             'default' => 'linear',
             'render_type' => 'ui',
@@ -142,7 +142,7 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['gradient_angle'] = [
-            'label' => _x( 'Angle', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Angle', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ 'deg' ],
             'default' => [
@@ -165,18 +165,18 @@ class Foreground extends Group_Control_Base {
         ];
 
         $fields['gradient_position'] = [
-            'label' => _x( 'Position', 'Background Control', 'flatpack' ),
+            'label' => _x( 'Position', 'Background Control', 'edumentor' ),
             'type' => Controls_Manager::SELECT,
             'options' => [
-                'center center' => _x( 'Center Center', 'Background Control', 'flatpack' ),
-                'center left' => _x( 'Center Left', 'Background Control', 'flatpack' ),
-                'center right' => _x( 'Center Right', 'Background Control', 'flatpack' ),
-                'top center' => _x( 'Top Center', 'Background Control', 'flatpack' ),
-                'top left' => _x( 'Top Left', 'Background Control', 'flatpack' ),
-                'top right' => _x( 'Top Right', 'Background Control', 'flatpack' ),
-                'bottom center' => _x( 'Bottom Center', 'Background Control', 'flatpack' ),
-                'bottom left' => _x( 'Bottom Left', 'Background Control', 'flatpack' ),
-                'bottom right' => _x( 'Bottom Right', 'Background Control', 'flatpack' ),
+                'center center' => _x( 'Center Center', 'Background Control', 'edumentor' ),
+                'center left' => _x( 'Center Left', 'Background Control', 'edumentor' ),
+                'center right' => _x( 'Center Right', 'Background Control', 'edumentor' ),
+                'top center' => _x( 'Top Center', 'Background Control', 'edumentor' ),
+                'top left' => _x( 'Top Left', 'Background Control', 'edumentor' ),
+                'top right' => _x( 'Top Right', 'Background Control', 'edumentor' ),
+                'bottom center' => _x( 'Bottom Center', 'Background Control', 'edumentor' ),
+                'bottom left' => _x( 'Bottom Left', 'Background Control', 'edumentor' ),
+                'bottom right' => _x( 'Bottom Right', 'Background Control', 'edumentor' ),
             ],
             'default' => 'center center',
             'selectors' => [

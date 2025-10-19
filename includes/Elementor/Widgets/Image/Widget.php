@@ -2,7 +2,7 @@
 /**
  * Image
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Image;
@@ -32,7 +32,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-image';
+        return 'edumentor-image';
     }
 
     /**
@@ -44,11 +44,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Image', 'flatpack' );
+        return esc_html__( 'Image', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -60,23 +60,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-image';
+        return 'edumentor-icon eicon-image';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'image', 'parallax', 'img', 'flatpack' ];
+        return [ 'image', 'parallax', 'img', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-image', 'fp-keyframes' ];
+        return [ 'hq-image', 'hq-keyframes' ];
     }
 
     public function get_script_depends() {
-        return [ 'flatpack-el-script', 'fp-parallax-scroll' ];
+        return [ 'edumentor-el-script', 'hq-parallax-scroll' ];
     }
 
     /**
@@ -101,14 +101,14 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'section_image',
 			[
-				'label' => esc_html__( 'Image', 'flatpack' ),
+				'label' => esc_html__( 'Image', 'edumentor' ),
 			]
 		);
 
 		$this->add_control(
 			'image',
 			[
-				'label' => esc_html__( 'Choose Image', 'flatpack' ),
+				'label' => esc_html__( 'Choose Image', 'edumentor' ),
 				'type' => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -131,19 +131,19 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'flatpack' ),
+				'label' => esc_html__( 'Alignment', 'edumentor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'flatpack' ),
+						'title' => esc_html__( 'Left', 'edumentor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'flatpack' ),
+						'title' => esc_html__( 'Center', 'edumentor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'flatpack' ),
+						'title' => esc_html__( 'Right', 'edumentor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -157,12 +157,12 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'caption_source',
 			[
-				'label' => esc_html__( 'Caption', 'flatpack' ),
+				'label' => esc_html__( 'Caption', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__( 'None', 'flatpack' ),
-					'attachment' => esc_html__( 'Attachment Caption', 'flatpack' ),
-					'custom' => esc_html__( 'Custom Caption', 'flatpack' ),
+					'none' => esc_html__( 'None', 'edumentor' ),
+					'attachment' => esc_html__( 'Attachment Caption', 'edumentor' ),
+					'custom' => esc_html__( 'Custom Caption', 'edumentor' ),
 				],
 				'default' => 'none',
 			]
@@ -171,10 +171,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'caption',
 			[
-				'label' => esc_html__( 'Custom Caption', 'flatpack' ),
+				'label' => esc_html__( 'Custom Caption', 'edumentor' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => '',
-				'placeholder' => esc_html__( 'Enter your image caption', 'flatpack' ),
+				'placeholder' => esc_html__( 'Enter your image caption', 'edumentor' ),
 				'condition' => [
 					'caption_source' => 'custom',
 				],
@@ -187,13 +187,13 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'link_to',
 			[
-				'label' => esc_html__( 'Link', 'flatpack' ),
+				'label' => esc_html__( 'Link', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none' => esc_html__( 'None', 'flatpack' ),
-					'file' => esc_html__( 'Media File', 'flatpack' ),
-					'custom' => esc_html__( 'Custom URL', 'flatpack' ),
+					'none' => esc_html__( 'None', 'edumentor' ),
+					'file' => esc_html__( 'Media File', 'edumentor' ),
+					'custom' => esc_html__( 'Custom URL', 'edumentor' ),
 				],
 			]
 		);
@@ -201,12 +201,12 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => esc_html__( 'Link', 'flatpack' ),
+				'label' => esc_html__( 'Link', 'edumentor' ),
 				'type' => Controls_Manager::URL,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => esc_html__( 'https://your-link.com', 'flatpack' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'edumentor' ),
 				'condition' => [
 					'link_to' => 'custom',
 				],
@@ -217,13 +217,13 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label' => esc_html__( 'Lightbox', 'flatpack' ),
+				'label' => esc_html__( 'Lightbox', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => esc_html__( 'Default', 'flatpack' ),
-					'yes' => esc_html__( 'Yes', 'flatpack' ),
-					'no' => esc_html__( 'No', 'flatpack' ),
+					'default' => esc_html__( 'Default', 'edumentor' ),
+					'yes' => esc_html__( 'Yes', 'edumentor' ),
+					'no' => esc_html__( 'No', 'edumentor' ),
 				],
 				'condition' => [
 					'link_to' => 'file',
@@ -234,12 +234,12 @@ class Widget extends Widget_Base {
 		$this->add_control(
             'image_blend_mode',
             [
-                'label' => esc_html__( 'Blend Mode', 'flatpack' ),
+                'label' => esc_html__( 'Blend Mode', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'separator' => 'before',
                 'default' => 'inherit',
                 'options' => [
-                    'inherit' => esc_html__( 'Normal', 'flatpack' ),
+                    'inherit' => esc_html__( 'Normal', 'edumentor' ),
                     'multiply' => 'Multiply',
                     'screen' => 'Screen',
                     'overlay' => 'Overlay',
@@ -262,7 +262,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => esc_html__( 'View', 'flatpack' ),
+				'label' => esc_html__( 'View', 'edumentor' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
@@ -282,7 +282,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'section_image_animation',
 			[
-				'label' => esc_html__( 'Image Animation', 'flatpack' ),
+				'label' => esc_html__( 'Image Animation', 'edumentor' ),
 			]
 		);
 
@@ -303,12 +303,12 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'anim_direction',
 			[
-				'label'   => esc_html__( 'Animation Direction', 'flatpack' ),
+				'label'   => esc_html__( 'Animation Direction', 'edumentor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'updown',
 				'options' => [
-					'updown'  => esc_html__( 'Up Down', 'flatpack' ),
-					'leftright' => esc_html__( 'Left Right', 'flatpack' ),
+					'updown'  => esc_html__( 'Up Down', 'edumentor' ),
+					'leftright' => esc_html__( 'Left Right', 'edumentor' ),
 				],
 				'condition'    => [
 					'anim_control' => 'infinite'
@@ -319,7 +319,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'img_anim_duration',
 			[
-				'label'      => esc_html__( 'Duration', 'flatpack' ),
+				'label'      => esc_html__( 'Duration', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['ms'],
 				'range'      => [
@@ -334,7 +334,7 @@ class Widget extends Widget_Base {
 					'size' => 1500,
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .fp-img-anim' => 'animation-duration: {{SIZE}}{{UNIT}}; -webkit-animation-duration: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hq-img-anim' => 'animation-duration: {{SIZE}}{{UNIT}}; -webkit-animation-duration: {{SIZE}}{{UNIT}};',
 				],
 				'condition'    => [
 					'anim_control' => 'infinite'
@@ -356,7 +356,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'section_style_image',
 			[
-				'label' => esc_html__( 'Image', 'flatpack' ),
+				'label' => esc_html__( 'Image', 'edumentor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -364,7 +364,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'width',
 			[
-				'label' => esc_html__( 'Width', 'flatpack' ),
+				'label' => esc_html__( 'Width', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -399,7 +399,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'max-width',
 			[
-				'label' => esc_html__( 'Max Width', 'flatpack' ),
+				'label' => esc_html__( 'Max Width', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -434,7 +434,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label' => esc_html__( 'Height', 'flatpack' ),
+				'label' => esc_html__( 'Height', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'vh' ],
 				'range' => [
@@ -456,15 +456,15 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'object-fit',
 			[
-				'label'   => esc_html__( 'Object Fit', 'flatpack' ),
+				'label'   => esc_html__( 'Object Fit', 'edumentor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'cover',
 				'options' => [
-					'fill'  => esc_html__( 'Fill', 'flatpack' ),
-					'contain' => esc_html__( 'Contain', 'flatpack' ),
-					'cover' => esc_html__( 'Cover', 'flatpack' ),
-					'scale-down' => esc_html__( 'Scale Down', 'flatpack' ),
-					'none' => esc_html__( 'None', 'flatpack' ),
+					'fill'  => esc_html__( 'Fill', 'edumentor' ),
+					'contain' => esc_html__( 'Contain', 'edumentor' ),
+					'cover' => esc_html__( 'Cover', 'edumentor' ),
+					'scale-down' => esc_html__( 'Scale Down', 'edumentor' ),
+					'none' => esc_html__( 'None', 'edumentor' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .el-image img' => 'object-fit: {{VALUE}};',
@@ -475,15 +475,15 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'object-position',
 			[
-				'label'     => esc_html__( 'Object Position', 'flatpack' ),
+				'label'     => esc_html__( 'Object Position', 'edumentor' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
 				'options'   => [
-					'top'    => esc_html__( 'Top', 'flatpack' ),
-					'bottom' => esc_html__( 'Bottom', 'flatpack' ),
-					'left'   => esc_html__( 'Left', 'flatpack' ),
-					'right'  => esc_html__( 'Right', 'flatpack' ),
-					'center' => esc_html__( 'Center', 'flatpack' ),
+					'top'    => esc_html__( 'Top', 'edumentor' ),
+					'bottom' => esc_html__( 'Bottom', 'edumentor' ),
+					'left'   => esc_html__( 'Left', 'edumentor' ),
+					'right'  => esc_html__( 'Right', 'edumentor' ),
+					'center' => esc_html__( 'Center', 'edumentor' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .el-image img' => 'object-position: {{VALUE}};',
@@ -506,14 +506,14 @@ class Widget extends Widget_Base {
 
 		$this->start_controls_tab( 'normal',
 			[
-				'label' => esc_html__( 'Normal', 'flatpack' ),
+				'label' => esc_html__( 'Normal', 'edumentor' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity',
 			[
-				'label' => esc_html__( 'Opacity', 'flatpack' ),
+				'label' => esc_html__( 'Opacity', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -540,14 +540,14 @@ class Widget extends Widget_Base {
 
 		$this->start_controls_tab( 'hover',
 			[
-				'label' => esc_html__( 'Hover', 'flatpack' ),
+				'label' => esc_html__( 'Hover', 'edumentor' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label' => esc_html__( 'Opacity', 'flatpack' ),
+				'label' => esc_html__( 'Opacity', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -573,7 +573,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'background_hover_transition',
 			[
-				'label' => esc_html__( 'Transition Duration', 'flatpack' ),
+				'label' => esc_html__( 'Transition Duration', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -590,7 +590,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => esc_html__( 'Hover Animation', 'flatpack' ),
+				'label' => esc_html__( 'Hover Animation', 'edumentor' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -611,7 +611,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'flatpack' ),
+				'label' => esc_html__( 'Border Radius', 'edumentor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -645,7 +645,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'section_style_caption',
 			[
-				'label' => esc_html__( 'Caption', 'flatpack' ),
+				'label' => esc_html__( 'Caption', 'edumentor' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'caption_source!' => 'none',
@@ -656,23 +656,23 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'caption_align',
 			[
-				'label' => esc_html__( 'Alignment', 'flatpack' ),
+				'label' => esc_html__( 'Alignment', 'edumentor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'flatpack' ),
+						'title' => esc_html__( 'Left', 'edumentor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'flatpack' ),
+						'title' => esc_html__( 'Center', 'edumentor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'flatpack' ),
+						'title' => esc_html__( 'Right', 'edumentor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'flatpack' ),
+						'title' => esc_html__( 'Justified', 'edumentor' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -686,7 +686,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'flatpack' ),
+				'label' => esc_html__( 'Text Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -698,7 +698,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'caption_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'flatpack' ),
+				'label' => esc_html__( 'Background Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'background-color: {{VALUE}};',
@@ -725,7 +725,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_space',
 			[
-				'label' => esc_html__( 'Spacing', 'flatpack' ),
+				'label' => esc_html__( 'Spacing', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -796,8 +796,8 @@ class Widget extends Widget_Base {
 		$has_caption = $this->has_caption( $settings );
 
 		if( 'infinite' === $settings['anim_control'] ) {
-			$anim_cls = 'fp-img-anim';
-			$anim_direction = 'fp-img-anim-' . $settings['anim_direction'];
+			$anim_cls = 'hq-img-anim';
+			$anim_direction = 'hq-img-anim-' . $settings['anim_direction'];
 		}else{
 			$anim_cls = '';
 			$anim_direction = '';
@@ -830,7 +830,7 @@ class Widget extends Widget_Base {
 				$this->add_lightbox_data_attributes( 'link', $settings['image']['id'], $settings['open_lightbox'] );
 			}
 		} ?>
-		<div id="fp-img-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<div id="hq-img-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 			<?php if ( $has_caption ) : ?>
 				<figure class="wp-caption">
 			<?php endif; ?>

@@ -2,7 +2,7 @@
 /**
  * MailChimp for WP
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\MailChimp;
@@ -27,7 +27,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-mc4wp';
+        return 'edumentor-mc4wp';
     }
 
     /**
@@ -39,11 +39,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'MailChimp WP', 'flatpack' );
+        return esc_html__( 'MailChimp WP', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -55,19 +55,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-mailchimp';
+        return 'edumentor-icon eicon-mailchimp';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'newsletter', 'mc4wp', 'mailchimp', 'mailchimp for wp', 'flatpack' ];
+        return [ 'newsletter', 'mc4wp', 'mailchimp', 'mailchimp for wp', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-mc4wp' ];
+        return [ 'hq-mc4wp' ];
     }
 
     /**
@@ -90,21 +90,21 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'fp_mailchimp',
             [
-                'label' => esc_html__( 'Mailchimp', 'flatpack' ),
+                'label' => esc_html__( 'Mailchimp', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'fp_mailchimp_form_style',
             [
-                'label'   => esc_html__( 'Style', 'flatpack' ),
+                'label'   => esc_html__( 'Style', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => '4',
                 'options' => [
-                    '1' => esc_html__( 'Style One', 'flatpack' ),
-                    '2' => esc_html__( 'Style Two', 'flatpack' ),
-                    '3' => esc_html__( 'Style Three', 'flatpack' ),
-                    '4' => esc_html__( 'Style Four', 'flatpack' )
+                    '1' => esc_html__( 'Style One', 'edumentor' ),
+                    '2' => esc_html__( 'Style Two', 'edumentor' ),
+                    '3' => esc_html__( 'Style Three', 'edumentor' ),
+                    '4' => esc_html__( 'Style Four', 'edumentor' )
                 ],
             ]
         );
@@ -112,10 +112,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'fp_mailchimp_id',
             [
-                'label'       => esc_html__( 'Mailchimp ID', 'flatpack' ),
+                'label'       => esc_html__( 'Mailchimp ID', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( '250', 'flatpack' ),
-                'description' => esc_html__( 'For show ID <a href="admin.php?page=mailchimp-for-wp-forms" target="_blank"> Click here </a>', 'flatpack' ),
+                'placeholder' => esc_html__( '250', 'edumentor' ),
+                'description' => esc_html__( 'For show ID <a href="admin.php?page=mailchimp-for-wp-forms" target="_blank"> Click here </a>', 'edumentor' ),
                 'label_block' => true,
                 'separator'   => 'before',
             ]
@@ -133,7 +133,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'fp_mailchimp_section_style',
             [
-                'label' => esc_html__( 'Wrapper', 'flatpack' ),
+                'label' => esc_html__( 'Wrapper', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -141,11 +141,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'fp_mailchimp_section_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-input-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-input-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -154,11 +154,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'fp_mailchimp_section_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-input-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-input-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -168,33 +168,33 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'fp_mailchimp_section_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-input-box',
+                'selector' => '{{WRAPPER}} .hq-input-box',
             ]
         );
 
         $this->add_responsive_control(
             'fp_mailchimp_section_align',
             [
-                'label'     => esc_html__( 'Alignment', 'flatpack' ),
+                'label'     => esc_html__( 'Alignment', 'edumentor' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => [
                     'left'    => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'center'  => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon'  => 'eicon-text-align-center',
                     ],
                     'right'   => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-input-box' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .hq-input-box' => 'text-align: {{VALUE}};',
                 ],
                 'default'   => 'center',
                 'separator' => 'before',
@@ -214,7 +214,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'fp_mailchimp_input_style',
             [
-                'label' => esc_html__( 'Input Box', 'flatpack' ),
+                'label' => esc_html__( 'Input Box', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -222,7 +222,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_box_height',
             [
-                'label'     => esc_html__( 'Height', 'flatpack' ),
+                'label'     => esc_html__( 'Height', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -250,7 +250,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_box_background',
             [
-                'label'     => esc_html__( 'Background Color', 'flatpack' ),
+                'label'     => esc_html__( 'Background Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="text"]'          => 'background-color: {{VALUE}};',
@@ -263,7 +263,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_box_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="text"]'  => 'color: {{VALUE}};',
@@ -275,7 +275,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_box_placeholder_color',
             [
-                'label'     => esc_html__( 'Placeholder Color', 'flatpack' ),
+                'label'     => esc_html__( 'Placeholder Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="text"]::-webkit-input-placeholder'  => 'color: {{VALUE}};',
@@ -293,7 +293,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'dl_input_box_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .mc4wp-form input[type*="email"]',
             ]
         );
@@ -301,7 +301,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_box_border_radius',
             [
-                'label'     => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'     => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'      => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="text"]'  => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
@@ -314,7 +314,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_box_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -328,7 +328,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_box_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -342,7 +342,7 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'fh_style_heading',
 			[
-				'label' => esc_html__( 'Hover/Focus Style', 'flatpack' ),
+				'label' => esc_html__( 'Hover/Focus Style', 'edumentor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -352,7 +352,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'text_fh_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .mc4wp-form input[type*="text"]:hover, {{WRAPPER}} .mc4wp-form input[type*="text"]:focus, {{WRAPPER}} .mc4wp-form input[type*="email"]:hover, {{WRAPPER}} .mc4wp-form input[type*="email"]:focus',
             ]
         );
@@ -368,7 +368,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'text_fh_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -389,7 +389,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'fp_mailchimp_inputsubmit_style',
             [
-                'label' => esc_html__( 'Button', 'flatpack' ),
+                'label' => esc_html__( 'Button', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -400,14 +400,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'dl_submit_style_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
 
         $this->add_responsive_control(
             'dl_input_submit_width',
             [
-                'label'     => esc_html__( 'Width', 'flatpack' ),
+                'label'     => esc_html__( 'Width', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -429,7 +429,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_submit_height',
             [
-                'label'     => esc_html__( 'Height', 'flatpack' ),
+                'label'     => esc_html__( 'Height', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -448,7 +448,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_submit_icon_size',
             [
-                'label'     => esc_html__( 'Icon Size', 'flatpack' ),
+                'label'     => esc_html__( 'Icon Size', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -478,7 +478,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_submit_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="submit"]' => 'color: {{VALUE}};',
@@ -489,7 +489,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_submit_background_color',
             [
-                'label'     => esc_html__( 'Background Color', 'flatpack' ),
+                'label'     => esc_html__( 'Background Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="submit"]' => 'background-color: {{VALUE}};',
@@ -500,7 +500,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_submit_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -513,7 +513,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_submit_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -527,7 +527,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'dl_input_submit_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .mc4wp-form input[type*="submit"]',
             ]
         );
@@ -535,7 +535,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'dl_input_submit_border_radius',
             [
-                'label'     => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'     => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'      => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="submit"]' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
@@ -548,7 +548,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'dl_input_submit_box_shadow',
-                'label'    => esc_html__( 'Box Shadow', 'flatpack' ),
+                'label'    => esc_html__( 'Box Shadow', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .mc4wp-form input[type*="submit"]',
             ]
         );
@@ -559,14 +559,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'dl_submit_style_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' ),
+                'label' => esc_html__( 'Hover', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'dl_input_submithover_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="submit"]:hover' => 'color: {{VALUE}};',
@@ -577,7 +577,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dl_input_submithover_background_color',
             [
-                'label'     => esc_html__( 'Background Color', 'flatpack' ),
+                'label'     => esc_html__( 'Background Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="submit"]:hover' => 'background-color: {{VALUE}};',
@@ -589,7 +589,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'dl_input_submithover_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .mc4wp-form input[type*="submit"]:hover',
             ]
         );
@@ -611,12 +611,12 @@ class Widget extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'fp-mailchimp' );
-        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'fp-mailchimp-style-' . $settings['fp_mailchimp_form_style'] );
+        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'hq-mailchimp' );
+        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'hq-mailchimp-style-' . $settings['fp_mailchimp_form_style'] );
 
         ?>
         <div <?php echo $this->get_render_attribute_string( 'mailchimp_area_attr' ); ?> >
-            <div class="fp-input-box">
+            <div class="hq-input-box">
                 <?php 
                 echo do_shortcode( '[mc4wp_form  id="' . $settings['fp_mailchimp_id'] . '"]' );
                 ?>

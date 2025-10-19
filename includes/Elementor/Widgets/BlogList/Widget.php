@@ -2,7 +2,7 @@
 /**
  * Blog List
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\BlogList;
@@ -25,7 +25,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-blog-list';
+        return 'edumentor-blog-list';
     }
 
     /**
@@ -37,11 +37,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Blog List', 'flatpack' );
+        return esc_html__( 'Blog List', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -53,19 +53,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-posts-grid';
+        return 'edumentor-icon eicon-posts-grid';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'blog', 'grid', 'list', 'posts', 'flatpack' ];
+        return [ 'blog', 'grid', 'list', 'posts', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-blog-list' ];
+        return [ 'hq-blog-list' ];
     }
 
     /**
@@ -110,7 +110,7 @@ class Widget extends Widget_Base {
                     'size' => 3
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-blog-posts' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
+                    '{{WRAPPER}} .hq-blog-posts' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
                 ]
             ]
         );
@@ -543,18 +543,18 @@ class Widget extends Widget_Base {
 
 		endif;
         $wp_query = new \WP_Query( $args );
-        $this->add_render_attribute( 'wrapper', [ 'class' => [ 'fp-blog-posts' ] ] );
+        $this->add_render_attribute( 'wrapper', [ 'class' => [ 'hq-blog-posts' ] ] );
 
         if( 'yes' === $settings['scroll_anim'] ) {
-            $anim_cls = ['wow', 'fp-animation', esc_attr( $settings['anim_effect'] )];
+            $anim_cls = ['wow', 'hq-animation', esc_attr( $settings['anim_effect'] )];
             $this->add_render_attribute( 'scrolling-animation', [ 
-                'class' => array_merge(get_post_class('fp-blog-item'), $anim_cls),
+                'class' => array_merge(get_post_class('hq-blog-item'), $anim_cls),
                 'data-wow-offset' => esc_attr( $settings['anim_offset']['size'] ),
                 'data-wow-duration' => esc_attr( $settings['anim_duration']['size'] ) . 'ms',
             ] );
         }else{
             $this->add_render_attribute( 'scrolling-animation', [ 
-                'class' => get_post_class('fp-blog-item')
+                'class' => get_post_class('hq-blog-item')
             ] );
         }
         

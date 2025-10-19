@@ -86,9 +86,9 @@
 
 /** Navigation **/
 .hq-blog-wrapper {
-  --hq-flatpack-dots-spacing: 30px;
-  --hq-flatpack-dots-size: 6px;
-  --hq-flatpack-color: #fd307a;
+  --hq-edumentor-dots-spacing: 30px;
+  --hq-edumentor-dots-size: 6px;
+  --hq-edumentor-color: #fd307a;
 }
 
 .nav-hidden {
@@ -96,7 +96,7 @@
 }
 
 .hq-carousel-nav button {
-  background-color: var(--hq-flatpack-color);
+  background-color: var(--hq-edumentor-color);
   padding: 0;
   width: 60px;
   height: 45px;
@@ -119,7 +119,7 @@
   border-radius: 50%;
   position: absolute;
   left: 0;
-  top: calc(50% - (var(--hq-flatpack-dots-size) + var(--hq-flatpack-dots-spacing)) / 2);
+  top: calc(50% - (var(--hq-edumentor-dots-size) + var(--hq-edumentor-dots-spacing)) / 2);
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
@@ -164,7 +164,7 @@
 /** Dots [Pagination] **/
 .hq-carousel-dots {
   display: block;
-  margin-top: var(--hq-flatpack-dots-spacing);
+  margin-top: var(--hq-edumentor-dots-spacing);
 }
 .hq-carousel-dots .slick-dots {
   list-style: none;
@@ -184,8 +184,8 @@
           column-gap: 10px;
 }
 .hq-carousel-dots.dot-style-1 .slick-dots li {
-  width: var(--hq-flatpack-dots-size);
-  height: var(--hq-flatpack-dots-size);
+  width: var(--hq-edumentor-dots-size);
+  height: var(--hq-edumentor-dots-size);
   cursor: pointer;
 }
 .hq-carousel-dots.dot-style-1 .slick-dots li span {
@@ -198,12 +198,12 @@
   transition: all 0.3s ease-in-out;
 }
 .hq-carousel-dots.dot-style-1 .slick-dots li.slick-active span {
-  background-color: var(--hq-flatpack-color);
+  background-color: var(--hq-edumentor-color);
   -webkit-box-shadow: 0px 0px 0px 3px rgba(253, 48, 123, 0.3019607843);
           box-shadow: 0px 0px 0px 3px rgba(253, 48, 123, 0.3019607843);
 }
 .hq-carousel-dots.dot-style-2 {
-  --hq-flatpack-dots-size: 20px;
+  --hq-edumentor-dots-size: 20px;
 }
 .hq-carousel-dots.dot-style-2 .slick-dots {
   -webkit-column-gap: 0;
@@ -211,8 +211,8 @@
           column-gap: 0;
 }
 .hq-carousel-dots.dot-style-2 .slick-dots li {
-  width: var(--hq-flatpack-dots-size);
-  height: var(--hq-flatpack-dots-size);
+  width: var(--hq-edumentor-dots-size);
+  height: var(--hq-edumentor-dots-size);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,8 +231,8 @@
   height: 100%;
 }
 .hq-carousel-dots.dot-style-2 .slick-dots li svg {
-  width: var(--hq-flatpack-dots-size);
-  height: var(--hq-flatpack-dots-size);
+  width: var(--hq-edumentor-dots-size);
+  height: var(--hq-edumentor-dots-size);
 }
 .hq-carousel-dots.dot-style-2 .slick-dots li .path {
   stroke: #eee;
@@ -243,7 +243,7 @@
   fill: #eee;
 }
 .hq-carousel-dots.dot-style-2 .slick-dots li.slick-active .path {
-  stroke: var(--hq-flatpack-color);
+  stroke: var(--hq-edumentor-color);
   display: inline-block !important;
   stroke-dasharray: 1000;
   stroke-dashoffset: 0;
@@ -253,7 +253,7 @@
           animation-iteration-count: unset;
 }
 .hq-carousel-dots.dot-style-2 .slick-dots li.slick-active .solid-fill {
-  fill: var(--hq-flatpack-color);
+  fill: var(--hq-edumentor-color);
 }
 
 @-webkit-keyframes dash {

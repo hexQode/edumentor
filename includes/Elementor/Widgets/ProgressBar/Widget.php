@@ -2,7 +2,7 @@
 /**
  * Progress Bar
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\ProgressBar;
@@ -29,7 +29,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-progress-bar';
+        return 'edumentor-progress-bar';
     }
 
     /**
@@ -41,11 +41,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Progress Bar', 'flatpack' );
+        return esc_html__( 'Progress Bar', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -57,23 +57,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-skill-bar';
+        return 'edumentor-icon eicon-skill-bar';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'progress', 'skill', 'bar', 'chart', 'flatpack' ];
+        return [ 'progress', 'skill', 'bar', 'chart', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-progress-bar' ];
+        return [ 'hq-progress-bar' ];
     }
 
     public function get_script_depends() {
-        return [ 'flatpack-el-script', 'jquery-numerator', 'waypoints' ];
+        return [ 'edumentor-el-script', 'jquery-numerator', 'waypoints' ];
     }
 
     /**
@@ -98,7 +98,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_progress_bars',
             [
-                'label' => esc_html__( 'Progress Bars', 'flatpack' ),
+                'label' => esc_html__( 'Progress Bars', 'edumentor' ),
             ]
         );
 
@@ -108,16 +108,16 @@ class Widget extends Widget_Base {
             'name',
             [
                 'type'        => Controls_Manager::TEXT,
-                'label'       => esc_html__( 'Name', 'flatpack' ),
-                'default'     => esc_html__( 'Progress Bar', 'flatpack' ),
-                'placeholder' => esc_html__( 'Type Progress Bar Name', 'flatpack' ),
+                'label'       => esc_html__( 'Name', 'edumentor' ),
+                'default'     => esc_html__( 'Progress Bar', 'edumentor' ),
+                'placeholder' => esc_html__( 'Type Progress Bar Name', 'edumentor' ),
             ]
         );
 
         $repeater->add_control(
             'level',
             [
-                'label'      => esc_html__( 'Level (Out Of 100)', 'flatpack' ),
+                'label'      => esc_html__( 'Level (Out Of 100)', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'default'    => [
                     'unit' => '%',
@@ -136,22 +136,22 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'customize',
             [
-                'label'        => esc_html__( 'Want To Customize?', 'flatpack' ),
+                'label'        => esc_html__( 'Want To Customize?', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-                'label_off'    => esc_html__( 'No', 'flatpack' ),
+                'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+                'label_off'    => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
-                'description'  => esc_html__( 'You can customize this skill bar color from here or customize from Style tab', 'flatpack' ),
+                'description'  => esc_html__( 'You can customize this skill bar color from here or customize from Style tab', 'edumentor' ),
             ]
         );
 
         $repeater->add_control(
             'color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-skill-info' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-skill-info' => 'color: {{VALUE}}',
                 ],
                 'condition' => ['customize' => 'yes'],
             ]
@@ -160,15 +160,15 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_level_color_type',
             [
-                'label'   => esc_html__( 'Level Color Type', 'flatpack' ),
+                'label'   => esc_html__( 'Level Color Type', 'edumentor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'color'   => [
-                        'title' => esc_html__( 'Color', 'flatpack' ),
+                        'title' => esc_html__( 'Color', 'edumentor' ),
                         'icon'  => 'eicon-paint-brush',
                     ],
                     'gradient' => [
-                        'title' => esc_html__( 'Gradient', 'flatpack' ),
+                        'title' => esc_html__( 'Gradient', 'edumentor' ),
                         'icon'  => 'eicon-barcode',
                     ],
                 ],
@@ -181,10 +181,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_level_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-skill-level' => 'background-color: {{VALUE}}; background-image: inherit;',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-skill-level' => 'background-color: {{VALUE}}; background-image: inherit;',
                 ],
                 'condition'    => [
                     'r_level_color_type'    => 'color',
@@ -196,7 +196,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_f_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default' => '#ff5e17',
                 'render_type' => 'ui',
@@ -210,7 +210,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_f_location',
             [
-                'label'      => esc_html__( 'Location', 'flatpack' ),
+                'label'      => esc_html__( 'Location', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
                 'range'      => [
@@ -234,7 +234,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_s_color',
             [
-                'label'     => esc_html__( 'Second Color', 'flatpack' ),
+                'label'     => esc_html__( 'Second Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default' => '#5333f2',
                 'render_type' => 'ui',
@@ -248,7 +248,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_s_location',
             [
-                'label'      => esc_html__( 'Location', 'flatpack' ),
+                'label'      => esc_html__( 'Location', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
                 'range'      => [
@@ -272,12 +272,12 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_type',
             [
-                'label'   => esc_html__( 'Type', 'flatpack' ),
+                'label'   => esc_html__( 'Type', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'linear',
                 'options' => [
-                    'linear'  => esc_html__( 'Linear', 'flatpack' ),
-                    'radial' => esc_html__( 'Radial', 'flatpack' ),
+                    'linear'  => esc_html__( 'Linear', 'edumentor' ),
+                    'radial' => esc_html__( 'Radial', 'edumentor' ),
                 ],
                 'condition'    => [
                     'r_level_color_type'    => 'gradient',
@@ -289,7 +289,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_angle',
             [
-                'label'      => esc_html__( 'Angle', 'flatpack' ),
+                'label'      => esc_html__( 'Angle', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -303,8 +303,8 @@ class Widget extends Widget_Base {
                     'size' => 180
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-skill-level' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
-                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .fp-skill-level-text' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-skill-level' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
+                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .hq-skill-level-text' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
                 ],
                 'condition'    => [
                     'r_level_color_type'    => 'gradient',
@@ -317,23 +317,23 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'r_g_postion',
             [
-                'label'   => esc_html__( 'Position', 'flatpack' ),
+                'label'   => esc_html__( 'Position', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'center center',
                 'options' => [
-                    'center center'  => esc_html__( 'Center Center', 'flatpack' ),
-                    'center left' => esc_html__( 'Center Left', 'flatpack' ),
-                    'center right' => esc_html__( 'Center Right', 'flatpack' ),
-                    'top center' => esc_html__( 'Top Center', 'flatpack' ),
-                    'top left' => esc_html__( 'Top Left', 'flatpack' ),
-                    'top right' => esc_html__( 'Top Right', 'flatpack' ),
-                    'bottom center' => esc_html__( 'Bottom Center', 'flatpack' ),
-                    'bottom left' => esc_html__( 'Bottom Left', 'flatpack' ),
-                    'bottom right' => esc_html__( 'Bottom Right', 'flatpack' ),
+                    'center center'  => esc_html__( 'Center Center', 'edumentor' ),
+                    'center left' => esc_html__( 'Center Left', 'edumentor' ),
+                    'center right' => esc_html__( 'Center Right', 'edumentor' ),
+                    'top center' => esc_html__( 'Top Center', 'edumentor' ),
+                    'top left' => esc_html__( 'Top Left', 'edumentor' ),
+                    'top right' => esc_html__( 'Top Right', 'edumentor' ),
+                    'bottom center' => esc_html__( 'Bottom Center', 'edumentor' ),
+                    'bottom left' => esc_html__( 'Bottom Left', 'edumentor' ),
+                    'bottom right' => esc_html__( 'Bottom Right', 'edumentor' ),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-skill-level' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
-                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .fp-skill-level-text' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-skill-level' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
+                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .hq-skill-level-text' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{r_g_f_color.VALUE}} {{r_g_f_location.SIZE}}{{r_g_f_location.UNIT}}, {{r_g_s_color.VALUE}} {{r_g_s_location.SIZE}}{{r_g_s_location.UNIT}})',
                 ],
                 'condition'    => [
                     'r_level_color_type'    => 'gradient',
@@ -346,12 +346,12 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'percent_level_bg',
             [
-                'label'     => esc_html__( 'Percent Background Color', 'flatpack' ),
-                'description' => esc_html__( 'For text position outside.', 'flatpack' ),
+                'label'     => esc_html__( 'Percent Background Color', 'edumentor' ),
+                'description' => esc_html__( 'For text position outside.', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .fp-skill-level-text' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .hq-skill-level-text' => 'background-color: {{VALUE}}',
                 ],
                 'condition'    => [
                     'customize' => 'yes'
@@ -362,12 +362,12 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'percent_level_text',
             [
-                'label'     => esc_html__( 'Percent Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Percent Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}}.text-inside {{CURRENT_ITEM}} .fp-skill-level-text' => 'color: {{VALUE}}',
-                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .fp-skill-level-text' => 'color: {{VALUE}}',
+                    '{{WRAPPER}}.text-inside {{CURRENT_ITEM}} .hq-skill-level-text' => 'color: {{VALUE}}',
+                    '{{WRAPPER}}.text-outside {{CURRENT_ITEM}} .hq-skill-level-text' => 'color: {{VALUE}}',
                 ],
                 'condition'    => [
                     'customize' => 'yes'
@@ -378,11 +378,11 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'base_color',
             [
-                'label'     => esc_html__( 'Base Color', 'flatpack' ),
+                'label'     => esc_html__( 'Base Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-skill' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-skill' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => ['customize' => 'yes'],
             ]
@@ -424,13 +424,13 @@ class Widget extends Widget_Base {
             'view',
             [
                 'type'      => Controls_Manager::SELECT,
-                'label'     => esc_html__( 'Text Position', 'flatpack' ),
+                'label'     => esc_html__( 'Text Position', 'edumentor' ),
                 'separator' => 'before',
                 'default'   => 'inside',
                 'prefix_class' => 'text-',
                 'options'   => [
-                    'inside'  => esc_html__( 'Text Inside', 'flatpack' ),
-                    'outside' => esc_html__( 'Text Outside', 'flatpack' ),
+                    'inside'  => esc_html__( 'Text Inside', 'edumentor' ),
+                    'outside' => esc_html__( 'Text Outside', 'edumentor' ),
                 ],
             ]
         );
@@ -449,7 +449,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_skill_bars',
             [
-                'label' => esc_html__( 'Skill Bars', 'flatpack' ),
+                'label' => esc_html__( 'Skill Bars', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -457,15 +457,15 @@ class Widget extends Widget_Base {
         $this->add_control(
             'level_color_type',
             [
-                'label'   => esc_html__( 'Bar Color Type', 'flatpack' ),
+                'label'   => esc_html__( 'Bar Color Type', 'edumentor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'color'   => [
-                        'title' => esc_html__( 'Color', 'flatpack' ),
+                        'title' => esc_html__( 'Color', 'edumentor' ),
                         'icon'  => 'eicon-paint-brush',
                     ],
                     'gradient' => [
-                        'title' => esc_html__( 'Gradient', 'flatpack' ),
+                        'title' => esc_html__( 'Gradient', 'edumentor' ),
                         'icon'  => 'eicon-barcode',
                     ],
                 ],
@@ -477,11 +477,11 @@ class Widget extends Widget_Base {
         $this->add_control(
             'level_color',
             [
-                'label'     => esc_html__( 'Bar Color', 'flatpack' ),
+                'label'     => esc_html__( 'Bar Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#5e2ced',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill-level' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-skill-level' => 'background-color: {{VALUE}}',
                 ],
                 'condition'    => [
                     'level_color_type'    => 'color'
@@ -492,7 +492,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_f_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default' => '#5e2ced',
                 'render_type' => 'ui',
@@ -505,7 +505,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_f_location',
             [
-                'label'      => esc_html__( 'Location', 'flatpack' ),
+                'label'      => esc_html__( 'Location', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
                 'range'      => [
@@ -528,7 +528,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_s_color',
             [
-                'label'     => esc_html__( 'Second Color', 'flatpack' ),
+                'label'     => esc_html__( 'Second Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default' => '#6832fc',
                 'render_type' => 'ui',
@@ -541,7 +541,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_s_location',
             [
-                'label'      => esc_html__( 'Location', 'flatpack' ),
+                'label'      => esc_html__( 'Location', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
                 'range'      => [
@@ -564,12 +564,12 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_type',
             [
-                'label'   => esc_html__( 'Type', 'flatpack' ),
+                'label'   => esc_html__( 'Type', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'linear',
                 'options' => [
-                    'linear'  => esc_html__( 'Linear', 'flatpack' ),
-                    'radial' => esc_html__( 'Radial', 'flatpack' ),
+                    'linear'  => esc_html__( 'Linear', 'edumentor' ),
+                    'radial' => esc_html__( 'Radial', 'edumentor' ),
                 ],
                 'condition'    => [
                     'level_color_type'    => 'gradient'
@@ -580,7 +580,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_angle',
             [
-                'label'      => esc_html__( 'Angle', 'flatpack' ),
+                'label'      => esc_html__( 'Angle', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -594,7 +594,7 @@ class Widget extends Widget_Base {
                     'size' => 180
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill-level' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{g_f_color.VALUE}} {{g_f_location.SIZE}}{{g_f_location.UNIT}}, {{g_s_color.VALUE}} {{g_s_location.SIZE}}{{g_s_location.UNIT}})',
+                    '{{WRAPPER}} .hq-skill-level' => 'background-color: transparent; background-image: linear-gradient({{SIZE}}deg, {{g_f_color.VALUE}} {{g_f_location.SIZE}}{{g_f_location.UNIT}}, {{g_s_color.VALUE}} {{g_s_location.SIZE}}{{g_s_location.UNIT}})',
                 ],
                 'condition'    => [
                     'level_color_type'    => 'gradient',
@@ -606,22 +606,22 @@ class Widget extends Widget_Base {
         $this->add_control(
             'g_postion',
             [
-                'label'   => esc_html__( 'Position', 'flatpack' ),
+                'label'   => esc_html__( 'Position', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'center center',
                 'options' => [
-                    'center center'  => esc_html__( 'Center Center', 'flatpack' ),
-                    'center left' => esc_html__( 'Center Left', 'flatpack' ),
-                    'center right' => esc_html__( 'Center Right', 'flatpack' ),
-                    'top center' => esc_html__( 'Top Center', 'flatpack' ),
-                    'top left' => esc_html__( 'Top Left', 'flatpack' ),
-                    'top right' => esc_html__( 'Top Right', 'flatpack' ),
-                    'bottom center' => esc_html__( 'Bottom Center', 'flatpack' ),
-                    'bottom left' => esc_html__( 'Bottom Left', 'flatpack' ),
-                    'bottom right' => esc_html__( 'Bottom Right', 'flatpack' ),
+                    'center center'  => esc_html__( 'Center Center', 'edumentor' ),
+                    'center left' => esc_html__( 'Center Left', 'edumentor' ),
+                    'center right' => esc_html__( 'Center Right', 'edumentor' ),
+                    'top center' => esc_html__( 'Top Center', 'edumentor' ),
+                    'top left' => esc_html__( 'Top Left', 'edumentor' ),
+                    'top right' => esc_html__( 'Top Right', 'edumentor' ),
+                    'bottom center' => esc_html__( 'Bottom Center', 'edumentor' ),
+                    'bottom left' => esc_html__( 'Bottom Left', 'edumentor' ),
+                    'bottom right' => esc_html__( 'Bottom Right', 'edumentor' ),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill-level' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{g_f_color.VALUE}} {{g_f_location.SIZE}}{{g_f_location.UNIT}}, {{g_s_color.VALUE}} {{g_s_location.SIZE}}{{g_s_location.UNIT}})',
+                    '{{WRAPPER}} .hq-skill-level' => 'background-color: transparent; background-image: radial-gradient(at {{VALUE}}, {{g_f_color.VALUE}} {{g_f_location.SIZE}}{{g_f_location.UNIT}}, {{g_s_color.VALUE}} {{g_s_location.SIZE}}{{g_s_location.UNIT}})',
                 ],
                 'condition'    => [
                     'level_color_type'    => 'gradient',
@@ -633,11 +633,11 @@ class Widget extends Widget_Base {
         $this->add_control(
             'base_color',
             [
-                'label'     => esc_html__( 'Base Color', 'flatpack' ),
+                'label'     => esc_html__( 'Base Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-skill' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -645,7 +645,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'height',
             [
-                'label'      => esc_html__( 'Height', 'flatpack' ),
+                'label'      => esc_html__( 'Height', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -655,8 +655,8 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.text-outside .fp-skill' => 'height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.text-inside .fp-skill'  => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.text-outside .hq-skill' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.text-inside .hq-skill'  => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -664,7 +664,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'spacing',
             [
-                'label'      => esc_html__( 'Spacing Between', 'flatpack' ),
+                'label'      => esc_html__( 'Spacing Between', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -674,7 +674,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-skill-items' => 'grid-row-gap: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-skill-items' => 'grid-row-gap: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -683,15 +683,15 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'bar_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-skill-items > div',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-skill-items > div',
             ]
         );
 
         $this->add_responsive_control(
             'bar_inside_spacing',
             [
-                'label'      => esc_html__( 'Inside Spacing', 'flatpack' ),
+                'label'      => esc_html__( 'Inside Spacing', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -702,7 +702,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-skill-items > div' => 'padding: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-skill-items > div' => 'padding: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -710,11 +710,11 @@ class Widget extends Widget_Base {
         $this->add_control(
             'border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-skill-items > div, {{WRAPPER}} .fp-skill, {{WRAPPER}} .fp-skill-level' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-skill-items > div, {{WRAPPER}} .hq-skill, {{WRAPPER}} .hq-skill-level' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -726,7 +726,7 @@ class Widget extends Widget_Base {
                 'exclude'  => [
                     'box_shadow_position',
                 ],
-                'selector' => '{{WRAPPER}} .fp-skill-items > div',
+                'selector' => '{{WRAPPER}} .hq-skill-items > div',
             ]
         );
 
@@ -744,7 +744,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_text',
             [
-                'label' => esc_html__( 'Text', 'flatpack' ),
+                'label' => esc_html__( 'Text', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -752,10 +752,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill-info' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-skill-info' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -764,14 +764,14 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'info_typography',
-                'selector' => '{{WRAPPER}} .fp-skill-info',
+                'selector' => '{{WRAPPER}} .hq-skill-info',
             ]
         );
 
         $this->add_responsive_control(
             'label_spacing',
             [
-                'label'      => esc_html__( 'Label Spacing', 'flatpack' ),
+                'label'      => esc_html__( 'Label Spacing', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -785,7 +785,7 @@ class Widget extends Widget_Base {
                     'size' => 30
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.text-outside .fp-skill-info' => 'top: -{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.text-outside .hq-skill-info' => 'top: -{{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'view'    => 'outside'
@@ -797,7 +797,7 @@ class Widget extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name'     => 'info_text_shadow',
-                'selector' => '{{WRAPPER}} .fp-skill-info',
+                'selector' => '{{WRAPPER}} .hq-skill-info',
             ]
         );
 
@@ -815,7 +815,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_percentage',
             [
-                'label' => esc_html__( 'Percentage', 'flatpack' ),
+                'label' => esc_html__( 'Percentage', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -824,7 +824,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'percent_typography',
-                'selector' => '{{WRAPPER}} .fp-skill-level-text'
+                'selector' => '{{WRAPPER}} .hq-skill-level-text'
             ]
         );
 
@@ -832,10 +832,10 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'percent_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => [ 'image' ],
-                'selector' => '{{WRAPPER}}.text-outside .fp-skill-level-text',
+                'selector' => '{{WRAPPER}}.text-outside .hq-skill-level-text',
                 'condition'    => [
                     'view'    => 'outside'
                 ],
@@ -845,10 +845,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'percent_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-skill-level-text ' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-skill-level-text ' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -867,15 +867,15 @@ class Widget extends Widget_Base {
 		if ( ! is_array( $settings['skills'] ) ) {
             return;
         }
-        echo '<div class="fp-skill-items">';
+        echo '<div class="hq-skill-items">';
         foreach ( $settings['skills'] as $index => $skill ) :
             $name_key = $this->get_repeater_setting_key( 'name', 'bars', $index );
             $this->add_inline_editing_attributes( $name_key, 'none' );
             ?>
-            <div class="fp-skill--wrap elementor-repeater-item-<?php echo $skill['_id']; ?>">
-                <div class="fp-skill">
-                    <div class="fp-skill-level" data-level="<?php echo esc_attr( $skill['level']['size'] ); ?>">
-                        <div class="fp-skill-info"><span <?php echo $this->get_render_attribute_string( $name_key ); ?>><?php echo esc_html( $skill['name'] ); ?></span><span class="fp-skill-level-text"></span></div>
+            <div class="hq-skill--wrap elementor-repeater-item-<?php echo $skill['_id']; ?>">
+                <div class="hq-skill">
+                    <div class="hq-skill-level" data-level="<?php echo esc_attr( $skill['level']['size'] ); ?>">
+                        <div class="hq-skill-info"><span <?php echo $this->get_render_attribute_string( $name_key ); ?>><?php echo esc_html( $skill['name'] ); ?></span><span class="hq-skill-level-text"></span></div>
                     </div>
                 </div>
             </div>
@@ -891,17 +891,17 @@ class Widget extends Widget_Base {
      */
     protected function content_template() {
         ?>
-        <div class="fp-skill-items">
+        <div class="hq-skill-items">
         <#
         if (_.isArray(settings.skills)) {
             _.each(settings.skills, function(skill, index) {
             var nameKey = view.getRepeaterSettingKey( 'name', 'skills', index);
             view.addInlineEditingAttributes( nameKey, 'none' );
             #>
-            <div class="elementor-repeater-item-{{skill._id}} fp-skill--wrap">
-                <div class="fp-skill">
-                    <div class="fp-skill-level" data-level="{{skill.level.size}}">
-                        <div class="fp-skill-info"><span {{{view.getRenderAttributeString( nameKey )}}}>{{skill.name}}</span><span class="fp-skill-level-text"></span></div>
+            <div class="elementor-repeater-item-{{skill._id}} hq-skill--wrap">
+                <div class="hq-skill">
+                    <div class="hq-skill-level" data-level="{{skill.level.size}}">
+                        <div class="hq-skill-info"><span {{{view.getRenderAttributeString( nameKey )}}}>{{skill.name}}</span><span class="hq-skill-level-text"></span></div>
                     </div>
                 </div>
             </div>

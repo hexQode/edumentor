@@ -2,7 +2,7 @@
 /**
  * Widgets class
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Classes;

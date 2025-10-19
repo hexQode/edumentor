@@ -2,7 +2,7 @@
 /**
  * List Pricing
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\ListPricing;
@@ -29,7 +29,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-list-pricing';
+        return 'edumentor-list-pricing';
     }
 
     /**
@@ -41,11 +41,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'List Pricing', 'flatpack' );
+        return esc_html__( 'List Pricing', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -57,19 +57,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-bullet-list';
+        return 'edumentor-icon eicon-bullet-list';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'pricing', 'list pricing', 'flatpack' ];
+        return [ 'pricing', 'list pricing', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main' ];
+        return [ 'hq-main' ];
     }
 
     /**
@@ -96,7 +96,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_general',
             [
-                'label' => esc_html__( 'General', 'flatpack' ),
+                'label' => esc_html__( 'General', 'edumentor' ),
             ]
         );
 
@@ -104,10 +104,10 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'list_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .fp-pricing-list li',
+                'selector' => '{{WRAPPER}} .hq-pricing-list li',
             ]
         );
 
@@ -115,8 +115,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'list_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-pricing-list li',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-pricing-list li',
             ]
         );
 
@@ -124,18 +124,18 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'box_shadow',
-                'selector' => '{{WRAPPER}} .fp-pricing-list li',
+                'selector' => '{{WRAPPER}} .hq-pricing-list li',
             ]
         );
 
         $this->add_responsive_control(
             'border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-pricing-list li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-pricing-list li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -143,11 +143,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'list_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-pricing-list li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-pricing-list li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -155,7 +155,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'bottom_spacing',
             [
-                'label'     => esc_html__( 'Bottom Spacing', 'flatpack' ),
+                'label'     => esc_html__( 'Bottom Spacing', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -167,7 +167,7 @@ class Widget extends Widget_Base {
                     'size' => 40,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-pricing-list li:not(:last-of-type)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-pricing-list li:not(:last-of-type)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -186,7 +186,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'pricing_list_section',
             [
-                'label' => esc_html__( 'Pricing List', 'flatpack' ),
+                'label' => esc_html__( 'Pricing List', 'edumentor' ),
             ]
         );
 
@@ -194,7 +194,7 @@ class Widget extends Widget_Base {
 
         $repeater->add_control(
             'heading', [
-                'label'       => esc_html__( 'Heading', 'flatpack' ),
+                'label'       => esc_html__( 'Heading', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -202,7 +202,7 @@ class Widget extends Widget_Base {
 
         $repeater->add_control(
             'price', [
-                'label'       => esc_html__( 'Price', 'flatpack' ),
+                'label'       => esc_html__( 'Price', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -210,7 +210,7 @@ class Widget extends Widget_Base {
 
         $repeater->add_control(
             'desc', [
-                'label'       => esc_html__( 'Description', 'flatpack' ),
+                'label'       => esc_html__( 'Description', 'edumentor' ),
                 'type'        => Controls_Manager::TEXTAREA,
                 'label_block' => true,
             ]
@@ -219,10 +219,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'customize',
             [
-                'label' => esc_html__( 'Want to customize?', 'flatpack' ),
+                'label' => esc_html__( 'Want to customize?', 'edumentor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'flatpack' ),
-                'label_off' => esc_html__( 'no', 'flatpack' ),
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'no', 'edumentor' ),
                 'return_value' => 'yes',
                 'default' => 'no'
             ]
@@ -232,7 +232,7 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'pricing_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}}',
@@ -245,7 +245,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'heading_color',
             [
-                'label' => esc_html__( 'Heading Color', 'flatpack' ),
+                'label' => esc_html__( 'Heading Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .pricing-header h4' => 'color: {{VALUE}}',
@@ -259,10 +259,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'price_color',
             [
-                'label' => esc_html__( 'Price Color', 'flatpack' ),
+                'label' => esc_html__( 'Price Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .pricing-header .fp-price' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .pricing-header .hq-price' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes'
@@ -273,7 +273,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'desc_color',
             [
-                'label' => esc_html__( 'Description Color', 'flatpack' ),
+                'label' => esc_html__( 'Description Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} p' => 'color: {{VALUE}}',
@@ -287,7 +287,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'border_color',
             [
-                'label' => esc_html__( 'Border Color', 'flatpack' ),
+                'label' => esc_html__( 'Border Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .pricing-header .pricing-border' => 'border-bottom-color: {{VALUE}}',
@@ -301,24 +301,24 @@ class Widget extends Widget_Base {
         $this->add_control(
             'pricing_list',
             [
-                'label'       => esc_html__( 'Pricing List', 'flatpack' ),
+                'label'       => esc_html__( 'Pricing List', 'edumentor' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
-                        'heading' => esc_html__( 'Hair Cut', 'flatpack' ),
-                        'price'   => esc_html__( '$29.00', 'flatpack' ),
-                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'flatpack' ),
+                        'heading' => esc_html__( 'Hair Cut', 'edumentor' ),
+                        'price'   => esc_html__( '$29.00', 'edumentor' ),
+                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'edumentor' ),
                     ],
                     [
-                        'heading' => esc_html__( 'Hair Styling', 'flatpack' ),
-                        'price'   => esc_html__( '$39.00', 'flatpack' ),
-                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'flatpack' ),
+                        'heading' => esc_html__( 'Hair Styling', 'edumentor' ),
+                        'price'   => esc_html__( '$39.00', 'edumentor' ),
+                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'edumentor' ),
                     ],
                     [
-                        'heading' => esc_html__( 'Hair Triming', 'flatpack' ),
-                        'price'   => esc_html__( '$49.00', 'flatpack' ),
-                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'flatpack' ),
+                        'heading' => esc_html__( 'Hair Triming', 'edumentor' ),
+                        'price'   => esc_html__( '$49.00', 'edumentor' ),
+                        'desc'    => esc_html__( 'Barber is a person whose occupation is mainly to cut dress groom style and shave men.', 'edumentor' ),
                     ],
                 ],
                 'title_field' => '{{{ heading }}}',
@@ -339,7 +339,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'heading_style',
             [
-                'label' => esc_html__( 'Heading', 'flatpack' ),
+                'label' => esc_html__( 'Heading', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -348,7 +348,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'heading_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .pricing-header h4',
             ]
         );
@@ -356,7 +356,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-header h4' => 'color: {{VALUE}}',
@@ -367,7 +367,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -379,7 +379,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -402,7 +402,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'price_style',
             [
-                'label' => esc_html__( 'Price', 'flatpack' ),
+                'label' => esc_html__( 'Price', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -411,18 +411,18 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'price_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .pricing-header .fp-price',
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .pricing-header .hq-price',
             ]
         );
 
         $this->add_control(
             'price_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .pricing-header .fp-price' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pricing-header .hq-price' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -430,11 +430,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'price_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .pricing-header .fp-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-header .hq-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -442,11 +442,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'price_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .pricing-header .fp-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-header .hq-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -465,7 +465,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'border_style',
             [
-                'label' => esc_html__( 'Border', 'flatpack' ),
+                'label' => esc_html__( 'Border', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -473,7 +473,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'bd_width',
             [
-                'label'      => esc_html__( 'Border Width', 'flatpack' ),
+                'label'      => esc_html__( 'Border Width', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -496,15 +496,15 @@ class Widget extends Widget_Base {
         $this->add_control(
             'bd_style',
             [
-                'label'     => esc_html__( 'Border Style', 'flatpack' ),
+                'label'     => esc_html__( 'Border Style', 'edumentor' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'dashed',
                 'options'   => [
-                    'dotted' => esc_html__( 'Dotted', 'flatpack' ),
-                    'dashed' => esc_html__( 'Dashed', 'flatpack' ),
-                    'solid'  => esc_html__( 'Solid', 'flatpack' ),
-                    'double' => esc_html__( 'Double', 'flatpack' ),
-                    'none'   => esc_html__( 'None', 'flatpack' ),
+                    'dotted' => esc_html__( 'Dotted', 'edumentor' ),
+                    'dashed' => esc_html__( 'Dashed', 'edumentor' ),
+                    'solid'  => esc_html__( 'Solid', 'edumentor' ),
+                    'double' => esc_html__( 'Double', 'edumentor' ),
+                    'none'   => esc_html__( 'None', 'edumentor' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-header .pricing-border' => 'border-bottom-style: {{VALUE}};',
@@ -515,7 +515,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'bd_color',
             [
-                'label'     => esc_html__( 'Border Color', 'flatpack' ),
+                'label'     => esc_html__( 'Border Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-header .pricing-border' => 'border-bottom-color: {{VALUE}}',
@@ -537,7 +537,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'desc_style',
             [
-                'label' => esc_html__( 'Description', 'flatpack' ),
+                'label' => esc_html__( 'Description', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -546,18 +546,18 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'desc_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-pricing-list li p',
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-pricing-list li p',
             ]
         );
 
         $this->add_control(
             'desc_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-pricing-list li p' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-pricing-list li p' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -565,11 +565,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'desc_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-pricing-list li p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-pricing-list li p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -577,11 +577,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'desc_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-pricing-list li p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-pricing-list li p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -599,7 +599,7 @@ class Widget extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute( 'wrapper', 'class', 'fp-pricing-list' );
+        $this->add_render_attribute( 'wrapper', 'class', 'hq-pricing-list' );
         
         if( $settings['pricing_list'] > 0 ) :
             ?>
@@ -608,7 +608,7 @@ class Widget extends Widget_Base {
                     $repeater_setting_key_heading = $this->get_repeater_setting_key( 'heading', 'pricing_list', $index );
                     $this->add_inline_editing_attributes( $repeater_setting_key_heading );
                     $repeater_setting_key_price = $this->get_repeater_setting_key( 'price', 'pricing_list', $index );
-                    $this->add_render_attribute( $repeater_setting_key_price, 'class', 'fp-price' );
+                    $this->add_render_attribute( $repeater_setting_key_price, 'class', 'hq-price' );
                     $this->add_inline_editing_attributes( $repeater_setting_key_price );
                     $repeater_setting_key_desc = $this->get_repeater_setting_key( 'desc', 'pricing_list', $index );
                     $this->add_inline_editing_attributes( $repeater_setting_key_desc ); 

@@ -9,7 +9,7 @@
     object-position: center;
 }
 
-.fp-img-anim {
+.hq-img-anim {
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -18,12 +18,12 @@
     -webkit-animation-timing-function: linear;
 }
 
-.fp-img-anim-updown {
+.hq-img-anim-updown {
     animation-name: fpAnimUpDown;
     -webkit-animation-name: fpAnimUpDown;
 }
 
-.fp-img-anim-leftright {
+.hq-img-anim-leftright {
     animation-name: fpAnimLeftRight;
     -webkit-animation-name: fpAnimLeftRight;
 }

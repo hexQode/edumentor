@@ -2,7 +2,7 @@
 /**
  * List
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\List;
@@ -31,7 +31,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-list';
+        return 'edumentor-list';
     }
 
     /**
@@ -43,11 +43,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'List', 'flatpack' );
+        return esc_html__( 'List', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -59,19 +59,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-post-list';
+        return 'edumentor-icon eicon-post-list';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'icon list', 'list', 'icon', 'flatpack' ];
+        return [ 'icon list', 'list', 'icon', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main', 'elementor-icons-fa-solid' ];
+        return [ 'hq-main', 'elementor-icons-fa-solid' ];
     }
 
     /**
@@ -126,7 +126,7 @@ class Widget extends Widget_Base {
                     'block' => 'display: block',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-items' => '{{VALUE}}',
+                    '{{WRAPPER}} .hq-el-items' => '{{VALUE}}',
                 ],
             ]
         );
@@ -148,7 +148,7 @@ class Widget extends Widget_Base {
                     'size' => 2,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.layout-inline .fp-el-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);',
+                    '{{WRAPPER}}.layout-inline .hq-el-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);',
                 ],
                 'condition'    => [
                     'layout'    => 'inline',
@@ -173,8 +173,8 @@ class Widget extends Widget_Base {
                     'size' => 20
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.layout-block .fp-el-items .fp-el-item:not(:last-of-type)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.layout-inline .fp-el-items' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.layout-block .hq-el-items .hq-el-item:not(:last-of-type)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.layout-inline .hq-el-items' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -206,8 +206,8 @@ class Widget extends Widget_Base {
                     'right' => 'margin-left: auto; margin-right: 0; text-align: right;',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-list-content' => '{{VALUE}}',
-                    '{{WRAPPER}} .fp-el-items .fp-el-list-icon' => '{{VALUE}}',
+                    '{{WRAPPER}} .hq-el-items .hq-el-list-content' => '{{VALUE}}',
+                    '{{WRAPPER}} .hq-el-items .hq-el-list-icon' => '{{VALUE}}',
                 ],
                 'condition'    => [
                     'icon_postion'    => 'top',
@@ -323,7 +323,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Icon Background', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-icon' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-icon' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -338,7 +338,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Icon Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-icon' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-icon' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -353,7 +353,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Heading Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-content h3' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-content h3' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -368,7 +368,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Description Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-content p' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-content p' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -383,7 +383,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Readmore Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-content a' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-content a' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -399,7 +399,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Readmore Hover Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .fp-el-list-content a:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .hq-el-list-content a:hover' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'customize' => 'yes',
@@ -471,7 +471,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .fp-el-item',
+                'selector' => '{{WRAPPER}} .hq-el-item',
             ]
         );
 
@@ -480,7 +480,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'box_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item',
+                'selector' => '{{WRAPPER}} .hq-el-item',
             ]
         );
 
@@ -488,7 +488,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'item_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-el-item',
+                'selector' => '{{WRAPPER}} .hq-el-item',
             ]
         );
 
@@ -499,7 +499,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -511,7 +511,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -553,7 +553,7 @@ class Widget extends Widget_Base {
                 'prefix_class' => 'icon-',
                 'default' => 'show',
                 'selectors' => [
-                    '{{WRAPPER}}.icon-hide .fp-el-items .fp-el-item' => 'grid-template-columns: 1fr;'
+                    '{{WRAPPER}}.icon-hide .hq-el-items .hq-el-item' => 'grid-template-columns: 1fr;'
                 ],
                 'toggle'  => false,
             ]
@@ -609,7 +609,7 @@ class Widget extends Widget_Base {
                     'bottom' => 'align-items: flex-end'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item' => '{{VALUE}}'
+                    '{{WRAPPER}} .hq-el-items .hq-el-item' => '{{VALUE}}'
                 ],
                 'toggle'  => false,
                 'condition'    => [
@@ -626,7 +626,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon',
+                'selector' => '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon',
                 'condition'    => [
                     'icon_control'    => 'show',
                  ],
@@ -660,7 +660,7 @@ class Widget extends Widget_Base {
                 'name'     => 'icon_color',
                 'label'    => esc_html__( 'Icon Color', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon i',
+                'selector' => '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon i',
                 'condition'    => [
                     'icon_control'    => 'show',
                 ],
@@ -674,7 +674,7 @@ class Widget extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon svg' => 'fill: {{VALUE}}',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -699,9 +699,9 @@ class Widget extends Widget_Base {
                     'size' => 60,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.list-left .fp-el-items .fp-el-item' => 'grid-template-columns: {{SIZE}}{{UNIT}} 1fr;',
-                    '{{WRAPPER}}.list-top .fp-el-items .fp-el-item' => 'grid-template-columns: 1fr;',
-                    '{{WRAPPER}}.list-top .fp-el-items .fp-el-item .fp-el-list-icon' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.list-left .hq-el-items .hq-el-item' => 'grid-template-columns: {{SIZE}}{{UNIT}} 1fr;',
+                    '{{WRAPPER}}.list-top .hq-el-items .hq-el-item' => 'grid-template-columns: 1fr;',
+                    '{{WRAPPER}}.list-top .hq-el-items .hq-el-item .hq-el-list-icon' => 'width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -726,8 +726,8 @@ class Widget extends Widget_Base {
                     'size' => 60,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.list-left .fp-el-items .fp-el-item .fp-el-list-icon' => 'height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.list-top .fp-el-items .fp-el-item .fp-el-list-icon' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.list-left .hq-el-items .hq-el-item .hq-el-list-icon' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.list-top .hq-el-items .hq-el-item .hq-el-list-icon' => 'height: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -752,7 +752,7 @@ class Widget extends Widget_Base {
                     'size' => 15,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item' => 'grid-gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item' => 'grid-gap: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -777,8 +777,8 @@ class Widget extends Widget_Base {
                     'size' => 30,
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon svg' => 'width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -790,7 +790,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'icon_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon',
+                'selector' => '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon',
                 'condition'    => [
                     'icon_control'    => 'show',
                 ],
@@ -802,7 +802,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'icon_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon',
+                'selector' => '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon',
                 'condition'    => [
                     'icon_control'    => 'show',
                 ],
@@ -816,7 +816,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -831,7 +831,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -846,7 +846,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-items .fp-el-item .fp-el-list-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-items .hq-el-item .hq-el-list-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'icon_control'    => 'show',
@@ -878,7 +878,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'heading_typography',
                 'label'    => esc_html__( 'Typography', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content h3',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content h3',
             ]
         );
 
@@ -888,7 +888,7 @@ class Widget extends Widget_Base {
                 'name'     => 'heading_color',
                 'label'    => esc_html__( 'Text Color', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content h3',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content h3',
             ]
         );
 
@@ -897,7 +897,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'heading_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content h3',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content h3',
             ]
         );
 
@@ -908,7 +908,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content h3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content h3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -920,7 +920,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content h3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content h3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -932,7 +932,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -961,7 +961,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'desc_typography',
                 'label'    => esc_html__( 'Typography', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content p',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content p',
             ]
         );
 
@@ -971,7 +971,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Text Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content p' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content p' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -981,7 +981,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'desc_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content p',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content p',
             ]
         );
 
@@ -992,7 +992,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content p' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content p' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1004,7 +1004,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1016,7 +1016,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1045,7 +1045,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'readmore_typography',
                 'label'    => esc_html__( 'Typography', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content a',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content a',
             ]
         );
 
@@ -1056,7 +1056,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1068,7 +1068,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1089,7 +1089,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'   => ['image'],
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content a',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content a',
             ]
         );
 
@@ -1099,7 +1099,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Text Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1109,7 +1109,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'readmore_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content a',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content a',
             ]
         );
 
@@ -1120,7 +1120,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1141,7 +1141,7 @@ class Widget extends Widget_Base {
                 'label'    => esc_html__( 'Background', 'ridek-core' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'   => ['image'],
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content a:hover',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content a:hover',
             ]
         );
 
@@ -1151,7 +1151,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Text Color', 'ridek-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a:hover' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1161,7 +1161,7 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'readmore_hover_border',
                 'label'    => esc_html__( 'Border', 'ridek-core' ),
-                'selector' => '{{WRAPPER}} .fp-el-item .fp-el-list-content a:hover',
+                'selector' => '{{WRAPPER}} .hq-el-item .hq-el-list-content a:hover',
             ]
         );
 
@@ -1172,7 +1172,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-el-item .fp-el-list-content a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-el-item .hq-el-list-content a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1193,11 +1193,11 @@ class Widget extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute( 'wrapper', 'class', 'fp-el-items' );
+        $this->add_render_attribute( 'wrapper', 'class', 'hq-el-items' );
         $list_items = $settings['list_items'];
         if( $list_items ) :
         ?>
-        <div class="fp-el-items">
+        <div class="hq-el-items">
             <?php 
             foreach ( $list_items as $index => $item ) : 
                 $repeater_setting_key_heading = $this->get_repeater_setting_key( 'heading', 'list_items', $index );
@@ -1211,13 +1211,13 @@ class Widget extends Widget_Base {
                     $this->add_link_attributes( $link_key, $item['link'] );
                 }
             ?>
-            <div class="fp-el-item elementor-repeater-item-<?php echo $item['_id']; ?>">
+            <div class="hq-el-item elementor-repeater-item-<?php echo $item['_id']; ?>">
                 <?php if( $item['icon'] && 'show' === $settings['icon_control'] ) : ?>
-                    <div class="fp-el-list-icon">
+                    <div class="hq-el-list-icon">
                         <?php Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] ); ?>
                     </div>
                 <?php endif; ?>
-                <div class="fp-el-list-content">
+                <div class="hq-el-list-content">
                     <?php if( $item['heading'] ) : ?>
                         <h3 <?php $this->print_render_attribute_string( $repeater_setting_key_heading ); ?>><?php echo Helper::kses_basic( $item['heading'] ); ?></h3>
                     <?php endif; ?>

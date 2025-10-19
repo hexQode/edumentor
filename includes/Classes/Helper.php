@@ -2,7 +2,7 @@
 /**
  * Helper class
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Classes;
@@ -175,9 +175,9 @@ class Helper {
     static function get_version( $filename = '', $extention = 'css' ) {
         $min = ( WP_DEBUG === true ) ? '' : '.min';
         if( ! empty( $filename ) ) {
-            return filemtime( FLATPACK_PATH . '/assets/'. $extention .'/'. $filename . $min . '.'. $extention .'' );
+            return filemtime( EDUMENTOR_PATH . '/assets/'. $extention .'/'. $filename . $min . '.'. $extention .'' );
         }else{
-            return FLATPACK_VERSION;
+            return EDUMENTOR_VERSION;
         }
     }
 
@@ -227,12 +227,12 @@ class Helper {
      * @param boolean $div
      * @return void
      */
-    static function get_terms( $taxonomy="category", $count=1, $link=true, $class="fp-cat-item", $div=true ) {
+    static function get_terms( $taxonomy="category", $count=1, $link=true, $class="hq-cat-item", $div=true ) {
 		$dl_terms = get_the_terms( get_the_id(), $taxonomy );
 		$dl_max_cat = $count;
 		if( $dl_terms ) {
             if( $div === true ) {
-                echo '<div class="fp-cat-items">';
+                echo '<div class="hq-cat-items">';
             }
 			foreach ( $dl_terms as $dl_term ) {
 				$dl_cat = get_category( $dl_term );
@@ -468,8 +468,8 @@ class Helper {
 
         $content = get_post_field( 'post_content', get_the_ID() );
 
-        $minute_text = 'full' == $string ? esc_html__( ' minutes', 'flatpack' ) : esc_html__( ' min.', 'flatpack' );
-        $second_text = 'full' == $string ? esc_html__( ' seconds', 'flatpack' ) : esc_html__( ' sec.', 'flatpack' );
+        $minute_text = 'full' == $string ? esc_html__( ' minutes', 'edumentor' ) : esc_html__( ' min.', 'edumentor' );
+        $second_text = 'full' == $string ? esc_html__( ' seconds', 'edumentor' ) : esc_html__( ' sec.', 'edumentor' );
 
         // Predefined words-per-minute rate.
         $words_per_minute = 225;
@@ -519,16 +519,16 @@ class Helper {
                     $comments_icon  = 'yes' === $icon ? ' <i class="far fa-comments"></i> ': '';
                     echo '<li class="comments"><a href="'. esc_url( get_comments_link( get_the_ID() ) ) .'">'. $comments_icon .'';
                     comments_number( 
-                        esc_html__( 'No Comments', 'flatpack' ), 
-                        esc_html__( '1 Comment', 'flatpack' ), 
-                        esc_html__( '% Comments', 'flatpack' ) 
+                        esc_html__( 'No Comments', 'edumentor' ), 
+                        esc_html__( '1 Comment', 'edumentor' ), 
+                        esc_html__( '% Comments', 'edumentor' ) 
                     );
                     echo '</a></li>';
                 }
             }
             if( 'yes' === $settings['reading_time'] && '5' != $settings['card_style'] ) {
                 $reading_icon  = 'yes' === $icon ? ' <i class="far fa-clock"></i> ': '';
-                echo '<li class="reading-time" title="'. esc_html__( 'Take ', 'flatpack' ) . self::get_post_reading_time() . esc_html__( ' to read.', 'flatpack' ) .'">'. $reading_icon . esc_html( self::get_post_reading_time() ) .'</li>';
+                echo '<li class="reading-time" title="'. esc_html__( 'Take ', 'edumentor' ) . self::get_post_reading_time() . esc_html__( ' to read.', 'edumentor' ) .'">'. $reading_icon . esc_html( self::get_post_reading_time() ) .'</li>';
             }
             echo '</ul>';
         }
@@ -569,7 +569,7 @@ class Helper {
                 $items[$key->ID] = $key->post_title;
             }
         }else{
-            $items['0'] = esc_html__( 'No Contact Form found', 'flatpack' );
+            $items['0'] = esc_html__( 'No Contact Form found', 'edumentor' );
         }
         return $items;
     }
@@ -581,11 +581,11 @@ class Helper {
      */
     static function get_animation_effects() {
         return [
-            'fp-fadeIn'       => esc_html( 'Fade In', 'softgen-core' ),
-            'fp-fadeInLeft'   => esc_html( 'Fade In Left', 'softgen-core' ),
-            'fp-fadeInRight'  => esc_html( 'Fade In Right', 'softgen-core' ),
-            'fp-fadeInTop'    => esc_html( 'Fade In Top', 'softgen-core' ),
-            'fp-fadeInBottom' => esc_html( 'Fade In Bottom', 'softgen-core' )
+            'hq-fadeIn'       => esc_html( 'Fade In', 'softgen-core' ),
+            'hq-fadeInLeft'   => esc_html( 'Fade In Left', 'softgen-core' ),
+            'hq-fadeInRight'  => esc_html( 'Fade In Right', 'softgen-core' ),
+            'hq-fadeInTop'    => esc_html( 'Fade In Top', 'softgen-core' ),
+            'hq-fadeInBottom' => esc_html( 'Fade In Bottom', 'softgen-core' )
         ];
     }
 

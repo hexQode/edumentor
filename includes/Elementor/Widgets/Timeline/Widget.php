@@ -2,7 +2,7 @@
 /**
  * Timeline
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Timeline;
@@ -29,7 +29,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-timeline';
+        return 'edumentor-timeline';
     }
 
     /**
@@ -41,11 +41,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Timeline', 'flatpack' );
+        return esc_html__( 'Timeline', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -57,19 +57,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-time-line';
+        return 'edumentor-icon eicon-time-line';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'timeline', 'card', 'timeline card', 'flatpack' ];
+        return [ 'timeline', 'card', 'timeline card', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-timeline' ];
+        return [ 'hq-timeline' ];
     }
 
     /**
@@ -141,7 +141,7 @@ class Widget extends Widget_Base {
                 'label'        => esc_html__( 'Description', 'textdomain' ),
                 'type'         => Controls_Manager::TEXTAREA,
                 'rows'         => 4,
-                'default'      => esc_html__( 'I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it.', 'flatpack' ),
+                'default'      => esc_html__( 'I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it.', 'edumentor' ),
                 'placeholder'  => esc_html__( 'Sub Heading...', 'textdomain' ),
             ]
         );
@@ -184,21 +184,21 @@ class Widget extends Widget_Base {
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
-                        'heading' => esc_html__( 'FlatPack Award For Architecture', 'flatpack'),
-                        'sub-heading' => esc_html__( 'Boston, Massachusetts', 'flatpack'),
-                        'date-time' => esc_html__( '2024', 'flatpack'),
+                        'heading' => esc_html__( 'EduMentor Award For Architecture', 'edumentor'),
+                        'sub-heading' => esc_html__( 'Boston, Massachusetts', 'edumentor'),
+                        'date-time' => esc_html__( '2024', 'edumentor'),
                         'desc' => esc_html__( 'I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it.', 'textdomain' ),
                     ],
                     [
-                        'heading' => esc_html__( 'FlatPack - Project Of The Year', 'flatpack'),
-                        'sub-heading' => esc_html__( 'Los Anglous, CA', 'flatpack'),
-                        'date-time' => esc_html__( '2023', 'flatpack'),
+                        'heading' => esc_html__( 'EduMentor - Project Of The Year', 'edumentor'),
+                        'sub-heading' => esc_html__( 'Los Anglous, CA', 'edumentor'),
+                        'date-time' => esc_html__( '2023', 'edumentor'),
                         'desc' => esc_html__( 'I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it.', 'textdomain' ),
                     ],
                     [
-                        'heading' => esc_html__( 'FlatPack International Design', 'flatpack'),
-                        'sub-heading' => esc_html__( 'Berline, Germany', 'flatpack'),
-                        'date-time' => esc_html__( '2022', 'flatpack'),
+                        'heading' => esc_html__( 'EduMentor International Design', 'edumentor'),
+                        'sub-heading' => esc_html__( 'Berline, Germany', 'edumentor'),
+                        'date-time' => esc_html__( '2022', 'edumentor'),
                         'desc' => esc_html__( 'I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it.', 'textdomain' ),
                     ]
                 ],
@@ -218,7 +218,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'timeline_style_sectin',
             [
-                'label' => esc_html__( 'Timeline', 'flatpack' ),
+                'label' => esc_html__( 'Timeline', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -241,7 +241,7 @@ class Widget extends Widget_Base {
                     'size' => 4
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-wrap' => '--fp-tl-hr-line-width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-timeline-wrap' => '--hq-tl-hr-line-width: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -252,7 +252,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Line Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-wrap' => '--fp-tl-hr-line-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-wrap' => '--hq-tl-hr-line-color: {{VALUE}}',
                 ],
             ]
         );
@@ -275,7 +275,7 @@ class Widget extends Widget_Base {
                     'size' => 30
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-wrap' => '--fp-tl-hr-line-spacing: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-timeline-wrap' => '--hq-tl-hr-line-spacing: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -298,7 +298,7 @@ class Widget extends Widget_Base {
                     'size' => 30
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-wrap' => 'row-gap: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .hq-timeline-wrap' => 'row-gap: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -318,7 +318,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Circle Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item:after' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item:after' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -329,7 +329,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Circle Hover Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item:hover:after' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item:hover:after' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -346,7 +346,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'card_style_section',
             [
-                'label' => esc_html__( 'Card', 'flatpack' ),
+                'label' => esc_html__( 'Card', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -357,7 +357,7 @@ class Widget extends Widget_Base {
                 'name' => 'card_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'esclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-timeline-item',
+                'selector' => '{{WRAPPER}} .hq-timeline-item',
             ]
         );
 
@@ -368,7 +368,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -387,7 +387,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'card_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item',
+                'selector' => '{{WRAPPER}} .hq-timeline-item',
             ]
         );
 
@@ -398,7 +398,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -407,7 +407,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'card_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-timeline-item',
+                'selector' => '{{WRAPPER}} .hq-timeline-item',
             ]
         );
         
@@ -424,7 +424,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'card_hover_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item:hover',
+                'selector' => '{{WRAPPER}} .hq-timeline-item:hover',
             ]
         );
 
@@ -435,7 +435,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -444,7 +444,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'card_hover_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-timeline-item:hover',
+                'selector' => '{{WRAPPER}} .hq-timeline-item:hover',
             ]
         );
         
@@ -466,7 +466,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'card_h_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .timeline-head',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .timeline-head',
             ]
         );
 
@@ -477,7 +477,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .timeline-head' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .timeline-head' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -489,7 +489,7 @@ class Widget extends Widget_Base {
                 'type' =>  Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .timeline-head' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .timeline-head' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -514,7 +514,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-title',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-title',
             ]
         );
 
@@ -524,7 +524,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-title' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -536,7 +536,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -561,7 +561,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'sub_heading_typography',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-subtitle',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-subtitle',
             ]
         );
 
@@ -571,7 +571,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-subtitle' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-subtitle' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -583,7 +583,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -599,7 +599,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'description_style_section',
             [
-                'label' => esc_html__( 'Description', 'flatpack' ),
+                'label' => esc_html__( 'Description', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -608,7 +608,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'desc_typography',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .desc',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .desc',
             ]
         );
 
@@ -618,7 +618,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .desc' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .desc' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -630,7 +630,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -646,7 +646,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'date_time_style_section',
             [
-                'label' => esc_html__( 'Date Time', 'flatpack' ),
+                'label' => esc_html__( 'Date Time', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -657,7 +657,7 @@ class Widget extends Widget_Base {
                 'name' => 'time_date_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner',
             ]
         );
         
@@ -665,7 +665,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'td_typography',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner',
             ]
         );
 
@@ -675,7 +675,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -684,7 +684,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'td_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner',
             ]
         );
 
@@ -692,7 +692,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'td_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner',
             ]
         );
 
@@ -703,7 +703,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -715,7 +715,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -727,7 +727,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-tl-date-time-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-tl-date-time-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -752,7 +752,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'readmore_typography',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore',
             ]
         );
         
@@ -763,7 +763,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -775,7 +775,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -796,7 +796,7 @@ class Widget extends Widget_Base {
                 'name' => 'readmore_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'esclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore',
             ]
         );
 
@@ -806,7 +806,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -815,7 +815,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'readmore_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore',
             ]
         );
 
@@ -823,7 +823,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'readmore_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore',
             ]
         );
 
@@ -834,7 +834,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -854,7 +854,7 @@ class Widget extends Widget_Base {
                 'name' => 'readmore_h_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'esclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore:hover',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore:hover',
             ]
         );
 
@@ -864,7 +864,7 @@ class Widget extends Widget_Base {
                 'label' => esc_html__( 'Text Color', 'textdomain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore:hover' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -873,7 +873,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'readmore_h_border',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore:hover',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore:hover',
             ]
         );
 
@@ -881,7 +881,7 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'readmore_h_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-timeline-item .fp-readmore:hover',
+                'selector' => '{{WRAPPER}} .hq-timeline-item .hq-readmore:hover',
             ]
         );
 
@@ -892,7 +892,7 @@ class Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-timeline-item .fp-readmore:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-timeline-item .hq-readmore:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -915,21 +915,21 @@ class Widget extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $timeline_items = $settings['timeline_items'];
 
-        $this->add_render_attribute( 'wrapper', 'class', 'fp-timeline-wrap' );
+        $this->add_render_attribute( 'wrapper', 'class', 'hq-timeline-wrap' );
         if( $timeline_items ) {
         ?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
             <?php foreach( $timeline_items as $index => $timeline_item ) : 
                 $repeater_setting_key_heading = $this->get_repeater_setting_key( 'heading', 'timeline_items', $index );
-                $this->add_render_attribute( $repeater_setting_key_heading, 'class', 'fp-tl-title' );
+                $this->add_render_attribute( $repeater_setting_key_heading, 'class', 'hq-tl-title' );
                 $this->add_inline_editing_attributes( $repeater_setting_key_heading );
 
                 $repeater_setting_key_sub_heading = $this->get_repeater_setting_key( 'sub-heading', 'timeline_items', $index );
-                $this->add_render_attribute( $repeater_setting_key_sub_heading, 'class', 'fp-tl-subtitle' );
+                $this->add_render_attribute( $repeater_setting_key_sub_heading, 'class', 'hq-tl-subtitle' );
                 $this->add_inline_editing_attributes( $repeater_setting_key_sub_heading );
 
                 $repeater_setting_key_date_time = $this->get_repeater_setting_key( 'date-time', 'timeline_items', $index );
-                $this->add_render_attribute( $repeater_setting_key_date_time, 'class', 'fp-tl-date-time-inner' );
+                $this->add_render_attribute( $repeater_setting_key_date_time, 'class', 'hq-tl-date-time-inner' );
                 $this->add_inline_editing_attributes( $repeater_setting_key_date_time );
 
                 $repeater_setting_key_desc = $this->get_repeater_setting_key( 'desc', 'timeline_items', $index );
@@ -938,18 +938,18 @@ class Widget extends Widget_Base {
 
                 $repeater_setting_key_readmore = $this->get_repeater_setting_key( 'rm_text', 'timeline_items', $index );
                 $this->add_inline_editing_attributes( $repeater_setting_key_readmore );
-                $this->add_render_attribute( $repeater_setting_key_readmore, 'class', 'fp-readmore' );
+                $this->add_render_attribute( $repeater_setting_key_readmore, 'class', 'hq-readmore' );
                 if ( ! empty( $timeline_item['rm_link']['url'] ) ) {
                     $link_key = 'rm_link_' . $index;
                     $this->add_link_attributes( $link_key, $timeline_item['rm_link'] );
                 }
 
             ?>
-            <div class="fp-timeline-item">
-                <div class="fp-timeline-inner">
+            <div class="hq-timeline-item">
+                <div class="hq-timeline-inner">
                     <?php if( ! empty( $timeline_item['heading'] || $timeline_item['sub-heading'] || $timeline_item['date-time'] ) ) : ?>
                     <div class="timeline-head">
-                        <div class="fp-tl-title-wrap">
+                        <div class="hq-tl-title-wrap">
                             <?php
                             if( ! empty( $timeline_item['heading'] ) ) {
                                 echo '<h3 '. $this->get_render_attribute_string( $repeater_setting_key_heading ) .'>'. Helper::kses_basic( $timeline_item['heading'] ) .'</h3>';
@@ -961,7 +961,7 @@ class Widget extends Widget_Base {
                         </div>
                         <?php
                             if( ! empty( $timeline_item['date-time'] ) ) {
-                                echo '<div class="fp-tl-date-time"><div '. $this->get_render_attribute_string( $repeater_setting_key_date_time ) .'>'. Helper::kses_basic( $timeline_item['date-time'] ) .'</div></div>';
+                                echo '<div class="hq-tl-date-time"><div '. $this->get_render_attribute_string( $repeater_setting_key_date_time ) .'>'. Helper::kses_basic( $timeline_item['date-time'] ) .'</div></div>';
                             }
                         ?>
                     </div>
@@ -979,7 +979,7 @@ class Widget extends Widget_Base {
         </div>
         <?php
         }else{
-            esc_html_e( 'No timeline item found! Please add the timeline item.', 'flatpack' );
+            esc_html_e( 'No timeline item found! Please add the timeline item.', 'edumentor' );
         }
        
     }

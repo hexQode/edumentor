@@ -2,7 +2,7 @@
 /**
  * Helper class
  *
- * @package FlatPack
+ * @package EduMentor
  */
 namespace HexQode\EduMentor\Classes;
 
@@ -135,7 +135,7 @@ class CardStyle {
                                 Helper::get_terms( 'category', 1, true, 'hq-card-category', false );
                             }
                             if( 'yes' === $settings['reading_time'] ) {
-                                echo '<div class="reading-time" title="'. esc_html__( 'Take ', 'flatpack' ) . Helper::get_post_reading_time('full') . esc_html__( ' to read.', 'flatpack' ) .'"><i class="far fa-clock"></i> '. esc_html( Helper::get_post_reading_time() ) .'</div>';
+                                echo '<div class="reading-time" title="'. esc_html__( 'Take ', 'edumentor' ) . Helper::get_post_reading_time('full') . esc_html__( ' to read.', 'edumentor' ) .'"><i class="far fa-clock"></i> '. esc_html( Helper::get_post_reading_time() ) .'</div>';
                             } 
                         ?>
                     </div>
@@ -193,7 +193,7 @@ class CardStyle {
                         <?php 
                         endif;
                         if( 'yes' === $settings['reading_time'] ) {
-                            echo '<div class="reading-time" title="'. esc_html__( 'Take ') . Helper::get_post_reading_time('full') . esc_html__( ' to read.', 'flatpack' ) .'"><i class="far fa-clock"></i> '. esc_html( Helper::get_post_reading_time() ) .'</div>';
+                            echo '<div class="reading-time" title="'. esc_html__( 'Take ') . Helper::get_post_reading_time('full') . esc_html__( ' to read.', 'edumentor' ) .'"><i class="far fa-clock"></i> '. esc_html( Helper::get_post_reading_time() ) .'</div>';
                         } 
                         ?>
                     </div>

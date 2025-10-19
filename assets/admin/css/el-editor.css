@@ -2,12 +2,12 @@
     position: relative;
 }
 
-#elementor-panel-category-flatpack .elementor-element:hover {
+#elementor-panel-category-edumentor .elementor-element:hover {
     background-color: rgba(152, 65, 255, 0.05);
     border-color: rgba(152, 65, 255, 0.2);
 }
 
-.elementor-element .icon .fq-icon::after {
+.elementor-element .icon .edumentor-icon::after {
     content: 'FP';
     position: absolute;
     right: 5px;
@@ -19,7 +19,7 @@
 }
 
 @media(prefers-color-scheme: dark) {
-    .elementor-element .icon .fq-icon::after {
+    .elementor-element .icon .edumentor-icon::after {
         color: #fafafa;
     }
 }

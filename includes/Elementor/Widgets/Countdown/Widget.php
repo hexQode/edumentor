@@ -2,7 +2,7 @@
 /**
  * Countdown
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Countdown;
@@ -30,7 +30,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-countdown';
+        return 'edumentor-countdown';
     }
 
     /**
@@ -42,11 +42,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Countdown', 'flatpack' );
+        return esc_html__( 'Countdown', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -58,23 +58,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-countdown';
+        return 'edumentor-icon eicon-countdown';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'countdown', 'coming soon', 'timer', 'flatpack' ];
+        return [ 'countdown', 'coming soon', 'timer', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-countdown' ];
+        return [ 'hq-countdown' ];
     }
 
     public function get_script_depends() {
-        return [ 'fp-countdown', 'flatpack-el-script' ];
+        return [ 'hq-countdown', 'edumentor-el-script' ];
     }
 
     /**
@@ -103,7 +103,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_time',
             [
-                'label' => esc_html__( 'Set Time', 'flatpack' ),
+                'label' => esc_html__( 'Set Time', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -111,10 +111,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'due_date',
             [
-                'label'       => esc_html__( 'Time', 'flatpack' ),
+                'label'       => esc_html__( 'Time', 'edumentor' ),
                 'type'        => Controls_Manager::DATE_TIME,
                 'default'     => date( "Y-m-d", strtotime( "+ 1 day" ) ),
-                'description' => esc_html__( 'Set the due date and time', 'flatpack' ),
+                'description' => esc_html__( 'Set the due date and time', 'edumentor' ),
             ]
         );
 
@@ -132,7 +132,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_countdown_settings',
             [
-                'label' => esc_html__( 'Settings', 'flatpack' ),
+                'label' => esc_html__( 'Settings', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -140,22 +140,22 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_position',
             [
-                'label'          => esc_html__( 'Label Position', 'flatpack' ),
+                'label'          => esc_html__( 'Label Position', 'edumentor' ),
                 'type'           => Controls_Manager::CHOOSE,
                 'label_block'    => false,
                 'options'        => [
                     'right'  => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon'  => 'eicon-h-align-right',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'flatpack' ),
+                        'title' => esc_html__( 'Bottom', 'edumentor' ),
                         'icon'  => 'eicon-v-align-bottom',
                     ],
                 ],
                 'toggle'         => false,
                 'default'        => 'bottom',
-                'prefix_class'   => 'fp-countdown-label-',
+                'prefix_class'   => 'hq-countdown-label-',
                 'style_transfer' => true,
             ]
         );
@@ -163,7 +163,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_space',
             [
-                'label'          => esc_html__( 'Label Space', 'flatpack' ),
+                'label'          => esc_html__( 'Label Space', 'edumentor' ),
                 'type'           => Controls_Manager::POPOVER_TOGGLE,
                 'condition'      => [
                     'label_position' => 'right',
@@ -177,7 +177,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_space_top',
             [
-                'label'          => esc_html__( 'Label Space Top', 'flatpack' ),
+                'label'          => esc_html__( 'Label Space Top', 'edumentor' ),
                 'type'           => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'range'          => [
@@ -187,7 +187,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}}.fp-countdown-label-right .fp-countdown-item .fp-countdown-label' => 'top: {{SIZE || 0}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-countdown-label-right .hq-countdown-item .hq-countdown-label' => 'top: {{SIZE || 0}}{{UNIT}};',
                 ],
                 'condition'      => [
                     'label_position' => 'right',
@@ -199,7 +199,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_space_left',
             [
-                'label'          => esc_html__( 'Label Space Left', 'flatpack' ),
+                'label'          => esc_html__( 'Label Space Left', 'edumentor' ),
                 'type'           => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'range'          => [
@@ -209,7 +209,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}}.fp-countdown-label-right .fp-countdown-item .fp-countdown-label' => 'left: {{SIZE || 0}}{{UNIT}};',
+                    '{{WRAPPER}}.hq-countdown-label-right .hq-countdown-item .hq-countdown-label' => 'left: {{SIZE || 0}}{{UNIT}};',
                 ],
                 'condition'      => [
                     'label_position' => 'right',
@@ -223,7 +223,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'show_label_days',
             [
-                'label'          => esc_html__( 'Show Label Days?', 'flatpack' ),
+                'label'          => esc_html__( 'Show Label Days?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
                 'return_value'   => 'yes',
                 'default'        => 'yes',
@@ -234,10 +234,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_days',
             [
-                'label'       => esc_html__( 'Label Days', 'flatpack' ),
-                'description' => esc_html__( 'Set the label for days.', 'flatpack' ),
+                'label'       => esc_html__( 'Label Days', 'edumentor' ),
+                'description' => esc_html__( 'Set the label for days.', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Days', 'flatpack' ),
+                'placeholder' => esc_html__( 'Days', 'edumentor' ),
                 'default'     => 'Days',
                 'condition'   => [
                     'show_label_days' => 'yes',
@@ -248,7 +248,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'show_label_hours',
             [
-                'label'          => esc_html__( 'Show Label Hours?', 'flatpack' ),
+                'label'          => esc_html__( 'Show Label Hours?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
                 'return_value'   => 'yes',
                 'default'        => 'yes',
@@ -259,10 +259,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_hours',
             [
-                'label'       => esc_html__( 'Label Hours', 'flatpack' ),
-                'description' => esc_html__( 'Set the label for hours.', 'flatpack' ),
+                'label'       => esc_html__( 'Label Hours', 'edumentor' ),
+                'description' => esc_html__( 'Set the label for hours.', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Hours', 'flatpack' ),
+                'placeholder' => esc_html__( 'Hours', 'edumentor' ),
                 'default'     => 'Hours',
                 'condition'   => [
                     'show_label_hours' => 'yes',
@@ -273,7 +273,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'show_label_minutes',
             [
-                'label'          => esc_html__( 'Show Label Minutes?', 'flatpack' ),
+                'label'          => esc_html__( 'Show Label Minutes?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
                 'return_value'   => 'yes',
                 'default'        => 'yes',
@@ -284,10 +284,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_minutes',
             [
-                'label'       => esc_html__( 'Label Minutes', 'flatpack' ),
-                'description' => esc_html__( 'Set the label for minutes.', 'flatpack' ),
+                'label'       => esc_html__( 'Label Minutes', 'edumentor' ),
+                'description' => esc_html__( 'Set the label for minutes.', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Minutes', 'flatpack' ),
+                'placeholder' => esc_html__( 'Minutes', 'edumentor' ),
                 'default'     => 'Minutes',
                 'condition'   => [
                     'show_label_minutes' => 'yes',
@@ -298,7 +298,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'show_label_seconds',
             [
-                'label'          => esc_html__( 'Show Label Seconds?', 'flatpack' ),
+                'label'          => esc_html__( 'Show Label Seconds?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
                 'return_value'   => 'yes',
                 'default'        => 'yes',
@@ -309,10 +309,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'label_seconds',
             [
-                'label'       => esc_html__( 'Label Seconds', 'flatpack' ),
-                'description' => esc_html__( 'Set the label for seconds.', 'flatpack' ),
+                'label'       => esc_html__( 'Label Seconds', 'edumentor' ),
+                'description' => esc_html__( 'Set the label for seconds.', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Seconds', 'flatpack' ),
+                'placeholder' => esc_html__( 'Seconds', 'edumentor' ),
                 'default'     => 'Seconds',
                 'condition'   => [
                     'show_label_seconds' => 'yes',
@@ -323,19 +323,19 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'align',
             [
-                'label'     => esc_html__( 'Alignment', 'flatpack' ),
+                'label'     => esc_html__( 'Alignment', 'edumentor' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => [
                     'left'   => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
@@ -349,7 +349,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'show_separator',
             [
-                'label'          => esc_html__( 'Show Separator?', 'flatpack' ),
+                'label'          => esc_html__( 'Show Separator?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
                 'return_value'   => 'on',
                 'default'        => '',
@@ -361,7 +361,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'separator',
             [
-                'label'     => esc_html__( 'Separator', 'flatpack' ),
+                'label'     => esc_html__( 'Separator', 'edumentor' ),
                 'type'      => Controls_Manager::TEXT,
                 'default'   => ':',
                 'condition' => [
@@ -373,10 +373,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'separator_color',
             [
-                'label'          => esc_html__( 'Separator Color', 'flatpack' ),
+                'label'          => esc_html__( 'Separator Color', 'edumentor' ),
                 'type'           => Controls_Manager::COLOR,
                 'selectors'      => [
-                    '{{WRAPPER}} .fp-countdown-item.fp-countdown-separator-on .fp-countdown-separator' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item.hq-countdown-separator-on .hq-countdown-separator' => 'color: {{VALUE}}',
                 ],
                 'condition'      => [
                     'show_separator' => 'on',
@@ -388,11 +388,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'separator_font',
             [
-                'label'          => esc_html__( 'Separator Font Size', 'flatpack' ),
+                'label'          => esc_html__( 'Separator Font Size', 'edumentor' ),
                 'type'           => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'selectors'      => [
-                    '{{WRAPPER}} .fp-countdown-item.fp-countdown-separator-on .fp-countdown-separator' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item.hq-countdown-separator-on .hq-countdown-separator' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'      => [
                     'show_separator' => 'on',
@@ -404,7 +404,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'separator_position',
             [
-                'label'          => esc_html__( 'Separator Position', 'flatpack' ),
+                'label'          => esc_html__( 'Separator Position', 'edumentor' ),
                 'type'           => Controls_Manager::POPOVER_TOGGLE,
                 'condition'      => [
                     'show_separator' => 'on',
@@ -418,7 +418,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'separator_position_top',
             [
-                'label'          => esc_html__( 'Position Top', 'flatpack' ),
+                'label'          => esc_html__( 'Position Top', 'edumentor' ),
                 'type'           => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'range'          => [
@@ -428,7 +428,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}} .fp-countdown-item.fp-countdown-separator-on .fp-countdown-separator' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item.hq-countdown-separator-on .hq-countdown-separator' => 'top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'      => [
                     'show_separator' => 'on',
@@ -440,7 +440,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'separator_position_right',
             [
-                'label'          => esc_html__( 'Position Right', 'flatpack' ),
+                'label'          => esc_html__( 'Position Right', 'edumentor' ),
                 'type'           => Controls_Manager::SLIDER,
                 'size_units'     => ['px'],
                 'range'          => [
@@ -450,7 +450,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'      => [
-                    '{{WRAPPER}} .fp-countdown-item.fp-countdown-separator-on .fp-countdown-separator' => 'right: {{SIZE || -16}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item.hq-countdown-separator-on .hq-countdown-separator' => 'right: {{SIZE || -16}}{{UNIT}};',
                 ],
                 'condition'      => [
                     'show_separator' => 'on',
@@ -474,7 +474,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_end_action',
             [
-                'label' => esc_html__( 'Countdown End Action', 'flatpack' ),
+                'label' => esc_html__( 'Countdown End Action', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -482,15 +482,15 @@ class Widget extends Widget_Base {
         $this->add_control(
             'end_action_type',
             [
-                'label'       => esc_html__( 'End Action Type', 'flatpack' ),
+                'label'       => esc_html__( 'End Action Type', 'edumentor' ),
                 'label_block' => false,
                 'type'        => Controls_Manager::SELECT,
-                'description' => esc_html__( 'Choose which action you want to at the end of countdown.', 'flatpack' ),
+                'description' => esc_html__( 'Choose which action you want to at the end of countdown.', 'edumentor' ),
                 'options'     => [
-                    'none'    => esc_html__( 'None', 'flatpack' ),
-                    'message' => esc_html__( 'Message', 'flatpack' ),
-                    'url'     => esc_html__( 'Redirection Link', 'flatpack' ),
-                    'img'     => esc_html__( 'Image', 'flatpack' ),
+                    'none'    => esc_html__( 'None', 'edumentor' ),
+                    'message' => esc_html__( 'Message', 'edumentor' ),
+                    'url'     => esc_html__( 'Redirection Link', 'edumentor' ),
+                    'img'     => esc_html__( 'Image', 'edumentor' ),
                 ],
                 'default'     => 'none',
             ]
@@ -499,10 +499,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'end_message',
             [
-                'label'       => esc_html__( 'Countdown End Message', 'flatpack' ),
+                'label'       => esc_html__( 'Countdown End Message', 'edumentor' ),
                 'type'        => Controls_Manager::WYSIWYG,
-                'default'     => esc_html__( 'Countdown End!', 'flatpack' ),
-                'placeholder' => esc_html__( 'Type your message here', 'flatpack' ),
+                'default'     => esc_html__( 'Countdown End!', 'edumentor' ),
+                'placeholder' => esc_html__( 'Type your message here', 'edumentor' ),
                 'condition'   => [
                     'end_action_type' => 'message',
                 ],
@@ -512,9 +512,9 @@ class Widget extends Widget_Base {
         $this->add_control(
             'end_redirect_link',
             [
-                'label'       => esc_html__( 'Redirection Link', 'flatpack' ),
+                'label'       => esc_html__( 'Redirection Link', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://flatpack.com', 'flatpack' ),
+                'placeholder' => esc_html__( 'https://edumentor.com', 'edumentor' ),
                 'condition'   => [
                     'end_action_type' => 'url',
                 ],
@@ -524,7 +524,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'end_image',
             [
-                'label'     => esc_html__( 'Image', 'flatpack' ),
+                'label'     => esc_html__( 'Image', 'edumentor' ),
                 'type'      => Controls_Manager::MEDIA,
                 'default'   => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -561,7 +561,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_common_style',
             [
-                'label' => esc_html__( 'Common Style', 'flatpack' ),
+                'label' => esc_html__( 'Common Style', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -569,7 +569,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'box_width',
             [
-                'label'      => esc_html__( 'Box Width', 'flatpack' ),
+                'label'      => esc_html__( 'Box Width', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range'      => [
@@ -584,7 +584,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-countdown-item' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -592,7 +592,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'box_height',
             [
-                'label'      => esc_html__( 'Box Height', 'flatpack' ),
+                'label'      => esc_html__( 'Box Height', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range'      => [
@@ -607,7 +607,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-countdown-item' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -616,9 +616,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'common_box_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-countdown-item',
+                'selector' => '{{WRAPPER}} .hq-countdown-item',
             ]
         );
 
@@ -626,8 +626,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'box_border',
-                'label'     => esc_html__( 'Box Border', 'flatpack' ),
-                'selector'  => '{{WRAPPER}} .fp-countdown-item',
+                'label'     => esc_html__( 'Box Border', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-countdown-item',
                 'separator' => 'before',
             ]
         );
@@ -635,11 +635,11 @@ class Widget extends Widget_Base {
         $this->add_control(
             'box_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-countdown-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -649,18 +649,18 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'box_box_shadow',
-                'label'    => esc_html__( 'Box Shadow', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-countdown-item',
+                'label'    => esc_html__( 'Box Shadow', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-countdown-item',
             ]
         );
 
         $this->add_control(
             'common_box_time_color',
             [
-                'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                'label'     => esc_html__( 'Time Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-time' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -670,24 +670,24 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'common_box_time_typography',
-                'label'    => esc_html__( 'Time Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Time Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-time',
+                'selector' => '{{WRAPPER}} .hq-countdown-time',
             ]
         );
 
         $this->add_control(
             'common_box_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'flatpack' ),
+                'label'     => esc_html__( 'Label Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-label' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -697,25 +697,25 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'common_box_label_typography',
-                'label'    => esc_html__( 'Label Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Label Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-label',
+                'selector' => '{{WRAPPER}} .hq-countdown-label',
             ]
         );
 
         $this->add_responsive_control(
             'common_box_spacing',
             [
-                'label'      => esc_html__( 'Spacing Between Box', 'flatpack' ),
+                'label'      => esc_html__( 'Spacing Between Box', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-countdown-item' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -724,11 +724,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'box_padding',
             [
-                'label'      => esc_html__( 'Box Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Box Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-countdown-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -746,7 +746,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_days_style',
             [
-                'label' => esc_html__( 'Days', 'flatpack' ),
+                'label' => esc_html__( 'Days', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -755,9 +755,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'days_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-days',
+                'selector' => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-days',
             ]
         );
 
@@ -765,8 +765,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'days_border',
-                'label'     => esc_html__( 'Box Border', 'flatpack' ),
-                'selector'  => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-days',
+                'label'     => esc_html__( 'Box Border', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-days',
                 'separator' => 'before',
             ]
         );
@@ -774,10 +774,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'days_time_color',
             [
-                'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                'label'     => esc_html__( 'Time Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-days .fp-countdown-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-days .hq-countdown-time' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -787,24 +787,24 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'days_time_typography',
-                'label'    => esc_html__( 'Time Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Time Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-days .fp-countdown-time',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-days .hq-countdown-time',
             ]
         );
 
         $this->add_control(
             'days_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'flatpack' ),
+                'label'     => esc_html__( 'Label Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-days .fp-countdown-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-days .hq-countdown-label' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -814,14 +814,14 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'days_label_typography',
-                'label'    => esc_html__( 'Label Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Label Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-days .fp-countdown-label',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-days .hq-countdown-label',
             ]
         );
 
@@ -839,7 +839,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_hours_style',
             [
-                'label' => esc_html__( 'Hours', 'flatpack' ),
+                'label' => esc_html__( 'Hours', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -848,9 +848,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'hours_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-hours',
+                'selector' => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-hours',
             ]
         );
 
@@ -858,8 +858,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'hours_border',
-                'label'     => esc_html__( 'Box Border', 'flatpack' ),
-                'selector'  => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-hours',
+                'label'     => esc_html__( 'Box Border', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-hours',
                 'separator' => 'before',
             ]
         );
@@ -867,10 +867,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'hours_time_color',
             [
-                'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                'label'     => esc_html__( 'Time Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-hours .fp-countdown-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-hours .hq-countdown-time' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -880,24 +880,24 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'hours_time_typography',
-                'label'    => esc_html__( 'Time Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Time Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-hours .fp-countdown-time',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-hours .hq-countdown-time',
             ]
         );
 
         $this->add_control(
             'hours_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'flatpack' ),
+                'label'     => esc_html__( 'Label Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-hours .fp-countdown-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-hours .hq-countdown-label' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -907,14 +907,14 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'hours_label_typography',
-                'label'    => esc_html__( 'Label Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Label Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-hours .fp-countdown-label',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-hours .hq-countdown-label',
             ]
         );
 
@@ -932,7 +932,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_minutes_style',
             [
-                'label' => esc_html__( 'Minutes', 'flatpack' ),
+                'label' => esc_html__( 'Minutes', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -940,9 +940,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'minutes_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-minutes',
+                'selector' => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-minutes',
             ]
         );
 
@@ -950,8 +950,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'minutes_border',
-                'label'     => esc_html__( 'Box Border', 'flatpack' ),
-                'selector'  => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-minutes',
+                'label'     => esc_html__( 'Box Border', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-minutes',
                 'separator' => 'before',
             ]
         );
@@ -959,10 +959,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'minutes_time_color',
             [
-                'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                'label'     => esc_html__( 'Time Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-minutes .fp-countdown-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-minutes .hq-countdown-time' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -972,24 +972,24 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'minutes_time_typography',
-                'label'    => esc_html__( 'Time Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Time Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-minutes .fp-countdown-time',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-minutes .hq-countdown-time',
             ]
         );
 
         $this->add_control(
             'minutes_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'flatpack' ),
+                'label'     => esc_html__( 'Label Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-minutes .fp-countdown-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-minutes .hq-countdown-label' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -999,14 +999,14 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'minutes_label_typography',
-                'label'    => esc_html__( 'Label Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Label Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-minutes .fp-countdown-label',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-minutes .hq-countdown-label',
             ]
         );
 
@@ -1024,7 +1024,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             '_section_seconds_style',
             [
-                'label' => esc_html__( 'Seconds', 'flatpack' ),
+                'label' => esc_html__( 'Seconds', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1033,9 +1033,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'seconds_bg',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-seconds',
+                'selector' => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-seconds',
             ]
         );
 
@@ -1043,8 +1043,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'      => 'seconds_border',
-                'label'     => esc_html__( 'Box Border', 'flatpack' ),
-                'selector'  => '{{WRAPPER}} .fp-countdown-item.fp-countdown-item-seconds',
+                'label'     => esc_html__( 'Box Border', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-countdown-item.hq-countdown-item-seconds',
                 'separator' => 'before',
             ]
         );
@@ -1052,10 +1052,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'seconds_time_color',
             [
-                'label'     => esc_html__( 'Time Color', 'flatpack' ),
+                'label'     => esc_html__( 'Time Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-seconds .fp-countdown-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-seconds .hq-countdown-time' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -1065,24 +1065,24 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'seconds_time_typography',
-                'label'    => esc_html__( 'Time Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Time Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-seconds .fp-countdown-time',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-seconds .hq-countdown-time',
             ]
         );
 
         $this->add_control(
             'seconds_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'flatpack' ),
+                'label'     => esc_html__( 'Label Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-countdown-item-seconds .fp-countdown-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown-item-seconds .hq-countdown-label' => 'color: {{VALUE}}',
                 ],
                 'separator' => 'before',
             ]
@@ -1092,14 +1092,14 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'seconds_label_typography',
-                'label'    => esc_html__( 'Label Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Label Typography', 'edumentor' ),
                 'exclude'  => [
                     'line_height',
                 ],
                 'default'  => [
                     'font_size' => [''],
                 ],
-                'selector' => '{{WRAPPER}} .fp-countdown-item-seconds .fp-countdown-label',
+                'selector' => '{{WRAPPER}} .hq-countdown-item-seconds .hq-countdown-label',
             ]
         );
 
@@ -1116,75 +1116,75 @@ class Widget extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
 		$due_date = date("M d Y G:i:s", strtotime($settings['due_date']));
-		$this->add_render_attribute('fp-countdown', 'class', 'fp-countdown');
-		$this->add_render_attribute('fp-countdown', 'data-date', esc_attr($due_date));
-		$this->add_render_attribute('fp-countdown', 'data-end-action', esc_attr($settings['end_action_type']));
+		$this->add_render_attribute('hq-countdown', 'class', 'hq-countdown');
+		$this->add_render_attribute('hq-countdown', 'data-date', esc_attr($due_date));
+		$this->add_render_attribute('hq-countdown', 'data-end-action', esc_attr($settings['end_action_type']));
 		if ('url' === $settings['end_action_type'] && $settings['end_redirect_link']) {
-			$this->add_render_attribute('fp-countdown', 'data-redirect-link', esc_url($settings['end_redirect_link']));
+			$this->add_render_attribute('hq-countdown', 'data-redirect-link', esc_url($settings['end_redirect_link']));
 		}
-		$this->add_render_attribute('days', 'class', 'fp-countdown-item fp-countdown-item-days');
-		$this->add_render_attribute('hours', 'class', 'fp-countdown-item fp-countdown-item-hours');
-		$this->add_render_attribute('minutes', 'class', 'fp-countdown-item fp-countdown-item-minutes');
-		$this->add_render_attribute('seconds', 'class', 'fp-countdown-item fp-countdown-item-seconds');
+		$this->add_render_attribute('days', 'class', 'hq-countdown-item hq-countdown-item-days');
+		$this->add_render_attribute('hours', 'class', 'hq-countdown-item hq-countdown-item-hours');
+		$this->add_render_attribute('minutes', 'class', 'hq-countdown-item hq-countdown-item-minutes');
+		$this->add_render_attribute('seconds', 'class', 'hq-countdown-item hq-countdown-item-seconds');
 		if ('on' == $settings['show_separator']) {
-			$this->add_render_attribute('days', 'class', 'fp-countdown-separator-on');
-			$this->add_render_attribute('hours', 'class', 'fp-countdown-separator-on');
-			$this->add_render_attribute('minutes', 'class', 'fp-countdown-separator-on');
-			$this->add_render_attribute('seconds', 'class', 'fp-countdown-separator-on');
+			$this->add_render_attribute('days', 'class', 'hq-countdown-separator-on');
+			$this->add_render_attribute('hours', 'class', 'hq-countdown-separator-on');
+			$this->add_render_attribute('minutes', 'class', 'hq-countdown-separator-on');
+			$this->add_render_attribute('seconds', 'class', 'hq-countdown-separator-on');
 		}
 		?>
 		<?php if ( ! empty( $due_date ) ) : ?>
-			<div class="fp-countdown-wrap">
-				<div <?php $this->print_render_attribute_string('fp-countdown'); ?>>
+			<div class="hq-countdown-wrap">
+				<div <?php $this->print_render_attribute_string('hq-countdown'); ?>>
 					<div <?php $this->print_render_attribute_string('days'); ?>>
-						<span data-days class="fp-countdown-time fp-countdown-days">0</span>
+						<span data-days class="hq-countdown-time hq-countdown-days">0</span>
 						<?php if ('yes' == $settings['show_label_days'] && !empty($settings['label_days'])): ?>
 							<span
-								class="fp-countdown-label fp-countdown-label-days"><?php echo esc_html($settings['label_days']); ?></span>
+								class="hq-countdown-label hq-countdown-label-days"><?php echo esc_html($settings['label_days']); ?></span>
 						<?php endif; ?>
 						<?php if ('on' == $settings['show_separator'] && !empty($settings['separator'])): ?>
-							<span class="fp-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
+							<span class="hq-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
 						<?php endif; ?>
 					</div>
 					<div <?php $this->print_render_attribute_string('hours'); ?>>
-						<span class="fp-countdown-time fp-countdown-hours" data-hours>0</span>
+						<span class="hq-countdown-time hq-countdown-hours" data-hours>0</span>
 						<?php if ('yes' == $settings['show_label_hours'] && !empty($settings['label_hours'])): ?>
 							<span
-								class="fp-countdown-label fp-countdown-label-hours"><?php echo esc_html($settings['label_hours']); ?></span>
+								class="hq-countdown-label hq-countdown-label-hours"><?php echo esc_html($settings['label_hours']); ?></span>
 						<?php endif; ?>
 						<?php if ('on' == $settings['show_separator'] && !empty($settings['separator'])): ?>
-							<span class="fp-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
+							<span class="hq-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
 						<?php endif; ?>
 					</div>
 					<div <?php $this->print_render_attribute_string('minutes'); ?>>
-						<span class="fp-countdown-time fp-countdown-minutes" data-minutes>0</span>
+						<span class="hq-countdown-time hq-countdown-minutes" data-minutes>0</span>
 						<?php if ('yes' == $settings['show_label_minutes'] && !empty($settings['label_minutes'])): ?>
 							<span
-								class="fp-countdown-label fp-countdown-label-minutes"><?php echo esc_html($settings['label_minutes']); ?></span>
+								class="hq-countdown-label hq-countdown-label-minutes"><?php echo esc_html($settings['label_minutes']); ?></span>
 						<?php endif; ?>
 						<?php if ('on' == $settings['show_separator'] && !empty($settings['separator'])): ?>
-							<span class="fp-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
+							<span class="hq-countdown-separator"><?php echo esc_attr($settings['separator']); ?></span>
 						<?php endif; ?>
 					</div>
 					<div <?php $this->print_render_attribute_string('seconds'); ?>>
-						<span class="fp-countdown-time fp-countdown-seconds" data-seconds>0</span>
+						<span class="hq-countdown-time hq-countdown-seconds" data-seconds>0</span>
 						<?php if ('yes' == $settings['show_label_seconds'] && !empty($settings['label_seconds'])): ?>
 							<span
-								class="fp-countdown-label fp-countdown-label-seconds"><?php echo esc_html($settings['label_seconds']); ?></span>
+								class="hq-countdown-label hq-countdown-label-seconds"><?php echo esc_html($settings['label_seconds']); ?></span>
 						<?php endif; ?>
 					</div>
 					<!--End action markup-->
 					<?php if ('none' != $settings['end_action_type'] && !empty($settings['end_action_type'])): ?>
-						<div class="fp-countdown-end-action">
+						<div class="hq-countdown-end-action">
 							<?php if ('message' == $settings['end_action_type'] && $settings['end_message']) :
-								echo '<div class="fp-countdown-end-message">' . wpautop(wp_kses_post($settings['end_message'])) . '</div>';
+								echo '<div class="hq-countdown-end-message">' . wpautop(wp_kses_post($settings['end_message'])) . '</div>';
 							endif; ?>
 							<?php if ('img' == $settings['end_action_type'] && ($settings['end_image']['url'] || $settings['end_image']['id'])) :
 								$this->add_render_attribute('image', 'src', $settings['end_image']['url']);
 								$this->add_render_attribute('image', 'alt', Control_Media::get_image_alt($settings['end_image']));
 								$this->add_render_attribute('image', 'title', Control_Media::get_image_title($settings['end_image']));
 								?>
-								<figure class="fp-countdown-end-action-image">
+								<figure class="hq-countdown-end-action-image">
 									<?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'end_image_size', 'end_image'); ?>
 								</figure>
 							<?php endif; ?>

@@ -2,7 +2,7 @@
 /**
  * Common Controls
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Traits;
@@ -27,39 +27,39 @@ trait CommonControls{
 		$this->start_controls_section(
 			'button_section',
 			[
-				'label' => esc_html__( 'Button', 'flatpack' )
+				'label' => esc_html__( 'Button', 'edumentor' )
 			]
 		);
 
 		$this->add_responsive_control(
 			'btn_alignment',
 			[
-				'label' => esc_html__( 'Alignment', 'flatpack' ),
+				'label' => esc_html__( 'Alignment', 'edumentor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'flatpack' ),
+						'title' => esc_html__( 'Left', 'edumentor' ),
 						'icon' => 'eicon-text-align-left'
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'flatpack' ),
+						'title' => esc_html__( 'Center', 'edumentor' ),
 						'icon' => 'eicon-text-align-center'
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'flatpack' ),
+						'title' => esc_html__( 'Right', 'edumentor' ),
 						'icon' => 'eicon-text-align-right'
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justify', 'flatpack' ),
+						'title' => esc_html__( 'Justify', 'edumentor' ),
 						'icon' => 'eicon-text-align-justify'
 					],
 				],
 				'default' => 'left',
-				'prefix_class' => 'fp-btn-align-',
+				'prefix_class' => 'hq-btn-align-',
 				'toggle' => true,
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap' => 'text-align: {{VALUE}};',
-					'{{WRAPPER}}.fp-btn-align-justify .fp-btn-wrap a' => 'width: 100%; text-align: center; justify-content: center;',
+					'{{WRAPPER}} .hq-btn-wrap' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}.hq-btn-align-justify .hq-btn-wrap a' => 'width: 100%; text-align: center; justify-content: center;',
 				]
 			]
 		);
@@ -67,20 +67,20 @@ trait CommonControls{
 		$this->add_control(
 			'btn_text',
 			[
-				'label'        => esc_html__( 'Button Text', 'flatpack' ),
+				'label'        => esc_html__( 'Button Text', 'edumentor' ),
 				'type'         => Controls_Manager::TEXT,
 				'label_block'  => true,
-				'default'      => esc_html__( 'Explore More', 'flatpack' ),
-				'placeholder'  => esc_html__( 'Text goes here...', 'flatpack' )
+				'default'      => esc_html__( 'Explore More', 'edumentor' ),
+				'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' )
 			]
 		);
 
 		$this->add_control(
 			'btn_link',
 			[
-				'label' => esc_html__( 'Link', 'flatpack' ),
+				'label' => esc_html__( 'Link', 'edumentor' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'flatpack' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'edumentor' ),
 				'show_external' => true,
 				'default' => [
 					'url' => '',
@@ -96,7 +96,7 @@ trait CommonControls{
 		$this->add_control(
 			'btn_icon',
 			[
-				'label' => esc_html__( 'Icon', 'flatpack' ),
+				'label' => esc_html__( 'Icon', 'edumentor' ),
 				'type' => Controls_Manager::ICONS,
 				'label_block'  => false,
 				'skin' => 'inline',
@@ -110,15 +110,15 @@ trait CommonControls{
 		$this->add_control(
 			'btn_icon_position',
 			[
-				'label' => esc_html__( 'Icon Position', 'flatpack' ),
+				'label' => esc_html__( 'Icon Position', 'edumentor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'before' => [
-						'title' => esc_html__( 'Before', 'flatpack' ),
+						'title' => esc_html__( 'Before', 'edumentor' ),
 						'icon' => 'eicon-h-align-left'
 					],
 					'after' => [
-						'title' => esc_html__( 'After', 'flatpack' ),
+						'title' => esc_html__( 'After', 'edumentor' ),
 						'icon' => 'eicon-h-align-right'
 					]
 				],
@@ -129,7 +129,7 @@ trait CommonControls{
 					'after' => 'flex-direction: row-reverse'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a' => '{{VALUE}}'
+					'{{WRAPPER}} .hq-btn-wrap a' => '{{VALUE}}'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -141,7 +141,7 @@ trait CommonControls{
 		$this->add_responsive_control(
 			'btn_icon_spacing',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'flatpack' ),
+				'label' => esc_html__( 'Icon Spacing', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -156,7 +156,7 @@ trait CommonControls{
 					'size' => 10
 				],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a' => 'column-gap: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hq-btn-wrap a' => 'column-gap: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -179,7 +179,7 @@ trait CommonControls{
 		$this->start_controls_section(
 			'fp_button-style',
 			[
-				'label' => esc_html__( 'Button', 'flatpack' ),
+				'label' => esc_html__( 'Button', 'edumentor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'btn_text!' => ''
@@ -190,9 +190,9 @@ trait CommonControls{
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label' => esc_html__( 'Typography', 'flatpack' ),
+				'label' => esc_html__( 'Typography', 'edumentor' ),
 				'name' => 'fp_button_typography',
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -204,7 +204,7 @@ trait CommonControls{
 		$this->start_controls_tab(
 			'fp_button_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'flatpack' ),
+				'label' => esc_html__( 'Normal', 'edumentor' ),
 			]
 		);
 
@@ -212,10 +212,10 @@ trait CommonControls{
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'fp_button_bg_color',
-				'label' => esc_html__( 'Background', 'flatpack' ),
+				'label' => esc_html__( 'Background', 'edumentor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -225,10 +225,10 @@ trait CommonControls{
 		$this->add_control(
 			'fp_button_color',
 			[
-				'label' => esc_html__( 'Text Color', 'flatpack' ),
+				'label' => esc_html__( 'Text Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .hq-btn-wrap a' => 'color: {{VALUE}};'
 				],
 				'default'	=> '',
 				'condition' => [
@@ -240,11 +240,11 @@ trait CommonControls{
 		$this->add_control(
 			'fp_button_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'flatpack' ),
+				'label' => esc_html__( 'Border Radius', 'edumentor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-btn-wrap a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -255,8 +255,8 @@ trait CommonControls{
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'fp_button_border',
-				'label' => esc_html__( 'Border', 'flatpack' ),
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a',
+				'label' => esc_html__( 'Border', 'edumentor' ),
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -267,7 +267,7 @@ trait CommonControls{
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fp_button_box_shadow',
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -277,11 +277,11 @@ trait CommonControls{
 		$this->add_responsive_control(
 			'fp_button_margin',
 			[
-				'label' => esc_html__( 'Margin', 'flatpack' ),
+				'label' => esc_html__( 'Margin', 'edumentor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-btn-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -292,11 +292,11 @@ trait CommonControls{
 		$this->add_responsive_control(
 			'fp_button_padding',
 			[
-				'label' => esc_html__( 'Padding', 'flatpack' ),
+				'label' => esc_html__( 'Padding', 'edumentor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-btn-wrap a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -309,7 +309,7 @@ trait CommonControls{
 		$this->start_controls_tab(
 			'fp_button_hover_tab',
 			[
-				'label' => esc_html__( 'Hover', 'flatpack' ),
+				'label' => esc_html__( 'Hover', 'edumentor' ),
 			]
 		);
 
@@ -317,10 +317,10 @@ trait CommonControls{
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'fp_button_hover_bg_color',
-				'label' => esc_html__( 'Background', 'flatpack' ),
+				'label' => esc_html__( 'Background', 'edumentor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a:before',
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a:before',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -330,10 +330,10 @@ trait CommonControls{
 		$this->add_control(
 			'fp_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'flatpack' ),
+				'label' => esc_html__( 'Text Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hq-btn-wrap a:hover' => 'color: {{VALUE}};',
 				],
 				'default'	=> '',
 				'condition' => [
@@ -345,8 +345,8 @@ trait CommonControls{
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'fp_button_hover_border',
-				'label' => esc_html__( 'Border', 'flatpack' ),
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a:hover',
+				'label' => esc_html__( 'Border', 'edumentor' ),
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a:hover',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -356,7 +356,7 @@ trait CommonControls{
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fp_button_hover_box_shadow',
-				'selector' => '{{WRAPPER}} .fp-btn-wrap a:hover',
+				'selector' => '{{WRAPPER}} .hq-btn-wrap a:hover',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -380,7 +380,7 @@ trait CommonControls{
 		$this->start_controls_section(
 			'fp_button_icon_style',
 			[
-				'label' => esc_html__( 'Icon', 'flatpack' ),
+				'label' => esc_html__( 'Icon', 'edumentor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'btn_text!' => '',
@@ -392,7 +392,7 @@ trait CommonControls{
 		$this->add_responsive_control(
 			'btn_icon_size',
 			[
-				'label' => esc_html__( 'Icon Size', 'flatpack' ),
+				'label' => esc_html__( 'Icon Size', 'edumentor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -403,7 +403,7 @@ trait CommonControls{
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a i' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hq-btn-wrap a i' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -415,10 +415,10 @@ trait CommonControls{
 		$this->add_control(
 			'btn_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'flatpack' ),
+				'label' => esc_html__( 'Icon Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-btn-wrap a i' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -430,10 +430,10 @@ trait CommonControls{
 		$this->add_control(
 			'btn_icon_hover_color',
 			[
-				'label' => esc_html__( 'Icon Hover Color', 'flatpack' ),
+				'label' => esc_html__( 'Icon Hover Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .fp-btn-wrap a:hover i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-btn-wrap a:hover i' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -456,7 +456,7 @@ trait CommonControls{
         $this->start_controls_section(
             'heading_style',
             [
-                'label' => esc_html__( 'Heading', 'flatpack' ),
+                'label' => esc_html__( 'Heading', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'heading!' => ''
@@ -468,7 +468,7 @@ trait CommonControls{
             Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'selector' => '{{WRAPPER}} .fp-heading',
+                'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -480,7 +480,7 @@ trait CommonControls{
         $this->start_controls_tab(
             'normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
 
@@ -490,7 +490,7 @@ trait CommonControls{
                 'name' => 'heading_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-heading',
+                'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -502,7 +502,7 @@ trait CommonControls{
             [
                 'name' => 'heading_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .fp-heading',
+                'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -513,7 +513,7 @@ trait CommonControls{
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'heading_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-heading',
+                'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -524,7 +524,7 @@ trait CommonControls{
             Group_Control_Border::get_type(),
             [
                 'name' => 'heading_border',
-                'selector' => '{{WRAPPER}} .fp-heading',
+                'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -534,11 +534,11 @@ trait CommonControls{
         $this->add_control(
             'heading_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -549,11 +549,11 @@ trait CommonControls{
         $this->add_responsive_control(
             'heading_padding',
             [
-                'label' => esc_html__( 'Padding', 'flatpack' ),
+                'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -564,11 +564,11 @@ trait CommonControls{
         $this->add_responsive_control(
             'heading_margin',
             [
-                'label' => esc_html__( 'Margin', 'flatpack' ),
+                'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -581,7 +581,7 @@ trait CommonControls{
         $this->start_controls_tab(
             'highlighted_tab',
             [
-                'label' => esc_html__( 'Highlighted Text', 'flatpack' ),
+                'label' => esc_html__( 'Highlighted Text', 'edumentor' ),
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -594,7 +594,7 @@ trait CommonControls{
                 'name' => 'hl_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .fp-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -606,7 +606,7 @@ trait CommonControls{
             [
                 'name' => 'hl_text_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .fp-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -617,7 +617,7 @@ trait CommonControls{
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'hl_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -628,7 +628,7 @@ trait CommonControls{
             Group_Control_Border::get_type(),
             [
                 'name' => 'hl_border',
-                'selector' => '{{WRAPPER}} .fp-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -638,11 +638,11 @@ trait CommonControls{
         $this->add_control(
             'hl_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading mark' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading mark' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -653,11 +653,11 @@ trait CommonControls{
         $this->add_responsive_control(
             'hl_padding',
             [
-                'label' => esc_html__( 'Padding', 'flatpack' ),
+                'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading mark' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading mark' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -668,11 +668,11 @@ trait CommonControls{
         $this->add_responsive_control(
             'hl_margin',
             [
-                'label' => esc_html__( 'Margin', 'flatpack' ),
+                'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading mark' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading mark' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -702,7 +702,7 @@ trait CommonControls{
             [
                 'label' => false,
                 'type' => Controls_Manager::RAW_HTML,
-                'raw' => esc_html__( 'Background Text is Hidden on Content Tab', 'flatpack' ),
+                'raw' => esc_html__( 'Background Text is Hidden on Content Tab', 'edumentor' ),
 				'separator' => 'before',
                 'condition' => [
                     'heading!' => '',
@@ -715,7 +715,7 @@ trait CommonControls{
             Group_Control_Typography::get_type(),
             [
                 'name' => 'background_text_typography',
-                'selector' => '{{WRAPPER}} .fp-heading:before',
+                'selector' => '{{WRAPPER}} .hq-heading:before',
                 'condition' => [
                     'heading!' => '',
                     'show_background_text' => 'yes',
@@ -729,7 +729,7 @@ trait CommonControls{
             [
                 'name' => 'background_text_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .fp-heading:before',
+                'selector' => '{{WRAPPER}} .hq-heading:before',
                 'condition' => [
                     'heading!' => '',
                     'show_background_text' => 'yes',
@@ -741,10 +741,10 @@ trait CommonControls{
         $this->add_control(
             'background_offset_toggle',
             [
-                'label' => esc_html__( 'Offset', 'flatpack' ),
+                'label' => esc_html__( 'Offset', 'edumentor' ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
-                'label_off' => esc_html__( 'None', 'flatpack' ),
-                'label_on' => esc_html__( 'Custom', 'flatpack' ),
+                'label_off' => esc_html__( 'None', 'edumentor' ),
+                'label_on' => esc_html__( 'Custom', 'edumentor' ),
                 'return_value' => 'yes',
                 'condition' => [
                     'heading!' => '',
@@ -759,7 +759,7 @@ trait CommonControls{
         $this->add_responsive_control(
             'background_horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'flatpack' ),
+                'label' => esc_html__( 'Horizontal Position', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'default' => [
@@ -778,7 +778,7 @@ trait CommonControls{
                     'background_offset_toggle' => 'yes'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading:before' => 'left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading:before' => 'left: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -786,7 +786,7 @@ trait CommonControls{
         $this->add_responsive_control(
             'background_vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'flatpack' ),
+                'label' => esc_html__( 'Vertical Position', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'default' => [
@@ -805,7 +805,7 @@ trait CommonControls{
                     'background_offset_toggle' => 'yes'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading:before' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading:before' => 'top: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -815,10 +815,10 @@ trait CommonControls{
         $this->add_control(
             'background_text_rotation',
             [
-                'label'        => esc_html__( 'Text Rotaion', 'flatpack' ),
+                'label'        => esc_html__( 'Text Rotaion', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'On', 'flatpack' ),
-                'label_off'    => esc_html__( 'Off', 'flatpack' ),
+                'label_on'     => esc_html__( 'On', 'edumentor' ),
+                'label_off'    => esc_html__( 'Off', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
                 'condition' => [
@@ -832,7 +832,7 @@ trait CommonControls{
         $this->add_responsive_control(
             'bg_text_rotation_val',
             [
-                'label'      => esc_html__( 'Rotate The Text', 'flatpack' ),
+                'label'      => esc_html__( 'Rotate The Text', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -843,7 +843,7 @@ trait CommonControls{
                     ]
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-heading:before' => 'transform: rotate({{SIZE}}deg);',
+                    '{{WRAPPER}} .hq-heading:before' => 'transform: rotate({{SIZE}}deg);',
                 ],
                 'condition' => [
                     'heading!' => '',

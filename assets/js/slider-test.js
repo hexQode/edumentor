@@ -35,7 +35,7 @@
 
 
 	jQuery(window).on('elementor/frontend/init', function () {
-		elementorFrontend.hooks.addAction('frontend/element_ready/flatpack-slider-test.default', widgetPanelSlider);
+		elementorFrontend.hooks.addAction('frontend/element_ready/edumentor-slider-test.default', widgetPanelSlider);
 	});
 
 }(jQuery, window.elementorFrontend));

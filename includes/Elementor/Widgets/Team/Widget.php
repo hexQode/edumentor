@@ -2,7 +2,7 @@
 /**
  * Team
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Team;
@@ -31,7 +31,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-team';
+        return 'edumentor-team';
     }
 
     /**
@@ -43,11 +43,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Team', 'flatpack' );
+        return esc_html__( 'Team', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -59,19 +59,19 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-person';
+        return 'edumentor-icon eicon-person';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'team', 'member', 'person', 'flatpack' ];
+        return [ 'team', 'member', 'person', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-team', 'elementor-icons-fa-brands' ];
+        return [ 'hq-team', 'elementor-icons-fa-brands' ];
     }
 
     /**
@@ -93,20 +93,20 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_layout',
             [
-                'label' => esc_html__( 'Layout', 'flatpack' )
+                'label' => esc_html__( 'Layout', 'edumentor' )
             ]
         );
 
         $this->add_control(
             'team_style',
             [
-                'label'   => esc_html__( 'Style', 'flatpack' ),
+                'label'   => esc_html__( 'Style', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'team-style-1',
                 'options' => [
-                    'team-style-1' => esc_html__( 'Style 1', 'flatpack' ),
-                    'team-style-2' => esc_html__( 'Style 2', 'flatpack' ),
-                    'team-style-3' => esc_html__( 'Style 3', 'flatpack' ),
+                    'team-style-1' => esc_html__( 'Style 1', 'edumentor' ),
+                    'team-style-2' => esc_html__( 'Style 2', 'edumentor' ),
+                    'team-style-3' => esc_html__( 'Style 3', 'edumentor' ),
                 ],
                 'frontend_available' => true,
             ]
@@ -115,10 +115,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tm_st_1_shape',
             [
-                'label'        => esc_html__( 'Hide Shape', 'flatpack' ),
+                'label'        => esc_html__( 'Hide Shape', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-                'label_off'    => esc_html__( 'No', 'flatpack' ),
+                'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+                'label_off'    => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
                 'condition'    => [
@@ -130,11 +130,11 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tm_st_1_shape_color',
             [
-                'label'     => esc_html__( 'Shape Color', 'flatpack' ),
+                'label'     => esc_html__( 'Shape Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-style-1 .top-shape .cls-1' => 'fill: {{VALUE}}',
-                    '{{WRAPPER}} .team-style-2 .fp-team .color-shape .shape' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .team-style-2 .hq-team .color-shape .shape' => 'background-color: {{VALUE}}',
                 ],
                 'condition'    => [
                     'team_style!'    => 'team-style-3',
@@ -146,7 +146,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tm_st_1_shape_bottom_color',
             [
-                'label'     => esc_html__( 'Bottom Shape Color', 'flatpack' ),
+                'label'     => esc_html__( 'Bottom Shape Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-style-1 .bottom-shape .cls-1' => 'fill: {{VALUE}}',
@@ -161,12 +161,12 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tmst2_shape_mode',
             [
-                'label'   => esc_html__( 'Shape Mode', 'flatpack' ),
+                'label'   => esc_html__( 'Shape Mode', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'active',
                 'options' => [
-                    'active'  => esc_html__( 'Always Show', 'flatpack' ),
-                    'hover' => esc_html__( 'Show On Hover', 'flatpack' ),
+                    'active'  => esc_html__( 'Always Show', 'edumentor' ),
+                    'hover' => esc_html__( 'Show On Hover', 'edumentor' ),
                 ],
                 'condition'    => [
                     'team_style'    => 'team-style-2',
@@ -178,7 +178,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'tmst2_shape_x_position',
             [
-                'label'      => esc_html__( 'Shape X Position', 'flatpack' ),
+                'label'      => esc_html__( 'Shape X Position', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range'      => [
@@ -193,7 +193,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .team-style-2.fp-team .color-shape' => 'left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .team-style-2.hq-team .color-shape' => 'left: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'team_style'    => 'team-style-2',
@@ -205,7 +205,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'tmst2_shape_y_position',
             [
-                'label'      => esc_html__( 'Shape Y Position', 'flatpack' ),
+                'label'      => esc_html__( 'Shape Y Position', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range'      => [
@@ -220,7 +220,7 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .team-style-2.fp-team .color-shape' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .team-style-2.hq-team .color-shape' => 'top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
                     'team_style'    => 'team-style-2',
@@ -238,14 +238,14 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Content', 'flatpack' )
+                'label' => esc_html__( 'Content', 'edumentor' )
             ]
         );
 
         $this->add_control(
             'team_img',
             [
-                'label'   => esc_html__( 'Team Image', 'flatpack' ),
+                'label'   => esc_html__( 'Team Image', 'edumentor' ),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -256,10 +256,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'name',
             [
-                'label'       => __( 'Name', 'flatpack' ),
+                'label'       => __( 'Name', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Member Name', 'flatpack' ),
-                'placeholder' => esc_html__( 'Name...', 'flatpack' ),
+                'default'     => esc_html__( 'Member Name', 'edumentor' ),
+                'placeholder' => esc_html__( 'Name...', 'edumentor' ),
                 'label_block' => true
             ]
         );
@@ -267,10 +267,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'position',
             [
-                'label'       => __( 'Position', 'flatpack' ),
+                'label'       => __( 'Position', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Managing Director', 'flatpack' ),
-                'placeholder' => esc_html__( 'Position...', 'flatpack' ),
+                'default'     => esc_html__( 'Managing Director', 'edumentor' ),
+                'placeholder' => esc_html__( 'Position...', 'edumentor' ),
                 'label_block' => true
             ]
         );
@@ -280,7 +280,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'icon',
             [
-                'label'   => esc_html__( 'Icon', 'flatpack' ),
+                'label'   => esc_html__( 'Icon', 'edumentor' ),
                 'type'    => Controls_Manager::ICONS,
                 'default' => [
                     'value'   => 'fas fa-star',
@@ -292,10 +292,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'link',
             [
-                'label'       => __( 'Title', 'flatpack' ),
+                'label'       => __( 'Title', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Default title', 'flatpack' ),
-                'placeholder' => esc_html__( 'Type your title here', 'flatpack' ),
+                'default'     => esc_html__( 'Default title', 'edumentor' ),
+                'placeholder' => esc_html__( 'Type your title here', 'edumentor' ),
                 'label_block' => true
             ]
         );
@@ -303,7 +303,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'custom_social_color',
             [
-                'label'        => esc_html__( 'Custom Colors', 'flatpack' ),
+                'label'        => esc_html__( 'Custom Colors', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default'      => 'no',
@@ -314,7 +314,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'social_bg_color',
             [
-                'label'     => __( 'Background Color', 'flatpack' ),
+                'label'     => __( 'Background Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-social {{CURRENT_ITEM}} a' => 'background-color: {{VALUE}}',
@@ -329,7 +329,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'social_icon_color',
             [
-                'label'     => __( 'Icon Color', 'flatpack' ),
+                'label'     => __( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#fa2d2d',
                 'selectors' => [
@@ -345,7 +345,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'social_hover_bg_color',
             [
-                'label'     => __( 'Hover Background Color', 'flatpack' ),
+                'label'     => __( 'Hover Background Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-social {{CURRENT_ITEM}} a:hover' => 'background-color: {{VALUE}}',
@@ -360,7 +360,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'social_icon_hover_color',
             [
-                'label'     => __( 'Hover Icon Color', 'flatpack' ),
+                'label'     => __( 'Hover Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#fa2d2d',
                 'selectors' => [
@@ -377,7 +377,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'social_links',
             [
-                'label'       => esc_html__( 'Social Links', 'flatpack' ),
+                'label'       => esc_html__( 'Social Links', 'edumentor' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
@@ -423,7 +423,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'content_box_style',
             [
-                'label' => esc_html__( 'Content Box', 'flatpack' ),
+                'label' => esc_html__( 'Content Box', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -431,19 +431,19 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'content_align',
             [
-                'label'   => esc_html__( 'Alignment', 'flatpack' ),
+                'label'   => esc_html__( 'Alignment', 'edumentor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left'   => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
@@ -459,7 +459,7 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'content_box_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .team-content',
             ]
@@ -469,7 +469,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'content_box_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .team-content',
             ]
         );
@@ -485,7 +485,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'content_box_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -497,7 +497,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'content_box_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -516,7 +516,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'name_style',
             [
-                'label' => esc_html__( 'Name', 'flatpack' ),
+                'label' => esc_html__( 'Name', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -525,9 +525,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'name_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-team .team-content h3',
+                'selector' => '{{WRAPPER}} .hq-team .team-content h3',
             ]
         );
 
@@ -535,18 +535,18 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'name_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-team .team-content h3',
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-team .team-content h3',
             ]
         );
 
         $this->add_control(
             'name_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-team .team-content h3' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-team .team-content h3' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -555,19 +555,19 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'name_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-team .team-content h3',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-team .team-content h3',
             ]
         );
 
         $this->add_responsive_control(
             'name_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -575,11 +575,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'name_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -587,11 +587,11 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'name_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -605,7 +605,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'position_style',
             [
-                'label' => esc_html__( 'Position', 'flatpack' ),
+                'label' => esc_html__( 'Position', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -614,9 +614,9 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'pos_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-team .team-content h4, {{WRAPPER}} .team-style-2.fp-team .team-thumb .position',
+                'selector' => '{{WRAPPER}} .hq-team .team-content h4, {{WRAPPER}} .team-style-2.hq-team .team-thumb .position',
             ]
         );
 
@@ -624,19 +624,19 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'position_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-team .team-content h4, {{WRAPPER}} .team-style-2.fp-team .team-thumb .position h4',
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-team .team-content h4, {{WRAPPER}} .team-style-2.hq-team .team-thumb .position h4',
             ]
         );
 
         $this->add_control(
             'position_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-team .team-content h4' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .team-style-2.fp-team .team-thumb .position h4' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-team .team-content h4' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .team-style-2.hq-team .team-thumb .position h4' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -645,20 +645,20 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'position_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-team .team-content h4, {{WRAPPER}} .team-style-2.fp-team .team-thumb .position',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-team .team-content h4, {{WRAPPER}} .team-style-2.hq-team .team-thumb .position',
             ]
         );
 
         $this->add_responsive_control(
             'position_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h4' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .team-style-2.fp-team .team-thumb .position' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h4' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .team-style-2.hq-team .team-thumb .position' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -666,12 +666,12 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'position_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h4' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .team-style-2.fp-team .team-thumb .position' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h4' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .team-style-2.hq-team .team-thumb .position' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -679,12 +679,12 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'position_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-content h4' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .team-style-2.fp-team .team-thumb .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-content h4' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .team-style-2.hq-team .team-thumb .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -698,7 +698,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'social_links_style',
             [
-                'label' => esc_html__( 'Social Links', 'flatpack' ),
+                'label' => esc_html__( 'Social Links', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -708,7 +708,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'social_style_normal_tab',
             [
-                'label' => __( 'Normal', 'flatpack' ),
+                'label' => __( 'Normal', 'edumentor' ),
             ]
         );
 
@@ -716,7 +716,7 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'social_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
                 'selector' => '{{WRAPPER}} .team-social li a',
@@ -726,7 +726,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'social_icon_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'flatpack' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-social li a' => 'color: {{VALUE}}',
@@ -737,7 +737,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'social_icon_box_size',
             [
-                'label'      => esc_html__( 'Icon Box Size', 'flatpack' ),
+                'label'      => esc_html__( 'Icon Box Size', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -756,7 +756,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'social_icon_size',
             [
-                'label'      => esc_html__( 'Icon Size', 'flatpack' ),
+                'label'      => esc_html__( 'Icon Size', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -776,13 +776,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'social_icon_pos',
             [
-                'label'   => esc_html__( 'Icon Position', 'flatpack' ),
+                'label'   => esc_html__( 'Icon Position', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'left',
                 'options' => [
-                    'left'  => esc_html__( 'Left', 'flatpack' ),
-                    'center' => esc_html__( 'Center', 'flatpack' ),
-                    'center bottom' => esc_html__( 'Center Bottom', 'flatpack' ),
+                    'left'  => esc_html__( 'Left', 'edumentor' ),
+                    'center' => esc_html__( 'Center', 'edumentor' ),
+                    'center bottom' => esc_html__( 'Center Bottom', 'edumentor' ),
                 ],
                 'condition'    => [
                    'team_style'    => 'team-style-3',
@@ -793,7 +793,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'social_icons_space_between',
             [
-                'label'      => esc_html__( 'Icon Space Between', 'flatpack' ),
+                'label'      => esc_html__( 'Icon Space Between', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -814,7 +814,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'social_icon_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .team-social li a',
             ]
         );
@@ -830,7 +830,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'socia_icon_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -844,7 +844,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'social_style_hover_tab',
             [
-                'label' => __( 'Hover', 'flatpack' ),
+                'label' => __( 'Hover', 'edumentor' ),
             ]
         );
                 
@@ -852,19 +852,19 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'social_hover_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .fp-team .team-social li a:hover',
+                'selector' => '{{WRAPPER}} .hq-team .team-social li a:hover',
             ]
         );
 
         $this->add_control(
             'social_icon_hover_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'flatpack' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-team .team-social li a:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-team .team-social li a:hover' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -873,8 +873,8 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'social_icon_hover_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
-                'selector' => '{{WRAPPER}} .fp-team .team-social li a:hover',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-team .team-social li a:hover',
             ]
         );
 
@@ -882,18 +882,18 @@ class Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'social_icon_hover_box_shadow',
-                'selector' => '{{WRAPPER}} .fp-team .team-social li a:hover',
+                'selector' => '{{WRAPPER}} .hq-team .team-social li a:hover',
             ]
         );
 
         $this->add_responsive_control(
             'socia_icon_hover_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-team .team-social li a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-team .team-social li a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -919,7 +919,7 @@ class Widget extends Widget_Base {
         $this->add_render_attribute(
 			'wrapper',
 			[
-				'class' => [ 'fp-team', $settings['tmst2_shape_mode'], $settings['team_style'] ],
+				'class' => [ 'hq-team', $settings['tmst2_shape_mode'], $settings['team_style'] ],
 			]
 		);
         $this->add_inline_editing_attributes( 'name', 'none' );
@@ -982,7 +982,7 @@ class Widget extends Widget_Base {
     protected function content_template() {
         ?>
         <#
-        view.addRenderAttribute( 'wrapper', 'class', [ 'fp-team', settings.tmst2_shape_mode, settings.team_style ] );
+        view.addRenderAttribute( 'wrapper', 'class', [ 'hq-team', settings.tmst2_shape_mode, settings.team_style ] );
         view.addInlineEditingAttributes( 'name', 'none' );
         view.addInlineEditingAttributes( 'position', 'none' );
         #>

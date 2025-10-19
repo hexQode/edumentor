@@ -2,7 +2,7 @@
 /**
  * Posts Carousel
  *
- * @package FlatPack
+ * @package EduMentor
  */
 namespace HexQode\EduMentor\Elementor\Widgets\PostsCarousel;
 
@@ -44,11 +44,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Posts Carousel', 'flatpack' );
+        return esc_html__( 'Posts Carousel', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -60,15 +60,15 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-posts-carousel';
+        return 'edumentor-icon eicon-posts-carousel';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'blog', 'posts', 'carousel', 'blog carousel', 'post carousel', 'flatpack' ];
+        return [ 'blog', 'posts', 'carousel', 'blog carousel', 'post carousel', 'edumentor' ];
     }
 
     public function get_style_depends() {
@@ -76,7 +76,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'slick', 'flatpack-el-script' ];
+        return [ 'slick', 'edumentor-el-script' ];
     }
 
     /**
@@ -111,22 +111,22 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'layout_section',
 			[
-				'label' => esc_html__( 'Layout', 'flatpack' )
+				'label' => esc_html__( 'Layout', 'edumentor' )
 			]
         );
 
         $this->add_control(
             'card_style',
             [
-                'label'   => esc_html__( 'Card Layout', 'flatpack' ),
+                'label'   => esc_html__( 'Card Layout', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => '1',
                 'options' => [
-                    '1'  => esc_html__( 'Style 1', 'flatpack' ),
-                    '2'  => esc_html__( 'Style 2', 'flatpack' ),
-                    '3'  => esc_html__( 'Style 3', 'flatpack' ),
-                    '4'  => esc_html__( 'Style 4', 'flatpack' ),
-                    '5'  => esc_html__( 'Style 5', 'flatpack' )
+                    '1'  => esc_html__( 'Style 1', 'edumentor' ),
+                    '2'  => esc_html__( 'Style 2', 'edumentor' ),
+                    '3'  => esc_html__( 'Style 3', 'edumentor' ),
+                    '4'  => esc_html__( 'Style 4', 'edumentor' ),
+                    '5'  => esc_html__( 'Style 5', 'edumentor' )
                 ],
             ]
         );
@@ -134,7 +134,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'image_height',
             [
-                'label' => esc_html__( 'Image Height', 'flatpack' ),
+                'label' => esc_html__( 'Image Height', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -153,16 +153,16 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_tag',
             [
-                'label'   => esc_html__( 'Heading Tag', 'flatpack' ),
+                'label'   => esc_html__( 'Heading Tag', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'h3',
                 'options' => [
-                    'h1'  => esc_html__( 'H1', 'flatpack' ),
-                    'h2'  => esc_html__( 'H2', 'flatpack' ),
-                    'h3'  => esc_html__( 'H3', 'flatpack' ),
-                    'h4'  => esc_html__( 'H4', 'flatpack' ),
-                    'h5'  => esc_html__( 'H5', 'flatpack' ),
-                    'h6'  => esc_html__( 'H6', 'flatpack' )
+                    'h1'  => esc_html__( 'H1', 'edumentor' ),
+                    'h2'  => esc_html__( 'H2', 'edumentor' ),
+                    'h3'  => esc_html__( 'H3', 'edumentor' ),
+                    'h4'  => esc_html__( 'H4', 'edumentor' ),
+                    'h5'  => esc_html__( 'H5', 'edumentor' ),
+                    'h6'  => esc_html__( 'H6', 'edumentor' )
                 ],
             ]
         );
@@ -181,19 +181,19 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'section_content',
 			[
-				'label' => esc_html__( 'Query', 'flatpack' )
+				'label' => esc_html__( 'Query', 'edumentor' )
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label' => _x( 'Source', 'Posts Query Control', 'flatpack' ),
+				'label' => _x( 'Source', 'Posts Query Control', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Show All', 'flatpack' ),
-					'by_name' => esc_html__( 'By Categories', 'flatpack' ),
-					'by_tags' => esc_html__( 'By Tags', 'flatpack' ),
+					'' => esc_html__( 'Show All', 'edumentor' ),
+					'by_name' => esc_html__( 'By Categories', 'edumentor' ),
+					'by_tags' => esc_html__( 'By Tags', 'edumentor' ),
 				],
 				'label_block' => true
 			]
@@ -202,7 +202,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'post_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'flatpack' ),
+				'label'       => esc_html__( 'Categories', 'edumentor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => Helper::el_get_terms(),
 				'default'     => [],
@@ -217,7 +217,7 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'post_tags',
 			[
-				'label'       => esc_html__( 'Tags', 'flatpack' ),
+				'label'       => esc_html__( 'Tags', 'edumentor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => Helper::el_get_tags(),
 				'default'     => [],
@@ -232,9 +232,9 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'posts_limit',
 			[
-				'label'       => esc_html__( 'Posts Limit', 'flatpack' ),
+				'label'       => esc_html__( 'Posts Limit', 'edumentor' ),
 				'type'        => Controls_Manager::NUMBER,
-				'desc'		  => esc_html__( 'Choose number of posts you want to show.', 'flatpack' ),
+				'desc'		  => esc_html__( 'Choose number of posts you want to show.', 'edumentor' ),
 				'default'     => 6
 			]
 		);
@@ -242,7 +242,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'img_size',
 			[
-				'label'       => esc_html__( 'Image Size', 'flatpack' ),
+				'label'       => esc_html__( 'Image Size', 'edumentor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => Helper::get_image_sizes(),
 				'default'     => 'medium',
@@ -253,19 +253,19 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order By', 'flatpack' ),
+				'label'   => esc_html__( 'Order By', 'edumentor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'ID' => esc_html__( 'Post Id', 'flatpack' ),
-                    'author' => esc_html__( 'Post Author', 'flatpack' ),
-                    'title' => esc_html__( 'Title', 'flatpack' ),
-                    'date' => esc_html__( 'Date', 'flatpack' ),
-                    'modified' => esc_html__( 'Last Modified Date', 'flatpack' ),
-                    'parent' => esc_html__( 'Parent Id', 'flatpack' ),
-                    'rand' => esc_html__( 'Random', 'flatpack' ),
-                    'comment_count' => esc_html__( 'Comment Count', 'flatpack' ),
-                    'menu_order' => esc_html__( 'Menu Order', 'flatpack' ),
+					'ID' => esc_html__( 'Post Id', 'edumentor' ),
+                    'author' => esc_html__( 'Post Author', 'edumentor' ),
+                    'title' => esc_html__( 'Title', 'edumentor' ),
+                    'date' => esc_html__( 'Date', 'edumentor' ),
+                    'modified' => esc_html__( 'Last Modified Date', 'edumentor' ),
+                    'parent' => esc_html__( 'Parent Id', 'edumentor' ),
+                    'rand' => esc_html__( 'Random', 'edumentor' ),
+                    'comment_count' => esc_html__( 'Comment Count', 'edumentor' ),
+                    'menu_order' => esc_html__( 'Menu Order', 'edumentor' ),
 				],
 			]
 		);
@@ -273,11 +273,11 @@ class Widget extends Widget_Base {
 		$this->add_control(
             'order',
             [
-                'label' => esc_html__( 'Order', 'flatpack' ),
+                'label' => esc_html__( 'Order', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'asc' => esc_html__( 'Ascending', 'flatpack' ),
-                    'desc' => esc_html__( 'Descending', 'flatpack' )
+                    'asc' => esc_html__( 'Ascending', 'edumentor' ),
+                    'desc' => esc_html__( 'Descending', 'edumentor' )
                 ],
                 'default' => 'desc',
             ]
@@ -297,14 +297,14 @@ class Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			[
-				'label' => esc_html__( 'Carousel Settings', 'flatpack' )
+				'label' => esc_html__( 'Carousel Settings', 'edumentor' )
 			]
 		);
 
         $this->add_control(
 			'carousel',
 			[
-				'label' => esc_html__( 'Carousel', 'flatpack' ),
+				'label' => esc_html__( 'Carousel', 'edumentor' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'yes',
                 'frontend_available' => true,
@@ -318,7 +318,7 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'slides_per_show',
 			[
-				'label' => esc_html__( 'Slides to Show', 'flatpack' ),
+				'label' => esc_html__( 'Slides to Show', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 3,
 				'tablet_default' => 2,
@@ -332,9 +332,9 @@ class Widget extends Widget_Base {
 		$this->add_responsive_control(
 			'slides_per_scroll',
 			[
-				'label' => esc_html__( 'Slides to Scroll', 'flatpack' ),
+				'label' => esc_html__( 'Slides to Scroll', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
-				'description' => esc_html__( 'Set how many slides are scrolled per swipe.', 'flatpack' ),
+				'description' => esc_html__( 'Set how many slides are scrolled per swipe.', 'edumentor' ),
 				'default' => 1,
 				'tablet_default' => 1,
 				'mobile_default' => 1,
@@ -350,7 +350,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
 			'spaceBetween',
 			[
-				'label'      => esc_html__( 'Space Between', 'flatpack' ),
+				'label'      => esc_html__( 'Space Between', 'edumentor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'range'      => [
@@ -374,10 +374,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'        => esc_html__( 'Autoplay', 'flatpack' ),
+				'label'        => esc_html__( 'Autoplay', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
                 'frontend_available' => true,
@@ -388,7 +388,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'   => esc_html__( 'Autoplay Speed', 'flatpack' ),
+				'label'   => esc_html__( 'Autoplay Speed', 'edumentor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 500,
 				'max'     => 20000,
@@ -405,10 +405,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label'        => esc_html__( 'Pause on Hover', 'flatpack' ),
+				'label'        => esc_html__( 'Pause on Hover', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
                 'condition' => [
@@ -422,10 +422,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'infinite_loop',
 			[
-				'label'        => esc_html__( 'Infinite Loop', 'flatpack' ),
+				'label'        => esc_html__( 'Infinite Loop', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
                 'frontend_available' => true,
@@ -436,7 +436,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'anim_speed',
 			[
-				'label'   => esc_html__( 'Animation Speed', 'flatpack' ),
+				'label'   => esc_html__( 'Animation Speed', 'edumentor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 100,
 				'max'     => 3000,
@@ -450,10 +450,10 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'center_mode',
 			[
-				'label'        => esc_html__( 'Center Mode', 'flatpack' ),
+				'label'        => esc_html__( 'Center Mode', 'edumentor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'flatpack' ),
-				'label_off'    => esc_html__( 'No', 'flatpack' ),
+				'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+				'label_off'    => esc_html__( 'No', 'edumentor' ),
 				'return_value' => 'yes',
 				'default'      => 'no',
                 'frontend_available' => true,
@@ -464,7 +464,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
 			'center_padding',
 			[
-				'label'   => esc_html__( 'Center Padding', 'flatpack' ),
+				'label'   => esc_html__( 'Center Padding', 'edumentor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 200,
@@ -483,13 +483,13 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'navigation',
 			[
-				'label' => esc_html__( 'Navigation', 'flatpack' ),
+				'label' => esc_html__( 'Navigation', 'edumentor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'none' => esc_html__( 'None', 'flatpack' ),
-					'arrow' => esc_html__( 'Arrow', 'flatpack' ),
-					'dots' => esc_html__( 'Dots', 'flatpack' ),
-					'both' => esc_html__( 'Arrow & Dots', 'flatpack' ),
+					'none' => esc_html__( 'None', 'edumentor' ),
+					'arrow' => esc_html__( 'Arrow', 'edumentor' ),
+					'dots' => esc_html__( 'Dots', 'edumentor' ),
+					'both' => esc_html__( 'Arrow & Dots', 'edumentor' ),
 				],
 				'default' => 'dots',
 				'frontend_available' => true,
@@ -500,12 +500,12 @@ class Widget extends Widget_Base {
         $this->add_control(
             'dots_style',
             [
-                'label' => esc_html__( 'Dots Style', 'flatpack' ),
+                'label' => esc_html__( 'Dots Style', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
                 'options' => [
-                    '1' => esc_html__( 'Style 1', 'flatpack' ),
-                    '2' => esc_html__( 'Style 2', 'flatpack' )
+                    '1' => esc_html__( 'Style 1', 'edumentor' ),
+                    '2' => esc_html__( 'Style 2', 'edumentor' )
                 ],
                 'frontend_available' => true,
 				'style_transfer' => true,
@@ -518,7 +518,7 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'arrow_prev_icon',
 			[
-				'label' => esc_html__( 'Previous Icon', 'flatpack' ),
+				'label' => esc_html__( 'Previous Icon', 'edumentor' ),
 				'label_block' => false,
 				'type' => Controls_Manager::ICONS,
 				'skin' => 'inline',
@@ -536,7 +536,7 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'arrow_next_icon',
 			[
-				'label' => esc_html__( 'Next Icon', 'flatpack' ),
+				'label' => esc_html__( 'Next Icon', 'edumentor' ),
 				'label_block' => false,
 				'type' => Controls_Manager::ICONS,
 				'skin' => 'inline',
@@ -565,17 +565,17 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'useful_section',
 			[
-				'label' => esc_html__( 'Useful Options', 'flatpack' )
+				'label' => esc_html__( 'Useful Options', 'edumentor' )
 			]
         );
 
         $this->add_control(
             'category',
             [
-                'label'        => esc_html__( 'Category', 'flatpack' ),
+                'label'        => esc_html__( 'Category', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -584,10 +584,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info',
             [
-                'label'        => esc_html__( 'Meta Info', 'flatpack' ),
+                'label'        => esc_html__( 'Meta Info', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
                 'condition' => [
@@ -599,10 +599,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_icon',
             [
-                'label' => esc_html__( 'Meta Icon', 'flatpack' ),
+                'label' => esc_html__( 'Meta Icon', 'edumentor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'flatpack' ),
-                'label_off' => esc_html__( 'Hide', 'flatpack' ),
+                'label_on' => esc_html__( 'Show', 'edumentor' ),
+                'label_off' => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'condition' => [
                     'card_style!' => '4'
@@ -613,10 +613,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'author',
             [
-                'label'        => esc_html__( 'Author', 'flatpack' ),
+                'label'        => esc_html__( 'Author', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
                 'conditions' => [
@@ -640,10 +640,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'author_avatar',
             [
-                'label' => esc_html__( 'Author Avatar', 'flatpack' ),
+                'label' => esc_html__( 'Author Avatar', 'edumentor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'flatpack' ),
-                'label_off' => esc_html__( 'Hide', 'flatpack' ),
+                'label_on' => esc_html__( 'Show', 'edumentor' ),
+                'label_off' => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -656,10 +656,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'posted_by',
             [
-                'label'        => esc_html__( 'Posted by Text', 'flatpack' ),
+                'label'        => esc_html__( 'Posted by Text', 'edumentor' ),
                 'type'         => Controls_Manager::TEXT,
-                'default'      => esc_html__( 'By', 'flatpack' ),
-                'placeholder'  => esc_html__( 'Posted by text...', 'flatpack' ),
+                'default'      => esc_html__( 'By', 'edumentor' ),
+                'placeholder'  => esc_html__( 'Posted by text...', 'edumentor' ),
                 'condition' => [
                     'card_style' => '4',
                     'author' => 'yes',
@@ -671,10 +671,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'date',
             [
-                'label'        => esc_html__( 'Date', 'flatpack' ),
+                'label'        => esc_html__( 'Date', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
                 'condition' => [
@@ -686,12 +686,12 @@ class Widget extends Widget_Base {
         $this->add_control(
             'date_type',
             [
-                'label' => esc_html__( 'Date Type', 'flatpack' ),
+                'label' => esc_html__( 'Date Type', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'publish',
                 'options' => [
-                    'publish' => esc_html__( 'Publish', 'flatpack' ),
-                    'modified' => esc_html__( 'Modified / Updated', 'flatpack' )
+                    'publish' => esc_html__( 'Publish', 'edumentor' ),
+                    'modified' => esc_html__( 'Modified / Updated', 'edumentor' )
                 ],
                 'condition' => [
                     'meta_info' => 'yes',
@@ -703,10 +703,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'comments',
             [
-                'label'        => esc_html__( 'Comments', 'flatpack' ),
+                'label'        => esc_html__( 'Comments', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
                 'condition' => [
@@ -719,10 +719,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'reading_time',
             [
-                'label'        => esc_html__( 'Reading Time', 'flatpack' ),
+                'label'        => esc_html__( 'Reading Time', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
                 'conditions' => [
@@ -746,7 +746,7 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'title_length',
 			[
-				'label'   => esc_html__( 'Title Length', 'flatpack' ),
+				'label'   => esc_html__( 'Title Length', 'edumentor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 42,
 			]
@@ -755,20 +755,20 @@ class Widget extends Widget_Base {
         $this->add_control(
             'title_suffix',
             [
-                'label'       => esc_html__( 'Title Suffix', 'flatpack' ),
+                'label'       => esc_html__( 'Title Suffix', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '...',
-                'placeholder' => esc_html__( 'Suffix...', 'flatpack' ),
+                'placeholder' => esc_html__( 'Suffix...', 'edumentor' ),
             ]
         );
 
         $this->add_control(
 			'show_readmore',
 			[
-				'label'   => esc_html__( 'Readmore', 'flatpack' ),
+				'label'   => esc_html__( 'Readmore', 'edumentor' ),
 				'type'    => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'flatpack' ),
-                'label_off'    => esc_html__( 'Hide', 'flatpack' ),
+                'label_on'     => esc_html__( 'Show', 'edumentor' ),
+                'label_off'    => esc_html__( 'Hide', 'edumentor' ),
                 'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -777,10 +777,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'readmore_text',
             [
-                'label'       => esc_html__( 'Readmore Text', 'flatpack' ),
+                'label'       => esc_html__( 'Readmore Text', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Read More', 'flatpack' ),
-                'placeholder' => esc_html__( 'Text...', 'flatpack' ),
+                'default'     => esc_html__( 'Read More', 'edumentor' ),
+                'placeholder' => esc_html__( 'Text...', 'edumentor' ),
                 'condition'    => [
                     'show_readmore'    => 'yes',
                     'card_style!'   => '4'
@@ -802,7 +802,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'wrapper_style_section',
             [
-                'label' => esc_html__( 'Wrapper', 'flatpack' ),
+                'label' => esc_html__( 'Wrapper', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -811,7 +811,7 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'wrapper_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
                 'selector' => '{{WRAPPER}} .style-2.hq-card, {{WRAPPER}} .style-4.hq-card .hq-card-inner',
@@ -846,7 +846,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'wrapper_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .style-1.hq-card, {{WRAPPER}} .style-2.hq-card, {{WRAPPER}} .style-3.hq-card, {{WRAPPER}} .style-4.hq-card .hq-card-inner, {{WRAPPER}} .style-5.hq-card .hq-card-inner',
             ]
         );
@@ -854,7 +854,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'wrapper_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -866,7 +866,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'image_border_radius',
             [
-                'label' => esc_html__( 'Image Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Image Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -881,7 +881,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'wrapper_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -906,7 +906,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'overlay_style_section',
             [
-                'label' => esc_html__( 'Overlay', 'flatpack' ),
+                'label' => esc_html__( 'Overlay', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'card_style' => [ '1', '4' ]
@@ -917,7 +917,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'overlay_color',
             [
-                'label' => esc_html__( 'Overlay Color', 'flatpack' ),
+                'label' => esc_html__( 'Overlay Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-1 .hq-card-thumb:before' => 'background-color: {{VALUE}}',
@@ -932,7 +932,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'overlay_opacity',
             [
-                'label' => esc_html__( 'Opacity', 'flatpack' ),
+                'label' => esc_html__( 'Opacity', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -954,7 +954,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'overlay_hover_opacity',
             [
-                'label' => esc_html__( 'Hover Opacity', 'flatpack' ),
+                'label' => esc_html__( 'Hover Opacity', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -976,7 +976,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_icon_style',
             [
-                'label' => esc_html__( 'Icon Style', 'flatpack' ),
+                'label' => esc_html__( 'Icon Style', 'edumentor' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -988,7 +988,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_icon_bg_color',
             [
-                'label' => esc_html__( 'Background Color', 'flatpack' ),
+                'label' => esc_html__( 'Background Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-thumb .hq-overlay a' => 'background-color: {{VALUE}}',
@@ -1003,7 +1003,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'flatpack' ),
+                'label' => esc_html__( 'Icon Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-thumb .hq-overlay a svg' => 'fill: {{VALUE}}',
@@ -1017,7 +1017,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_icon_bg_hover_color',
             [
-                'label' => esc_html__( 'Hover Background Color', 'flatpack' ),
+                'label' => esc_html__( 'Hover Background Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-thumb .hq-overlay a:hover' => 'background-color: {{VALUE}}',
@@ -1031,7 +1031,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_icon_hover_color',
             [
-                'label' => esc_html__( 'Hover Icon Color', 'flatpack' ),
+                'label' => esc_html__( 'Hover Icon Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-thumb .hq-overlay a:hover svg' => 'fill: {{VALUE}}',
@@ -1045,7 +1045,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'ov_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'flatpack' ),
+                'label' => esc_html__( 'Icon Size', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1067,7 +1067,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_date_style_heading',
             [
-                'label' => esc_html__( 'Date Style', 'flatpack' ),
+                'label' => esc_html__( 'Date Style', 'edumentor' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -1092,7 +1092,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'ov_date_color',
             [
-                'label' => esc_html__( 'Text Color', 'flatpack' ),
+                'label' => esc_html__( 'Text Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-thumb .hq-overlay .date' => 'color: {{VALUE}}',
@@ -1107,7 +1107,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'ov_date_margin',
             [
-                'label' => esc_html__( 'Margin', 'flatpack' ),
+                'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1133,7 +1133,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'content_area_style_section',
             [
-                'label' => esc_html__( 'Content Area', 'flatpack' ),
+                'label' => esc_html__( 'Content Area', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1167,7 +1167,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'content_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'flatpack' ),
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1179,7 +1179,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'content_margin',
             [
-                'label' => esc_html__( 'Margin', 'flatpack' ),
+                'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1191,7 +1191,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'content_padding',
             [
-                'label' => esc_html__( 'Padding', 'flatpack' ),
+                'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -1213,7 +1213,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'heading_style_section',
             [
-                'label' => esc_html__( 'Heading', 'flatpack' ),
+                'label' => esc_html__( 'Heading', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1222,7 +1222,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'heading_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-card-title',
             ]
         );
@@ -1230,7 +1230,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1242,7 +1242,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1256,14 +1256,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'heading_style_normal',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'heading_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-title a' => 'color: {{VALUE}}',
@@ -1284,22 +1284,22 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'heading_style_hover',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' )
+                'label' => esc_html__( 'Hover', 'edumentor' )
             ]
         );
 
         $this->add_control(
             'title_underline_effect',
             [
-                'label'   => esc_html__( 'Line Effect', 'flatpack' ),
+                'label'   => esc_html__( 'Line Effect', 'edumentor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'yes'   => [
-                        'title' => esc_html__( 'Yes', 'flatpack' ),
+                        'title' => esc_html__( 'Yes', 'edumentor' ),
                         'icon'  => 'eicon-check',
                     ],
                     'no' => [
-                        'title' => esc_html__( 'No', 'flatpack' ),
+                        'title' => esc_html__( 'No', 'edumentor' ),
                         'icon'  => 'eicon-ban',
                     ],
                 ],
@@ -1312,7 +1312,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_hover_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-title a:hover' => 'color: {{VALUE}};'
@@ -1323,7 +1323,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_hover_line_color',
             [
-                'label'     => esc_html__( 'Line Color', 'flatpack' ),
+                'label'     => esc_html__( 'Line Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}.line-effect-yes .hq-card-title a.hq-link-hover' => 'background-image: linear-gradient({{VALUE}} 0%, {{VALUE}} 98%);',
@@ -1360,7 +1360,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'category_style_section',
             [
-                'label' => esc_html__( 'Category', 'flatpack' ),
+                'label' => esc_html__( 'Category', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'    => [
                     'category'    => 'yes'
@@ -1371,18 +1371,18 @@ class Widget extends Widget_Base {
         $this->add_control(
             'cat_pos',
             [
-                'label' => esc_html__( 'Position', 'flatpack' ),
+                'label' => esc_html__( 'Position', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => [
-                    'default' => esc_html__( 'Default', 'flatpack' ),
-                    'bottom-left' => esc_html__( 'Bottom left', 'flatpack' ),
-                    'bottom-center' => esc_html__( 'Bottom Center', 'flatpack' ),
-                    'bottom-right' => esc_html__( 'Bottom Right', 'flatpack' ),
-                    'top-left' => esc_html__( 'Top Left', 'flatpack' ),
-                    'top-center' => esc_html__( 'Top Center', 'flatpack' ),
-                    'top-right' => esc_html__( 'Top Right', 'flatpack' ),
-                    'center' => esc_html__( 'Center', 'flatpack' ),
+                    'default' => esc_html__( 'Default', 'edumentor' ),
+                    'bottom-left' => esc_html__( 'Bottom left', 'edumentor' ),
+                    'bottom-center' => esc_html__( 'Bottom Center', 'edumentor' ),
+                    'bottom-right' => esc_html__( 'Bottom Right', 'edumentor' ),
+                    'top-left' => esc_html__( 'Top Left', 'edumentor' ),
+                    'top-center' => esc_html__( 'Top Center', 'edumentor' ),
+                    'top-right' => esc_html__( 'Top Right', 'edumentor' ),
+                    'center' => esc_html__( 'Center', 'edumentor' ),
                 ],
                 'selectors_dictionary' => [
                     'bottom-left' => 'left: var(--hq-cat-left); right: auto; top: auto; bottom: var(--hq-cat-bottom);',
@@ -1406,7 +1406,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'cat_x_position',
             [
-                'label' => esc_html__( 'X Position', 'flatpack' ),
+                'label' => esc_html__( 'X Position', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1433,7 +1433,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'cat_y_position',
             [
-                'label' => esc_html__( 'Y Position', 'flatpack' ),
+                'label' => esc_html__( 'Y Position', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -1461,7 +1461,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'cat_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-card .hq-card-category',
                 'condition'    => [
                     'category'    => 'yes'
@@ -1472,7 +1472,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'category_padding',
             [
-                'label'      => esc_html__( 'Padding', 'flatpack' ),
+                'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1489,7 +1489,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'category_style_normal',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
                 'condition'    => [
                     'category'    => 'yes'
                 ]
@@ -1512,7 +1512,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'cat_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
@@ -1539,7 +1539,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'cat_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-card .hq-card-category',
                 'condition'    => [
                     'category'    => 'yes'
@@ -1550,7 +1550,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'cat_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1567,7 +1567,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'category_style_hover',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' ),
+                'label' => esc_html__( 'Hover', 'edumentor' ),
                 'condition'    => [
                     'category'    => 'yes'
                 ]
@@ -1578,7 +1578,7 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'cat_hover_background',
-                'label'    => esc_html__( 'Background', 'flatpack' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
                 'selector' => '{{WRAPPER}} .hq-card .hq-card-category:hover',
@@ -1591,7 +1591,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'cat_hover_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
@@ -1618,7 +1618,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'cat_hover_border',
-                'label'    => esc_html__( 'Border', 'flatpack' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-card .hq-card-category:hover',
                 'condition'    => [
                     'category'    => 'yes'
@@ -1629,7 +1629,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'cat_hover_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'flatpack' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1659,7 +1659,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'meta_info_style_section',
             [
-                'label' => esc_html__( 'Meta Info', 'flatpack' ),
+                'label' => esc_html__( 'Meta Info', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'    => [
                    'meta_info'    => 'yes'
@@ -1671,7 +1671,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'meta_info_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-meta li, {{WRAPPER}} .hq-meta li a, {{WRAPPER}} .card-footer a',
                 'condition'    => [
                     'meta_info'    => 'yes'
@@ -1682,7 +1682,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'meta_info_space_between_item',
             [
-                'label'      => esc_html__( 'Space Between Item', 'flatpack' ),
+                'label'      => esc_html__( 'Space Between Item', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -1705,7 +1705,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'meta_info_space_between_icon',
             [
-                'label'      => esc_html__( 'Space Between Icon', 'flatpack' ),
+                'label'      => esc_html__( 'Space Between Icon', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -1728,7 +1728,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'meta_info_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -1746,7 +1746,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'meta_info_style_normal',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
                 'condition'    => [
                     'meta_info'    => 'yes'
                  ],
@@ -1756,7 +1756,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-meta li' => 'color: {{VALUE}}',
@@ -1772,7 +1772,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info_icon_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'flatpack' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-meta li i' => 'color: {{VALUE}}',
@@ -1788,7 +1788,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info_dot_color',
             [
-                'label'     => esc_html__( 'Dot Color', 'flatpack' ),
+                'label'     => esc_html__( 'Dot Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-meta li:not(:last-of-type):after' => 'background-color: {{VALUE}}',
@@ -1803,7 +1803,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info_by_txt',
             [
-                'label'     => esc_html__( 'By Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'By Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .card-footer .author .by' => 'color: {{VALUE}}',
@@ -1819,7 +1819,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'meta_info_style_hover',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' ),
+                'label' => esc_html__( 'Hover', 'edumentor' ),
                 'condition'    => [
                     'meta_info'    => 'yes'
                 ],
@@ -1829,7 +1829,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'meta_info_hover_color',
             [
-                'label'     => esc_html__( 'Text Color', 'flatpack' ),
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-meta li a:hover' => 'color: {{VALUE}}',
@@ -1859,7 +1859,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'reading_time_style_section',
             [
-                'label' => esc_html__( 'Reading Time', 'flatpack' ),
+                'label' => esc_html__( 'Reading Time', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'    => [
                     'card_style' => ['4', '5'],
@@ -1872,7 +1872,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'reading_time_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .style-4 .hq-card-content .card-header .reading-time, {{WRAPPER}} .style-5 .hq-card-content .card-footer .reading-time',
                 'condition'    => [
                     'card_style' => ['4', '5'],
@@ -1884,7 +1884,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'reading_time_space_between_icon',
             [
-                'label'      => esc_html__( 'Space Between Icon', 'flatpack' ),
+                'label'      => esc_html__( 'Space Between Icon', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -1907,7 +1907,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'reading_time_txt_color',
             [
-                'label' => esc_html__( 'Text Color', 'flatpack' ),
+                'label' => esc_html__( 'Text Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-content .card-header .reading-time' => 'color: {{VALUE}}',
@@ -1923,7 +1923,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'reading_time_icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'flatpack' ),
+                'label' => esc_html__( 'Icon Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .style-4 .hq-card-content .card-header .reading-time i' => 'color: {{VALUE}}',
@@ -1950,7 +1950,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'readmore_style_section',
             [
-                'label' => esc_html__( 'Read More', 'flatpack' ),
+                'label' => esc_html__( 'Read More', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'    => [
                     'card_style' => ['4', '5'],
@@ -1963,7 +1963,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'readmore_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .style-5 .hq-card-content .card-footer .read-more',
                 'condition'    => [
                     'card_style' => ['5'],
@@ -1975,7 +1975,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'readmore_icon_size',
             [
-                'label' => esc_html__( 'Icon Size', 'flatpack' ),
+                'label' => esc_html__( 'Icon Size', 'edumentor' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -1998,7 +1998,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'readmore_margin',
             [
-                'label'      => esc_html__( 'Margin', 'flatpack' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -2017,14 +2017,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'readmore_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'flatpack' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
         
         $this->add_control(
             'readmore_txt_color',
             [
-                'label' => esc_html__( 'Text Color', 'flatpack' ),
+                'label' => esc_html__( 'Text Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-content .card-footer .read-more' => 'color: {{VALUE}}',
@@ -2039,7 +2039,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'readmore_icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'flatpack' ),
+                'label' => esc_html__( 'Icon Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-content .card-footer .read-more svg' => 'fill: {{VALUE}}',
@@ -2056,14 +2056,14 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'readmore_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'flatpack' )
+                'label' => esc_html__( 'Hover', 'edumentor' )
             ]
         );
         
         $this->add_control(
             'readmore_txt_hover_color',
             [
-                'label' => esc_html__( 'Text Color', 'flatpack' ),
+                'label' => esc_html__( 'Text Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-content .card-footer .read-more:hover' => 'color: {{VALUE}}',
@@ -2078,7 +2078,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'readmore_icon_hover_color',
             [
-                'label' => esc_html__( 'Icon Color', 'flatpack' ),
+                'label' => esc_html__( 'Icon Color', 'edumentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hq-card-content .card-footer .read-more:hover svg' => 'fill: {{VALUE}}',
@@ -2163,7 +2163,7 @@ class Widget extends Widget_Base {
             Helper::get_carousel_control_layout($settings);
             wp_reset_postdata();
             else :
-                esc_html_e( 'No posts found!', 'flatpack' );
+                esc_html_e( 'No posts found!', 'edumentor' );
             endif;
             ?>
         </div>

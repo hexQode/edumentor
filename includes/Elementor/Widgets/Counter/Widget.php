@@ -2,18 +2,20 @@
 /**
  * Counter
  *
- * @package FlatPack
- * @version 1.0.0
+ * @package EduMentor
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Counter;
 
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Typography;
+use Elementor\Icons_Manager;
 use Elementor\Utils;
 use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Background;
-use Elementor\Icons_Manager;
-use Elementor\Group_Control_Typography;
+
+use HexQode\EduMentor\Classes\Helper;
+use HexQode\EduMentor\Elementor\Controls\Foreground;
 
 defined( 'ABSPATH' ) || die();
 
@@ -28,7 +30,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-counter';
+        return 'edumentor-counter';
     }
 
     /**
@@ -40,11 +42,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Counter', 'flatpack' );
+        return esc_html__( 'Counter', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://hexqode.com';
     }
 
     /**
@@ -56,23 +58,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-number-field';
+        return 'edumentor-icon eicon-number-field';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'counter', 'funfact', 'count', 'flatpack' ];
-    }
-
-    public function get_style_depends() {
-        return [ 'fp-counter', 'odometer' ];
+        return ['counter', 'number', 'edumentor'];
     }
 
     public function get_script_depends() {
-        return [ 'flatpack-el-script', 'odometer', 'elementor-waypoints' ];
+        return ['odometer', 'edumentor-el-script'];
+    }
+
+    public function get_style_depends() {
+        return ['odometer', 'edumentor-counter'];
     }
 
     /**
@@ -80,150 +82,158 @@ class Widget extends Widget_Base {
      */
     protected function register_controls() {
 
-        $this->counter_section();
-        $this->dividers_section();
-        $this->settings_section();
+        $this->section_counter_content();
+        $this->section_divider();
+        $this->section_settings();
         $this->counter_style();
         $this->icon_style();
         $this->number_style();
         $this->prefix_style();
         $this->suffix_style();
         $this->title_style();
-        
+
     }
 
     /**
-     * Counter Section
+     * Section Counter Content
      *
      * @return void
      */
-    protected function counter_section() {
+    protected function section_counter_content() {
 
         $this->start_controls_section(
-			'counter_section',
-			[
-				'label' => esc_html__( 'Counter', 'flatpack' )
-			]
+            'section_counter',
+            [
+                'label' => esc_html__( 'Counter', 'edumentor' ),
+            ]
         );
 
         $this->add_control(
-			'dl_icon_type',
-			[
-				'label'                 => esc_html__( 'Icon Type', 'flatpack' ),
-				'type'                  => Controls_Manager::CHOOSE,
-				'label_block'           => false,
-				'options'               => [
-					'none'        => [
-						'title'   => esc_html__( 'None', 'flatpack' ),
-						'icon'    => 'eicon-ban',
-					],
-					'icon'        => [
-						'title'   => esc_html__( 'Icon', 'flatpack' ),
-						'icon'    => 'eicon-info-circle',
-					],
-					'image'       => [
-						'title'   => esc_html__( 'Image', 'flatpack' ),
-						'icon'    => 'eicon-image',
-					],
-				],
-				'default'               => 'none',
-			]
-		);
+            'dl_icon_type',
+            [
+                'label'       => esc_html__( 'Icon Type', 'edumentor' ),
+                'type'        => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options'     => [
+                    'none'  => [
+                        'title' => esc_html__( 'None', 'edumentor' ),
+                        'icon'  => 'eicon-ban',
+                    ],
+                    'icon'  => [
+                        'title' => esc_html__( 'Icon', 'edumentor' ),
+                        'icon'  => 'eicon-info-circle',
+                    ],
+                    'image' => [
+                        'title' => esc_html__( 'Image', 'edumentor' ),
+                        'icon'  => 'eicon-image',
+                    ],
+                ],
+                'default'     => 'none',
+                'condition'    => [
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
+        );
 
         $this->add_control(
-			'counter_icon',
-			[
-				'label' => esc_html__( 'Icon', 'flatpack' ),
-				'type' => Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-star',
-					'library' => 'solid',
+            'counter_icon',
+            [
+                'label'            => esc_html__( 'Icon', 'edumentor' ),
+                'type'             => Controls_Manager::ICONS,
+                'default'          => [
+                    'value'   => 'fas fa-star',
+                    'library' => 'solid',
                 ],
-                'fa4compatibility' => 'icon',
-                'condition'             => [
-                    'dl_icon_type'  => 'icon',
+                'fa4compatibility'  => 'icon',
+                'skin'              => 'inline',
+                'exclude_inline_options'  => ['svg'],
+                'condition'        => [
+                    'dl_icon_type' => 'icon',
+                    'counter_layout!' => 'layout-7',
                 ],
-			]
-		);
-        
+            ]
+        );
+
         $this->add_control(
             'icon_image',
             [
-                'label'                 => esc_html__( 'Image', 'flatpack' ),
-                'type'                  => Controls_Manager::MEDIA,
-                'default'               => [
+                'label'     => esc_html__( 'Image', 'edumentor' ),
+                'type'      => Controls_Manager::MEDIA,
+                'default'   => [
                     'url' => Utils::get_placeholder_image_src(),
                 ],
-				'condition'             => [
-					'dl_icon_type'  => 'image',
-				],
+                'condition' => [
+                    'dl_icon_type' => 'image',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
-        
+
         $this->add_control(
             'ending_number',
             [
-                'label'                 => esc_html__( 'Number', 'flatpack' ),
-                'type'                  => Controls_Manager::NUMBER,
-				'dynamic'               => [
-					'active'   => true,
-				],
-                'default'               => esc_html__( '250', 'flatpack' ),
-                'separator'             => 'before',
+                'label'     => esc_html__( 'Number', 'edumentor' ),
+                'type'      => Controls_Manager::NUMBER,
+                'dynamic'   => [
+                    'active' => true,
+                ],
+                'default'   => esc_html__( '250', 'edumentor' ),
+                'separator' => 'before',
             ]
         );
-        
+
         $this->add_control(
             'number_prefix',
             [
-                'label'                 => esc_html__( 'Number Prefix', 'flatpack' ),
-                'type'                  => Controls_Manager::TEXT,
-				'dynamic'               => [
-					'active'   => true,
-				],
+                'label'   => esc_html__( 'Number Prefix', 'edumentor' ),
+                'type'    => Controls_Manager::TEXT,
+                'dynamic' => [
+                    'active' => true,
+                ],
             ]
         );
-        
+
         $this->add_control(
             'number_suffix',
             [
-                'label'                 => esc_html__( 'Number Suffix', 'flatpack' ),
-                'type'                  => Controls_Manager::TEXT,
-				'dynamic'               => [
-					'active'   => true,
-				],
+                'label'   => esc_html__( 'Number Suffix', 'edumentor' ),
+                'type'    => Controls_Manager::TEXT,
+                'dynamic' => [
+                    'active' => true,
+                ],
             ]
         );
 
         $this->add_control(
             'counter_title',
             [
-                'label'                 => esc_html__( 'Title', 'flatpack' ),
-                'type'                  => Controls_Manager::TEXT,
-				'dynamic'               => [
-					'active'   => true,
-				],
-                'default'               => esc_html__( 'Counter Title', 'flatpack' ),
-                'separator'             => 'before',
+                'label'     => esc_html__( 'Title', 'edumentor' ),
+                'type'      => Controls_Manager::TEXT,
+                'label_block' => true,
+                'dynamic'   => [
+                    'active' => true,
+                ],
+                'default'   => esc_html__( 'Counter Title', 'edumentor' ),
+                'separator' => 'before',
             ]
         );
-        
+
         $this->add_control(
             'title_html_tag',
             [
-                'label'                => esc_html__( 'Title HTML Tag', 'flatpack' ),
-                'type'                 => Controls_Manager::SELECT,
-                'default'              => 'div',
-                'options'              => [
-                    'h1'     => esc_html__( 'H1', 'flatpack' ),
-                    'h2'     => esc_html__( 'H2', 'flatpack' ),
-                    'h3'     => esc_html__( 'H3', 'flatpack' ),
-                    'h4'     => esc_html__( 'H4', 'flatpack' ),
-                    'h5'     => esc_html__( 'H5', 'flatpack' ),
-                    'h6'     => esc_html__( 'H6', 'flatpack' ),
-                    'div'    => esc_html__( 'div', 'flatpack' ),
-                    'span'   => esc_html__( 'span', 'flatpack' ),
-                    'p'      => esc_html__( 'p', 'flatpack' ),
+                'label'   => esc_html__( 'Title HTML Tag', 'edumentor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'div',
+                'options' => [
+                    'h1'   => esc_html__( 'H1', 'edumentor' ),
+                    'h2'   => esc_html__( 'H2', 'edumentor' ),
+                    'h3'   => esc_html__( 'H3', 'edumentor' ),
+                    'h4'   => esc_html__( 'H4', 'edumentor' ),
+                    'h5'   => esc_html__( 'H5', 'edumentor' ),
+                    'h6'   => esc_html__( 'H6', 'edumentor' ),
+                    'div'  => esc_html__( 'div', 'edumentor' ),
+                    'span' => esc_html__( 'span', 'edumentor' ),
+                    'p'    => esc_html__( 'p', 'edumentor' ),
                 ],
             ]
         );
@@ -231,63 +241,71 @@ class Widget extends Widget_Base {
         $this->add_control(
             'counter_layout',
             [
-                'label'                => esc_html__('Layout', 'flatpack'),
-                'type'                 => Controls_Manager::SELECT,
-                'default'              => 'layout-1',
-                'options'              => [
-                    'layout-1'     => esc_html__('Layout 1', 'flatpack'),
-                    'layout-2'     => esc_html__('Layout 2', 'flatpack'),
-                    'layout-3'     => esc_html__('Layout 3', 'flatpack'),
-                    'layout-4'     => esc_html__('Layout 4', 'flatpack'),
-                    'layout-5'     => esc_html__('Layout 5', 'flatpack'),
-                    'layout-6'     => esc_html__('Layout 6', 'flatpack'),
+                'label'     => esc_html__( 'Layout', 'edumentor' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 'layout-1',
+                'options'   => [
+                    'layout-1' => esc_html__( 'Layout 1', 'edumentor' ),
+                    'layout-2' => esc_html__( 'Layout 2', 'edumentor' ),
+                    'layout-3' => esc_html__( 'Layout 3', 'edumentor' ),
+                    'layout-4' => esc_html__( 'Layout 4', 'edumentor' ),
+                    'layout-5' => esc_html__( 'Layout 5', 'edumentor' ),
+                    'layout-6' => esc_html__( 'Layout 6', 'edumentor' ),
+                    'layout-7' => esc_html__( 'Layout 7', 'edumentor' ),
                 ],
-                'separator' => 'before'
+                'separator' => 'before',
             ]
         );
-        
+
         $this->end_controls_section();
 
     }
 
     /**
-     * Dividers Section
+     * Section Divider
      *
      * @return void
      */
-    protected function dividers_section() {
+    protected function section_divider() {
 
         $this->start_controls_section(
-			'dividers_section',
-			[
-				'label' => esc_html__( 'Dividers', 'flatpack' )
-			]
+            'section_counter_separators',
+            [
+                'label' => esc_html__( 'Dividers', 'edumentor' ),
+                'condition'    => [
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
         );
 
         $this->add_control(
             'icon_divider',
             [
-                'label'                 => esc_html__( 'Icon Divider', 'flatpack' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'no',
-                'label_on'              => esc_html__( 'On', 'flatpack' ),
-                'label_off'             => esc_html__( 'Off', 'flatpack' ),
-                'return_value'          => 'yes',
-                'condition'             => [
-                    'dl_icon_type!' => 'none'
-                ]
+                'label'        => esc_html__( 'Icon Divider', 'edumentor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'no',
+                'label_on'     => esc_html__( 'On', 'edumentor' ),
+                'label_off'    => esc_html__( 'Off', 'edumentor' ),
+                'return_value' => 'yes',
+                'condition'    => [
+                    'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
-        
+
         $this->add_control(
             'num_divider',
             [
-                'label'                 => esc_html__( 'Number Divider', 'flatpack' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'no',
-                'label_on'              => esc_html__( 'On', 'flatpack' ),
-                'label_off'             => esc_html__( 'Off', 'flatpack' ),
-                'return_value'          => 'yes'
+                'label'        => esc_html__( 'Number Divider', 'edumentor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'no',
+                'label_on'     => esc_html__( 'On', 'edumentor' ),
+                'label_off'    => esc_html__( 'Off', 'edumentor' ),
+                'return_value' => 'yes',
+                'condition'    => [
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
@@ -296,33 +314,32 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Settings Section
+     * Section Settings
      *
      * @return void
      */
-    protected function settings_section() {
+    protected function section_settings() {
 
         $this->start_controls_section(
-			'settings_section',
-			[
-				'label' => esc_html__( 'Settings', 'flatpack' )
-			]
+            'section_counter_settings',
+            [
+                'label' => esc_html__( 'Settings', 'edumentor' ),
+            ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
             'counter_speed',
             [
-                'label'                 => esc_html__( 'Counting Speed', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [ 'size' => 1500 ],
-                'range'                 => [
+                'label'      => esc_html__( 'Counting Speed', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'default'    => ['size' => 1500],
+                'range'      => [
                     'px' => [
-                        'min'   => 100,
-                        'max'   => 2000,
-                        'step'  => 1
+                        'min'  => 100,
+                        'max'  => 3000
                     ],
                 ],
-                'size_units'            => ''
+                'size_units' => '',
             ]
         );
 
@@ -331,320 +348,350 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Counter style
+     * Counter Style
      *
      * @return void
      */
     protected function counter_style() {
 
         $this->start_controls_section(
-            'counter_style',
+            'section_style',
             [
-                'label' => esc_html__( 'Counter', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE
+                'label' => esc_html__( 'Counter', 'edumentor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition'    => [
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
-        
+
         $this->add_responsive_control(
-			'counter_align',
-			[
-				'label'                 => esc_html__( 'Alignment', 'flatpack' ),
-				'type'                  => Controls_Manager::CHOOSE,
-				'options'               => [
-					'left'      => [
-						'title' => esc_html__( 'Left', 'flatpack' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-					'center'    => [
-						'title' => esc_html__( 'Center', 'flatpack' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-					'right'     => [
-						'title' => esc_html__( 'Right', 'flatpack' ),
-						'icon'  => 'eicon-text-align-right',
-					]
-				],
-				'default'               => 'center',
+            'counter_align',
+            [
+                'label'        => esc_html__( 'Alignment', 'edumentor' ),
+                'type'         => Controls_Manager::CHOOSE,
+                'options'      => [
+                    'left'   => [
+                        'title' => esc_html__( 'Left', 'edumentor' ),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__( 'Center', 'edumentor' ),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+                    'right'  => [
+                        'title' => esc_html__( 'Right', 'edumentor' ),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+                ],
+                'default'      => 'center',
                 'prefix_class' => 'counter-',
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-container'   => 'text-align: {{VALUE}};'
-				]
-			]
-		);
-        
+                'selectors'    => [
+                    '{{WRAPPER}} .hq-counter-container' => 'text-align: {{VALUE}};',
+                ],
+                'toggle'  => false,
+                'condition'    => [
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
     }
 
     /**
-     * Icon style
+     * Icon Style
      *
      * @return void
      */
     protected function icon_style() {
 
         $this->start_controls_section(
-            'icon_style',
+            'section_counter_icon_style',
             [
-                'label' => esc_html__( 'Icon', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE
+                'label'     => esc_html__( 'Icon', 'edumentor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'                  => 'counter_icon_bg',
-                'label'                 => esc_html__( 'Background', 'flatpack' ),
-                'types'                 => [ 'none','classic','gradient' ],
-                'condition'             => [
+                'name'      => 'counter_icon_bg',
+                'label'     => esc_html__( 'Background', 'edumentor' ),
+                'types'     => ['none', 'classic', 'gradient'],
+                'condition' => [
                     'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
                 ],
-                'selector'              => '{{WRAPPER}} .fp-counter-icon',
+                'selector'  => '{{WRAPPER}} .hq-counter-icon',
             ]
         );
 
         $this->add_control(
-            'counter_icon_color',
+			'counter_icon_hr',
+			[
+				'type' => Controls_Manager::DIVIDER,
+			]
+		);
+
+        $this->add_group_control(
+            Foreground::get_type(),
             [
-                'label'                 => esc_html__( 'Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon' => 'color: {{VALUE}};',
-                ],
-                'condition'             => [
-                    'dl_icon_type'  => 'icon',
+                'name'     => 'counter_icon_color',
+                'label'    => esc_html__( 'Icon Color', 'edumentor' ),
+                'types'    => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .hq-counter-icon i',
+                'condition' => [
+                    'dl_icon_type' => 'icon',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'counter_icon_size',
             [
-                'label'                 => esc_html__( 'Size', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
+                'label'      => esc_html__( 'Size', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'separator'  => 'before',
+                'range'      => [
                     'px' => [
-                        'min'   => 5,
-                        'max'   => 100,
-                        'step'  => 1,
+                        'min'  => 5,
+                        'max'  => 100,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', 'em' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-                    '{{WRAPPER}} .fp-counter-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+                'size_units' => ['px', 'em'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon'     => 'font-size: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .hq-counter-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
                 ],
-                'condition'             => [
-                    'dl_icon_type'  => 'icon',
+                'condition'  => [
+                    'dl_icon_type' => 'icon',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'counter_icon_img_width',
             [
-                'label'                 => esc_html__( 'Image Width', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
+                'label'      => esc_html__( 'Image Width', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'range'      => [
                     'px' => [
-                        'min'   => 10,
-                        'max'   => 500,
-                        'step'  => 1,
+                        'min'  => 10,
+                        'max'  => 500,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => ['px', '%'],
-                'condition'             => [
-                    'dl_icon_type'  => 'image',
+                'size_units' => ['px', '%'],
+                'condition'  => [
+                    'dl_icon_type' => 'image',
+                    'counter_layout!' => 'layout-7',
                 ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon img' => 'width: {{SIZE}}{{UNIT}};',
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon img' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'counter_icon_rotation',
             [
-                'label'                 => esc_html__( 'Rotation', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
+                'label'      => esc_html__( 'Rotation', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'range'      => [
                     'px' => [
-                        'min'   => 0,
-                        'max'   => 360,
-                        'step'  => 1,
+                        'min'  => 0,
+                        'max'  => 360,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => '',
-                'condition'             => [
+                'size_units' => '',
+                'condition'  => [
                     'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
                 ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon i, {{WRAPPER}} .fp-counter-icon svg, {{WRAPPER}} .fp-counter-icon img' => 'transform: rotate( {{SIZE}}deg );',
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon i, {{WRAPPER}} .hq-counter-icon svg, {{WRAPPER}} .hq-counter-icon img' => 'transform: rotate( {{SIZE}}deg );',
                 ],
             ]
         );
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'                  => 'counter_icon_border',
-				'label'                 => esc_html__( 'Border', 'flatpack' ),
-				'placeholder'           => '1px',
-				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .fp-counter-icon',
-                'condition'             => [
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'        => 'counter_icon_border',
+                'label'       => esc_html__( 'Border', 'edumentor' ),
+                'placeholder' => '1px',
+                'default'     => '1px',
+                'selector'    => '{{WRAPPER}} .hq-counter-icon',
+                'condition'   => [
                     'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
                 ],
-			]
-		);
+            ]
+        );
 
-		$this->add_control(
-			'counter_icon_border_radius',
-			[
-				'label'                 => esc_html__( 'Border Radius', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'dl_icon_type!' => 'none',
+        $this->add_control(
+            'counter_icon_border_radius',
+            [
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-			]
-		);
+                'condition'  => [
+                    'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
+        );
 
-		$this->add_responsive_control(
-			'counter_icon_padding',
-			[
-				'label'                 => esc_html__( 'Padding', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => '',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-icon' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'dl_icon_type!' => 'none',
+        $this->add_responsive_control(
+            'counter_icon_padding',
+            [
+                'label'       => esc_html__( 'Padding', 'edumentor' ),
+                'type'        => Controls_Manager::DIMENSIONS,
+                'size_units'  => ['px', '%'],
+                'placeholder' => [
+                    'top'    => '',
+                    'right'  => '',
+                    'bottom' => '',
+                    'left'   => '',
                 ],
-			]
-		);
+                'selectors'   => [
+                    '{{WRAPPER}} .hq-counter-icon' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
+                ],
+                'condition'   => [
+                    'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
+        );
 
-		$this->add_responsive_control(
-			'counter_icon_margin',
-			[
-				'label'                 => esc_html__( 'Margin', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => '',
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'dl_icon_type!' => 'none',
+        $this->add_responsive_control(
+            'counter_icon_margin',
+            [
+                'label'       => esc_html__( 'Margin', 'edumentor' ),
+                'type'        => Controls_Manager::DIMENSIONS,
+                'size_units'  => ['px', '%'],
+                'placeholder' => [
+                    'top'    => '',
+                    'right'  => '',
+                    'bottom' => '',
+                    'left'   => '',
                 ],
-			]
-		);
-        
+                'selectors'   => [
+                    '{{WRAPPER}} .hq-counter-icon-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                ],
+                'condition'   => [
+                    'dl_icon_type!' => 'none',
+                    'counter_layout!' => 'layout-7',
+                ],
+            ]
+        );
+
         $this->add_control(
             'icon_divider_heading',
             [
-                'label'                 => esc_html__( 'Icon Divider', 'flatpack' ),
-                'type'                  => Controls_Manager::HEADING,
-                'separator'             => 'before',
-                'condition'             => [
+                'label'     => esc_html__( 'Icon Divider', 'edumentor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_control(
             'icon_divider_type',
             [
-            'label'                     => esc_html__( 'Divider Type', 'flatpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'solid',
-                'options'               => [
-                    'solid'     => esc_html__( 'Solid', 'flatpack' ),
-                    'double'    => esc_html__( 'Double', 'flatpack' ),
-                    'dotted'    => esc_html__( 'Dotted', 'flatpack' ),
-                    'dashed'    => esc_html__( 'Dashed', 'flatpack' ),
+                'label'     => esc_html__( 'Divider Type', 'edumentor' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 'solid',
+                'options'   => [
+                    'solid'  => esc_html__( 'Solid', 'edumentor' ),
+                    'double' => esc_html__( 'Double', 'edumentor' ),
+                    'dotted' => esc_html__( 'Dotted', 'edumentor' ),
+                    'dashed' => esc_html__( 'Dashed', 'edumentor' ),
                 ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon-divider' => 'border-bottom-style: {{VALUE}}',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-icon-divider' => 'border-bottom-style: {{VALUE}}',
                 ],
-                'condition'             => [
+                'condition' => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'icon_divider_height',
             [
-                'label'                 => esc_html__( 'Height', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'  => 2,
+                'label'      => esc_html__( 'Height', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'default'    => [
+                    'size' => 2,
                 ],
-                'range'                 => [
+                'range'      => [
                     'px' => [
-                        'min'   => 1,
-                        'max'   => 20,
-                        'step'  => 1,
+                        'min'  => 1,
+                        'max'  => 20,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
+                'condition'  => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'icon_divider_width',
             [
-                'label'                 => esc_html__( 'Width', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'  => 30,
+                'label'      => esc_html__( 'Width', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'default'    => [
+                    'size' => 30,
                 ],
-                'range'                 => [
+                'range'      => [
                     'px' => [
-                        'min'   => 1,
-                        'max'   => 1000,
-                        'step'  => 1,
+                        'min'  => 1,
+                        'max'  => 1000,
+                        'step' => 1,
                     ],
-                    '%' => [
-                        'min'   => 1,
-                        'max'   => 100,
-                        'step'  => 1,
+                    '%'  => [
+                        'min'  => 1,
+                        'max'  => 100,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon-divider' => 'width: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon-divider' => 'width: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
+                'condition'  => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
@@ -652,43 +699,45 @@ class Widget extends Widget_Base {
         $this->add_control(
             'icon_divider_color',
             [
-                'label'                 => esc_html__( 'Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon-divider' => 'border-bottom-color: {{VALUE}}',
+                'label'     => esc_html__( 'Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-icon-divider' => 'border-bottom-color: {{VALUE}}',
                 ],
-                'condition'             => [
+                'condition' => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'icon_divider_margin',
             [
-                'label'                 => esc_html__( 'Spacing', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
+                'label'      => esc_html__( 'Spacing', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'range'      => [
                     'px' => [
-                        'min'   => 0,
-                        'max'   => 100,
-                        'step'  => 1,
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1,
                     ],
-                    '%' => [
-                        'min'   => 0,
-                        'max'   => 30,
-                        'step'  => 1,
+                    '%'  => [
+                        'min'  => 0,
+                        'max'  => 30,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-icon-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-icon-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
+                'condition'  => [
                     'dl_icon_type!' => 'none',
                     'icon_divider'  => 'yes',
+                    'counter_layout!' => 'layout-7',
                 ],
             ]
         );
@@ -698,186 +747,229 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Number style
+     * Number Style
      *
      * @return void
      */
     protected function number_style() {
 
         $this->start_controls_section(
-            'number_style',
+            'section_counter_num_style',
             [
-                'label' => esc_html__( 'Number', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE
+                'label' => esc_html__( 'Number', 'edumentor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'counter_num_color',
             [
-                'label'                 => esc_html__( 'Number Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-number' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-        
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'                  => 'counter_num_typography',
-                'label'                 => esc_html__( 'Typography', 'flatpack' ),
-                'selector'              => '{{WRAPPER}} .fp-counter-number-wrap .fp-counter-number'
+                'label'     => esc_html__( 'Number Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter:not(.hq-counter-layout-7) .hq-counter-number' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hq-counter-layout-7 .hq-counter-number,{{WRAPPER}} .hq-counter-layout-7 .hq-counter-number-wrap .hq-counter-number-prefix, {{WRAPPER}} .hq-counter-layout-7 .hq-counter-number-wrap .hq-counter-number-suffix' => 'color: {{VALUE}};',
+                ],
             ]
         );
 
-		$this->add_responsive_control(
-			'counter_num_margin',
-			[
-				'label'                 => esc_html__( 'Margin', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => ''
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-number-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				]
-			]
-		);
-        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'counter_num_typography',
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-counter:not(.hq-counter-layout-7) .hq-counter-number-wrap .hq-counter-number, {{WRAPPER}} .hq-counter-layout-7 .hq-counter-number,{{WRAPPER}} .hq-counter-layout-7 .hq-counter-number-wrap .hq-counter-number-prefix, {{WRAPPER}} .hq-counter-layout-7 .hq-counter-number-wrap .hq-counter-number-suffix',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counter_number_wrap_with',
+            [
+                'label'      => esc_html__( 'Width', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'      => [
+                    'px' => [
+                        'min'  => 50,
+                        'max'  => 200
+                    ],
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-layout-7' => 'grid-template-columns: {{SIZE}}{{UNIT}} 1fr;',
+                ],
+                'condition'    => [
+                    'counter_layout' => 'layout-7',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counter_number_space_between',
+            [
+                'label'      => esc_html__( 'Space Between', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'      => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 200
+                    ],
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-layout-7' => 'grid-column-gap: {{SIZE}}{{UNIT}};',
+                ],
+                'condition'    => [
+                    'counter_layout' => 'layout-7',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counter_num_margin',
+            [
+                'label'       => esc_html__( 'Margin', 'edumentor' ),
+                'type'        => Controls_Manager::DIMENSIONS,
+                'size_units'  => ['px', '%'],
+                'placeholder' => [
+                    'top'    => '',
+                    'right'  => '',
+                    'bottom' => '',
+                    'left'   => '',
+                ],
+                'selectors'   => [
+                    '{{WRAPPER}} .hq-counter-number-wrap' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->add_control(
             'num_divider_heading',
             [
-                'label'                 => esc_html__( 'Number Divider', 'flatpack' ),
-                'type'                  => Controls_Manager::HEADING,
-                'separator'             => 'before',
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'label'     => esc_html__( 'Number Divider', 'edumentor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
-        
+
         $this->add_control(
             'num_divider_type',
             [
-                'label'                 => esc_html__( 'Divider Type', 'flatpack' ),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'solid',
-                'options'               => [
-                    'solid'     => esc_html__( 'Solid', 'flatpack' ),
-                    'double'    => esc_html__( 'Double', 'flatpack' ),
-                    'dotted'    => esc_html__( 'Dotted', 'flatpack' ),
-                    'dashed'    => esc_html__( 'Dashed', 'flatpack' ),
+                'label'     => esc_html__( 'Divider Type', 'edumentor' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 'solid',
+                'options'   => [
+                    'solid'  => esc_html__( 'Solid', 'edumentor' ),
+                    'double' => esc_html__( 'Double', 'edumentor' ),
+                    'dotted' => esc_html__( 'Dotted', 'edumentor' ),
+                    'dashed' => esc_html__( 'Dashed', 'edumentor' ),
                 ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-num-divider' => 'border-bottom-style: {{VALUE}}',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-num-divider' => 'border-bottom-style: {{VALUE}}',
                 ],
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'condition' => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'num_divider_height',
             [
-                'label'                 => esc_html__( 'Height', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'  => 2,
+                'label'      => esc_html__( 'Height', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'default'    => [
+                    'size' => 2,
                 ],
-                'range'                 => [
+                'range'      => [
                     'px' => [
-                        'min'   => 1,
-                        'max'   => 20,
-                        'step'  => 1,
+                        'min'  => 1,
+                        'max'  => 20,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-num-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-num-divider' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'condition'  => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'num_divider_width',
             [
-                'label'                 => esc_html__( 'Width', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'  => 30,
+                'label'      => esc_html__( 'Width', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'default'    => [
+                    'size' => 30,
                 ],
-                'range'                 => [
+                'range'      => [
                     'px' => [
-                        'min'   => 1,
-                        'max'   => 1000,
-                        'step'  => 1,
+                        'min'  => 1,
+                        'max'  => 1000,
+                        'step' => 1,
                     ],
-                    '%' => [
-                        'min'   => 1,
-                        'max'   => 100,
-                        'step'  => 1,
+                    '%'  => [
+                        'min'  => 1,
+                        'max'  => 100,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-num-divider' => 'width: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-num-divider' => 'width: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'condition'  => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
 
         $this->add_control(
             'num_divider_color',
             [
-                'label'                 => esc_html__( 'Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-num-divider' => 'border-bottom-color: {{VALUE}}',
+                'label'     => esc_html__( 'Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-num-divider' => 'border-bottom-color: {{VALUE}}',
                 ],
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'condition' => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'num_divider_margin',
             [
-                'label'                 => esc_html__( 'Spacing', 'flatpack' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
+                'label'      => esc_html__( 'Spacing', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'range'      => [
                     'px' => [
-                        'min'   => 0,
-                        'max'   => 100,
-                        'step'  => 1,
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1,
                     ],
-                    '%' => [
-                        'min'   => 0,
-                        'max'   => 30,
-                        'step'  => 1,
+                    '%'  => [
+                        'min'  => 0,
+                        'max'  => 30,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-num-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-counter-num-divider-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}}',
                 ],
-                'condition'             => [
-                    'num_divider'  => 'yes'
-                ]
+                'condition'  => [
+                    'num_divider' => 'yes',
+                ],
             ]
         );
 
@@ -886,47 +978,50 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Prefix style
+     * Prefix Style
      *
      * @return void
      */
     protected function prefix_style() {
 
         $this->start_controls_section(
-            'prefix_style',
+            'section_number_prefix_style',
             [
-                'label' => esc_html__( 'Prefix', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-                'condition'             => [
-                    'number_prefix!' => ''
-                ]
+                'label'     => esc_html__( 'Prefix', 'edumentor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'number_prefix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
         $this->add_control(
             'number_prefix_color',
             [
-                'label'                 => esc_html__( 'Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-number-prefix' => 'color: {{VALUE}};',
+                'label'     => esc_html__( 'Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-number-prefix' => 'color: {{VALUE}};',
                 ],
-                'condition'             => [
-                    'number_prefix!' => ''
-                ]
+                'condition' => [
+                    'number_prefix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
-        
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'number_prefix_typography',
-                'label'                 => esc_html__( 'Typography', 'flatpack' ),
-                'selector'              => '{{WRAPPER}} .fp-counter-number-prefix',
-                'condition'             => [
-                    'number_prefix!' => ''
-                ]
+                'name'      => 'number_prefix_typography',
+                'label'     => esc_html__( 'Typography', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-counter-number-prefix',
+                'condition' => [
+                    'number_prefix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
@@ -935,47 +1030,50 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Suffix style
+     * Suffix Style
      *
      * @return void
      */
     protected function suffix_style() {
 
         $this->start_controls_section(
-            'suffix_style',
+            'section_number_suffix_style',
             [
-                'label' => esc_html__( 'Suffix', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-                'condition'             => [
-                    'number_suffix!' => ''
-                ]
+                'label'     => esc_html__( 'Suffix', 'edumentor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'number_suffix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
         $this->add_control(
             'section_number_suffix_color',
             [
-                'label'                 => esc_html__( 'Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-number-suffix' => 'color: {{VALUE}};',
+                'label'     => esc_html__( 'Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-number-suffix' => 'color: {{VALUE}};',
                 ],
-                'condition'             => [
-                    'number_suffix!' => ''
-                ]
+                'condition' => [
+                    'number_suffix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
-        
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'section_number_suffix_typography',
-                'label'                 => esc_html__( 'Typography', 'flatpack' ),
-                'selector'              => '{{WRAPPER}} .fp-counter-number-suffix',
-                'condition'             => [
-                    'number_suffix!' => ''
-                ]
+                'name'      => 'section_number_suffix_typography',
+                'label'     => esc_html__( 'Typography', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-counter-number-suffix',
+                'condition' => [
+                    'number_suffix!' => '',
+                    'counter_layout!' => 'layout-7',
+                ],
             ]
         );
 
@@ -984,106 +1082,118 @@ class Widget extends Widget_Base {
     }
 
     /**
-     * Title style
+     * Title Style
      *
      * @return void
      */
     protected function title_style() {
 
         $this->start_controls_section(
-            'title_style',
+            'section_counter_title_style',
             [
-                'label' => esc_html__( 'Title', 'flatpack' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
+                'label'     => esc_html__( 'Title', 'edumentor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'counter_title!' => '',
+                ],
             ]
         );
 
         $this->add_control(
             'counter_title_color',
             [
-                'label'                 => esc_html__( 'Text Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-title' => 'color: {{VALUE}};',
+                'label'     => esc_html__( 'Text Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-title' => 'color: {{VALUE}};',
                 ],
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
+                'condition' => [
+                    'counter_title!' => '',
+                ],
             ]
         );
 
         $this->add_control(
             'counter_title_bg_color',
             [
-                'label'                 => esc_html__( 'Background Color', 'flatpack' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .fp-counter-title' => 'background-color: {{VALUE}};',
+                'label'     => esc_html__( 'Background Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
+                'selectors' => [
+                    '{{WRAPPER}} .hq-counter-title' => 'background-color: {{VALUE}};',
                 ],
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
+                'condition' => [
+                    'counter_title!' => '',
+                ],
             ]
         );
-        
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'counter_title_typography',
-                'label'                 => esc_html__( 'Typography', 'flatpack' ),
-                'selector'              => '{{WRAPPER}} .fp-counter-title',
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
+                'name'      => 'counter_title_typography',
+                'label'     => esc_html__( 'Typography', 'edumentor' ),
+                'selector'  => '{{WRAPPER}} .hq-counter-title',
+                'condition' => [
+                    'counter_title!' => '',
+                ],
             ]
         );
 
-		$this->add_responsive_control(
-			'counter_title_margin',
-			[
-				'label'                 => esc_html__( 'Margin', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => ''
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-title' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
-			]
-		);
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'title_border',
+                'label'    => esc_html__( 'Border', 'edumentor' ),
+                'selector' => '{{WRAPPER}} .hq-counter-layout-7 .hq-icon-title-wrap',
+                'condition'    => [
+                    'counter_layout' => 'layout-7',
+                ],
+            ]
+        );
 
-		$this->add_responsive_control(
-			'counter_title_padding',
-			[
-				'label'                 => esc_html__( 'Padding', 'flatpack' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', '%' ],
-				'placeholder'           => [
-					'top'      => '',
-					'right'    => '',
-					'bottom'   => '',
-					'left'     => ''
-				],
-				'selectors'             => [
-					'{{WRAPPER}} .fp-counter-title' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'counter_title!' => ''
-                ]
-			]
-		);
+        $this->add_responsive_control(
+            'counter_title_margin',
+            [
+                'label'       => esc_html__( 'Margin', 'edumentor' ),
+                'type'        => Controls_Manager::DIMENSIONS,
+                'size_units'  => ['px', '%'],
+                'placeholder' => [
+                    'top'    => '',
+                    'right'  => '',
+                    'bottom' => '',
+                    'left'   => '',
+                ],
+                'selectors'   => [
+                    '{{WRAPPER}} .hq-counter-title' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
+                ],
+                'condition'   => [
+                    'counter_title!' => '',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'counter_title_padding',
+            [
+                'label'       => esc_html__( 'Padding', 'edumentor' ),
+                'type'        => Controls_Manager::DIMENSIONS,
+                'size_units'  => ['px', '%'],
+                'placeholder' => [
+                    'top'    => '',
+                    'right'  => '',
+                    'bottom' => '',
+                    'left'   => '',
+                ],
+                'selectors'   => [
+                    '{{WRAPPER}} .hq-counter-title' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
+                ],
+                'condition'   => [
+                    'counter_title!' => '',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -1098,15 +1208,15 @@ class Widget extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
         
-        $this->add_render_attribute( 'counter', 'class', 'fp-counter fp-counter-'.esc_attr( $this->get_id() ) );
+        $this->add_render_attribute( 'counter', 'class', 'hq-counter hq-counter-'.esc_attr( $this->get_id() ) );
         
         if ( $settings['counter_layout'] ) {
-            $this->add_render_attribute( 'counter', 'class', 'fp-counter-' . $settings['counter_layout'] );
+            $this->add_render_attribute( 'counter', 'class', 'hq-counter-' . $settings['counter_layout'] );
         }
         
-        $this->add_render_attribute( 'counter', 'data-target', '.fp-counter-number-'.esc_attr( $this->get_id() ) );
+        $this->add_render_attribute( 'counter', 'data-target', '.hq-counter-number-'.esc_attr( $this->get_id() ) );
         
-        $this->add_render_attribute( 'counter-number', 'class', 'fp-counter-number fp-counter-number-'.esc_attr( $this->get_id() ) );
+        $this->add_render_attribute( 'counter-number', 'class', 'hq-counter-number hq-counter-number-'.esc_attr( $this->get_id() ) );
         
         if ( $settings['ending_number'] != '' ) {
             $this->add_render_attribute( 'counter-number', 'data-to', $settings['ending_number'] );
@@ -1117,9 +1227,9 @@ class Widget extends Widget_Base {
         }
         
         $this->add_inline_editing_attributes( 'counter_title', 'none' );
-        $this->add_render_attribute( 'counter_title', 'class', 'fp-counter-title' );
+        $this->add_render_attribute( 'counter_title', 'class', 'hq-counter-title' );
         ?>
-        <div class="fp-counter-container">
+        <div class="hq-counter-container">
             <div <?php echo $this->get_render_attribute_string( 'counter' ); ?>>
                 <?php if ( $settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-5' || $settings['counter_layout'] == 'layout-6' ) { ?>
                     <?php
@@ -1127,11 +1237,11 @@ class Widget extends Widget_Base {
                         $this->render_icon();
                     ?>
                 
-                    <div class="fp-counter-number-title-wrap">
-                        <div class="fp-counter-number-wrap">
+                    <div class="hq-counter-number-title-wrap">
+                        <div class="hq-counter-number-wrap">
                             <?php
                                 if ( $settings['number_prefix'] != '' ) {
-                                    printf( '<span class="fp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                                    printf( '<span class="hq-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                                 }
                             ?>
                             <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
@@ -1139,21 +1249,21 @@ class Widget extends Widget_Base {
                             </div>
                             <?php
                                 if ( $settings['number_suffix'] != '' ) {
-                                    printf( '<span class="fp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                                    printf( '<span class="hq-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                                 }
                             ?>
                         </div>
 
                         <?php if ( $settings['num_divider'] == 'yes' ) { ?>
-                            <div class="fp-counter-num-divider-wrap">
-                                <span class="fp-counter-num-divider"></span>
+                            <div class="hq-counter-num-divider-wrap">
+                                <span class="hq-counter-num-divider"></span>
                             </div>
                         <?php } ?>
 
                         <?php
                             if ( !empty( $settings['counter_title'] ) ) {
                                 printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
+                                    echo Helper::kses_basic( $settings['counter_title'] );
                                 printf( '</%1$s>', $settings['title_html_tag'] );
                             }
                         ?>
@@ -1165,15 +1275,15 @@ class Widget extends Widget_Base {
 
                         if ( !empty( $settings['counter_title'] ) ) {
                             printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                echo $settings['counter_title'];
+                                echo Helper::kses_basic( $settings['counter_title'] );
                             printf( '</%1$s>', $settings['title_html_tag'] );
                         }
                     ?>
                 
-                    <div class="fp-counter-number-wrap">
+                    <div class="hq-counter-number-wrap">
                         <?php
                             if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="fp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                                printf( '<span class="hq-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
                         <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
@@ -1181,21 +1291,21 @@ class Widget extends Widget_Base {
                         </div>
                         <?php
                             if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="fp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                                printf( '<span class="hq-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
                     <?php if ( $settings['num_divider'] == 'yes' ) { ?>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
+                        <div class="hq-counter-num-divider-wrap">
+                            <span class="hq-counter-num-divider"></span>
                         </div>
                     <?php } ?>
                 <?php } elseif ( $settings['counter_layout'] == 'layout-3' ) { ?>
-                    <div class="fp-counter-number-wrap">
+                    <div class="hq-counter-number-wrap">
                         <?php
                             if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="fp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                                printf( '<span class="hq-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
                         <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
@@ -1203,47 +1313,47 @@ class Widget extends Widget_Base {
                         </div>
                         <?php
                             if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="fp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                                printf( '<span class="hq-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
                     <?php if ( $settings['num_divider'] == 'yes' ) { ?>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
+                        <div class="hq-counter-num-divider-wrap">
+                            <span class="hq-counter-num-divider"></span>
                         </div>
                     <?php } ?>
                 
-                    <div class="fp-icon-title-wrap">
+                    <div class="hq-icon-title-wrap">
                         <?php
                             // Counter icon
                             $this->render_icon();
 
                             if ( !empty( $settings['counter_title'] ) ) {
                                 printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
+                                    echo Helper::kses_basic( $settings['counter_title'] );
                                 printf( '</%1$s>', $settings['title_html_tag'] );
                             }
                         ?>
                     </div>
                 <?php } elseif ( $settings['counter_layout'] == 'layout-4' ) { ?>
-                    <div class="fp-icon-title-wrap">
+                    <div class="hq-icon-title-wrap">
                         <?php
                             // Counter icon
                             $this->render_icon();
 
                             if ( !empty( $settings['counter_title'] ) ) {
                                 printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
-                                    echo $settings['counter_title'];
+                                    echo Helper::kses_basic( $settings['counter_title'] );
                                 printf( '</%1$s>', $settings['title_html_tag'] );
                             }
                         ?>
                     </div>
                 
-                    <div class="fp-counter-number-wrap">
+                    <div class="hq-counter-number-wrap">
                         <?php
                             if ( $settings['number_prefix'] != '' ) {
-                                printf( '<span class="fp-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                                printf( '<span class="hq-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
                             }
                         ?>
                         <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
@@ -1251,21 +1361,48 @@ class Widget extends Widget_Base {
                         </div>
                         <?php
                             if ( $settings['number_suffix'] != '' ) {
-                                printf( '<span class="fp-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                                printf( '<span class="hq-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
                             }
                         ?>
                     </div>
 
                     <?php if ( $settings['num_divider'] == 'yes' ) { ?>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
+                        <div class="hq-counter-num-divider-wrap">
+                            <span class="hq-counter-num-divider"></span>
                         </div>
                     <?php } ?>
+                <?php } elseif( $settings['counter_layout'] == 'layout-7' ){ ?>
+
+                    <div class="hq-counter-number-wrap">
+                        <?php
+                            if ( $settings['number_prefix'] != '' ) {
+                                printf( '<span class="hq-counter-number-prefix">%1$s</span>', $settings['number_prefix'] );
+                            }
+                        ?>
+                        <div <?php echo $this->get_render_attribute_string( 'counter-number' ); ?>>
+                            0
+                        </div>
+                        <?php
+                            if ( $settings['number_suffix'] != '' ) {
+                                printf( '<span class="hq-counter-number-suffix">%1$s</span>', $settings['number_suffix'] );
+                            }
+                        ?>
+                    </div>
+
+                    <div class="hq-icon-title-wrap">
+                        <?php
+                            if ( !empty( $settings['counter_title'] ) ) {
+                                printf( '<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string( 'counter_title' ) );
+                                    echo Helper::kses_basic( $settings['counter_title'] );
+                                printf( '</%1$s>', $settings['title_html_tag'] );
+                            }
+                        ?>
+                    </div>
+                    
                 <?php } ?>
             </div>
-        </div><!-- .fp-counter-container -->
+        </div><!-- .hq-counter-container -->
         <?php
-
     }
 
     /**
@@ -1282,8 +1419,8 @@ class Widget extends Widget_Base {
             $migrated = isset( $settings['__fa4_migrated']['counter_icon'] );
 		    $is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
             if ( !empty( $settings['counter_icon'] ) ) { ?>
-                <span class="fp-counter-icon-wrap">
-                    <span class="fp-counter-icon">
+                <span class="hq-counter-icon-wrap">
+                    <span class="hq-counter-icon">
                     <?php if ( $is_new || $migrated ) :
                         Icons_Manager::render_icon( $settings['counter_icon'], [ 'aria-hidden' => 'true' ] );
                     else : ?>
@@ -1296,8 +1433,8 @@ class Widget extends Widget_Base {
             $image = $settings['icon_image'];
             if ( $image['url'] ) {
             ?>
-                <span class="fp-counter-icon-wrap">
-                    <span class="fp-counter-icon fp-counter-icon-img">
+                <span class="hq-counter-icon-wrap">
+                    <span class="hq-counter-icon hq-counter-icon-img">
                         <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr(get_post_meta($image['id'], '_wp_attachment_image_alt', true)); ?>">
                     </span>
                 </span>
@@ -1306,204 +1443,12 @@ class Widget extends Widget_Base {
 
         if ( $settings['icon_divider'] == 'yes' ) {
             if ( $settings['counter_layout'] == 'layout-1' || $settings['counter_layout'] == 'layout-2' ) { ?>
-                <div class="fp-counter-icon-divider-wrap">
-                    <span class="fp-counter-icon-divider"></span>
+                <div class="hq-counter-icon-divider-wrap">
+                    <span class="hq-counter-icon-divider"></span>
                 </div>
                 <?php
             }
         }
-    }
-
-    /**
-	 * Render counter icon output in the editor.
-	 */
-    protected function _icon_template() {
-        ?>
-        <# if ( settings.dl_icon_type == 'icon' ) { #>
-            <# if ( settings.counter_icon != '' ) { 
-                
-                var iconHTML = elementor.helpers.renderIcon( view, settings.counter_icon, { 'aria-hidden': true }, 'i' , 'object' ),
-				migrated = elementor.helpers.isIconMigrated( settings, 'counter_icon' );
-                #>
-                <span class="fp-counter-icon-wrap">
-                    <span class="fp-counter-icon">
-                        <# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
-                            {{{ iconHTML.value }}}
-                        <# } else { #>
-                            <span class="{{ settings.icon }}" aria-hidden="true"></span>
-                        <# } #>
-                    </span>
-                </span>
-            <# } #>
-        <# } else if ( settings.dl_icon_type == 'image' ) { #>
-            <# if ( settings.icon_image.url != '' ) { #>
-                <span class="fp-counter-icon-wrap">
-                    <span class="fp-counter-icon fp-counter-icon-img">
-                        <img src="{{ settings.icon_image.url }}">
-                    </span>
-                </span>
-            <# } #>
-        <# } #>
-
-        <# if ( settings.icon_divider == 'yes' ) { #>
-            <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-2' ) { #>
-                <div class="fp-counter-icon-divider-wrap">
-                    <span class="fp-counter-icon-divider"></span>
-                </div>
-            <# } #>
-        <# } #>
-        <?php
-    }
-
-    /**
-	 * Render counter number output in the editor.
-	 */
-    protected function _number_template() {
-        ?>
-        <div class="fp-counter-number-wrap">
-            <#
-                if ( settings.number_prefix != '' ) {
-                    var prefix = settings.number_prefix;
-
-                    view.addRenderAttribute( 'prefix', 'class', 'fp-counter-number-prefix' );
-
-                    var prefix_html = '<span' + ' ' + view.getRenderAttributeString( 'prefix' ) + '>' + prefix + '</span>';
-
-                    print( prefix_html );
-                }
-            #>
-            <div class="fp-counter-number" data-to="{{ settings.ending_number }}" data-speed="{{ settings.counter_speed.size }}">
-                0
-            </div>
-            <#
-                if ( settings.number_suffix != '' ) {
-                    var suffix = settings.number_suffix;
-
-                    view.addRenderAttribute( 'suffix', 'class', 'fp-counter-number-suffix' );
-
-                    var suffix_html = '<span' + ' ' + view.getRenderAttributeString( 'suffix' ) + '>' + suffix + '</span>';
-
-                    print( suffix_html );
-                }
-            #>
-        </div>
-        <?php
-    }
-
-    /**
-	 * Render counter title output in the editor.
-	 */
-    protected function _title_template() {
-        ?>
-        <#
-            if ( settings.counter_title != '' ) {
-                var title = settings.counter_title;
-
-                view.addRenderAttribute( 'counter_title', 'class', 'fp-counter-title' );
-
-                view.addInlineEditingAttributes( 'counter_title' );
-
-                var title_html = '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'counter_title' ) + '>' + title + '</' + settings.title_html_tag + '>';
-
-                print( title_html );
-            }
-        #>
-        <?php
-    }
-
-    /**
-	 * Render counter widget output in the editor.
-	 */
-    protected function content_template() {
-        ?>
-        <div class="fp-counter-container">
-            <div class="fp-counter fp-counter-{{ settings.counter_layout }}" data-target=".fp-counter-number">
-                <# if ( settings.counter_layout == 'layout-1' || settings.counter_layout == 'layout-5' || settings.counter_layout == 'layout-6' ) { #>
-                    <?php
-                        // Counter icon
-                        $this->_icon_template();
-                    ?>
-                
-                    <div class="fp-counter-number-title-wrap">
-                        <?php
-                            // Counter number
-                            $this->_number_template();
-                        ?>
-
-                        <# if ( settings.num_divider == 'yes' ) { #>
-                            <div class="fp-counter-num-divider-wrap">
-                                <span class="fp-counter-num-divider"></span>
-                            </div>
-                        <# } #>
-
-                        <?php
-                            // Title number
-                            $this->_title_template();
-                        ?>
-                    </div>
-                <# } else if ( settings.counter_layout == 'layout-2' ) { #>
-                    <?php
-                        // Counter icon
-                        $this->_icon_template();
-        
-                        // Title number
-                        $this->_title_template();
-        
-                        // Counter number
-                        $this->_number_template();
-                    ?>
-
-                    <# if ( settings.num_divider == 'yes' ) { #>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
-                        </div>
-                    <# } #>
-                <# } else if ( settings.counter_layout == 'layout-3' ) { #>
-                    <?php
-                        // Counter number
-                        $this->_number_template();
-                    ?>
-
-                    <# if ( settings.num_divider == 'yes' ) { #>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
-                        </div>
-                    <# } #>
-                
-                    <div class="fp-icon-title-wrap">
-                        <?php
-                            // Counter icon
-                            $this->_icon_template();
-        
-                            // Title number
-                            $this->_title_template();
-                        ?>
-                    </div>
-                <# } else if ( settings.counter_layout == 'layout-4' ) { #>
-                    <div class="fp-icon-title-wrap">
-                        <?php
-                            // Counter icon
-                            $this->_icon_template();
-
-                            // Title number
-                            $this->_title_template();
-                        ?>
-                    </div>
-                
-                    <?php
-                        // Counter number
-                        $this->_number_template();
-                    ?>
-
-                    <# if ( settings.num_divider == 'yes' ) { #>
-                        <div class="fp-counter-num-divider-wrap">
-                            <span class="fp-counter-num-divider"></span>
-                        </div>
-                    <# } #>
-                <# } #>
-            </div>
-        </div>
-        <?php
     }
 
 }

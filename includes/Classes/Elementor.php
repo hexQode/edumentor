@@ -2,7 +2,7 @@
 /**
  * Elementor class
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Classes;
@@ -53,10 +53,10 @@ class Elementor {
 
         $notice = sprintf(
             /* translators: 1: Plugin name 2: Elementor 3: Elementor installation link */
-            '%1$s '. esc_html__( 'requires', 'flatpack' ) .' %2$s '. esc_html__( 'to be installed and activated to function properly.', 'flatpack' ) .' %3$s',
-            '<strong>FlatPack Addons for Elementor</strong>',
+            '%1$s '. esc_html__( 'requires', 'edumentor' ) .' %2$s '. esc_html__( 'to be installed and activated to function properly.', 'edumentor' ) .' %3$s',
+            '<strong>EduMentor - LMS Addon for Elementor</strong>',
             '<strong>Elementor</strong>',
-            '<a href="' . esc_url( admin_url( 'plugin-install.php?s=Elementor&tab=search&type=term' ) ) . '">' . esc_html__( 'Please click on this link to install Elementor', 'flatpack' ) . '</a>'
+            '<a href="' . esc_url( admin_url( 'plugin-install.php?s=Elementor&tab=search&type=term' ) ) . '">' . esc_html__( 'Please click on this link to install Elementor', 'edumentor' ) . '</a>'
         );
     
         printf( '<div class="notice notice-warning is-dismissible"><p style="padding: 13px 0">%1$s</p></div>', $notice );
@@ -70,8 +70,8 @@ class Elementor {
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
 		$message = sprintf(
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'flatpack' ),
-			'<strong>FlatPack Addons for Elementor</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'edumentor' ),
+			'<strong>EduMentor - LMS Addon for Elementor</strong>',
 			'<strong>Elementor</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
@@ -89,8 +89,8 @@ class Elementor {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'flatpack' ),
-			'<strong>FlatPack Addons for Elementor</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'edumentor' ),
+			'<strong>EduMentor - LMS Addon for Elementor</strong>',
 			'<strong>PHP</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
@@ -108,9 +108,9 @@ class Elementor {
     public function categories_register( $elements_manager ){
 
         $elements_manager->add_category(
-            'flatpack',
+            'edumentor',
             [
-                'title' => esc_html__( 'FlatPack', 'flatpack' ),
+                'title' => esc_html__( 'EduMentor', 'edumentor' ),
                 'icon' => 'eicon-parallax',
             ]
         );

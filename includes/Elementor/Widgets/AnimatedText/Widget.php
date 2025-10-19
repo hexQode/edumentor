@@ -2,7 +2,7 @@
 /**
  * Animated Text
  *
- * @package FlatPack
+ * @package EduMentor
  * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\AnimatedText;
@@ -30,7 +30,7 @@ class Widget extends Widget_Base {
      * @return string Widget name.
      */
     public function get_name() {
-        return 'flatpack-animated-text';
+        return 'edumentor-animated-text';
     }
 
     /**
@@ -42,11 +42,11 @@ class Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Animated Text', 'flatpack' );
+        return esc_html__( 'Animated Text', 'edumentor' );
     }
 
     public function get_custom_help_url() {
-        return 'https://flatpack.com';
+        return 'https://edumentor.com';
     }
 
     /**
@@ -58,23 +58,23 @@ class Widget extends Widget_Base {
      * @return string Widget icon.
      */
     public function get_icon() {
-        return 'fq-icon eicon-animated-headline';
+        return 'edumentor-icon eicon-animated-headline';
     }
 
     public function get_categories() {
-        return ['flatpack'];
+        return ['edumentor'];
     }
 
     public function get_keywords() {
-        return [ 'heading', 'title', 'text','animated', 'text animation', 'flatpack' ];
+        return [ 'heading', 'title', 'text','animated', 'text animation', 'edumentor' ];
     }
 
     public function get_style_depends() {
-        return [ 'fp-main', 'fp-keyframes', 'fp-animated-text' ];
+        return [ 'hq-main', 'hq-keyframes', 'hq-animated-text' ];
     }
 
     public function get_script_depends() {
-        return [ 'flatpack-el-script', 'wow', 'fp-animated-text' ];
+        return [ 'edumentor-el-script', 'wow', 'hq-animated-text' ];
     }
 
     /**
@@ -100,31 +100,31 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'heading_section',
 			[
-				'label' => esc_html__( 'Heading', 'flatpack' )
+				'label' => esc_html__( 'Heading', 'edumentor' )
 			]
         );
 
         $this->add_control(
             'heading',
             [
-                'label'        => esc_html__( 'Text Before', 'flatpack' ),
+                'label'        => esc_html__( 'Text Before', 'edumentor' ),
                 'type'         => Controls_Manager::TEXTAREA,
                 'rows'         => 5,
-                'default'      => esc_html__( 'FlatPack Text is', 'flatpack' ),
-                'placeholder'  => esc_html__( 'Text goes here...', 'flatpack' ),
-                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'flatpack' ),
+                'default'      => esc_html__( 'EduMentor Text is', 'edumentor' ),
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' ),
+                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'heading_after',
             [
-                'label'        => esc_html__( 'Text After', 'flatpack' ),
+                'label'        => esc_html__( 'Text After', 'edumentor' ),
                 'type'         => Controls_Manager::TEXTAREA,
                 'rows'         => 5,
-                'default'      => esc_html__( '', 'flatpack' ),
-                'placeholder'  => esc_html__( 'Text goes here...', 'flatpack' ),
-                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'flatpack' ),
+                'default'      => esc_html__( '', 'edumentor' ),
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' ),
+                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'edumentor' ),
             ]
         );
 
@@ -132,9 +132,9 @@ class Widget extends Widget_Base {
 
         $repeater->add_control(
             'text', [
-                'label'   => esc_html__( 'Text', 'flatpack' ),
+                'label'   => esc_html__( 'Text', 'edumentor' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Awesome', 'flatpack' ),
+                'default' => esc_html__( 'Awesome', 'edumentor' ),
                 'dynamic' => [
                     'active' => true,
                 ],
@@ -144,10 +144,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'text_customize',
             [
-                'label'          => esc_html__( 'Want To Customize Text?', 'flatpack' ),
+                'label'          => esc_html__( 'Want To Customize Text?', 'edumentor' ),
                 'type'           => Controls_Manager::SWITCHER,
-                'label_on'       => esc_html__( 'Yes', 'flatpack' ),
-                'label_off'      => esc_html__( 'No', 'flatpack' ),
+                'label_on'       => esc_html__( 'Yes', 'edumentor' ),
+                'label_off'      => esc_html__( 'No', 'edumentor' ),
                 'return_value'   => 'yes',
                 'style_transfer' => true,
             ]
@@ -157,12 +157,12 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'           => 'text_typography',
-                'label'          => esc_html__( 'Typography', 'flatpack' ),
+                'label'          => esc_html__( 'Typography', 'edumentor' ),
                 'exclude'        => [
                     'font_size',
                     'line_height',
                 ],
-                'selector'       => '{{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}}, {{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}} i, {{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}} em',
+                'selector'       => '{{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}}, {{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}} i, {{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}} em',
                 'condition'      => [
                     'text_customize' => 'yes',
                 ],
@@ -173,12 +173,12 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'text_color',
             [
-                'label'          => esc_html__( 'Color', 'flatpack' ),
+                'label'          => esc_html__( 'Color', 'edumentor' ),
                 'type'           => Controls_Manager::COLOR,
                 'selectors'      => [
-                    '{{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}} '     => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
-                    '{{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}} i'    => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
-                    '{{WRAPPER}} .fp-heading .dl-animated-text > {{CURRENT_ITEM}} i em' => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
+                    '{{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}} '     => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
+                    '{{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}} i'    => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
+                    '{{WRAPPER}} .hq-heading .dl-animated-text > {{CURRENT_ITEM}} i em' => 'color: {{VALUE}}; -webkit-background-clip: initial; -webkit-text-fill-color:initial; background: none;',
                 ],
                 'condition'      => [
                     'text_customize' => 'yes',
@@ -191,7 +191,7 @@ class Widget extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name'           => 'text_shadow',
-                'label'          => esc_html__( 'Text Shadow', 'flatpack' ),
+                'label'          => esc_html__( 'Text Shadow', 'edumentor' ),
                 'selector'       => '{{WRAPPER}} .dl-animated-text > {{CURRENT_ITEM}}',
                 'condition'      => [
                     'text_customize' => 'yes',
@@ -203,18 +203,18 @@ class Widget extends Widget_Base {
         $this->add_control(
             'animated_text',
             [
-                'label'       => esc_html__( 'Animated Text', 'flatpack' ),
+                'label'       => esc_html__( 'Animated Text', 'edumentor' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
-                        'text' => esc_html__( 'Awesome', 'flatpack' ),
+                        'text' => esc_html__( 'Awesome', 'edumentor' ),
                     ],
                     [
-                        'text' => esc_html__( 'Cool', 'flatpack' ),
+                        'text' => esc_html__( 'Cool', 'edumentor' ),
                     ],
                     [
-                        'text' => esc_html__( 'Nice', 'flatpack' ),
+                        'text' => esc_html__( 'Nice', 'edumentor' ),
                     ],
                 ],
                 'title_field' => '{{{ text }}}',
@@ -224,10 +224,10 @@ class Widget extends Widget_Base {
         $this->add_control(
 			'show_background_text',
 			[
-				'label' => esc_html__( 'Background Text', 'flatpack' ),
+				'label' => esc_html__( 'Background Text', 'edumentor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'flatpack' ),
-				'label_off' => esc_html__( 'Hide', 'flatpack' ),
+				'label_on' => esc_html__( 'Show', 'edumentor' ),
+				'label_off' => esc_html__( 'Hide', 'edumentor' ),
 				'return_value' => 'yes',
 				'default' => 'no',
                 'style_transfer' => true,
@@ -240,10 +240,10 @@ class Widget extends Widget_Base {
 		$this->add_control(
 			'background_text',
 			[
-				'label' => esc_html__( 'Text', 'flatpack' ),
+				'label' => esc_html__( 'Text', 'edumentor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Background', 'flatpack' ),
-				'placeholder' => esc_html__( 'Background Text', 'flatpack' ),
+				'default' => esc_html__( 'Background', 'edumentor' ),
+				'placeholder' => esc_html__( 'Background Text', 'edumentor' ),
 				'condition' => [
                     'heading!' => '',
 					'show_background_text' => 'yes'
@@ -257,32 +257,32 @@ class Widget extends Widget_Base {
         $this->add_control(
             'tag',
             [
-                'label' => esc_html__( 'HTML Tag', 'flatpack' ),
+                'label' => esc_html__( 'HTML Tag', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'h2',
                 'options' => [
                     'h1'  => [
-                        'title' => esc_html__( 'H1', 'flatpack' ),
+                        'title' => esc_html__( 'H1', 'edumentor' ),
                         'icon' => 'eicon-editor-h1'
                     ],
                     'h2'  => [
-                        'title' => esc_html__( 'H2', 'flatpack' ),
+                        'title' => esc_html__( 'H2', 'edumentor' ),
                         'icon' => 'eicon-editor-h2'
                     ],
                     'h3'  => [
-                        'title' => esc_html__( 'H3', 'flatpack' ),
+                        'title' => esc_html__( 'H3', 'edumentor' ),
                         'icon' => 'eicon-editor-h3'
                     ],
                     'h4'  => [
-                        'title' => esc_html__( 'H4', 'flatpack' ),
+                        'title' => esc_html__( 'H4', 'edumentor' ),
                         'icon' => 'eicon-editor-h4'
                     ],
                     'h5'  => [
-                        'title' => esc_html__( 'H5', 'flatpack' ),
+                        'title' => esc_html__( 'H5', 'edumentor' ),
                         'icon' => 'eicon-editor-h5'
                     ],
                     'h6'  => [
-                        'title' => esc_html__( 'H6', 'flatpack' ),
+                        'title' => esc_html__( 'H6', 'edumentor' ),
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
@@ -296,19 +296,19 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_align',
             [
-                'label' => esc_html__( 'Alignment', 'flatpack' ),
+                'label' => esc_html__( 'Alignment', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'flatpack' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'flatpack' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'flatpack' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -316,8 +316,8 @@ class Widget extends Widget_Base {
                 'prefix_class' => 'align-',
                 'toggle' => false,
                 'selectors' => [
-                    '{{WRAPPER}}.fp-layout-inline' => 'text-align: {{VALUE}}',
-                    '{{WRAPPER}} .fp-heading' => 'text-align: {{VALUE}}'
+                    '{{WRAPPER}}.hq-layout-inline' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading' => 'text-align: {{VALUE}}'
 
                 ],
                 'condition' => [
@@ -329,15 +329,15 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'heading_layout',
             [
-                'label' => esc_html__( 'Layout', 'flatpack' ),
+                'label' => esc_html__( 'Layout', 'edumentor' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'inline' => [
-                        'title' => esc_html__( 'Inline', 'flatpack' ),
+                        'title' => esc_html__( 'Inline', 'edumentor' ),
                         'icon' => 'eicon-ellipsis-h',
                     ],
                     'block' => [
-                        'title' => esc_html__( 'Block', 'flatpack' ),
+                        'title' => esc_html__( 'Block', 'edumentor' ),
                         'icon' => 'eicon-menu-bar',
                     ]
                 ],
@@ -347,9 +347,9 @@ class Widget extends Widget_Base {
                     'block' => 'display: block',
                 ],
                 'default' => 'block',
-                'prefix_class' => 'fp-layout-',
+                'prefix_class' => 'hq-layout-',
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading' => '{{VALUE}}'
+                    '{{WRAPPER}} .hq-heading' => '{{VALUE}}'
                 ],
                 'condition' => [
                     'heading!' => ''
@@ -372,7 +372,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_animation_settings',
             [
-                'label'      => esc_html__( 'Text Animation Settings', 'flatpack' ),
+                'label'      => esc_html__( 'Text Animation Settings', 'edumentor' ),
                 'tab'        => Controls_Manager::TAB_CONTENT
             ]
         );
@@ -380,20 +380,20 @@ class Widget extends Widget_Base {
         $this->add_control(
             'animation_type',
             [
-                'label'          => esc_html__( 'Animation Type', 'flatpack' ),
+                'label'          => esc_html__( 'Animation Type', 'edumentor' ),
                 'type'           => Controls_Manager::SELECT,
                 'default'        => 'letters type',
                 'options'        => [
-                    'rotate-1'         => esc_html__( 'Rotate 1', 'flatpack' ),
-                    'letters rotate-2' => esc_html__( 'Rotate 2', 'flatpack' ),
-                    'letters rotate-3' => esc_html__( 'Rotate 3', 'flatpack' ),
-                    'letters type'     => esc_html__( 'Type', 'flatpack' ),
-                    'slide'            => esc_html__( 'Slide', 'flatpack' ),
-                    'clip'             => esc_html__( 'Clip', 'flatpack' ),
-                    'zoom'             => esc_html__( 'Zoom', 'flatpack' ),
-                    'letters scale'    => esc_html__( 'Scale', 'flatpack' ),
-                    'push'             => esc_html__( 'Push', 'flatpack' ),
-                    'loading-bar'      => esc_html__( 'Loading Bar', 'flatpack' ),
+                    'rotate-1'         => esc_html__( 'Rotate 1', 'edumentor' ),
+                    'letters rotate-2' => esc_html__( 'Rotate 2', 'edumentor' ),
+                    'letters rotate-3' => esc_html__( 'Rotate 3', 'edumentor' ),
+                    'letters type'     => esc_html__( 'Type', 'edumentor' ),
+                    'slide'            => esc_html__( 'Slide', 'edumentor' ),
+                    'clip'             => esc_html__( 'Clip', 'edumentor' ),
+                    'zoom'             => esc_html__( 'Zoom', 'edumentor' ),
+                    'letters scale'    => esc_html__( 'Scale', 'edumentor' ),
+                    'push'             => esc_html__( 'Push', 'edumentor' ),
+                    'loading-bar'      => esc_html__( 'Loading Bar', 'edumentor' ),
                 ],
                 'style_transfer' => true,
             ]
@@ -402,13 +402,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'animation_delay',
             [
-                'label'              => esc_html__( 'Animation Delay', 'flatpack' ),
+                'label'              => esc_html__( 'Animation Delay', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 1000,
                 'step'               => 100,
                 'max'                => 30000,
                 'default'            => 2500,
-                'description'        => esc_html__( 'Animation Delay in milliseconds. Min 1000 and Max 30000.', 'flatpack' ),
+                'description'        => esc_html__( 'Animation Delay in milliseconds. Min 1000 and Max 30000.', 'edumentor' ),
                 'frontend_available' => true,
             ]
         );
@@ -416,13 +416,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'clip_anim_duration',
             [
-                'label'              => esc_html__( 'Reveal Duration', 'flatpack' ),
+                'label'              => esc_html__( 'Reveal Duration', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 10000,
                 'default'            => 600,
-                'description'        => esc_html__( 'Reveal Duration in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Reveal Duration in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                    'animation_type'    => 'clip',
@@ -433,13 +433,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'clip_anim_delay',
             [
-                'label'              => esc_html__( 'Reveal Animation Delay', 'flatpack' ),
+                'label'              => esc_html__( 'Reveal Animation Delay', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 10000,
                 'default'            => 1500,
-                'description'        => esc_html__( 'Reveal Animation Delay in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Reveal Animation Delay in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                    'animation_type'    => 'clip',
@@ -450,13 +450,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'type_letter_delay',
             [
-                'label'              => esc_html__( 'Type Letter Delay', 'flatpack' ),
+                'label'              => esc_html__( 'Type Letter Delay', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 5000,
                 'default'            => 150,
-                'description'        => esc_html__( 'Type Letter Delay in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Type Letter Delay in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                     'animation_type'    => 'letters type',
@@ -467,13 +467,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'selection_duration',
             [
-                'label'              => esc_html__( 'Selection Duration', 'flatpack' ),
+                'label'              => esc_html__( 'Selection Duration', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 5000,
                 'default'            => 500,
-                'description'        => esc_html__( 'Selection Duration in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Selection Duration in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                     'animation_type'    => 'letters type',
@@ -484,13 +484,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'type_anim_delay',
             [
-                'label'              => esc_html__( 'Type Animation Delay', 'flatpack' ),
+                'label'              => esc_html__( 'Type Animation Delay', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 5000,
                 'default'            => 1300,
-                'description'        => esc_html__( 'Type Animation Delay in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Type Animation Delay in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                     'animation_type'    => 'letters type',
@@ -501,13 +501,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'bar_anim_delay',
             [
-                'label'              => esc_html__( 'Bar Animation Delay', 'flatpack' ),
+                'label'              => esc_html__( 'Bar Animation Delay', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 10000,
                 'default'            => 3800,
-                'description'        => esc_html__( 'Bar Animation Delay in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Bar Animation Delay in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                     'animation_type'    => 'loading-bar',
@@ -518,13 +518,13 @@ class Widget extends Widget_Base {
         $this->add_control(
             'bar_waiting',
             [
-                'label'              => esc_html__( 'Bar Waiting Time', 'flatpack' ),
+                'label'              => esc_html__( 'Bar Waiting Time', 'edumentor' ),
                 'type'               => Controls_Manager::NUMBER,
                 'min'                => 100,
                 'step'               => 100,
                 'max'                => 10000,
                 'default'            => 800,
-                'description'        => esc_html__( 'Bar Waiting Time in milliseconds. Min 100 and Max 10000.', 'flatpack' ),
+                'description'        => esc_html__( 'Bar Waiting Time in milliseconds. Min 100 and Max 10000.', 'edumentor' ),
                 'frontend_available' => true,
                 'condition'    => [
                     'animation_type'    => 'loading-bar',
@@ -546,7 +546,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
 			'animation_section',
 			[
-				'label' => esc_html__( 'Scrolling Animation', 'flatpack' ),
+				'label' => esc_html__( 'Scrolling Animation', 'edumentor' ),
                 'condition' => [
                     'heading!' => ''
                 ]
@@ -556,10 +556,10 @@ class Widget extends Widget_Base {
         $this->add_control(
             'heading_animation',
             [
-                'label' => esc_html__( 'Animation', 'flatpack' ),
+                'label' => esc_html__( 'Animation', 'edumentor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'flatpack' ),
-                'label_off' => esc_html__( 'No', 'flatpack' ),
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -571,15 +571,15 @@ class Widget extends Widget_Base {
         $this->add_control(
             'normal_anim_effect',
             [
-                'label' => esc_html__( 'Effect', 'flatpack' ),
+                'label' => esc_html__( 'Effect', 'edumentor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'fadeIn',
                 'options' => [
-                    'fadeIn' => esc_html__( 'Fade In', 'flatpack' ),
-                    'fadeInLeft' => esc_html__( 'Fade In Left', 'flatpack' ),
-                    'fadeInRight'  => esc_html__( 'Fade In Right', 'flatpack' ),
-                    'fadeInTop' => esc_html__( 'Fade In Top', 'flatpack' ),
-                    'fadeInBottom' => esc_html__( 'Fade In Bottom', 'flatpack' )
+                    'fadeIn' => esc_html__( 'Fade In', 'edumentor' ),
+                    'fadeInLeft' => esc_html__( 'Fade In Left', 'edumentor' ),
+                    'fadeInRight'  => esc_html__( 'Fade In Right', 'edumentor' ),
+                    'fadeInTop' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'fadeInBottom' => esc_html__( 'Fade In Bottom', 'edumentor' )
                 ],
                 'condition' => [
                     'heading!' => '',
@@ -591,7 +591,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_offset',
             [
-                'label' => esc_html__( 'Offset', 'flatpack' ),
+                'label' => esc_html__( 'Offset', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 200,
                 'condition' => [
@@ -604,7 +604,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_delay',
             [
-                'label' => esc_html__( 'Delay', 'flatpack' ),
+                'label' => esc_html__( 'Delay', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 400,
                 'condition' => [
@@ -617,7 +617,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'anim_duration',
             [
-                'label' => esc_html__( 'Duration', 'flatpack' ),
+                'label' => esc_html__( 'Duration', 'edumentor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 700,
                 'condition' => [
@@ -641,7 +641,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_custom_border',
             [
-                'label' => esc_html__( 'Animated Text', 'flatpack' ),
+                'label' => esc_html__( 'Animated Text', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -650,7 +650,7 @@ class Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'animated_text_typography',
-                'label'    => esc_html__( 'Typography', 'flatpack' ),
+                'label'    => esc_html__( 'Typography', 'edumentor' ),
                 'exclude'  => [
                     'font_size',
                     'line_height',
@@ -662,7 +662,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'animated_text_color',
             [
-                'label'     => esc_html__( 'Color', 'flatpack' ),
+                'label'     => esc_html__( 'Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .dl-animated-text b,{{WRAPPER}} .dl-animated-text i,{{WRAPPER}} .dl-animated-text em' => 'color: {{VALUE}}',
@@ -674,7 +674,7 @@ class Widget extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name'     => 'animated_text_shadow',
-                'label'    => esc_html__( 'Text Shadow', 'flatpack' ),
+                'label'    => esc_html__( 'Text Shadow', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .dl-animated-text b',
             ]
         );
@@ -685,7 +685,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Loading Bar Color', 'adv-heading-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading.loading-bar .dl-animated-text::after' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading.loading-bar .dl-animated-text::after' => 'background: {{VALUE}}',
                 ],
                 'condition' => [
                     'animation_type' => 'loading-bar',
@@ -699,8 +699,8 @@ class Widget extends Widget_Base {
                 'label'      => esc_html__( 'Cursor Color', 'adv-heading-elementor' ),
                 'type'       => Controls_Manager::COLOR,
                 'selectors'  => [
-                    '{{WRAPPER}} .fp-heading.clip .dl-animated-text::after' => 'background-color: {{VALUE}}',
-                    '{{WRAPPER}} .fp-heading.type .dl-animated-text::after' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading.clip .dl-animated-text::after' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading.type .dl-animated-text::after' => 'background-color: {{VALUE}}',
                 ],
                 'conditions' => [
                     'relation' => 'or',
@@ -730,7 +730,7 @@ class Widget extends Widget_Base {
                 'label'     => esc_html__( 'Select Text Color', 'adv-heading-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fp-heading.type .dl-animated-text.selected' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .hq-heading.type .dl-animated-text.selected' => 'background-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'animation_type' => 'letters type',
@@ -765,13 +765,13 @@ class Widget extends Widget_Base {
 		];
 
         $this->add_render_attribute( 'heading', [ 
-            'class' => [ 'fp-heading', 'cd-headline', $animation_type ],
+            'class' => [ 'hq-heading', 'cd-headline', $animation_type ],
             'data-settings' => wp_json_encode( $data )
         ]);
 
         if( 'yes' === $settings['heading_animation'] ) {
             $this->add_render_attribute( 'heading', [ 
-                'class' => [ 'wow', 'fp-' . $settings['normal_anim_effect'] ],
+                'class' => [ 'wow', 'hq-' . $settings['normal_anim_effect'] ],
                 'data-wow-offset' => $settings['anim_offset'],
                 'data-wow-delay' => $settings['anim_delay'] . 'ms',
                 'data-wow-duration' => $settings['anim_duration'] . 'ms'
