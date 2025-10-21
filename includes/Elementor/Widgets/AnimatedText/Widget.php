@@ -61,6 +61,10 @@ class Widget extends Widget_Base {
         return 'edumentor-icon eicon-animated-headline';
     }
 
+    protected function get_html_wrapper_class() {
+        return parent::get_html_wrapper_class() . ' edumentor-wow';
+    }
+
     public function get_categories() {
         return ['edumentor'];
     }
@@ -70,11 +74,11 @@ class Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'hq-main', 'hq-keyframes', 'hq-animated-text' ];
+        return [ 'edumentor-main', 'edumentor-keyframes', 'edumentor-animated-text' ];
     }
 
     public function get_script_depends() {
-        return [ 'edumentor-el-script', 'wow', 'hq-animated-text' ];
+        return [ 'edumentor-el-script', 'wow', 'edumentor-animated-text' ];
     }
 
     /**

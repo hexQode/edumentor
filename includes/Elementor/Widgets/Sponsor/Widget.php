@@ -69,7 +69,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'hq-sponsor' ];
+        return [ 'edumentor-sponsor' ];
     }
 
     /**

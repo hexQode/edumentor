@@ -3,11 +3,9 @@
  * Countdown
  *
  * @package EduMentor
- * @version 1.0.0
  */
 namespace HexQode\EduMentor\Elementor\Widgets\Countdown;
 
-use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
@@ -16,6 +14,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
 use Elementor\Control_Media;
+use Elementor\Widget_Base;
 
 defined( 'ABSPATH' ) || die();
 
@@ -46,7 +45,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_custom_help_url() {
-        return 'https://edumentor.com';
+        return 'https://hexqode.com';
     }
 
     /**
@@ -66,15 +65,15 @@ class Widget extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'countdown', 'coming soon', 'timer', 'edumentor' ];
-    }
-
-    public function get_style_depends() {
-        return [ 'hq-countdown' ];
+        return [ 'countdown', 'timer', 'coming soon', 'petfun' ];
     }
 
     public function get_script_depends() {
-        return [ 'hq-countdown', 'edumentor-el-script' ];
+        return [ 'edumentor-countdown', 'edumentor-el-script' ];
+    }
+
+    public function get_style_depends() {
+        return ['edumentor-countdown'];
     }
 
     /**
@@ -90,10 +89,10 @@ class Widget extends Widget_Base {
         $this->hours_style();
         $this->minutes_style();
         $this->seconds_style();
-        
+
     }
 
-    /**
+	/**
 	 * Section Time
 	 *
 	 * @return void
@@ -113,8 +112,21 @@ class Widget extends Widget_Base {
             [
                 'label'       => esc_html__( 'Time', 'edumentor' ),
                 'type'        => Controls_Manager::DATE_TIME,
-                'default'     => date( "Y-m-d", strtotime( "+ 1 day" ) ),
-                'description' => esc_html__( 'Set the due date and time', 'edumentor' ),
+                'default'     => date( "Y-m-d H:i:s", strtotime( "+10 days" ) ),
+                'description' => esc_html__( 'Set the target date and time for the countdown. Defaults to 10 days from today.', 'edumentor' ),
+            ]
+        );
+
+        $this->add_control(
+            'demo_countdown',
+            [
+                'label' => esc_html__( 'Demo Countdown (60 Days)', 'textdomain' ),
+                'description' => __( 'Enable this to start the countdown from today and run for 60 days automatically. Ideal for demos or templates where the timer should never expire.', 'edumentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Yes', 'textdomain' ),
+                'label_off' => esc_html__( 'No', 'textdomain' ),
+                'return_value' => 'yes',
+                'default' => 'no'
             ]
         );
 
@@ -340,8 +352,14 @@ class Widget extends Widget_Base {
                     ],
                 ],
                 'toggle'    => false,
+                'default' => 'left',
+                'selectors_dictionary' => [
+                    'left' => 'justify-content: flex-start',
+                    'center' => 'justify-content: center',
+                    'right' => 'justify-content: flex-end'
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .hq-countdown' => '{{VALUE}}',
                 ],
             ]
         );
@@ -514,7 +532,7 @@ class Widget extends Widget_Base {
             [
                 'label'       => esc_html__( 'Redirection Link', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://edumentor.com', 'edumentor' ),
+                'placeholder' => esc_html__( 'https://dynamiclayers.net/', 'edumentor' ),
                 'condition'   => [
                     'end_action_type' => 'url',
                 ],
@@ -671,9 +689,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'common_box_time_typography',
                 'label'    => esc_html__( 'Time Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -698,9 +713,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'common_box_label_typography',
                 'label'    => esc_html__( 'Label Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -715,7 +727,7 @@ class Widget extends Widget_Base {
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .hq-countdown-item' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-countdown' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -788,9 +800,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'days_time_typography',
                 'label'    => esc_html__( 'Time Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -881,9 +890,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'hours_time_typography',
                 'label'    => esc_html__( 'Time Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -973,9 +979,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'minutes_time_typography',
                 'label'    => esc_html__( 'Time Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -1066,9 +1069,6 @@ class Widget extends Widget_Base {
             [
                 'name'     => 'seconds_time_typography',
                 'label'    => esc_html__( 'Time Typography', 'edumentor' ),
-                'exclude'  => [
-                    'line_height',
-                ],
                 'default'  => [
                     'font_size' => [''],
                 ],
@@ -1114,8 +1114,15 @@ class Widget extends Widget_Base {
      */
     protected function render() {
 
-        $settings = $this->get_settings_for_display();
-		$due_date = date("M d Y G:i:s", strtotime($settings['due_date']));
+		$settings = $this->get_settings_for_display();
+		// Normal due date from widget settings
+        $due_date = !empty( $settings['due_date'] ) ? date( "M d Y G:i:s", strtotime( $settings['due_date'] ) ) : null;
+
+        // Check if demo mode is enabled
+        if ( isset( $settings['demo_countdown'] ) && $settings['demo_countdown'] === 'yes' ) {
+            $due_date = date( "M d Y G:i:s", strtotime( '+60 days' ) );
+        }
+
 		$this->add_render_attribute('hq-countdown', 'class', 'hq-countdown');
 		$this->add_render_attribute('hq-countdown', 'data-date', esc_attr($due_date));
 		$this->add_render_attribute('hq-countdown', 'data-end-action', esc_attr($settings['end_action_type']));
@@ -1193,9 +1200,7 @@ class Widget extends Widget_Base {
 				</div>
 			</div>
 		<?php endif;
-       
-    }
 
-    
+    }
 
 }

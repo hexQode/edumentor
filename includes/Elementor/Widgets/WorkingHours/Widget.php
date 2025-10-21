@@ -68,7 +68,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'hq-main' ];
+        return [ 'edumentor-main' ];
     }
 
     /**
@@ -489,46 +489,5 @@ class Widget extends Widget_Base {
         <?php
        
     }
-
-    /**
-	 * Render output in the editor.
-	 */
-    protected function content_template() {
-        ?>
-        <# view.addRenderAttribute( 'fp_business_hours', 'class', 'hq-business-hours' ); #>
-        <div {{{ view.getRenderAttributeString( 'fp_business_hours' ) }}}>
-            <div class="business-hrs-inner">
-            <#
-            if(settings.business_openday_list.length){
-                _.each(settings.business_openday_list, function(item, index){ 
-                var business_day = view.getRepeaterSettingKey('business_day', 'business_openday_list', index);	
-                var business_time = view.getRepeaterSettingKey('business_time', 'business_openday_list', index);
-                view.addInlineEditingAttributes(business_day, 'none');	
-                view.addInlineEditingAttributes(business_time, 'none');
-                if(item.highlight_this_day === 'yes'){
-                    var closeStatus = 'closed-day';
-                }else{
-                    var closeStatus = '';
-                }
-            #>
-                <div class="hq-single-hrs elementor-repeater-item-{{{item._id}}} {{{closeStatus}}}">
-                    <# if('' != item.business_day){ #>
-                    <span class="day">
-                        <span {{{ view.getRenderAttributeString(business_day) }}}>{{{item.business_day}}}</span>
-                    </span>
-                    <# } #>
-                    <# if('' != item.business_time){ #>
-                    <span class="time">
-                            <span {{{ view.getRenderAttributeString(business_time) }}}>{{{item.business_time}}}</span>
-                    </span>
-                    <# } #>
-                </div>
-            <# });
-            } #>
-            </div>
-        </div>
-        <?php
-    }
-    
 
 }

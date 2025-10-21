@@ -1,9 +1,9 @@
 .hq-fadeIn {
-    -webkit-animation-name: fpFadeIn;
-    animation-name: fpFadeIn;
+    -webkit-animation-name: hqFadeIn;
+    animation-name: hqFadeIn;
 }
 
-@-webkit-keyframes fpFadeIn {
+@-webkit-keyframes hqFadeIn {
     from {
         opacity: 0;
     }
@@ -13,7 +13,7 @@
     }
 }
 
-@keyframes fpFadeIn {
+@keyframes hqFadeIn {
     from {
         opacity: 0;
     }
@@ -24,11 +24,11 @@
 }
 
 .hq-fadeInLeft {
-    -webkit-animation-name: fpFadeInLeft;
-    animation-name: fpFadeInLeft;
+    -webkit-animation-name: hqFadeInLeft;
+    animation-name: hqFadeInLeft;
 }
 
-@-webkit-keyframes fpFadeInLeft {
+@-webkit-keyframes hqFadeInLeft {
     from {
         -webkit-transform: translateX(-50px);
         transform: translateX(-50px);
@@ -42,7 +42,7 @@
     }
 }
 
-@keyframes fpFadeInLeft {
+@keyframes hqFadeInLeft {
     from {
         -webkit-transform: translateX(-50px);
         transform: translateX(-50px);
@@ -57,11 +57,11 @@
 }
 
 .hq-fadeInRight {
-    -webkit-animation-name: fpFadeInRight;
-    animation-name: fpFadeInRight;
+    -webkit-animation-name: hqFadeInRight;
+    animation-name: hqFadeInRight;
 }
 
-@-webkit-keyframes fpFadeInRight {
+@-webkit-keyframes hqFadeInRight {
     from {
         -webkit-transform: translateX(50px);
         transform: translateX(50px);
@@ -75,7 +75,7 @@
     }
 }
 
-@keyframes fpFadeInRight {
+@keyframes hqFadeInRight {
     from {
         -webkit-transform: translateX(50px);
         transform: translateX(50px);
@@ -90,11 +90,11 @@
 }
 
 .hq-fadeInTop {
-    -webkit-animation-name: fpFadeInTop;
-    animation-name: fpFadeInTop;
+    -webkit-animation-name: hqFadeInTop;
+    animation-name: hqFadeInTop;
 }
 
-@-webkit-keyframes fpFadeInTop {
+@-webkit-keyframes hqFadeInTop {
     from {
         -webkit-transform: translateY(-50px);
         transform: translateY(-50px);
@@ -108,7 +108,7 @@
     }
 }
 
-@keyframes fpFadeInTop {
+@keyframes hqFadeInTop {
     from {
         -webkit-transform: translateY(-50px);
         transform: translateY(-50px);
@@ -123,11 +123,11 @@
 }
 
 .hq-fadeInBottom {
-    -webkit-animation-name: fpFadeInBottom;
-    animation-name: fpFadeInBottom;
+    -webkit-animation-name: hqFadeInBottom;
+    animation-name: hqFadeInBottom;
 }
 
-@-webkit-keyframes fpFadeInBottom {
+@-webkit-keyframes hqFadeInBottom {
     from {
         -webkit-transform: translateY(50px);
         transform: translateY(50px);
@@ -141,7 +141,7 @@
     }
 }
 
-@keyframes fpFadeInBottom {
+@keyframes hqFadeInBottom {
     from {
         -webkit-transform: translateY(50px);
         transform: translateY(50px);

@@ -22,9 +22,29 @@ class Assets {
      * @return void
      */
     function el_scripts() {
+        add_action( "wp_head", [$this, 'add_global_css_vars'] );
         add_action( "elementor/editor/after_enqueue_styles", [$this, 'el_editor_styles'] );
         add_action( "elementor/frontend/after_enqueue_styles", [$this, 'el_frontend_assets_styles'], 5);
         add_action( "elementor/frontend/after_register_scripts", [$this, 'el_frontend_assets_scripts'], 10 );
+    }
+
+    /**
+     * Add Global CSS Variables
+     *
+     * @return void
+     */
+    public function add_global_css_vars() {
+        ?>
+        <style id="edumentor-global-css-vars">
+            :root {
+                --edumentor-primary-color: #6d28d2;
+                --edumentor-secondary-color: #a435f0;
+                --edumentor-heading-color: #2a2b3f;
+                --edumentor-text-color: #595c73;
+                --edumentor-dark-bg-color: #202230;
+            }
+        </style>
+        <?php
     }
 
     /**
@@ -51,7 +71,7 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/counter'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/counter' ),
             ],
-            'hq-countdown' => [
+            'edumentor-countdown' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/countdown'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/countdown' ),
             ],
@@ -83,11 +103,11 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/contact-form'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/contact-form' ),
             ],
-            'hq-sponsor' => [
+            'edumentor-sponsor' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/sponsor'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/sponsor' ),
             ],
-            'hq-animated-text' => [
+            'edumentor-animated-text' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/animated-text'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/animated-text' ),
             ],
@@ -99,7 +119,7 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/progress-bar'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/progress-bar' ),
             ],
-            'hq-main' => [
+            'edumentor-main' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/main'. $min .'.css',
                 'version' => Helper::get_version( 'main' ),
             ]
@@ -168,13 +188,13 @@ class Assets {
                 'deps'    => '',
                 'footer'  => true
             ],
-            'hq-countdown'   => [
+            'edumentor-countdown'   => [
                 'src'     => EDUMENTOR_ASSETS . '/lib/countdown.min.js',
                 'version' => '0.1.0',
                 'deps'    => '',
                 'footer'  => true
             ],
-            'hq-animated-text'   => [
+            'edumentor-animated-text'   => [
                 'src'     => EDUMENTOR_ASSETS . '/lib/animated-text.min.js',
                 'version' => EDUMENTOR_VERSION,
                 'deps'    => '',

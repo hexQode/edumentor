@@ -25,46 +25,54 @@ class Widgets {
      */
     public function get_widgets() {
         return [
-            'heading'   => [
-                'name' => 'Heading',
-                'dep'   => ''
-            ],
+            // 'heading'   => [
+            //     'name' => 'Heading',
+            //     'dep'   => ''
+            // ],
             'animated-text'   => [
                 'name' => 'AnimatedText',
                 'dep'   => ''
             ],
-            'button'   => [
-                'name' => 'Button',
+            'working-hours'   => [
+                'name' => 'WorkingHours',
                 'dep'   => ''
             ],
-            'image'   => [
-                'name' => 'Image',
-                'dep'   => ''
-            ],
+            // 'button'   => [
+            //     'name' => 'Button',
+            //     'dep'   => ''
+            // ],
+            // 'image'   => [
+            //     'name' => 'Image',
+            //     'dep'   => ''
+            // ],
             'list'   => [
                 'name' => 'List',
                 'dep'   => ''
             ],
-            'progress-bar'   => [
-                'name' => 'ProgressBar',
-                'dep'   => ''
-            ],
+            // 'progress-bar'   => [
+            //     'name' => 'ProgressBar',
+            //     'dep'   => ''
+            // ],
             'counter'   => [
                 'name' => 'Counter',
                 'dep'   => ''
             ],
-            'list-pricing'   => [
-                'name' => 'ListPricing',
+            'countdown'   => [
+                'name' => 'Countdown',
                 'dep'   => ''
             ],
             'sponsor'   => [
                 'name' => 'Sponsor',
                 'dep'   => ''
             ],
-            'contact-form-7'   => [
-                'name' => 'ContactForm7',
-                'dep'   => 'cf7'
+            'social-icons'   => [
+                'name' => 'SocialIcons',
+                'dep'   => ''
             ],
+            // 'contact-form-7'   => [
+            //     'name' => 'ContactForm7',
+            //     'dep'   => 'cf7'
+            // ],
             'mc4wp'   => [
                 'name' => 'MailChimp',
                 'dep'   => 'mc'

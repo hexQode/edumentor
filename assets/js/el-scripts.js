@@ -30,6 +30,15 @@
         }
     }
 
+    // WOW Animation
+    function wowAnimation() {
+        var wowAnimation = new WOW({
+            mobile: false,
+            live: false
+        });
+        wowAnimation.init();
+    }
+
     $window.on('elementor/frontend/init', function () {
 
         var ModuleHandler = elementorModules.frontend.handlers.Base;
@@ -212,20 +221,13 @@
 					animationDelay: delay,
 				});
 			}
-
-            const wow = new WOW({
-                mobile: false
-            });
-            wow.init();
         });
 
-        // Contact from splitting effect
-        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-contact-form-7.default", function ($scope) {
-            Splitting();
-            const wow = new WOW({
-                mobile: false
-            });
-            wow.init();
+        // Load WOW Animation
+        elementorFrontend.hooks.addAction("frontend/element_ready/widget", function ($scope) {
+            if ($scope.hasClass("edumentor-wow")) {
+                wowAnimation();
+            }
         });
 
         // Counter
@@ -258,22 +260,41 @@
         });
 
         // Countdown
-        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-countdown.default", function (scope, $) {
-            var $item = $(scope).find('.hq-countdown');
-            var $countdown_item = $item.find('.hq-countdown-item');
-            var $end_action = $item.data('end-action');
-            var $redirect_link = $item.data('redirect-link');
-            var $end_action_div = $item.find('.hq-countdown-end-action');
-            var $editor_mode_on = $(scope).hasClass('elementor-element-edit-mode');
-            $item.countdown({
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/edumentor-countdown.default', function (scope, $) {
+            const $widget = $(scope);
+            const $countdown = $widget.find('.hq-countdown');
+
+            if (!$countdown.length) return; // Exit early if countdown not found
+
+            const $items = $countdown.find('.hq-countdown-item');
+            const $endActionContainer = $countdown.find('.hq-countdown-end-action');
+
+            const endAction = $countdown.data('end-action');
+            const redirectUrl = $countdown.data('redirect-link');
+            const isEditor = elementorFrontend.isEditMode(); // safer check
+
+            // Initialize countdown only if plugin exists
+            if (typeof $.fn.countdown !== 'function') return;
+
+            $countdown.countdown({
                 end: function () {
-                    if (('message' === $end_action || 'img' === $end_action) && $end_action_div !== undefined) {
-                        $countdown_item.css("display", "none");
-                        $end_action_div.css("display", "block");
-                    } else if ('url' === $end_action && $redirect_link !== undefined && $editor_mode_on !== true) {
-                        window.location.replace($redirect_link)
+                    switch (endAction) {
+                    case 'message':
+                    case 'img':
+                        $items.hide();
+                        $endActionContainer.show();
+                        break;
+
+                    case 'url':
+                        if (redirectUrl && !isEditor) {
+                            window.location.replace(redirectUrl);
+                        }
+                        break;
+
+                    default:
+                        console.warn('Unknown end-action type:', endAction);
                     }
-                }
+                },
             });
         });
 

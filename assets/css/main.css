@@ -1,10 +1,3 @@
-:root{
-    --edumentor-primary-color: #6d28d2;
-    --edumentor-secondary-color: #a435f0;
-    --edumentor-heading-color: #2a2b3f;
-    --edumentor-text-color: #595c73;
-    --edumentor-dark-bg-color: #202230;
-}
 .hq-heading {
     color: var(--edumentor-heading-color);
     font-family: "Roboto", sans-serif;
@@ -50,7 +43,7 @@
     transition: color 0.2s ease-in-out;
 }
 
-.hq-heading .dl-animated-text b {
+.hq-heading .hq-animated-text b {
     color: var(--edumentor-primary-color);
 }
 
@@ -182,22 +175,20 @@
 
 /* ===== List Items ===== */
 .hq-el-items .hq-el-item {
+    --edumentor-list-icon-width: 60px;
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: var(--edumentor-list-icon-width) 1fr;
     align-items: flex-start;
     grid-gap: 20px;
 }
 
-.layout-block .hq-el-items .hq-el-item:not(:last-of-type) {
-    margin-bottom: 20px;
-}
-
+.hq-el-items.no-icon .hq-el-item,
 .list-top .hq-el-items .hq-el-item {
     grid-template-columns: 1fr;
 }
 
 .list-top .hq-el-items .hq-el-item .hq-el-list-icon {
-    width: 60px;
+    width: var(--edumentor-list-icon-width);
 }
 
 .hq-el-items .hq-el-item .hq-el-list-icon {
@@ -209,6 +200,12 @@
     justify-content: center;
     font-size: 30px;
     color: #ffffff;
+}
+
+.hq-el-items .hq-el-item .hq-el-list-icon svg,
+.hq-el-items .hq-el-item .hq-el-list-icon img {
+    width: 30px;
+    height: auto;
 }
 
 .hq-el-items .hq-el-item .hq-el-list-icon svg {
@@ -237,27 +234,26 @@
     -webkit-box-shadow: 0 0.2rem 2.8rem rgba(36, 36, 36, .1);
     -moz-box-shadow: 0 0.2rem 2.8rem rgba(36, 36, 36, .1);
     box-shadow: 0 0.2rem 2.8rem rgba(36, 36, 36, .1);
-    padding: 70px 65px;
-    margin-top: -15px;
+    padding: 40px;
 }
 
-.hq-business-hours .hq-single-hrs {
+.hq-business-hours .hq-single-hrs:not(:first-of-type) {
     margin-top: 15px;
 }
 
 .hq-business-hours .hq-single-hrs span.time {
     float: right;
     font-weight: 600;
-    color: #263a4f;
+    color: var(--edumentor-heading-color);
     font-size: 20px;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .hq-business-hours .hq-single-hrs span.day {
-    color: #3b3b3b;
+    color: var(--edumentor-heading-color);
     font-weight: 800;
     font-size: 30px;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .hq-business-hours .hq-single-hrs.closed-day span.time {
@@ -295,7 +291,7 @@
 }
 
 .hq-social-items a svg {
-    fill: #fff;
+    fill: currentColor;
     width: 16px;
     transition: all 0.3s ease-in-out;
 }
@@ -308,11 +304,6 @@
 .hq-social-items a:hover {
     color: #fff;
     transition: all 0.3s ease-in-out;
-}
-
-.hq-social-items a:focus svg,
-.hq-social-items a:hover svg {
-    fill: #fff;
 }
 
 .hq-social-items.style-1 a:before,
@@ -388,7 +379,7 @@
     top: 0;
 }
 
-.blob-dl-btn__inner {
+.blob-hq-btn__inner {
     z-index: -1;
     overflow: hidden;
     position: absolute;
@@ -401,13 +392,13 @@
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.blob-dl-btn__blobs {
+.blob-hq-btn__blobs {
     position: relative;
     display: block;
     height: 100%;
 }
 
-.blob-dl-btn__blob {
+.blob-hq-btn__blob {
     position: absolute;
     top: 2px;
     width: 25%;
@@ -418,26 +409,37 @@
     transition: transform 0.45s;
 }
 
-.blob-dl-btn__blob:nth-child(1) {
+.blob-hq-btn__blob:nth-child(1) {
     left: 0%;
     transition-delay: 0s;
 }
 
-.blob-dl-btn__blob:nth-child(2) {
+.blob-hq-btn__blob:nth-child(2) {
     left: 30%;
     transition-delay: 0.08s;
 }
 
-.blob-dl-btn__blob:nth-child(3) {
+.blob-hq-btn__blob:nth-child(3) {
     left: 60%;
     transition-delay: 0.16s;
 }
 
-.blob-dl-btn__blob:nth-child(4) {
+.blob-hq-btn__blob:nth-child(4) {
     left: 90%;
     transition-delay: 0.24s;
 }
 
-.hq-social-items.style-2 a:hover .blob-dl-btn__blob {
+.hq-social-items.style-2 a:hover .blob-hq-btn__blob {
     transform: translateZ(0) scale(1.7);
+}
+
+/* Style 3 */
+.hq-social-items.style-3 a{
+    background-color: var(--edumentor-dark-bg-color);
+    color: #fff;
+}
+
+.hq-social-items.style-3 a:hover{
+    background-color: var(--edumentor-primary-color);
+    color: #fff;
 }

@@ -68,7 +68,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'hq-main', 'elementor-icons-fa-brands' ];
+        return [ 'edumentor-main', 'elementor-icons-fa-brands' ];
     }
 
     /**
@@ -92,19 +92,20 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'section_layout',
             [
-                'label' => esc_html__( 'Layout', 'softgen-core' ),
+                'label' => esc_html__( 'Layout', 'edumentor' ),
             ]
         );
 
         $this->add_control(
             'hover_effect',
             [
-                'label'   => esc_html__( 'Effect', 'softgen-core' ),
+                'label'   => esc_html__( 'Effect', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'style-1',
                 'options' => [
-                    'style-1'  => esc_html__( 'Style 1', 'softgen-core' ),
-                    'style-2' => esc_html__( 'Style 2', 'softgen-core' ),
+                    'style-1' => esc_html__( 'Style 1', 'edumentor' ),
+                    'style-2' => esc_html__( 'Style 2', 'edumentor' ),
+                    'style-3' => esc_html__( 'Style 3', 'edumentor' )
                 ],
             ]
         );
@@ -112,19 +113,19 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'alignment',
             [
-                'label'   => esc_html__( 'Alignment', 'softgen-core' ),
+                'label'   => esc_html__( 'Alignment', 'edumentor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left'   => [
-                        'title' => esc_html__( 'Left', 'softgen-core' ),
+                        'title' => esc_html__( 'Left', 'edumentor' ),
                         'icon'  => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'softgen-core' ),
+                        'title' => esc_html__( 'Center', 'edumentor' ),
                         'icon'  => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'softgen-core' ),
+                        'title' => esc_html__( 'Right', 'edumentor' ),
                         'icon'  => 'eicon-h-align-right',
                     ],
                 ],
@@ -167,7 +168,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'margin',
             [
-                'label'      => esc_html__( 'Margin', 'softgen-core' ),
+                'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -190,7 +191,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'social_icons_section',
             [
-                'label' => esc_html__( 'Social Links', 'softgen-core' ),
+                'label' => esc_html__( 'Social Links', 'edumentor' ),
             ]
         );
 
@@ -199,7 +200,7 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'icon',
             [
-                'label'   => esc_html__( 'Icon', 'softgen-core' ),
+                'label'   => esc_html__( 'Icon', 'edumentor' ),
                 'type'    => Controls_Manager::ICONS,
                 'default' => [
                     'value'   => 'fab fa-facebook-f',
@@ -210,6 +211,8 @@ class Widget extends Widget_Base {
 						'facebook',
 						'facebook-f',
 						'facebook-square',
+						'fa-x-twitter',
+						'fa-x-twitter-square',
 						'twitter',
 						'twitter-square',
 						'instagram',
@@ -235,9 +238,9 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'link',
             [
-                'label'         => esc_html__( 'Link', 'softgen-core' ),
+                'label'         => esc_html__( 'Link', 'edumentor' ),
                 'type'          => Controls_Manager::URL,
-                'placeholder'   => esc_html__( 'https://your-link.com', 'softgen-core' ),
+                'placeholder'   => esc_html__( 'https://your-link.com', 'edumentor' ),
                 'show_external' => true,
                 'default'       => [
                     'url'         => '',
@@ -253,10 +256,10 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'custom_style',
             [
-                'label'        => esc_html__( 'Custom Color', 'softgen-core' ),
+                'label'        => esc_html__( 'Custom Color', 'edumentor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'softgen-core' ),
-                'label_off'    => esc_html__( 'No', 'softgen-core' ),
+                'label_on'     => esc_html__( 'Yes', 'edumentor' ),
+                'label_off'    => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
             ]
@@ -266,10 +269,10 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'custom_background',
-                'label'    => esc_html__( 'Background', 'softgen-core' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'exclude'  => ['image'],
-                'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} a',
+                'selector' => '{{WRAPPER}} {{CURRENT_ITEM}} a, {{WRAPPER}} .style-2 {{CURRENT_ITEM}} a .blob-hq-btn__inner',
                 'condition'    => [
                    'custom_style'    => 'yes',
                 ],
@@ -279,11 +282,50 @@ class Widget extends Widget_Base {
         $repeater->add_control(
             'custom_icon_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'softgen-core' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} a' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} {{CURRENT_ITEM}} svg' => 'fill: {{VALUE}}'
+                    '{{WRAPPER}} {{CURRENT_ITEM}} a' => 'color: {{VALUE}}'
+                ],
+                'condition'    => [
+                   'custom_style'    => 'yes'
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'hover_styles_heading',
+            [
+                'label' => esc_html__( 'Hover Styles', 'textdomain' ),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition'    => [
+                   'custom_style'    => 'yes',
+                ],
+            ]
+        );
+
+        $repeater->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'custom_hover_background',
+                'label'    => esc_html__( 'Background', 'edumentor' ),
+                'types'    => ['classic', 'gradient'],
+                'exclude'  => ['image'],
+                'selector' => '{{WRAPPER}} .style-1 {{CURRENT_ITEM}} a:before, {{WRAPPER}} .style-1 {{CURRENT_ITEM}} a:after, {{WRAPPER}} .style-2 {{CURRENT_ITEM}} a .blob-hq-btn__blob, {{WRAPPER}} .style-3 {{CURRENT_ITEM}} a:hover',
+                'condition'    => [
+                   'custom_style'    => 'yes',
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'custom_icon_hover_color',
+            [
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}} a:hover' => 'color: {{VALUE}}'
                 ],
                 'condition'    => [
                    'custom_style'    => 'yes'
@@ -294,7 +336,7 @@ class Widget extends Widget_Base {
         $this->add_control(
             'social_links',
             [
-                'label'       => esc_html__( 'Social Links', 'softgen-core' ),
+                'label'       => esc_html__( 'Social Links', 'edumentor' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
@@ -311,7 +353,7 @@ class Widget extends Widget_Base {
                     ],
                     [
                         'icon'   => [
-                            'value'   => 'fab fa-twitter',
+                            'value'   => 'fab fa-x-twitter',
                             'library' => 'fa-brands',
                         ],
                         'link' => [
@@ -361,7 +403,7 @@ class Widget extends Widget_Base {
         $this->start_controls_section(
             'icon_style_section',
             [
-                'label' => esc_html__( 'Icon', 'softgen-core' ),
+                'label' => esc_html__( 'Icon', 'edumentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -369,7 +411,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'width',
             [
-                'label'      => esc_html__( 'Width', 'softgen-core' ),
+                'label'      => esc_html__( 'Width', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -391,7 +433,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'height',
             [
-                'label'      => esc_html__( 'Height', 'softgen-core' ),
+                'label'      => esc_html__( 'Height', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -413,7 +455,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'icon_size',
             [
-                'label'      => esc_html__( 'Icon Size', 'softgen-core' ),
+                'label'      => esc_html__( 'Icon Size', 'edumentor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -438,7 +480,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'icon_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'softgen-core' ),
+                'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
         );
 
@@ -446,21 +488,20 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'icon_background',
-                'label'    => esc_html__( 'Background', 'softgen-core' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'esclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a,{{WRAPPER}} .hq-social-items.style-2 a .blob-dl-btn__inner',
+                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a,{{WRAPPER}} .hq-social-items.style-2 a .blob-hq-btn__inner, {{WRAPPER}} .hq-social-items.style-3 a',
             ]
         );
 
         $this->add_control(
             'icon_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'softgen-core' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .hq-social-items a' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .hq-social-items a svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a' => 'color: {{VALUE}}'
                 ],
                 'separator' => 'before',
             ]
@@ -478,7 +519,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'icon_border',
-                'label'    => esc_html__( 'Border', 'softgen-core' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-social-items a',
             ]
         );
@@ -486,7 +527,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'icon_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'softgen-core' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -500,7 +541,7 @@ class Widget extends Widget_Base {
         $this->start_controls_tab(
             'icon_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'softgen-core' ),
+                'label' => esc_html__( 'Hover', 'edumentor' ),
             ]
         );
 
@@ -508,21 +549,20 @@ class Widget extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'icon_hover_background',
-                'label'    => esc_html__( 'Background', 'softgen-core' ),
+                'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'esclude'  => ['image'],
-                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a:before, {{WRAPPER}} .hq-social-items.style-1 a:after, {{WRAPPER}} .hq-social-items.style-2 a .blob-dl-btn__blob',
+                'selector' => '{{WRAPPER}} .hq-social-items.style-1 a:before, {{WRAPPER}} .hq-social-items.style-1 a:after, {{WRAPPER}} .hq-social-items.style-2 a .blob-hq-btn__blob, {{WRAPPER}} .hq-social-items.style-3 a:hover',
             ]
         );
 
         $this->add_control(
             'icon_hover_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'softgen-core' ),
+                'label'     => esc_html__( 'Icon Color', 'edumentor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .hq-social-items a:hover' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .hq-social-items a:hover svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .hq-social-items a:hover' => 'color: {{VALUE}}'
                 ],
                 'separator' => 'before',
             ]
@@ -540,7 +580,7 @@ class Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'icon_hover_border',
-                'label'    => esc_html__( 'Border', 'softgen-core' ),
+                'label'    => esc_html__( 'Border', 'edumentor' ),
                 'selector' => '{{WRAPPER}} .hq-social-items a:hover',
             ]
         );
@@ -548,7 +588,7 @@ class Widget extends Widget_Base {
         $this->add_responsive_control(
             'icon_hover_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'softgen-core' ),
+                'label'      => esc_html__( 'Border Radius', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
@@ -586,12 +626,12 @@ class Widget extends Widget_Base {
                         <a <?php $this->print_render_attribute_string( $link_key ); ?>>
                             <?php Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] ); ?>
                             <?php if( 'style-2' === $settings['hover_effect'] ) : ?>
-                            <span class="blob-dl-btn__inner">
-                                <span class="blob-dl-btn__blobs">
-                                    <span class="blob-dl-btn__blob"></span>
-                                    <span class="blob-dl-btn__blob"></span>
-                                    <span class="blob-dl-btn__blob"></span>
-                                    <span class="blob-dl-btn__blob"></span>
+                            <span class="blob-hq-btn__inner">
+                                <span class="blob-hq-btn__blobs">
+                                    <span class="blob-hq-btn__blob"></span>
+                                    <span class="blob-hq-btn__blob"></span>
+                                    <span class="blob-hq-btn__blob"></span>
+                                    <span class="blob-hq-btn__blob"></span>
                                 </span>
                             </span>
                             <?php endif; ?>
