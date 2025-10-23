@@ -333,6 +333,52 @@
             });
         });
 
+        // Marquee Text
+        elementorFrontend.hooks.addAction("frontend/element_ready/edumentor-marquee-text.default", function (scope, $) {
+
+            const scrollers = document.querySelectorAll(".hq-scroller");
+
+            // If a user hasn't opted in for recuded motion, then we add the animation
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                addAnimation();
+            }
+
+            function addAnimation() {
+                scrollers.forEach((scroller) => {
+                    scroller.setAttribute("data-animated", true);
+                    const scrollerInner = scroller.querySelector(".hq-scroller__inner");
+                    const scrollerContent = Array.from(scrollerInner.children);
+                    scrollerContent.forEach((item) => {
+                        const duplicatedItem = item.cloneNode(true);
+                        duplicatedItem.setAttribute("aria-hidden", true);
+                        scrollerInner.appendChild(duplicatedItem);
+                    });
+                });
+            }
+
+        });
+
+        // Button Effect
+        elementorFrontend.hooks.addAction( "frontend/element_ready/edumentor-button.default", function ($scope) {
+            const $btn = $scope.find(".hq-el-btn");
+
+            // Safety check
+            if (!$btn.length) return;
+
+            const effect = $btn.data("effect");
+            if (effect !== "hq-el-effect-3") return;
+
+            // Shared handler for mouseenter & mouseleave
+            const moveBG = (e) => {
+            const offset = $btn.offset();
+            const relX = e.pageX - offset.left;
+            const relY = e.pageY - offset.top;
+            $btn.find("span.bg").css({ top: relY, left: relX });
+            };
+
+            $btn.on("mouseenter mouseleave", moveBG);
+        });
+
     });
 
 })(jQuery);

@@ -47,75 +47,7 @@
     color: var(--edumentor-primary-color);
 }
 
-.hq-btn-wrap a {
-    background-color: #5e2ced;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 12px;
-    line-height: 1;
-    color: #fff;
-    letter-spacing: 1px;
-    font-weight: 600;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    padding: 15px 25px;
-    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-}
-
-.hq-btn-wrap a:not([href]) {
-    color: #fff;
-}
-
-.hq-btn-wrap a:before {
-    background: rgba(255, 255, 255, 0.2);
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    -webkit-transform: scale(0, 1);
-    transform: scale(0, 1);
-    -webkit-transform-origin: right center;
-    transform-origin: right center;
-    -webkit-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
-}
-
-.hq-btn-wrap a:hover {
-    color: #fff;
-    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hq-btn-wrap a:hover:not([href]) {
-    color: #fff;
-}
-
-.hq-btn-wrap a:hover:before {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-    -webkit-transform-origin: left center;
-    transform-origin: left center;
-}
-
-.hq-btn-wrap a i {
-    -webkit-transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* ===== Pricing List ===== */
 
 .hq-pricing-list {
     margin: 0;

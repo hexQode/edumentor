@@ -67,6 +67,10 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/keyframe-animation'. $min .'.css',
                 'version' => '1.0.0',
             ],
+            'edumentor-button' => [
+                'src'     => EDUMENTOR_ASSETS . '/css/widgets/button'. $min .'.css',
+                'version' => Helper::get_version( 'widgets/button' ),
+            ],
             'edumentor-counter' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/counter'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/counter' ),
@@ -74,6 +78,14 @@ class Assets {
             'edumentor-countdown' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/countdown'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/countdown' ),
+            ],
+            'edumentor-marquee-text' => [
+                'src'     => EDUMENTOR_ASSETS . '/css/widgets/marquee-text'. $min .'.css',
+                'version' => Helper::get_version( 'widgets/marquee-text' ),
+            ],
+            'edumentor-video-elements' => [
+                'src'     => EDUMENTOR_ASSETS . '/css/widgets/video-elements'. $min .'.css',
+                'version' => Helper::get_version( 'widgets/video-elements' ),
             ],
             'hq-team' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/team'. $min .'.css',

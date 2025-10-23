@@ -65,7 +65,7 @@ class Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'hq-main' ];
+        return [ 'edumentor-button' ];
     }
 
     /**
@@ -87,36 +87,33 @@ class Widget extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute( 'wrapper','class','hq-btn-wrap' );
+        $this->add_render_attribute( 'wrapper','class','hq-el-btn-wrap' );
         $this->add_inline_editing_attributes( 'btn_text', 'none' );
-        $this->add_render_attribute( 'link','class','hq-btn' );
+        if( 'hq-el-btn-default' === $settings['button_effect'] ) {
+            $effect_class = isset( $settings['btn_ouline']) && 'yes' === $settings['btn_ouline'] ? 'hq-el-btn-outline' : 'hq-el-btn-default';
+            $this->add_render_attribute( 'link',[ 'class' => ['hq-el-btn', $effect_class ] ] );
+        } else {
+            $this->add_render_attribute( 'link',[ 'class' => ['hq-el-btn', $settings['button_effect'] ] ] );
+        }
+        $this->add_render_attribute( 'link','data-effect',$settings['button_effect'] );
         $this->add_link_attributes( 'link', $settings['btn_link'] );
         ?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
             <a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
-                <?php Icons_Manager::render_icon( $settings['btn_icon'], [ 'aria-hidden' => 'true' ] ); ?>
-                <span <?php echo $this->get_render_attribute_string( 'btn_text' ); ?>><?php echo esc_html( $settings['btn_text'] ); ?></span>
-            </a>
-        </div>
-        <?php
-    }
-
-    /**
-	 * Render counter widget output in the editor.
-	 */
-    protected function content_template() {
-        ?>
-        <#
-        view.addRenderAttribute( 'wrapper', 'class', 'hq-btn-wrap' );
-		view.addInlineEditingAttributes( 'btn_text', 'none' );
-        var target = settings.btn_link.is_external ? ' target="_blank"' : '';
-		var nofollow = settings.btn_link.nofollow ? ' rel="nofollow"' : '';
-        var iconHTML = elementor.helpers.renderIcon( view, settings.btn_icon, { 'aria-hidden': true }, 'i' , 'object' );
-        #>
-        <div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
-            <a href="{{{ settings.btn_link.url }}}" {{{ target }}} {{{ nofollow }}}>
-                {{{ iconHTML.value }}}
-                <span {{{ view.getRenderAttributeString( 'btn_text' ) }}}>{{{ settings.btn_text }}}</span>
+                <?php if ( ! empty( $settings['btn_icon']['value'] ) ) : ?>
+                    <spn class="hq-el-btn-inner">
+                        <?php Icons_Manager::render_icon( $settings['btn_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                        <span <?php echo $this->get_render_attribute_string( 'btn_text' ); ?>><?php echo esc_html( $settings['btn_text'] ); ?></span>
+                    </spn>
+                    <?php if( 'hq-el-effect-3' === $settings['button_effect'] ) {
+                        echo '<span class="bg"></span>';
+                    } ?>
+                <?php else : ?>
+                    <span <?php echo $this->get_render_attribute_string( 'btn_text' ); ?>><?php echo esc_html( $settings['btn_text'] ); ?></span>
+                    <?php if( 'hq-el-effect-3' === $settings['button_effect'] ) {
+                        echo '<span class="bg"></span>';
+                    } ?>
+                <?php endif; ?>
             </a>
         </div>
         <?php

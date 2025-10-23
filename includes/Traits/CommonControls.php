@@ -31,6 +31,36 @@ trait CommonControls{
 			]
 		);
 
+		$this->add_control(
+			'button_effect',
+			[
+				'label' => esc_html__( 'Effect', 'textdomain' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'hq-el-btn-default',
+				'options' => [
+					'hq-el-btn-default' => esc_html__( 'Default', 'textdomain' ),
+					'hq-el-effect-1' => esc_html__( 'Effect 1', 'textdomain' ),
+					'hq-el-effect-2' => esc_html__( 'Effect 2', 'textdomain' ),
+					'hq-el-effect-3' => esc_html__( 'Effect 3', 'textdomain' )
+				]
+			]
+		);
+
+		$this->add_control(
+			'btn_ouline',
+			[
+				'label' => esc_html__( 'Outline Style', 'textdomain' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Yes', 'textdomain' ),
+				'label_off' => esc_html__( 'No', 'textdomain' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'condition' => [
+					'button_effect' => 'hq-el-btn-default'
+				]
+			]
+		);
+
 		$this->add_responsive_control(
 			'btn_alignment',
 			[
@@ -55,11 +85,15 @@ trait CommonControls{
 					],
 				],
 				'default' => 'left',
-				'prefix_class' => 'hq-btn-align-',
-				'toggle' => true,
+				'toggle' => false,
+				'selectors_dictionary' => [
+					'left' => 'justify-content: flex-start',
+					'center' => 'justify-content: center',
+					'right' => 'justify-content: flex-end',
+					'justify' => 'flex-direction: column; align-items: stretch',
+				],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap' => 'text-align: {{VALUE}};',
-					'{{WRAPPER}}.hq-btn-align-justify .hq-btn-wrap a' => 'width: 100%; text-align: center; justify-content: center;',
+					'{{WRAPPER}} .hq-el-btn-wrap' => '{{VALUE}}'
 				]
 			]
 		);
@@ -129,7 +163,7 @@ trait CommonControls{
 					'after' => 'flex-direction: row-reverse'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a' => '{{VALUE}}'
+					'{{WRAPPER}} .hq-el-btn-inner' => '{{VALUE}}'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -156,7 +190,7 @@ trait CommonControls{
 					'size' => 10
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a' => 'column-gap: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hq-el-btn-inner' => 'gap: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -192,7 +226,7 @@ trait CommonControls{
 			[
 				'label' => esc_html__( 'Typography', 'edumentor' ),
 				'name' => 'fp_button_typography',
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-el-btn',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -215,7 +249,7 @@ trait CommonControls{
 				'label' => esc_html__( 'Background', 'edumentor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-el-btn',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -228,7 +262,7 @@ trait CommonControls{
 				'label' => esc_html__( 'Text Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .hq-el-btn' => 'color: {{VALUE}};'
 				],
 				'default'	=> '',
 				'condition' => [
@@ -244,7 +278,7 @@ trait CommonControls{
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-el-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -256,7 +290,7 @@ trait CommonControls{
 			Group_Control_Border::get_type(), [
 				'name' => 'fp_button_border',
 				'label' => esc_html__( 'Border', 'edumentor' ),
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-el-btn',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -267,7 +301,7 @@ trait CommonControls{
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fp_button_box_shadow',
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a',
+				'selector' => '{{WRAPPER}} .hq-el-btn',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -281,7 +315,7 @@ trait CommonControls{
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-el-btn-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -296,7 +330,7 @@ trait CommonControls{
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .hq-el-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'btn_text!' => ''
@@ -320,7 +354,7 @@ trait CommonControls{
 				'label' => esc_html__( 'Background', 'edumentor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a:before',
+				'selector' => '{{WRAPPER}} .hq-el-btn-default:hover, {{WRAPPER}} .hq-el-btn-outline:hover, {{WRAPPER}} .hq-el-effect-1::before, {{WRAPPER}} .hq-el-effect-2:before, {{WRAPPER}} .hq-el-effect-3  span.bg',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -333,7 +367,7 @@ trait CommonControls{
 				'label' => esc_html__( 'Text Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .hq-el-btn:hover' => 'color: {{VALUE}};',
 				],
 				'default'	=> '',
 				'condition' => [
@@ -346,7 +380,7 @@ trait CommonControls{
 			Group_Control_Border::get_type(), [
 				'name' => 'fp_button_hover_border',
 				'label' => esc_html__( 'Border', 'edumentor' ),
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a:hover',
+				'selector' => '{{WRAPPER}} .hq-el-btn:hover',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -356,7 +390,7 @@ trait CommonControls{
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fp_button_hover_box_shadow',
-				'selector' => '{{WRAPPER}} .hq-btn-wrap a:hover',
+				'selector' => '{{WRAPPER}} .hq-el-btn:hover',
 				'condition' => [
 					'btn_text!' => ''
 				]
@@ -403,7 +437,8 @@ trait CommonControls{
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a i' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .hq-el-btn-inner i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .hq-el-btn-inner svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;'
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -418,7 +453,8 @@ trait CommonControls{
 				'label' => esc_html__( 'Icon Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-el-btn-inner i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-el-btn-inner svg' => 'fill: {{VALUE}}',
 				],
 				'condition' => [
 					'btn_text!' => '',
@@ -433,7 +469,8 @@ trait CommonControls{
 				'label' => esc_html__( 'Icon Hover Color', 'edumentor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hq-btn-wrap a:hover i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-el-btn:hover .hq-el-btn-inner i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .hq-el-btn:hover .hq-el-btn-inner svg' => 'fill: {{VALUE}}',
 				],
 				'condition' => [
 					'btn_text!' => '',

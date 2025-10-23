@@ -1,0 +1,120 @@
+.hq-el-btn-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hq-el-btn {
+    background-color: var(--edumentor-primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hq-el-btn:hover {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hq-el-btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hq-el-btn-inner svg {
+    fill: currentColor;
+    width: 14px;
+    height: auto;
+}
+
+.hq-el-btn-inner svg,
+.hq-el-btn-inner i {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hq-el-btn-default:hover {
+    background-color: var(--edumentor-primary-color);
+    color: #fff;
+}
+
+.hq-el-btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--edumentor-primary-color);
+    color: var(--edumentor-primary-color);
+}
+
+.hq-el-btn-outline:hover {
+    background-color: var(--edumentor-primary-color);
+    color: #fff;
+}
+
+.hq-el-effect-1,
+.hq-el-effect-2,
+.hq-el-effect-3 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hq-el-effect-1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--edumentor-secondary-color);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hq-el-effect-1:hover::before {
+    transform: scale(1, 1);
+    transform-origin: left center;
+}
+
+.hq-el-effect-2:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: var(--edumentor-dark-bg-color);
+    inset: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: polygon(50% 0, 50% 0, 50% 50%, 50% 100%, 50% 100%, 50% 50%);
+    z-index: -1;
+}
+
+.hq-el-effect-2:hover:before {
+    clip-path: polygon(25% -70%, 75% -70%, 120% 50%, 75% 170%, 25% 170%, -20% 50%);
+}
+
+.hq-el-effect-3 span.bg {
+    background: var(--edumentor-secondary-color) none repeat scroll 0 0;
+    border-radius: 50%;
+    display: block;
+    height: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    width: 0;
+    z-index: -1;
+}
+
+.hq-el-effect-3:hover span.bg {
+    width: 600px;
+    height: 600px;
+}

@@ -37,10 +37,10 @@ class Widgets {
                 'name' => 'WorkingHours',
                 'dep'   => ''
             ],
-            // 'button'   => [
-            //     'name' => 'Button',
-            //     'dep'   => ''
-            // ],
+            'button'   => [
+                'name' => 'Button',
+                'dep'   => ''
+            ],
             // 'image'   => [
             //     'name' => 'Image',
             //     'dep'   => ''
@@ -61,12 +61,24 @@ class Widgets {
                 'name' => 'Countdown',
                 'dep'   => ''
             ],
+            'marquee-text'   => [
+                'name' => 'MarqueeText',
+                'dep'   => ''
+            ],
             'sponsor'   => [
                 'name' => 'Sponsor',
                 'dep'   => ''
             ],
             'social-icons'   => [
                 'name' => 'SocialIcons',
+                'dep'   => ''
+            ],
+            'video-box'   => [
+                'name' => 'VideoBox',
+                'dep'   => ''
+            ],
+            'play-button'   => [
+                'name' => 'PlayButton',
                 'dep'   => ''
             ],
             // 'contact-form-7'   => [
