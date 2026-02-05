@@ -13,7 +13,6 @@
 .hq-heading mark {
     background: inherit;
     color: var(--edumentor-primary-color);
-    -webkit-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
 }
 
@@ -63,8 +62,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 

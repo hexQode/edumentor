@@ -1,3 +1,7 @@
+.el-section-heading {
+	margin: 0 0 30px 0;
+}
+
 .el-cf7-form-wrap {
 	position: relative;
 	z-index: 1;
@@ -84,7 +88,7 @@
 	background-color: transparent;
     border: 1px solid #eee;
     color: var(--edumentor-text-color);
-    border-radius: 15px;
+    border-radius: 0;
     padding: 10px;
     outline: none;
     box-shadow: none;
@@ -95,8 +99,6 @@
 .wpcf7-form textarea {
 	height: 160px;
 }
-
-
 
 /* Checkbox */
 .el-cf7-form-wrap .wpcf7-acceptance,

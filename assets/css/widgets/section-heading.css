@@ -1,6 +1,6 @@
 /* ===== Section Heading ===== */
 .hq-heading {
-    --agrox-hl-bd-width: 100%;
+    --edumentor-hl-bd-width: 100%;
     font-family: "Roboto", sans-serif;
     font-size: 46px;
     line-height: 1.1;
@@ -9,7 +9,7 @@
 }
 
 .hq-heading.hq-text-anim {
-    --agrox-hl-bd-width: 0%;
+    --edumentor-hl-bd-width: 0%;
 }
 
 .hq-heading span.hl {
@@ -20,7 +20,7 @@
 }
 
 .hq-heading.is-border span.hl svg {
-    color: var(--agrox-primary-color);
+    color: var(--edumentor-primary-color);
     content: "";
     clip-path: inset(0 var(--edumentor-hl-clip) 0 0);
     width: 100%;
@@ -43,9 +43,9 @@ body.rtl .hq-heading.is-border span.hl svg{
 
 .hq-sub-heading {
     --agrox-bd-width: 1.5px;
-    --agrox-bd-color: var(--agrox-primary-color);
+    --agrox-bd-color: var(--edumentor-primary-color);
     font-family: "Roboto", sans-serif;
-    color: var(--agrox-primary-color);
+    color: var(--edumentor-primary-color);
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 0;
