@@ -87,6 +87,10 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/video-elements'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/video-elements' ),
             ],
+            'edumentor-headings' => [
+                'src'     => EDUMENTOR_ASSETS . '/css/widgets/section-heading'. $min .'.css',
+                'version' => Helper::get_version( 'widgets/section-heading' ),
+            ],
             'hq-team' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/team'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/team' ),
@@ -111,7 +115,7 @@ class Assets {
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/post-cards'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/post-cards' ),
             ],
-            'hq-contact-form' => [
+            'edumentor-contact-form' => [
                 'src'     => EDUMENTOR_ASSETS . '/css/widgets/contact-form'. $min .'.css',
                 'version' => Helper::get_version( 'widgets/contact-form' ),
             ],
@@ -200,6 +204,24 @@ class Assets {
                 'deps'    => '',
                 'footer'  => true
             ],
+            'gsap'   => [
+                'src'     => EDUMENTOR_ASSETS . '/lib/gsap/gsap.min.js',
+                'version' => '3.11.4',
+                'deps'    => '',
+                'footer'  => true
+            ],
+            'scrolltrigger'   => [
+                'src'     => EDUMENTOR_ASSETS . '/lib/gsap/ScrollTrigger.min.js',
+                'version' => '3.11.4',
+                'deps'    => '',
+                'footer'  => true
+            ],
+            'split-type'   => [
+                'src'     => EDUMENTOR_ASSETS . '/lib/gsap/split-type.min.js',
+                'version' => '0.3.4',
+                'deps'    => '',
+                'footer'  => true
+            ],
             'edumentor-countdown'   => [
                 'src'     => EDUMENTOR_ASSETS . '/lib/countdown.min.js',
                 'version' => '0.1.0',
@@ -230,6 +252,12 @@ class Assets {
                 'deps'    => ['jquery', 'elementor-frontend'],
                 'footer'  => true
             ],
+            'edumentor-text-animation'   => [
+                'src'     => EDUMENTOR_ASSETS . '/js/text-animation' . $min . '.js',
+                'version' => Helper::get_version( 'text-animation', 'js' ),
+                'deps'    => ['jquery', 'elementor-frontend', 'gsap', 'scrolltrigger', 'split-type'],
+                'footer'  => true
+            ],
         ];
     }
 
@@ -247,6 +275,13 @@ class Assets {
             wp_register_script( $handle, $script['src'], $deps, $script['version'], $script['footer'] );
 
         }
+
+        // $scrolling_animation = ! empty( $options['scrolling_animation'] ) ? $options['scrolling_animation'] : 'restart pause resume reverse';
+        $scrolling_animation = 'restart pause resume reverse';
+
+        wp_localize_script( 'edumentor-text-animation', 'edumentor_text_opt', [
+            'scrolling_anim' => esc_attr( $scrolling_animation )
+        ] );
 
     }
 

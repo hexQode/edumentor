@@ -6,6 +6,7 @@
  * Author: Hexqode
  * Author URI: https://hexqode.com
  * Version: 1.0.0
+ * Requires Plugins: elementor
  * Elementor tested up to: 3.16.5
  * License: GPL2 or later
  * Text Domain: edumentor
@@ -81,10 +82,10 @@ final class EduMentor {
     public function init_plugin() {
 
         load_plugin_textdomain( 'edumentor', false, basename( dirname( __FILE__ ) ) . '/languages' );
-        
 
         if ( is_admin() ) {
             new \HexQode\EduMentor\Classes\Elementor();
+            new \HexQode\EduMentor\Admin\WidgetSettings();
         } else {
             new \HexQode\EduMentor\Classes\Assets();
         }

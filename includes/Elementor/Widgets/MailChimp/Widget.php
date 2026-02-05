@@ -88,34 +88,34 @@ class Widget extends Widget_Base {
     protected function mailchimp_config_section() {
 
         $this->start_controls_section(
-            'fp_mailchimp',
+            'hq_mailchimp',
             [
                 'label' => esc_html__( 'Mailchimp', 'edumentor' ),
             ]
         );
 
         $this->add_control(
-            'fp_mailchimp_form_style',
+            'hq_mailchimp_form_style',
             [
                 'label'   => esc_html__( 'Style', 'edumentor' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => '4',
                 'options' => [
-                    '1' => esc_html__( 'Style One', 'edumentor' ),
-                    '2' => esc_html__( 'Style Two', 'edumentor' ),
-                    '3' => esc_html__( 'Style Three', 'edumentor' ),
-                    '4' => esc_html__( 'Style Four', 'edumentor' )
+                    '1' => esc_html__( 'One', 'edumentor' ),
+                    '2' => esc_html__( 'Two', 'edumentor' ),
+                    '3' => esc_html__( 'Three', 'edumentor' ),
+                    '4' => esc_html__( 'Four', 'edumentor' )
                 ],
             ]
         );
 
         $this->add_control(
-            'fp_mailchimp_id',
+            'hq_mailchimp_id',
             [
                 'label'       => esc_html__( 'Mailchimp ID', 'edumentor' ),
                 'type'        => Controls_Manager::TEXT,
                 'placeholder' => esc_html__( '250', 'edumentor' ),
-                'description' => esc_html__( 'For show ID <a href="admin.php?page=mailchimp-for-wp-forms" target="_blank"> Click here </a>', 'edumentor' ),
+                'description' => esc_html__( 'For show ID ', 'edumentor' ) . '<a href="' . esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms' ) ) . '" target="_blank">' . esc_html__( 'Click here', 'edumentor' ) . '</a>',
                 'label_block' => true,
                 'separator'   => 'before',
             ]
@@ -131,7 +131,7 @@ class Widget extends Widget_Base {
     protected function wrapper_style_section() {
 
         $this->start_controls_section(
-            'fp_mailchimp_section_style',
+            'hq_mailchimp_section_style',
             [
                 'label' => esc_html__( 'Wrapper', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -139,7 +139,30 @@ class Widget extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'fp_mailchimp_section_padding',
+            'hq_wrapper_max_width',
+            [
+                'label' => esc_html__( 'Max Width', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 1
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-input-box' => 'width: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'hq_mailchimp_section_padding',
             [
                 'label'      => esc_html__( 'Padding', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -152,13 +175,13 @@ class Widget extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'fp_mailchimp_section_margin',
+            'hq_mailchimp_section_margin',
             [
                 'label'      => esc_html__( 'Margin', 'edumentor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors'  => [
-                    '{{WRAPPER}} .hq-input-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-mailchimp' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator'  => 'before',
             ]
@@ -167,7 +190,7 @@ class Widget extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'     => 'fp_mailchimp_section_background',
+                'name'     => 'hq_mailchimp_section_background',
                 'label'    => esc_html__( 'Background', 'edumentor' ),
                 'types'    => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .hq-input-box',
@@ -175,7 +198,7 @@ class Widget extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'fp_mailchimp_section_align',
+            'hq_mailchimp_section_align',
             [
                 'label'     => esc_html__( 'Alignment', 'edumentor' ),
                 'type'      => Controls_Manager::CHOOSE,
@@ -193,11 +216,17 @@ class Widget extends Widget_Base {
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
+                'selectors_dictionary' => [
+                    'left' => 'margin-right: auto; text-align: left;',
+                    'center' => 'margin: 0 auto; text-align: center;',
+                    'right' => 'margin-left: auto; text-align: right;'
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .hq-input-box' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .hq-input-box' => '{{VALUE}}'
                 ],
                 'default'   => 'center',
-                'separator' => 'before',
+                'toggle'    => false,
+                'separator' => 'before'
             ]
         );
 
@@ -212,7 +241,7 @@ class Widget extends Widget_Base {
 
         // Input Box style tab start
         $this->start_controls_section(
-            'fp_mailchimp_input_style',
+            'hq_mailchimp_input_style',
             [
                 'label' => esc_html__( 'Input Box', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -228,9 +257,6 @@ class Widget extends Widget_Base {
                     'px' => [
                         'max' => 150,
                     ],
-                ],
-                'default'   => [
-                    'size' => 50,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .mc4wp-form input[type*="text"]'  => 'height: {{SIZE}}{{UNIT}};',
@@ -387,7 +413,7 @@ class Widget extends Widget_Base {
     protected function button_style_section() {
 
         $this->start_controls_section(
-            'fp_mailchimp_inputsubmit_style',
+            'hq_mailchimp_inputsubmit_style',
             [
                 'label' => esc_html__( 'Button', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -411,36 +437,31 @@ class Widget extends Widget_Base {
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
-                        'max' => 150,
-                    ],
-                ],
-                'default'   => [
-                    'size' => 60,
+                        'max' => 200
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .dl-mailchimp-style-4 .mc4wp-form input[type*="submit"]' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .dl-mailchimp-style-3' => '--hq-mc4wp-style-3-btn-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .dl-mailchimp-style-4' => '--hq-mc4wp-style-3-btn-width: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [
-                    'fp_mailchimp_form_style'    => '4',
-                ],
+                    'hq_mailchimp_form_style' => ['3', '4']
+                ]
             ]
         );
 
         $this->add_responsive_control(
-            'dl_input_submit_height',
+            'dl_input_submit_gap',
             [
-                'label'     => esc_html__( 'Height', 'edumentor' ),
+                'label'     => esc_html__( 'Gap', 'edumentor' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
-                        'max' => 150,
-                    ],
-                ],
-                'default'   => [
-                    'size' => 40,
+                        'max' => 150
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .mc4wp-form input[type*="submit"]' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .mc4wp-form-fields' => '--hq-mc4wp-btn-gap: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -462,7 +483,7 @@ class Widget extends Widget_Base {
                     '{{WRAPPER}} .dl-mailchimp-style-4 .mc4wp-form input[type*="submit"]' => 'background-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'    => [
-                    'fp_mailchimp_form_style'    => '4',
+                    'hq_mailchimp_form_style'    => '4',
                 ],
             ]
         );
@@ -612,13 +633,13 @@ class Widget extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'hq-mailchimp' );
-        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'hq-mailchimp-style-' . $settings['fp_mailchimp_form_style'] );
+        $this->add_render_attribute( 'mailchimp_area_attr', 'class', 'hq-mailchimp-style-' . $settings['hq_mailchimp_form_style'] );
 
         ?>
         <div <?php echo $this->get_render_attribute_string( 'mailchimp_area_attr' ); ?> >
             <div class="hq-input-box">
                 <?php 
-                echo do_shortcode( '[mc4wp_form  id="' . $settings['fp_mailchimp_id'] . '"]' );
+                echo do_shortcode( '[mc4wp_form  id="' . $settings['hq_mailchimp_id'] . '"]' );
                 ?>
             </div>
         </div>

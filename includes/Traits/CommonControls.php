@@ -12,6 +12,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Text_Stroke;
+use Elementor\Group_Control_Text_Shadow;
 use HexQode\EduMentor\Elementor\Controls\Foreground;
 
 defined( 'ABSPATH' ) || die();
@@ -484,19 +486,345 @@ trait CommonControls{
 	}
 
 	/**
+     * Ease Effects
+     * @return array
+     */
+    protected function get_ease_effects(){
+        return [
+            'none' => esc_html__( 'None', 'edumentor' ),
+            'power1.in' => esc_html__( 'Power1 In', 'edumentor' ),
+            'power1.out' => esc_html__( 'Power1 Out', 'edumentor' ),
+            'power1.inOut' => esc_html__( 'Power1 In Out', 'edumentor' ),
+            'power2.in'  => esc_html__( 'Power2 In', 'edumentor' ),
+            'power2.out'  => esc_html__( 'Power2 Out', 'edumentor' ),
+            'power2.inOut'  => esc_html__( 'Power2 In Out', 'edumentor' ),
+            'power3.in'  => esc_html__( 'Power3 In', 'edumentor' ),
+            'power3.out'  => esc_html__( 'Power3 Out', 'edumentor' ),
+            'power3.inOut'  => esc_html__( 'Power3 In Out', 'edumentor' ),
+            'power4.in'  => esc_html__( 'Power4 In', 'edumentor' ),
+            'power4.out'  => esc_html__( 'Power4 Out', 'edumentor' ),
+            'power4.inOut'  => esc_html__( 'Power4 In Out', 'edumentor' ),
+            'back.in(1.7)'  => esc_html__( 'Back In', 'edumentor' ),
+            'back.out(1.7)'  => esc_html__( 'Back Out', 'edumentor' ),
+            'back.inOut(1.7)'  => esc_html__( 'Back In Out', 'edumentor' ),
+            'Back.easeOut'  => esc_html__( 'Back Ease Out', 'edumentor' ),
+            'bounce.in'  => esc_html__( 'Bounce In', 'edumentor' ),
+            'bounce.out'  => esc_html__( 'Bounce Out', 'edumentor' ),
+            'bounce.inOut'  => esc_html__( 'Bounce In Out', 'edumentor' ),
+            'circ.in'  => esc_html__( 'Circ In', 'edumentor' ),
+            'circ.out'  => esc_html__( 'Circ Out', 'edumentor' ),
+            'circ.inOut'  => esc_html__( 'Circ In Out', 'edumentor' ),
+            'elastic.in'  => esc_html__( 'Elastic In', 'edumentor' ),
+            'elastic.out'  => esc_html__( 'Elastic Out', 'edumentor' ),
+            'elastic.inOut'  => esc_html__( 'Elastic In Out', 'edumentor' ),
+            'expo.in'  => esc_html__( 'Expo In', 'edumentor' ),
+            'expo.out'  => esc_html__( 'Expo Out', 'edumentor' ),
+            'expo.inOut'  => esc_html__( 'Expo In Out', 'edumentor' ),
+            'sine.in'  => esc_html__( 'Sine In', 'edumentor' ),
+            'sine.out'  => esc_html__( 'Sine Out', 'edumentor' ),
+            'sine.inOut'  => esc_html__( 'Sine In Out', 'edumentor' ),
+            'steps(12)'  => esc_html__( 'Steps', 'edumentor' ),
+        ];
+    }
+
+    /**
+     * Heading Controls
+     *
+     * @return void
+     */
+    protected function heading_section( $prefix = 'hq_', $default_text = '', $is_border = false ) {
+
+        $this->start_controls_section(
+			$prefix . 'heading_section',
+			[
+				'label' => esc_html__( 'Heading', 'edumentor' )
+			]
+        );
+
+        $this->start_controls_tabs( $prefix . 'heading_content_tabs' );
+
+        $this->start_controls_tab(
+            $prefix . 'heading_content_tab',
+            [
+                'label' => esc_html__( 'Text', 'edumentor' )
+            ]
+        );
+
+        $text = '' != $default_text ? $default_text : esc_html__( 'The #1 Place to Grow Your Career!', 'edumentor' );
+        
+        $this->add_control(
+            $prefix . 'heading',
+            [
+                'label'        => esc_html__( 'Content', 'edumentor' ),
+                'type'         => Controls_Manager::TEXTAREA,
+                'rows'         => 5,
+                'default'      => $text,
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' ),
+                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'edumentor' ),
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_link',
+            [
+                'label' => esc_html__( 'Link', 'edumentor' ),
+                'type' => Controls_Manager::URL,
+                'placeholder' => esc_html__( 'https://example.com/', 'edumentor' ),
+				'separator' => 'after',
+				'dynamic' => [
+					'active' => true,
+                ],
+                'condition' => [
+                    $prefix . 'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_tag',
+            [
+                'label' => esc_html__( 'HTML Tag', 'edumentor' ),
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'h2',
+                'options' => [
+                    'h1'  => [
+                        'title' => esc_html__( 'H1', 'edumentor' ),
+                        'icon' => 'eicon-editor-h1'
+                    ],
+                    'h2'  => [
+                        'title' => esc_html__( 'H2', 'edumentor' ),
+                        'icon' => 'eicon-editor-h2'
+                    ],
+                    'h3'  => [
+                        'title' => esc_html__( 'H3', 'edumentor' ),
+                        'icon' => 'eicon-editor-h3'
+                    ],
+                    'h4'  => [
+                        'title' => esc_html__( 'H4', 'edumentor' ),
+                        'icon' => 'eicon-editor-h4'
+                    ],
+                    'h5'  => [
+                        'title' => esc_html__( 'H5', 'edumentor' ),
+                        'icon' => 'eicon-editor-h5'
+                    ],
+                    'h6'  => [
+                        'title' => esc_html__( 'H6', 'edumentor' ),
+                        'icon' => 'eicon-editor-h6'
+                    ]
+                ],
+                'toggle' => false,
+                'condition' => [
+                    $prefix . 'heading!' => ''
+                ]
+            ]
+        );
+
+        if( $is_border === true ){
+            $this->add_control(
+                $prefix . 'is_border',
+                [
+                    'label' => esc_html__( 'Border Bottom', 'edumentor' ),
+                    'description' => esc_html__( 'Border bottom on hightlithed text.', 'edumentor' ),
+                    'type' => Controls_Manager::SWITCHER,
+                    'label_on' => esc_html__( 'Show', 'edumentor' ),
+                    'label_off' => esc_html__( 'Hide', 'edumentor' ),
+                    'return_value' => 'yes',
+                    'default' => 'yes'
+                ]
+            );
+
+            $this->add_responsive_control(
+                $prefix . 'border_size',
+                [
+                    'label' => esc_html__( 'Border Size', 'edumentor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 50,
+                            'step' => 1,
+                        ]
+                        ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hq-heading.is-border span.hl svg' => 'height: {{SIZE}}{{UNIT}};'
+                    ],
+                    'condition' => [
+                        $prefix . 'is_border' => 'yes'
+                    ]
+                ]
+            );
+
+            $this->add_control(
+                $prefix . 'border_color',
+                [
+                    'label' => esc_html__( 'Border Color', 'edumentor' ),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .hq-heading.is-border span.hl svg' => 'color: {{VALUE}}',
+                    ],
+                    'condition' => [
+                        $prefix . 'is_border' => 'yes'
+                    ]
+                ]
+            );
+
+            $this->add_responsive_control(
+                $prefix . 'border_y_position',
+                [
+                    'label' => esc_html__( 'Border Y Position', 'edumentor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -100,
+                            'max' => 100,
+                            'step' => 1
+                        ]
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .hq-heading.is-border span.hl svg' => 'bottom: {{SIZE}}{{UNIT}};'
+                    ],
+                    'condition' => [
+                        $prefix . 'is_border' => 'yes'
+                    ]
+                ]
+            );
+        }
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            $prefix . 'heading_animation_tab',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' )
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'heading_animation',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'No', 'edumentor' ),
+                'return_value' => 'yes',
+                'default' => 'no',
+                'condition' => [
+                    $prefix . 'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_normal_anim_effect',
+            [
+                'label' => esc_html__( 'Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'fade-in',
+                'options' => [
+                    'effect-3d' => esc_html__( '3d Effect', 'edumentor' ),
+                    'clip-text' => esc_html__( 'Clip Text', 'edumentor' ),
+                    'fade-in'  => esc_html__( 'Fade In', 'edumentor' ),
+                    'fade-in-left' => esc_html__( 'Fade In Left', 'edumentor' ),
+                    'fade-in-right' => esc_html__( 'Fade In Right', 'edumentor' ),
+                    'fade-in-top' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'fade-in-bottom' => esc_html__( 'Fade In Bottom', 'edumentor' ),
+                    'zoom-in' => esc_html__( 'Zoom In', 'edumentor' )
+                ],
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'heading_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_split_type',
+            [
+                'label' => esc_html__( 'Split Type', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__( 'None', 'edumentor' ),
+                    'word' => esc_html__( 'Words', 'edumentor' ),
+                    'line'  => esc_html__( 'Lines', 'edumentor' ),
+                    'char'  => esc_html__( 'Chars', 'edumentor' )
+                ],
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'heading_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_ease_effect',
+            [
+                'label' => esc_html__( 'Ease Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'Back.easeOut',
+                'options' => $this->get_ease_effects(),
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'heading_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_anim_delay',
+            [
+                'label' => esc_html__( 'Delay', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 0.3,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'heading_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'h_anim_duration',
+            [
+                'label' => esc_html__( 'Duration', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 1,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'heading_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+        
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+    }
+
+    /**
      * Heading style
      *
      * @return void
      */
-    protected function heading_style() {
+    protected function heading_style( $prefix = 'hq_', $is_border = false ) {
 
         $this->start_controls_section(
-            'heading_style',
+            $prefix . 'heading_style',
             [
                 'label' => esc_html__( 'Heading', 'edumentor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -504,18 +832,18 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'heading_typography',
+                'name' => $prefix . 'heading_typography',
                 'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
-        $this->start_controls_tabs( 'heading_tabs' );
+        $this->start_controls_tabs( $prefix . 'heading_tabs' );
                 
         $this->start_controls_tab(
-            'normal_tab',
+            $prefix . 'normal_tab',
             [
                 'label' => esc_html__( 'Normal', 'edumentor' ),
             ]
@@ -524,12 +852,12 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name' => 'heading_bg',
+                'name' => $prefix . 'heading_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
                 'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -537,11 +865,37 @@ trait CommonControls{
         $this->add_group_control(
             Foreground::get_type(),
             [
-                'name' => 'heading_color',
+                'name' => $prefix . 'heading_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .hq-heading',
+                'selector' => '{{WRAPPER}} .hq-heading, {{WRAPPER}} .hq-heading a',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => $prefix . 'heading_text_stroke',
+				'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    $prefix . 'heading!' => ''
+                ]
+			]
+		);
+
+        $this->add_control(
+            $prefix . 'heading_hover_color',
+            [
+                'label' => esc_html__( 'Hover Text Color', 'edumentor' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading a:hover' => 'color: {{VALUE}}',
+                ],
+                'condition' => [
+                    $prefix . 'heading!' => '',
+                    $prefix . 'h_link[url]!' => ''
                 ]
             ]
         );
@@ -549,10 +903,10 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'heading_box_shadow',
+                'name' => $prefix . 'heading_box_shadow',
                 'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -560,16 +914,16 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'heading_border',
+                'name' => $prefix . 'heading_border',
                 'selector' => '{{WRAPPER}} .hq-heading',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_control(
-            'heading_border_radius',
+            $prefix . 'heading_border_radius',
             [
                 'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -578,13 +932,13 @@ trait CommonControls{
                     '{{WRAPPER}} .hq-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'heading_padding',
+            $prefix . 'heading_padding',
             [
                 'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -593,13 +947,13 @@ trait CommonControls{
                     '{{WRAPPER}} .hq-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'heading_margin',
+            $prefix . 'heading_margin',
             [
                 'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -608,7 +962,7 @@ trait CommonControls{
                     '{{WRAPPER}} .hq-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -616,11 +970,11 @@ trait CommonControls{
         $this->end_controls_tab();
         
         $this->start_controls_tab(
-            'highlighted_tab',
+            $prefix . 'h_highlighted_tab',
             [
                 'label' => esc_html__( 'Highlighted Text', 'edumentor' ),
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -628,12 +982,12 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name' => 'hl_bg',
+                'name' => $prefix . 'h_hl_bg',
                 'types' => [ 'classic', 'gradient' ],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading span',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -641,22 +995,33 @@ trait CommonControls{
         $this->add_group_control(
             Foreground::get_type(),
             [
-                'name' => 'hl_text_color',
+                'name' => $prefix . 'h_hl_text_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'selector' => '{{WRAPPER}} .hq-heading span',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => $prefix . 'h_hl_text_stroke',
+				'selector' => '{{WRAPPER}} .hq-heading span',
+                'condition' => [
+                    $prefix . 'heading!' => ''
+                ]
+			]
+		);
+
+        $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'hl_box_shadow',
-                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'name' => $prefix . 'h_hl_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-heading span',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -664,55 +1029,55 @@ trait CommonControls{
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'hl_border',
-                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'name' => $prefix . 'h_hl_border',
+                'selector' => '{{WRAPPER}} .hq-heading span',
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_control(
-            'hl_border_radius',
+            $prefix . 'h_hl_border_radius',
             [
                 'label' => esc_html__( 'Border Radius', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .hq-heading mark' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'hl_padding',
+            $prefix . 'h_hl_padding',
             [
                 'label' => esc_html__( 'Padding', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .hq-heading mark' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'hl_margin',
+            $prefix . 'h_hl_margin',
             [
                 'label' => esc_html__( 'Margin', 'edumentor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .hq-heading mark' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hq-heading span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => ''
+                    $prefix . 'heading!' => ''
                 ]
             ]
         );
@@ -720,174 +1085,859 @@ trait CommonControls{
         $this->end_controls_tab();
         
         $this->end_controls_tabs();
+        
+        $this->end_controls_section();
 
-		$this->add_control(
-            'heading_bg_text',
+    }
+
+    /**
+     * Sub Heading Controls
+     *
+     * @return void
+     */
+    protected function sub_heading_section( $prefix = 'hq_', $default_text = '' ) {
+
+        $this->start_controls_section(
+			$prefix . 'sub_heading_section',
+			[
+				'label' => esc_html__( 'Sub Heading', 'edumentor' )
+			]
+        );
+
+        $this->start_controls_tabs( $prefix . 'sub_heading_content_tabs' );
+
+        $this->start_controls_tab(
+            $prefix . 'sub_heading_content_tab',
             [
-                'label' => esc_html__( 'Background Text', 'textdomain' ),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'label' => esc_html__( 'Text', 'edumentor' )
+            ]
+        );
+
+        $text = '' != $default_text ? $default_text : '';
+
+        $this->add_control(
+            $prefix . 'sub_heading',
+            [
+                'label'        => esc_html__( 'Content', 'edumentor' ),
+                'type'         => Controls_Manager::TEXTAREA,
+                'rows'         => 5,
+                'default'      => $text,
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' ),
+                'description'  => esc_html__( 'Use this {Text} format to highlight the text.', 'edumentor' ),
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_tag',
+            [
+                'label' => esc_html__( 'HTML Tag', 'edumentor' ),
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'h4',
+                'options' => [
+                    'h1'  => [
+                        'title' => esc_html__( 'H1', 'edumentor' ),
+                        'icon' => 'eicon-editor-h1'
+                    ],
+                    'h2'  => [
+                        'title' => esc_html__( 'H2', 'edumentor' ),
+                        'icon' => 'eicon-editor-h2'
+                    ],
+                    'h3'  => [
+                        'title' => esc_html__( 'H3', 'edumentor' ),
+                        'icon' => 'eicon-editor-h3'
+                    ],
+                    'h4'  => [
+                        'title' => esc_html__( 'H4', 'edumentor' ),
+                        'icon' => 'eicon-editor-h4'
+                    ],
+                    'h5'  => [
+                        'title' => esc_html__( 'H5', 'edumentor' ),
+                        'icon' => 'eicon-editor-h5'
+                    ],
+                    'h6'  => [
+                        'title' => esc_html__( 'H6', 'edumentor' ),
+                        'icon' => 'eicon-editor-h6'
+                    ]
+                ],
+                'toggle' => false,
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes'
+                    $prefix . 'sub_heading!' => ''
                 ]
             ]
         );
 
         $this->add_control(
-            'background_note',
+            $prefix . 'sub_heading_layout',
             [
-                'label' => false,
-                'type' => Controls_Manager::RAW_HTML,
-                'raw' => esc_html__( 'Background Text is Hidden on Content Tab', 'edumentor' ),
-				'separator' => 'before',
+                'label' => esc_html__( 'Display', 'edumentor' ),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'inline-flex' => [
+                        'title' => esc_html__( 'Inline', 'edumentor' ),
+                        'icon' => 'eicon-ellipsis-h',
+                    ],
+                    'flex' => [
+                        'title' => esc_html__( 'Block', 'edumentor' ),
+                        'icon' => 'eicon-menu-bar',
+                    ],
+                ],
+                'default' => 'inline-flex',
+                'prefix_class' => 'sub-h-',
+                'toggle' => false,
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading' => 'display: {{VALUE}};',
+                ],
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text!' => 'yes'
+                    $prefix . 'sub_heading!' => ''
                 ]
             ]
         );
 
+        $this->add_control(
+            $prefix . 'sh_border',
+            [
+                'label' => esc_html__( 'Leaf', 'edumentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Show', 'edumentor' ),
+                'label_off' => esc_html__( 'Hide', 'edumentor' ),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'sh_leaf_size',
+            [
+                'label' => esc_html__( 'Leaf Size', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range' => [
+                    'px' => [
+                        'min' => 15,
+                        'max' => 150,
+                        'step' => 1
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading.is-border .sh-underline img' => 'width: {{SIZE}}{{UNIT}};'
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sh_border' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'sh_leaf_spacing',
+            [
+                'label' => esc_html__( 'Leaf X Spacing', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading.is-border' => 'padding-right: {{SIZE}}{{UNIT}};',
+                    'body.rtl {{WRAPPER}} .hq-sub-heading.is-border' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: 0;'
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sh_border' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'sh_leaf_y_spacing',
+            [
+                'label' => esc_html__( 'Leaf Y Spacing', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'range' => [
+                    'px' => [
+                        'min' => -150,
+                        'max' => 150,
+                        'step' => 1
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading.is-border img' => 'bottom: {{SIZE}}{{UNIT}};'
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sh_border' => 'yes'
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            $prefix . 'sub_heading_animation_tab',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' )
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sub_heading_animation',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'No', 'edumentor' ),
+                'return_value' => 'yes',
+                'default' => 'no',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_normal_anim_effect',
+            [
+                'label' => esc_html__( 'Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'fade-in',
+                'options' => [
+                    'effect-3d' => esc_html__( '3d Effect', 'edumentor' ),
+                    'clip-text' => esc_html__( 'Clip Text', 'edumentor' ),
+                    'fade-in'  => esc_html__( 'Fade In', 'edumentor' ),
+                    'fade-in-left' => esc_html__( 'Fade In Left', 'edumentor' ),
+                    'fade-in-right' => esc_html__( 'Fade In Right', 'edumentor' ),
+                    'fade-in-top' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'fade-in-bottom' => esc_html__( 'Fade In Bottom', 'edumentor' ),
+                    'zoom-in' => esc_html__( 'Zoom In', 'edumentor' )
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sub_heading_animation' => 'yes',
+                    $prefix . 'sh_border!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_split_type',
+            [
+                'label' => esc_html__( 'Split Type', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__( 'None', 'edumentor' ),
+                    'word' => esc_html__( 'Words', 'edumentor' ),
+                    'line'  => esc_html__( 'Lines', 'edumentor' ),
+                    'char'  => esc_html__( 'Chars', 'edumentor' )
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sub_heading_animation' => 'yes',
+                    $prefix . 'sh_border!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_ease_effect',
+            [
+                'label' => esc_html__( 'Ease Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'Back.easeOut',
+                'options' => $this->get_ease_effects(),
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'heading_animation' => 'yes',
+                    $prefix . 'sh_border!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_anim_delay',
+            [
+                'label' => esc_html__( 'Delay', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 0.3,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sub_heading_animation' => 'yes',
+                    $prefix . 'sh_border!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sh_anim_duration',
+            [
+                'label' => esc_html__( 'Duration', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 1,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'sub_heading!' => '',
+                    $prefix . 'sub_heading_animation' => 'yes',
+                    $prefix . 'sh_border!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+        
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+    }
+
+    /**
+     * Sub Heading style
+     *
+     * @return void
+     */
+    protected function sub_heading_style( $prefix = 'hq_' ) {
+
+        $this->start_controls_section(
+            $prefix . 'sub_heading_style',
+            [
+                'label' => esc_html__( 'Sub Heading', 'edumentor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+        
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'background_text_typography',
-                'selector' => '{{WRAPPER}} .hq-heading:before',
+                'name' => $prefix . 'sub_heading_typography',
+                'selector' => '{{WRAPPER}} .hq-sub-heading',
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => ''
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs( $prefix . 'sub_heading_tabs' );
+                
+        $this->start_controls_tab(
+            $prefix . 'sub_normal_tab',
+            [
+                'label' => esc_html__( 'Normal', 'edumentor' ),
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => $prefix . 'sub_heading_bg',
+                'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .hq-sub-heading',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Foreground::get_type(),
+            [
+                'name' => $prefix . 'sub_heading_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .hq-sub-heading',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
                 ]
             ]
         );
 
         $this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => $prefix . 'sub_heading_text_stroke',
+				'selector' => '{{WRAPPER}} .hq-sub-heading',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+			]
+		);
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => $prefix . 'sub_heading_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-sub-heading',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => $prefix . 'sub_heading_border',
+                'selector' => '{{WRAPPER}} .hq-sub-heading',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'sub_heading_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'sub_heading_padding',
+            [
+                'label' => esc_html__( 'Padding', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'sub_heading_margin',
+            [
+                'label' => esc_html__( 'Margin', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->end_controls_tab();
+        
+        $this->start_controls_tab(
+            $prefix . 'sh_highlighted_tab',
+            [
+                'label' => esc_html__( 'Highlighted Text', 'edumentor' ),
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => $prefix . 'sh_hl_bg',
+                'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .hq-sub-heading span',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
             Foreground::get_type(),
             [
-                'name' => 'background_text_color',
+                'name' => $prefix . 'sh_hl_text_color',
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .hq-heading:before',
+                'selector' => '{{WRAPPER}} .hq-sub-heading span',
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => ''
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => $prefix . 'sh_hl_text_stroke',
+				'selector' => '{{WRAPPER}} .hq-sub-heading span',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+			]
+		);
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => $prefix . 'sh_hl_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-sub-heading span',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => $prefix . 'sh_hl_border',
+                'selector' => '{{WRAPPER}} .hq-sub-heading span',
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
                 ]
             ]
         );
 
         $this->add_control(
-            'background_offset_toggle',
+            $prefix . 'sh_hl_border_radius',
             [
-                'label' => esc_html__( 'Offset', 'edumentor' ),
-                'type' => Controls_Manager::POPOVER_TOGGLE,
-                'label_off' => esc_html__( 'None', 'edumentor' ),
-                'label_on' => esc_html__( 'Custom', 'edumentor' ),
-                'return_value' => 'yes',
-                'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => ''
-                ]
-            ]
-        );
-
-        $this->start_popover();
-
-        $this->add_responsive_control(
-            'background_horizontal_position',
-            [
-                'label' => esc_html__( 'Horizontal Position', 'edumentor' ),
-                'type' => Controls_Manager::SLIDER,
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
-                'default' => [
-                    'unit' => '%',
-                ],
-                'range' => [
-                    '%' => [
-                        'min' => -100,
-                        'max' => 100,
-                    ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => '',
-                    'background_offset_toggle' => 'yes'
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .hq-heading:before' => 'left: {{SIZE}}{{UNIT}};',
+                    $prefix . 'sub_heading!' => ''
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'background_vertical_position',
+            $prefix . 'sh_hl_padding',
             [
-                'label' => esc_html__( 'Vertical Position', 'edumentor' ),
-                'type' => Controls_Manager::SLIDER,
+                'label' => esc_html__( 'Padding', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
-                'default' => [
-                    'unit' => '%',
-                ],
-                'range' => [
-                    '%' => [
-                        'min' => -100,
-                        'max' => 200,
-                    ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => '',
-                    'background_offset_toggle' => 'yes'
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .hq-heading:before' => 'top: {{SIZE}}{{UNIT}};',
-                ],
+                    $prefix . 'sub_heading!' => ''
+                ]
             ]
         );
 
-        $this->end_popover();
+        $this->add_responsive_control(
+            $prefix . 'sh_hl_margin',
+            [
+                'label' => esc_html__( 'Margin', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-sub-heading span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    $prefix . 'sub_heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->end_controls_tab();
+        
+        $this->end_controls_tabs();
+        
+        $this->end_controls_section();
+
+    }
+
+    /**
+     * Description Controls
+     *
+     * @return void
+     */
+    protected function description_section( $prefix = 'hq_' ) {
+
+        $this->start_controls_section(
+			$prefix . 'description_section',
+			[
+				'label' => esc_html__( 'Description', 'edumentor' )
+			]
+        );
+
+        $this->start_controls_tabs( $prefix . 'desc_content_tabs' );
+
+        $this->start_controls_tab(
+            $prefix . 'desc_content_tab',
+            [
+                'label' => esc_html__( 'Text', 'edumentor' )
+            ]
+        );
 
         $this->add_control(
-            'background_text_rotation',
+            $prefix . 'desc',
             [
-                'label'        => esc_html__( 'Text Rotaion', 'edumentor' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'On', 'edumentor' ),
-                'label_off'    => esc_html__( 'Off', 'edumentor' ),
+                'label'        => esc_html__( 'Content', 'edumentor' ),
+                'type'         => Controls_Manager::TEXTAREA,
+                'rows'         => 5,
+                'default'      => esc_html__( 'Search & Study any topics, anytime. Choose from thousands of expert-led courses now.', 'edumentor' ),
+                'placeholder'  => esc_html__( 'Text goes here...', 'edumentor' )
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            $prefix . 'desc_animation_tab',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' )
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_animation',
+            [
+                'label' => esc_html__( 'Animation', 'edumentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Yes', 'edumentor' ),
+                'label_off' => esc_html__( 'No', 'edumentor' ),
                 'return_value' => 'yes',
-                'default'      => 'no',
+                'default' => 'no',
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => ''
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_normal_anim_effect',
+            [
+                'label' => esc_html__( 'Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'fade-in',
+                'options' => [
+                    'effect-3d' => esc_html__( '3d Effect', 'edumentor' ),
+                    'clip-text' => esc_html__( 'Clip Text', 'edumentor' ),
+                    'fade-in'  => esc_html__( 'Fade In', 'edumentor' ),
+                    'fade-in-left' => esc_html__( 'Fade In Left', 'edumentor' ),
+                    'fade-in-right' => esc_html__( 'Fade In Right', 'edumentor' ),
+                    'fade-in-top' => esc_html__( 'Fade In Top', 'edumentor' ),
+                    'fade-in-bottom' => esc_html__( 'Fade In Bottom', 'edumentor' ),
+                    'zoom-in' => esc_html__( 'Zoom In', 'edumentor' )
                 ],
+                'condition' => [
+                    $prefix . 'desc!' => '',
+                    $prefix . 'desc_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_split_type',
+            [
+                'label' => esc_html__( 'Split Type', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__( 'None', 'edumentor' ),
+                    'word' => esc_html__( 'Words', 'edumentor' ),
+                    'line'  => esc_html__( 'Lines', 'edumentor' ),
+                    'char'  => esc_html__( 'Chars', 'edumentor' )
+                ],
+                'condition' => [
+                    $prefix . 'desc!' => '',
+                    $prefix . 'desc_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_ease_effect',
+            [
+                'label' => esc_html__( 'Ease Effect', 'edumentor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'Back.easeOut',
+                'options' => $this->get_ease_effects(),
+                'condition' => [
+                    $prefix . 'desc!' => '',
+                    $prefix . 'desc_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_anim_delay',
+            [
+                'label' => esc_html__( 'Delay', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 0.3,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'desc!' => '',
+                    $prefix . 'desc_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_anim_duration',
+            [
+                'label' => esc_html__( 'Duration', 'edumentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 1,
+                'min' => 0,
+                'max' => 20,
+                'step' => 0.1,
+                'condition' => [
+                    $prefix . 'desc!' => '',
+                    $prefix . 'desc_animation' => 'yes'
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+        
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+    }
+
+    /**
+     * Description style
+     *
+     * @return void
+     */
+    protected function description_style( $prefix = 'hq_' ) {
+
+        $this->start_controls_section(
+            $prefix . 'desc_style',
+            [
+                'label' => esc_html__( 'Description', 'edumentor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => $prefix . 'desc_typography',
+                'selector' => '{{WRAPPER}} .hq-desc',
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => $prefix . 'desc_bg',
+                'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .hq-desc',
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Foreground::get_type(),
+            [
+                'name' => $prefix . 'desc_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .hq-desc',
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => $prefix . 'desc_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-desc',
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => $prefix . 'desc_border',
+                'selector' => '{{WRAPPER}} .hq-desc',
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            $prefix . 'desc_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-desc' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
             ]
         );
 
         $this->add_responsive_control(
-            'bg_text_rotation_val',
+            $prefix . 'desc_padding',
             [
-                'label'      => esc_html__( 'Rotate The Text', 'edumentor' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range'      => [
-                    'px' => [
-                        'min'  => -360,
-                        'max'  => 360,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .hq-heading:before' => 'transform: rotate({{SIZE}}deg);',
+                'label' => esc_html__( 'Padding', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'heading!' => '',
-                    'show_background_text' => 'yes',
-                    'background_text!' => '',
-                    'background_text_rotation' => 'yes'
+                    $prefix . 'desc!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            $prefix . 'desc_margin',
+            [
+                'label' => esc_html__( 'Margin', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    'body.rtl {{WRAPPER}} .hq-desc' => 'margin-left: {{RIGHT}}{{UNIT}}; margin-right: {{LEFT}}{{UNIT}};'
                 ],
+                'condition' => [
+                    $prefix . 'desc!' => ''
+                ]
             ]
         );
         

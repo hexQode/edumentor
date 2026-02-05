@@ -12,14 +12,15 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Border;
 use HexQode\EduMentor\Classes\Helper;
-use HexQode\EduMentor\Traits\CommonControls;
+use HexQode\EduMentor\Elementor\Controls\Foreground;
 
 defined( 'ABSPATH' ) || die();
 
 class Widget extends Widget_Base {
-
-    use CommonControls;
 
     /**
      * Get widget name.
@@ -631,6 +632,418 @@ class Widget extends Widget_Base {
             ]
         );
 
+        $this->end_controls_section();
+
+    }
+
+    /**
+     * Heading style
+     *
+     * @return void
+     */
+    protected function heading_style() {
+
+        $this->start_controls_section(
+            'heading_style',
+            [
+                'label' => esc_html__( 'Heading', 'edumentor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs( 'heading_tabs' );
+                
+        $this->start_controls_tab(
+            'normal_tab',
+            [
+                'label' => esc_html__( 'Normal', 'edumentor' ),
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'heading_bg',
+                'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Foreground::get_type(),
+            [
+                'name' => 'heading_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'heading_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'heading_border',
+                'selector' => '{{WRAPPER}} .hq-heading',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'heading_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'heading_padding',
+            [
+                'label' => esc_html__( 'Padding', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'heading_margin',
+            [
+                'label' => esc_html__( 'Margin', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->end_controls_tab();
+        
+        $this->start_controls_tab(
+            'highlighted_tab',
+            [
+                'label' => esc_html__( 'Highlighted Text', 'edumentor' ),
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'hl_bg',
+                'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Foreground::get_type(),
+            [
+                'name' => 'hl_text_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'hl_box_shadow',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'hl_border',
+                'selector' => '{{WRAPPER}} .hq-heading mark',
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'hl_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading mark' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'hl_padding',
+            [
+                'label' => esc_html__( 'Padding', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading mark' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'hl_margin',
+            [
+                'label' => esc_html__( 'Margin', 'edumentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading mark' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'heading!' => ''
+                ]
+            ]
+        );
+        
+        $this->end_controls_tab();
+        
+        $this->end_controls_tabs();
+
+		$this->add_control(
+            'heading_bg_text',
+            [
+                'label' => esc_html__( 'Background Text', 'textdomain' ),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'background_note',
+            [
+                'label' => false,
+                'type' => Controls_Manager::RAW_HTML,
+                'raw' => esc_html__( 'Background Text is Hidden on Content Tab', 'edumentor' ),
+				'separator' => 'before',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text!' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'background_text_typography',
+                'selector' => '{{WRAPPER}} .hq-heading:before',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => ''
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Foreground::get_type(),
+            [
+                'name' => 'background_text_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .hq-heading:before',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => ''
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'background_offset_toggle',
+            [
+                'label' => esc_html__( 'Offset', 'edumentor' ),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
+                'label_off' => esc_html__( 'None', 'edumentor' ),
+                'label_on' => esc_html__( 'Custom', 'edumentor' ),
+                'return_value' => 'yes',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => ''
+                ]
+            ]
+        );
+
+        $this->start_popover();
+
+        $this->add_responsive_control(
+            'background_horizontal_position',
+            [
+                'label' => esc_html__( 'Horizontal Position', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'unit' => '%',
+                ],
+                'range' => [
+                    '%' => [
+                        'min' => -100,
+                        'max' => 100,
+                    ],
+                ],
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => '',
+                    'background_offset_toggle' => 'yes'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading:before' => 'left: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'background_vertical_position',
+            [
+                'label' => esc_html__( 'Vertical Position', 'edumentor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'unit' => '%',
+                ],
+                'range' => [
+                    '%' => [
+                        'min' => -100,
+                        'max' => 200,
+                    ],
+                ],
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => '',
+                    'background_offset_toggle' => 'yes'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hq-heading:before' => 'top: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_popover();
+
+        $this->add_control(
+            'background_text_rotation',
+            [
+                'label'        => esc_html__( 'Text Rotaion', 'edumentor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'On', 'edumentor' ),
+                'label_off'    => esc_html__( 'Off', 'edumentor' ),
+                'return_value' => 'yes',
+                'default'      => 'no',
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => ''
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'bg_text_rotation_val',
+            [
+                'label'      => esc_html__( 'Rotate The Text', 'edumentor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range'      => [
+                    'px' => [
+                        'min'  => -360,
+                        'max'  => 360,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hq-heading:before' => 'transform: rotate({{SIZE}}deg);',
+                ],
+                'condition' => [
+                    'heading!' => '',
+                    'show_background_text' => 'yes',
+                    'background_text!' => '',
+                    'background_text_rotation' => 'yes'
+                ],
+            ]
+        );
+        
         $this->end_controls_section();
 
     }

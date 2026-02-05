@@ -11,6 +11,15 @@ defined( 'ABSPATH' ) || die();
 
 class Widgets {
 
+    private static $instance = null;
+
+    public static function instance() {
+        if ( self::$instance === null ) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
     /**
      * Initialize
      */
@@ -31,15 +40,27 @@ class Widgets {
             // ],
             'animated-text'   => [
                 'name' => 'AnimatedText',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
+            ],
+            'section-heading'   => [
+                'name' => 'SectionHeading',
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'working-hours'   => [
                 'name' => 'WorkingHours',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'button'   => [
                 'name' => 'Button',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             // 'image'   => [
             //     'name' => 'Image',
@@ -47,7 +68,9 @@ class Widgets {
             // ],
             'list'   => [
                 'name' => 'List',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             // 'progress-bar'   => [
             //     'name' => 'ProgressBar',
@@ -55,39 +78,57 @@ class Widgets {
             // ],
             'counter'   => [
                 'name' => 'Counter',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'countdown'   => [
                 'name' => 'Countdown',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'marquee-text'   => [
                 'name' => 'MarqueeText',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'sponsor'   => [
                 'name' => 'Sponsor',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'social-icons'   => [
                 'name' => 'SocialIcons',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'video-box'   => [
                 'name' => 'VideoBox',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => true,
             ],
             'play-button'   => [
                 'name' => 'PlayButton',
-                'dep'   => ''
+                'group'  => 'basic',
+                'dep'   => '',
+                'active' => false,
             ],
-            // 'contact-form-7'   => [
-            //     'name' => 'ContactForm7',
-            //     'dep'   => 'cf7'
-            // ],
+            'contact-form-7'   => [
+                'name' => 'ContactForm',
+                'group'  => 'integrations',
+                'dep'   => 'cf7',
+                'active' => true,
+            ],
             'mc4wp'   => [
                 'name' => 'MailChimp',
-                'dep'   => 'mc'
+                'group'  => 'integrations',
+                'dep'   => 'mc',
+                'active' => true,
             ]
         ];
     }
@@ -101,26 +142,56 @@ class Widgets {
     public function register( $widgets_manager ) {
 
         $widgets = $this->get_widgets();
-        
-        if ( $widgets ) {
-            foreach ($widgets as $widget){
-                
-                if( 'cf7' === $widget['dep'] ) {
-                    if ( class_exists( 'WPCF7' ) ) {
-                        $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
-                        $widgets_manager->register( new $widget_init );
-                    }
-                }if( 'mc' === $widget['dep'] ) {
-                    if( function_exists('_mc4wp_load_plugin') ) {
-                        $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
-                        $widgets_manager->register( new $widget_init );
-                    }
-                }else{
-                    $widget_init = 'HexQode\EduMentor\Elementor\Widgets\\'. $widget['name'] .'\\Widget';
-                    $widgets_manager->register( new $widget_init );
-                }
-                
+        if ( empty( $widgets ) ) {
+            return;
+        }
+
+        // Get saved enabled widgets
+        $enabled = get_option( 'edumentor_enabled_widgets', [] );
+
+        // Automatically initialize enabled widgets if none saved yet
+        if ( empty( $enabled ) ) {
+            $enabled = array_keys( array_filter(
+                $widgets,
+                static fn( $widget ) => ! empty( $widget['active'] )
+            ));
+            update_option( 'edumentor_enabled_widgets', $enabled, false );
+        }
+
+        // Allow filtering of enabled widgets (for addons or child themes)
+        $enabled = apply_filters( 'edumentor_enabled_widgets', $enabled );
+
+        // Dependency availability map
+        $deps = [
+            'cf7' => static fn() => class_exists( 'WPCF7' ),
+            'mc'  => static fn() => defined( 'MC4WP_VERSION' ),
+        ];
+
+        $namespace = 'HexQode\\EduMentor\\Elementor\\Widgets\\%s\\Widget';
+
+        foreach ( $widgets as $slug => $widget ) {
+
+            // Skip if widget not in enabled list
+            if ( ! in_array( $slug, $enabled, true ) ) {
+                continue;
             }
+
+            // Check dependency availability
+            $dep = $widget['dep'] ?? '';
+            if ( $dep && isset( $deps[ $dep ] ) && ! $deps[ $dep ]() ) {
+                continue;
+            }
+
+            // Build class name
+            $class = sprintf( $namespace, $widget['name'] );
+
+            // Skip if widget class missing
+            if ( ! class_exists( $class ) ) {
+                continue;
+            }
+
+            // Register with Elementor
+            $widgets_manager->register( new $class() );
         }
         
     }
